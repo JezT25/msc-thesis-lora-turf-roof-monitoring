@@ -40,6 +40,7 @@
 \usepackage{lmodern}
 \usepackage{fixcmex}
 \usepackage{microtype}
+\usepackage{needspace}
 % Give TeX a little extra flexibility before it declares an overfull line
 \setlength{\emergencystretch}{2em}
 
@@ -59,12 +60,25 @@
 \setlength{\parskip}{\baselineskip}
 \setlength{\parindent}{0cm}
 \raggedbottom
+\clubpenalty=10000
+\widowpenalty=10000
+\displaywidowpenalty=10000
+\setcounter{topnumber}{3}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{5}
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\bottomfraction}{0.70}
+\renewcommand{\textfraction}{0.10}
+\renewcommand{\floatpagefraction}{0.75}
+\AddToHook{cmd/section/before}{\Needspace{5\baselineskip}}
+\AddToHook{cmd/subsection/before}{\Needspace{4\baselineskip}}
+\AddToHook{cmd/subsubsection/before}{\Needspace{3\baselineskip}}
 \setkomafont{captionlabel}{\itshape}
 \setkomafont{caption}{\itshape}
 \setkomafont{section}{\FloatBarrier\Large}
 \setcapwidth{\textwidth}
 \setcapindent{1em}
-\setcounter{secnumdepth}{3}
+\setcounter{secnumdepth}{2}
 
 % ===== Thesis metadata =====
 \def\thesisyear{2026}
@@ -277,7 +291,7 @@ Li-Ion & Lithium-Ion\\
 \chapter{Methodology}
 \input{chapters/03_methodology}
 
-\chapter{Results and Discussion}
+\chapter{Results and Discussion}\label{chap:results}
 \input{chapters/04_results}
 
 \chapter{Conclusion and Recommendations}

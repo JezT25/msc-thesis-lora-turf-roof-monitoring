@@ -257,7 +257,7 @@ was severely limited by import fees, availability, and cost. As a
 result, a conventional and widely available 18650 lithium-ion battery
 was selected.
 
-\subsubsection{Real Time Clock
+\subsubsection{Real-Time Clock
 (DS3231)}
 
 The DS3231 real-time clock was selected due to its high accuracy, low
@@ -271,7 +271,7 @@ This functionality is critical for synchronizing sensor nodes and
 ensuring consistent data collection and transmission intervals across
 the mesh network.
 
-\subsubsection{Antenna (433Mhz
+\subsubsection{Antenna (433 MHz
 3dbi)}
 
 The selected antenna operates at 433 MHz, which matches the
@@ -623,7 +623,7 @@ development. Nevertheless, future iterations of the system would benefit
 from migrating to a structured binary packet format for improved
 scalability and performance.
 
-3.4.1.1.1 The Packets
+\subsubsection{Packet Structure}
 
 To initiate communication within the mesh network, one node ---
 typically the base station --- broadcasts a structured ledger packet.
@@ -700,7 +700,7 @@ negatively impacted mesh responsiveness and routing performance. Given
 the constrained resources of the ATmega328P, RC4 provided a practical
 compromise between security and system efficiency.
 
-3.4.1.1.2 RC4
+\subsubsection{RC4 Encryption}
 
 The implemented function follows the standard RC4 structure, consisting
 of a key scheduling phase and a pseudo-random generation phase. A state
@@ -781,7 +781,7 @@ toward the base station through another chain reaction. Once the base
 station receives the complete ledger, the data is saved and uploaded to
 the cloud.
 
-\subsubsection{Dealing with Collisions (CSMA/CA (Carrier Sense Multiple Access with Collision Avoidance))}
+\subsubsection{Collision Avoidance (CSMA/CA)}
 
 
 To prevent simultaneous transmissions that may cause packet collisions,
@@ -836,7 +836,8 @@ packet is recoverable. Since data is continuously relayed among nodes,
 missed information can be recovered from neighboring nodes in subsequent
 transmissions.
 
-\thesisnote{CHECK}{Replace this temporary subsection heading with the final section number and title.}
+\subsection{LoRa Firmware Configuration}
+\thesisnote{TODO}{Add details about the selected radio parameters and legal operating settings.}
 
 \begin{figure}[htbp]
 \centering
@@ -870,7 +871,7 @@ temperature and humidity, soil temperature, soil moisture, and battery
 voltage. These sensors communicate using different interfaces including
 I2C, 1-Wire serial, and analog-to-digital conversion (ADC).
 
-3.4.2.1.1.Air temperature and humidity (aht10)
+\subsubsection{Air Temperature and Humidity (AHT10)}
 
 The AHT10 sensor communicates using the I2C protocol. The
 microcontroller sends a measurement command to the sensor, after which
@@ -880,7 +881,7 @@ transmitted digitally over the I2C bus to the microcontroller. This
 simplifies firmware implementation, as the sensor provides calibrated
 digital output directly.
 
-3.4.2.1.2 soil temperature
+\subsubsection{Soil Temperature}
 
 The DS18B20 soil temperature sensor communicates using the 1-Wire
 protocol. Each sensor contains a unique address, allowing individual
@@ -889,10 +890,10 @@ microcontroller initiates a temperature conversion command and reads the
 digital temperature value directly from the sensor, eliminating the need
 for analog calibration.
 
-3.4.2.1.3 soil moisture
+\subsubsection{Soil Moisture}
 
 The soil moisture sensor operates on a capacitive principle. Using a
-comparator-based circuit (\_\_\_ chip model), the dielectric constant of
+comparator-based circuit (\thesisnote{TODO}{Confirm the comparator chip model}), the dielectric constant of
 the soil affects the sensor output voltage.
 
 With a 3.3 V supply input, the sensor outputs an analog voltage
@@ -907,10 +908,10 @@ ADC resolution:
 \end{equation}
 
 The raw ADC value is converted to soil moisture percentage using
-calibration data obtained through the gravimetric method (see Chapter
-\_\_\_).
+calibration data obtained through the gravimetric method (see
+Chapter~\ref{chap:results}).
 
-3.4.2.1.4 battery voltage
+\subsubsection{Battery Voltage}
 
 The battery voltage is measured using a voltage divider consisting of:
 
