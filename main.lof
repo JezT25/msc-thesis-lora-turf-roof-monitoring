@@ -1,0 +1,45 @@
+\babel@toc {english}{}\relax 
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces System concept of the LoRa-based wireless sensor mesh network for monitoring turf roof conditions.}}{10}{figure.caption.10}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces In-situ sensor node hardware configuration and component layout.}}{12}{figure.caption.11}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Battery voltage monitoring circuit and power-control design for the sensor node.}}{16}{figure.caption.24}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Custom PCB layout and component placement for the sensor node.}}{17}{figure.caption.26}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Assembled sensor node PCB before final enclosure installation.}}{18}{figure.caption.28}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Weatherproof enclosure design for the buried sensor node and external sensor arrangement.}}{20}{figure.caption.30}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Base station module with LoRa transceiver and Wi-Fi connectivity for cloud upload.}}{20}{figure.caption.31}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Ledger packet format used for distributed data collection in the LoRa mesh network.}}{25}{figure.caption.38}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Time synchronization packet format used to align sleeping sensor nodes.}}{25}{figure.caption.39}%
+\contentsline {figure}{\numberline {3.10}{\ignorespaces RC4-based packet encryption routine implemented for lightweight mesh communication security.}}{26}{figure.caption.41}%
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Relay and update process used to propagate missing sensor data through the mesh network.}}{28}{figure.caption.43}%
+\contentsline {figure}{\numberline {3.12}{\ignorespaces CSMA/CA timing strategy used to reduce collisions during mesh packet transmission.}}{29}{figure.caption.45}%
+\contentsline {figure}{\numberline {3.13}{\ignorespaces LoRa radio configuration settings selected for legal and reliable communication.}}{30}{figure.caption.46}%
+\contentsline {figure}{\numberline {3.14}{\ignorespaces Operational duty-cycle diagram of the in-situ sensor node during deployment.}}{31}{figure.caption.47}%
+\contentsline {figure}{\numberline {3.15}{\ignorespaces Base station data acquisition and cloud upload workflow for the deployed network.}}{33}{figure.caption.53}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Air temperature measurements during the preliminary field deployment.}}{47}{figure.caption.55}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Relative humidity measurements during the preliminary field deployment.}}{47}{figure.caption.56}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Soil temperature measurements during the preliminary field deployment.}}{48}{figure.caption.57}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Soil moisture measurements during the preliminary field deployment.}}{49}{figure.caption.58}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Estimated LoRa signal coverage map for the Vellir--Hafnarfjörður field test. Blue regions indicate reliable communication coverage at approximately 3 km, while red regions indicate weak or absent signal strength due to terrain and structural obstructions.}}{51}{figure.caption.59}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Air temperature measurements during the intermediate field deployment.}}{53}{figure.caption.61}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Relative humidity measurements during the intermediate field deployment.}}{54}{figure.caption.62}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Soil temperature measurements during the intermediate field deployment.}}{54}{figure.caption.63}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Soil moisture measurements during the intermediate field deployment.}}{55}{figure.caption.64}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Deployment map showing the locations and installation depths of the four sensor nodes at the Keldur turf roof site.}}{57}{figure.caption.65}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Comparison of air temperature measurements from the deployed sensor nodes and the nearby weather station.}}{57}{figure.caption.66}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Comparison of relative humidity measurements from the deployed sensor nodes and the nearby weather station.}}{58}{figure.caption.67}%
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Comparison of soil temperature measurements from the deployed sensor nodes and the nearby weather station.}}{59}{figure.caption.68}%
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Environmental measurements recorded by Sensor Node 1 throughout the deployment period.}}{61}{figure.caption.70}%
+\contentsline {figure}{\numberline {4.15}{\ignorespaces Environmental measurements recorded by Sensor Node 3 throughout the deployment period.}}{62}{figure.caption.72}%
+\contentsline {figure}{\numberline {4.16}{\ignorespaces Environmental measurements recorded by Sensor Node 5 throughout the deployment period.}}{63}{figure.caption.74}%
+\contentsline {figure}{\numberline {4.17}{\ignorespaces Environmental measurements recorded by Sensor Node 7 throughout the deployment period.}}{64}{figure.caption.76}%
+\contentsline {figure}{\numberline {4.18}{\ignorespaces Laboratory setup used for the soil moisture sensor calibration tests.}}{66}{figure.caption.77}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Calibration setup with the soil sample, custom sensors, and reference instrument.}}}{66}{figure.caption.77}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Custom sensors installed in the prepared soil sample.}}}{66}{figure.caption.77}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\def \@chapapp {\appendixname }
+\addvspace {10\p@ }
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
