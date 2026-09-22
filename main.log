@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.9.22)  22 SEP 2026 23:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.9.22)  22 SEP 2026 23:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1418,11 +1418,7 @@ LaTeX Font Info:    Trying to load font information for T1+lmr on input line 11
 (C:\Users\Jezreel Tan\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-(main.aux
-
-LaTeX Warning: Label `tab:calibration-test-1' multiply defined.
-
-)
+(main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 110.
@@ -1727,7 +1723,7 @@ ps/lm/lm-rm.enc}{C:/Users/Jezreel Tan/AppData/Local/Programs/MiKTeX/fonts/enc/d
 vips/lm/lm-mathsy.enc}]) [8]
 chapter 3.
 (chapters/03_methodology.tex
-<figs/method-image1.png, id=487, 1437.11906pt x 810.77907pt>
+<figs/method-image1.png, id=486, 1437.11906pt x 810.77907pt>
 File: figs/method-image1.png Graphic file (type png)
 <use figs/method-image1.png>
 Package pdftex.def Info: figs/method-image1.png  used on input line 26.
@@ -1736,36 +1732,36 @@ Package pdftex.def Info: figs/method-image1.png  used on input line 26.
 
 
 ] [10 <./figs/method-image1.png>]
-<figs/method-image2.png, id=498, 1215.79219pt x 688.07062pt>
+<figs/method-image2.png, id=497, 1215.79219pt x 688.07062pt>
 File: figs/method-image2.png Graphic file (type png)
 <use figs/method-image2.png>
 Package pdftex.def Info: figs/method-image2.png  used on input line 118.
 (pdftex.def)             Requested size: 396.07391pt x 224.14525pt.
  [11] [12 <./figs/method-image2.png>] [13] [14]
-<figs/method-image3.png, id=526, 887.56593pt x 689.57625pt>
+<figs/method-image3.png, id=525, 887.56593pt x 689.57625pt>
 File: figs/method-image3.png Graphic file (type png)
 <use figs/method-image3.png>
 Package pdftex.def Info: figs/method-image3.png  used on input line 305.
 (pdftex.def)             Requested size: 392.67003pt x 305.07697pt.
  [15] [16 <./figs/method-image3.png>]
-<figs/method-image4.png, id=541, 889.82437pt x 689.57625pt>
+<figs/method-image4.png, id=540, 889.82437pt x 689.57625pt>
 File: figs/method-image4.png Graphic file (type png)
 <use figs/method-image4.png>
 Package pdftex.def Info: figs/method-image4.png  used on input line 340.
 (pdftex.def)             Requested size: 404.65349pt x 313.56828pt.
  [17 <./figs/method-image4.png>]
-<figs/method-image5.png, id=547, 656.4525pt x 657.95813pt>
+<figs/method-image5.png, id=546, 656.4525pt x 657.95813pt>
 File: figs/method-image5.png Graphic file (type png)
 <use figs/method-image5.png>
 Package pdftex.def Info: figs/method-image5.png  used on input line 380.
 (pdftex.def)             Requested size: 277.61133pt x 278.22798pt.
  [18 <./figs/method-image5.png>]
-<figs/method-image6.jpeg, id=555, 2055.68pt x 1541.76pt>
+<figs/method-image6.jpeg, id=554, 2055.68pt x 1541.76pt>
 File: figs/method-image6.jpeg Graphic file (type jpg)
 <use figs/method-image6.jpeg>
 Package pdftex.def Info: figs/method-image6.jpeg  used on input line 422.
 (pdftex.def)             Requested size: 313.42017pt x 235.53563pt.
-<figs/method-image7.png, id=556, 1233.85968pt x 740.0147pt>
+<figs/method-image7.png, id=555, 1233.85968pt x 740.0147pt>
 File: figs/method-image7.png Graphic file (type png)
 <use figs/method-image7.png>
 Package pdftex.def Info: figs/method-image7.png  used on input line 449.
@@ -1783,48 +1779,48 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             See the microtype manual for details.
 
 [22] [23] [24]
-<figs/method-image8.png, id=593, 1123.19624pt x 73.77562pt>
+<figs/method-image8.png, id=592, 1123.19624pt x 73.77562pt>
 File: figs/method-image8.png Graphic file (type png)
 <use figs/method-image8.png>
 Package pdftex.def Info: figs/method-image8.png  used on input line 670.
 (pdftex.def)             Requested size: 426.7914pt x 28.03276pt.
-<figs/method-image9.png, id=594, 1122.44344pt x 72.27pt>
+<figs/method-image9.png, id=593, 1122.44344pt x 72.27pt>
 File: figs/method-image9.png Graphic file (type png)
 <use figs/method-image9.png>
 Package pdftex.def Info: figs/method-image9.png  used on input line 683.
 (pdftex.def)             Requested size: 426.78984pt x 27.47942pt.
  [25 <./figs/method-image8.png> <./figs/method-image9.png>]
-<figs/method-image10.png, id=602, 630.85687pt x 487.06969pt>
+<figs/method-image10.png, id=601, 630.85687pt x 487.06969pt>
 File: figs/method-image10.png Graphic file (type png)
 <use figs/method-image10.png>
 Package pdftex.def Info: figs/method-image10.png  used on input line 723.
 (pdftex.def)             Requested size: 426.79187pt x 329.51591pt.
 
 [26 <./figs/method-image10.png>]
-<figs/method-image11.png, id=609, 679.78969pt x 649.67719pt>
+<figs/method-image11.png, id=608, 679.78969pt x 649.67719pt>
 File: figs/method-image11.png Graphic file (type png)
 <use figs/method-image11.png>
 Package pdftex.def Info: figs/method-image11.png  used on input line 769.
 (pdftex.def)             Requested size: 320.57996pt x 306.36938pt.
  [27] [28 <./figs/method-image11.png>]
-<figs/method-image12.png, id=621, 670.75594pt x 532.99126pt>
+<figs/method-image12.png, id=620, 670.75594pt x 532.99126pt>
 File: figs/method-image12.png Graphic file (type png)
 <use figs/method-image12.png>
 Package pdftex.def Info: figs/method-image12.png  used on input line 816.
 (pdftex.def)             Requested size: 426.78502pt x 339.12885pt.
  [29 <./figs/method-image12.png>]
-<figs/method-image13.png, id=627, 212.29312pt x 98.61844pt>
+<figs/method-image13.png, id=626, 212.29312pt x 98.61844pt>
 File: figs/method-image13.png Graphic file (type png)
 <use figs/method-image13.png>
 Package pdftex.def Info: figs/method-image13.png  used on input line 844.
 (pdftex.def)             Requested size: 212.33147pt x 98.63322pt.
-<figs/method-image14.png, id=628, 239.39438pt x 779.16093pt>
+<figs/method-image14.png, id=627, 239.39438pt x 779.16093pt>
 File: figs/method-image14.png Graphic file (type png)
 <use figs/method-image14.png>
 Package pdftex.def Info: figs/method-image14.png  used on input line 862.
 (pdftex.def)             Requested size: 98.7587pt x 321.50296pt.
  [30 <./figs/method-image13.png>] [31 <./figs/method-image14.png>] [32]
-<figs/method-image15.png, id=654, 310.15875pt x 715.92468pt>
+<figs/method-image15.png, id=653, 310.15875pt x 715.92468pt>
 File: figs/method-image15.png Graphic file (type png)
 <use figs/method-image15.png>
 Package pdftex.def Info: figs/method-image15.png  used on input line 960.
@@ -1837,118 +1833,120 @@ Package pdftex.def Info: figs/method-image15.png  used on input line 960.
 chapter 4.
 (chapters/04_results.tex [43] [44{C:/Users/Jezreel Tan/AppData/Local/Programs/M
 iKTeX/fonts/enc/dvips/lm/lm-mathex.enc}] [45]
-<figs/results-image1.png, id=725, 470.0835pt x 215.496pt>
+<figs/results-image1.png, id=724, 470.0835pt x 215.496pt>
 File: figs/results-image1.png Graphic file (type png)
 <use figs/results-image1.png>
-Package pdftex.def Info: figs/results-image1.png  used on input line 202.
+Package pdftex.def Info: figs/results-image1.png  used on input line 203.
 (pdftex.def)             Requested size: 426.8083pt x 195.65775pt.
  [46]
-<figs/results-image2.png, id=731, 470.0835pt x 215.496pt>
+<figs/results-image2.png, id=730, 470.0835pt x 215.496pt>
 File: figs/results-image2.png Graphic file (type png)
 <use figs/results-image2.png>
-Package pdftex.def Info: figs/results-image2.png  used on input line 209.
+Package pdftex.def Info: figs/results-image2.png  used on input line 210.
 (pdftex.def)             Requested size: 426.8083pt x 195.65775pt.
  [47 <./figs/results-image1.png> <./figs/results-image2.png>]
-<figs/results-image3.png, id=740, 470.0835pt x 215.496pt>
+<figs/results-image3.png, id=739, 470.0835pt x 215.496pt>
 File: figs/results-image3.png Graphic file (type png)
 <use figs/results-image3.png>
-Package pdftex.def Info: figs/results-image3.png  used on input line 242.
+Package pdftex.def Info: figs/results-image3.png  used on input line 243.
 (pdftex.def)             Requested size: 426.8083pt x 195.65775pt.
-<figs/results-image4.png, id=741, 470.0835pt x 215.496pt>
+<figs/results-image4.png, id=740, 470.0835pt x 215.496pt>
 File: figs/results-image4.png Graphic file (type png)
 <use figs/results-image4.png>
-Package pdftex.def Info: figs/results-image4.png  used on input line 249.
+Package pdftex.def Info: figs/results-image4.png  used on input line 250.
 (pdftex.def)             Requested size: 426.8083pt x 195.65775pt.
  [48 <./figs/results-image3.png>] [49 <./figs/results-image4.png>]
-<figs/results-image5.png, id=753, 1387.1825pt x 1204.5pt>
+<figs/results-image5.png, id=752, 1387.1825pt x 1204.5pt>
 File: figs/results-image5.png Graphic file (type png)
 <use figs/results-image5.png>
-Package pdftex.def Info: figs/results-image5.png  used on input line 330.
+Package pdftex.def Info: figs/results-image5.png  used on input line 331.
 (pdftex.def)             Requested size: 426.78363pt x 370.57913pt.
  [50] [51 <./figs/results-image5.png (PNG copy)>] [52]
 File: figs/results-image1.png Graphic file (type png)
 <use figs/results-image1.png>
-Package pdftex.def Info: figs/results-image1.png  used on input line 426.
+Package pdftex.def Info: figs/results-image1.png  used on input line 427.
 (pdftex.def)             Requested size: 426.8083pt x 195.65775pt.
 File: figs/results-image2.png Graphic file (type png)
 <use figs/results-image2.png>
-Package pdftex.def Info: figs/results-image2.png  used on input line 433.
+Package pdftex.def Info: figs/results-image2.png  used on input line 434.
 (pdftex.def)             Requested size: 426.8083pt x 195.65775pt.
 
 [53]
 File: figs/results-image3.png Graphic file (type png)
 <use figs/results-image3.png>
-Package pdftex.def Info: figs/results-image3.png  used on input line 464.
+Package pdftex.def Info: figs/results-image3.png  used on input line 465.
 (pdftex.def)             Requested size: 426.8083pt x 195.65775pt.
 File: figs/results-image4.png Graphic file (type png)
 <use figs/results-image4.png>
-Package pdftex.def Info: figs/results-image4.png  used on input line 471.
+Package pdftex.def Info: figs/results-image4.png  used on input line 472.
 (pdftex.def)             Requested size: 426.8083pt x 195.65775pt.
  [54] [55]
-<figs/results-image6.png, id=782, 469.4265pt x 376.1325pt>
+<figs/results-image6.png, id=781, 469.4265pt x 376.1325pt>
 File: figs/results-image6.png Graphic file (type png)
 <use figs/results-image6.png>
-Package pdftex.def Info: figs/results-image6.png  used on input line 527.
+Package pdftex.def Info: figs/results-image6.png  used on input line 528.
 (pdftex.def)             Requested size: 426.8063pt x 341.98267pt.
-<figs/results-image7.png, id=784, 469.755pt x 216.81pt>
+<figs/results-image7.png, id=783, 469.755pt x 216.81pt>
 File: figs/results-image7.png Graphic file (type png)
 <use figs/results-image7.png>
-Package pdftex.def Info: figs/results-image7.png  used on input line 540.
+Package pdftex.def Info: figs/results-image7.png  used on input line 541.
 (pdftex.def)             Requested size: 426.78961pt x 196.97981pt.
  [56] [57 <./figs/results-image6.png> <./figs/results-image7.png>]
-<figs/results-image8.png, id=795, 469.755pt x 216.81pt>
+<figs/results-image8.png, id=794, 469.755pt x 216.81pt>
 File: figs/results-image8.png Graphic file (type png)
 <use figs/results-image8.png>
-Package pdftex.def Info: figs/results-image8.png  used on input line 576.
+Package pdftex.def Info: figs/results-image8.png  used on input line 577.
 (pdftex.def)             Requested size: 426.78961pt x 196.97981pt.
  [58 <./figs/results-image8.png>]
-<figs/results-image9.png, id=802, 469.755pt x 216.81pt>
+<figs/results-image9.png, id=801, 469.755pt x 216.81pt>
 File: figs/results-image9.png Graphic file (type png)
 <use figs/results-image9.png>
-Package pdftex.def Info: figs/results-image9.png  used on input line 610.
+Package pdftex.def Info: figs/results-image9.png  used on input line 611.
 (pdftex.def)             Requested size: 426.78961pt x 196.97981pt.
  [59 <./figs/results-image9.png>]
-<figs/results-image10.png, id=808, 408.3255pt x 439.8615pt>
+<figs/results-image10.png, id=807, 408.3255pt x 439.8615pt>
 File: figs/results-image10.png Graphic file (type png)
 <use figs/results-image10.png>
-Package pdftex.def Info: figs/results-image10.png  used on input line 663.
+Package pdftex.def Info: figs/results-image10.png  used on input line 664.
 (pdftex.def)             Requested size: 407.27776pt x 438.61201pt.
-<figs/results-image11.png, id=809, 469.755pt x 505.89pt>
+<figs/results-image11.png, id=808, 469.755pt x 505.89pt>
 File: figs/results-image11.png Graphic file (type png)
 <use figs/results-image11.png>
-Package pdftex.def Info: figs/results-image11.png  used on input line 681.
+Package pdftex.def Info: figs/results-image11.png  used on input line 682.
 (pdftex.def)             Requested size: 426.78961pt x 459.61955pt.
-<figs/results-image12.png, id=810, 469.755pt x 505.89pt>
+<figs/results-image12.png, id=809, 469.755pt x 505.89pt>
 File: figs/results-image12.png Graphic file (type png)
 <use figs/results-image12.png>
-Package pdftex.def Info: figs/results-image12.png  used on input line 697.
+Package pdftex.def Info: figs/results-image12.png  used on input line 698.
 (pdftex.def)             Requested size: 426.78961pt x 459.61955pt.
-<figs/results-image13.png, id=811, 469.755pt x 505.89pt>
+<figs/results-image13.png, id=810, 469.755pt x 505.89pt>
 File: figs/results-image13.png Graphic file (type png)
 <use figs/results-image13.png>
-Package pdftex.def Info: figs/results-image13.png  used on input line 714.
+Package pdftex.def Info: figs/results-image13.png  used on input line 715.
 (pdftex.def)             Requested size: 426.78961pt x 459.61955pt.
  [60]
 [61 <./figs/results-image10.png>] [62 <./figs/results-image11.png>] [63 <./figs
 /results-image12.png>] [64 <./figs/results-image13.png>] [65]
-<figs/results-image14.jpeg, id=845, 193.815pt x 258.201pt>
+<figs/results-image14.jpeg, id=844, 193.815pt x 258.201pt>
 File: figs/results-image14.jpeg Graphic file (type jpg)
 <use figs/results-image14.jpeg>
-Package pdftex.def Info: figs/results-image14.jpeg  used on input line 777.
+Package pdftex.def Info: figs/results-image14.jpeg  used on input line 778.
 (pdftex.def)             Requested size: 193.47441pt x 257.97578pt.
-<figs/results-image15.jpeg, id=846, 190.2015pt x 253.602pt>
+<figs/results-image15.jpeg, id=845, 190.2015pt x 253.602pt>
 File: figs/results-image15.jpeg Graphic file (type jpg)
 <use figs/results-image15.jpeg>
-Package pdftex.def Info: figs/results-image15.jpeg  used on input line 780.
+Package pdftex.def Info: figs/results-image15.jpeg  used on input line 781.
 (pdftex.def)             Requested size: 193.48346pt x 257.9702pt.
 
 ignored error: Infinite glue shrinkage found in box being split [66 <./figs/res
-ults-image14.jpeg> <./figs/results-image15.jpeg>] [67] [68]) [69] [70]
+ults-image14.jpeg> <./figs/results-image15.jpeg>]
+ignored error: Infinite glue shrinkage found in box being split [67] [68])
+[69] [70
+
+
+]
 chapter 5.
-[71
-
-
-] [72]
+[71] [72]
 chapter without number
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/lmr/m/sc/12'.
@@ -1966,10 +1964,6 @@ chapter A.
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
-
-
-LaTeX Warning: There were multiply-defined labels.
-
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
@@ -1977,7 +1971,7 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 Here is how much of TeX's memory you used:
  39279 strings out of 467870
  769582 string characters out of 5415415
- 1731834 words of memory out of 5000000
+ 1730795 words of memory out of 5000000
  66977 multiletter control sequences out of 15000+600000
  724667 words of font info for 224 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -2001,9 +1995,9 @@ C:/Users/Jezreel Tan/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsso1
 /lmsy10.pfb><C:/Users/Jezreel Tan/AppData/Local/Programs/MiKTeX/fonts/type1/pub
 lic/lm/lmsy8.pfb><C:/Users/Jezreel Tan/AppData/Local/Programs/MiKTeX/fonts/type
 1/public/lm/lmtt12.pfb>
-Output written on main.pdf (101 pages, 8438744 bytes).
+Output written on main.pdf (101 pages, 8438037 bytes).
 PDF statistics:
- 1309 PDF objects out of 1440 (max. 8388607)
+ 1308 PDF objects out of 1440 (max. 8388607)
  308 named destinations out of 1000 (max. 500000)
  52456 words of extra memory for PDF output out of 61914 (max. 10000000)
 
