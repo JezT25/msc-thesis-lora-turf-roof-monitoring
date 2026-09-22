@@ -1,0 +1,67 @@
+\section{Definition of Terms}
+\subsection{Turf House}
+
+A turf house is defined as a structure or building whose roof and walls
+are mainly made from turf. Sometimes, these can be mixed with gravel or
+stones for extra support. Timber beams and rafters are used as the main
+structure of the building and are also used to support and hold the
+roof. Turf is also used as a main component to cover the roof, and
+slates are used as an underlay. Throughout the years, the material used
+for turf houses has not changed drastically, but the form of these
+houses has changed and adapted through the ages \cite{ref14}\cite{ref15}.
+
+\subsection{Soil Moisture}
+
+Soil moisture is defined as the amount or quantity of water in the soil
+\cite{ref16}\cite{ref17}. It can be further defined as the amount of water held
+in between the pores of the soil. These volumes of water may be in
+liquid or vaporized form \cite{ref18}. When measuring the amount of water in
+a known amount of soil, soil moisture can be expressed as ``\% water by
+weight or volume of soil'', or ``inches of water per foot of soil''
+\cite{ref19}.
+
+\subsection{Relative Humidity in Soil}
+
+Humidity is defined as the amount of gaseous water or water vapor in the
+air. High humidity means there is a lot of moisture in the air and low
+humidity indicates dry conditions. Humidity is often described as
+absolute humidity (AH) or relative humidity (RH) \cite{ref20}\cite{ref21}.
+Absolute humidity is measured in units of g/m\textsuperscript{3} where
+it is the measure of water vapor content in air that is not dependent on
+temperature \cite{ref22}. Relative humidity is the ratio of the current
+amount of water vapor in the air to the maximum amount the air can hold
+at a given temperature, expressed as a percentage (\%) \cite{ref23}.
+
+This study will collect data and conduct tests below the soil surface.
+In this context, humidity refers to the relative humidity of the air
+within the soil\textquotesingle s pores and gaps, which will be used as
+data for the study.
+
+\section{Background of the Study}
+Icelandic turf houses are important cultural and architectural heritage structures whose turf construction requires continued maintenance. The literature supplied for this thesis describes the long history of turf construction in Iceland and the need to understand turf layers and their environmental conditions. Moisture is particularly relevant because turf and timber components are susceptible to deterioration, while the conservation of heritage structures requires maintenance approaches that do not unnecessarily disturb the site.
+
+The current system design addresses this monitoring problem by placing low-power sensor nodes beneath turf roofs. The methodology specifies that nodes collect soil moisture, soil temperature, air temperature, and relative humidity, while transmitting measurements through a LoRa mesh network to a base station and cloud database. The nodes are designed to remain visually unobtrusive and to operate for extended periods with limited maintenance.
+
+\section{Statement of the Problem}
+Monitoring environmental conditions beneath turf roofs presents several engineering constraints. Sensor nodes must be sufficiently small and unobtrusive to avoid affecting the appearance of a heritage site, while also operating in an environment characterized by high moisture, freezing and thawing cycles, and possible snow coverage. The system must provide reliable wireless communication, conserve battery energy, retain measurements when transmissions are missed, and make the collected data available remotely.
+
+The project therefore addresses the need for a practical monitoring system that combines low-cost sensing hardware, low-power operation, long-range wireless communication, local data backup, and cloud-based access in a single deployable platform.
+
+\section{Objectives}
+The study aims to design, implement, and evaluate a low-power LoRa wireless sensor mesh network for monitoring soil and environmental conditions beneath Icelandic turf roofs. The specific objectives are to:
+\begin{enumerate}
+\item measure soil moisture, soil temperature, air temperature, relative humidity, and battery voltage using distributed sensor nodes;
+\item develop a LoRa-based mesh communication system capable of reliably transferring measurements between sensor nodes and a base station;
+\item implement low-power operating modes suitable for long-duration battery-powered deployment;
+\item provide local data backup so measurements are retained when wireless transmissions are missed;
+\item calibrate the low-cost capacitive soil moisture sensor against reference measurements; and
+\item transmit collected measurements to a cloud platform for remote access, visualization, and analysis.
+\end{enumerate}
+
+\section{Significance of the Study}
+The project provides a low-cost engineering approach to continuous monitoring of environmental conditions on Icelandic turf roofs. The system is intended to support researchers and conservation personnel by providing measurements without requiring frequent manual sampling or intrusive installation. The use of off-the-shelf components and a modular mesh architecture also provides a basis for scaling the monitoring approach to additional turf-roof sites.
+
+\section{Scope and Limitations}
+The work focuses on a low-power LoRa-based wireless sensor mesh network using distributed sensor nodes and a cloud-connected base station. The implemented nodes measure soil moisture, soil temperature, air temperature, relative humidity, and battery voltage. The methodology specifies burial of sensor nodes at approximately 11 cm, weatherproof enclosures, local SD-card data backup, and a non-destructive installation approach.
+
+The evaluation includes laboratory power-consumption testing, preliminary and intermediate field deployments around the University of Iceland, LoRa range testing around Vellir in Hafnarfjörður, long-term deployment at the Keldur turf-house site, soil moisture calibration, and ThingSpeak cloud-upload testing. The documented results also show limitations, including antenna-related packet loss during early testing, sensor-calibration issues during intermediate testing, and hardware failures affecting two nodes near the end of the long-term deployment. The calibration results cover the 0--40\% moisture range and therefore do not establish performance beyond that range.
