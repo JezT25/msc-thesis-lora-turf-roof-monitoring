@@ -24,7 +24,7 @@ The collected data is then made accessible to researchers from anywhere.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=5.03874in,height=2.8429in]{figs/method-image1.png}
-\caption{Your figure description}
+\caption{System concept of the LoRa-based wireless sensor mesh network for monitoring turf roof conditions.}
 \label{fig:method-image1}
 \end{figure}
 
@@ -116,6 +116,8 @@ before returning to low-power sleep operation.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=5.48053in,height=3.10153in]{figs/method-image2.png}
+\caption{In-situ sensor node hardware configuration and component layout.}
+\label{fig:method-image2}
 \end{figure}
 
 \subsubsection{Device Components}
@@ -297,10 +299,13 @@ additional circuitry required for system
 functionality.
 
 
-\subsubsection{\begin{figure}[htbp]
+\subsubsection{Power Control and Battery Monitoring}
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=5.43347in,height=4.22139in]{figs/method-image3.png}
-\end{figure}}
+\caption{Battery voltage monitoring circuit and power-control design for the sensor node.}
+\label{fig:method-image3}
+\end{figure}
 
 Battery voltage monitoring is implemented using a simple voltage divider
 connected to analog pin A3 of the microcontroller. The microcontroller
@@ -333,6 +338,8 @@ groups.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=5.59929in,height=4.33885in]{figs/method-image4.png}
+\caption{Custom PCB layout and component placement for the sensor node.}
+\label{fig:method-image4}
 \end{figure}
 
 The PCB layout was primarily designed to accommodate the Ra-02 LoRa
@@ -371,6 +378,8 @@ enclosure.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=3.84123in,height=3.84985in]{figs/method-image5.png}
+\caption{Assembled sensor node PCB before final enclosure installation.}
+\label{fig:method-image5}
 \end{figure}
 
 \subsubsection{System Assembly}
@@ -411,6 +420,8 @@ overall durability and reliability of the system.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=4.33694in,height=3.25921in]{figs/method-image6.jpeg}
+\caption{Weatherproof enclosure design for the buried sensor node and external sensor arrangement.}
+\label{fig:method-image6}
 \end{figure}
 
 \subsection{Base Station Module}
@@ -436,6 +447,8 @@ data analysis by researchers.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{figs/method-image7.png}
+\caption{Base station module with LoRa transceiver and Wi-Fi connectivity for cloud upload.}
+\label{fig:method-image7}
 \end{figure}
 
 \subsubsection{Device Components}
@@ -655,6 +668,8 @@ voltage, or time/date synchronization.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{figs/method-image8.png}
+\caption{Ledger packet format used for distributed data collection in the LoRa mesh network.}
+\label{fig:method-image8}
 \end{figure}
 
 Time/date packets follow a slightly modified format. Instead of
@@ -666,6 +681,8 @@ system time for logging and coordination purposes.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth,height=0.41875in,keepaspectratio]{figs/method-image9.png}
+\caption{Time synchronization packet format used to align sleeping sensor nodes.}
+\label{fig:method-image9}
 \end{figure}
 
 In total, each packet occupies 97 characters (97 bytes). Although
@@ -704,9 +721,11 @@ The implemented function is shown below:
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth,height=5.01875in,keepaspectratio]{figs/method-image10.png}
+\caption{RC4-based packet encryption routine implemented for lightweight mesh communication security.}
+\label{fig:method-image10}
 \end{figure}
 
-\textless talk about the picture here more\textgreater{}
+The encrypted packet structure preserves low computational overhead while still providing basic obfuscation for plaintext LoRa transmissions during early development and testing.
 
 \subsubsection{Mesh Network}
 
@@ -748,6 +767,8 @@ Therefore, the packet is ignored.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=4.43591in,height=4.23923in]{figs/method-image11.png}
+\caption{Relay and update process used to propagate missing sensor data through the mesh network.}
+\label{fig:method-image11}
 \end{figure}
 
 In a linear topology scenario, the base station may only be within range
@@ -793,6 +814,8 @@ are introduced.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth,height=5.16528in,keepaspectratio]{figs/method-image12.png}
+\caption{CSMA/CA timing strategy used to reduce collisions during mesh packet transmission.}
+\label{fig:method-image12}
 \end{figure}
 
 In a scenario where all nodes are within range of each other, meaning a
@@ -818,10 +841,11 @@ transmissions.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=2.93791in,height=1.36477in]{figs/method-image13.png}
+\caption{LoRa radio configuration settings selected for legal and reliable communication.}
+\label{fig:method-image13}
 \end{figure}
 
-\textless talk about settings here and why they were chosen and legal
-limits of how much sending is allowed\textgreater{}
+The configuration was chosen to balance range, airtime, and reliability while remaining within practical low-power LoRa operating limits for the deployed system.
 
 \subsection{In Situ Sensor Behavior and
 Algorithm}
@@ -830,9 +854,13 @@ The in situ node operates in a low-power duty cycle. It enters deep
 sleep mode, wakes up using an RTC timer, gathers sensor data, transmits
 data to the mesh network, and then returns to deep sleep. This cycle
 repeats continuously throughout
-deployment.\begin{figure}[htbp]
+deployment.
+
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=1.36654in,height=4.44873in]{figs/method-image14.png}
+\caption{Operational duty-cycle diagram of the in-situ sensor node during deployment.}
+\label{fig:method-image14}
 \end{figure}
 
 \subsubsection{Sensor Data Reading}
@@ -923,6 +951,8 @@ simultaneously, preventing missed data requests.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=1.41462in,height=3.26566in]{figs/method-image15.png}
+\caption{Base station data acquisition and cloud upload workflow for the deployed network.}
+\label{fig:method-image15}
 \end{figure}
 
 \subsubsection{Uploading the Data}

@@ -177,18 +177,16 @@ the corresponding relative humidity measurements.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth,height=2.97917in,keepaspectratio]{figs/results-image1.png}
-\caption{12.}
+\caption{Air temperature measurements during the preliminary field deployment.}
 \label{fig:results-1}
-\end{figure} Air temperature measurements during the preliminary field
-deployment.
+\end{figure}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth,height=2.97917in,keepaspectratio]{figs/results-image2.png}
-\caption{13.}
+\caption{Relative humidity measurements during the preliminary field deployment.}
 \label{fig:results-2}
-\end{figure} Relative humidity measurements during the preliminary field
-deployment.
+\end{figure}
 
 The prototype nodes successfully collected environmental measurements
 throughout the deployment period and generally followed the overall
@@ -219,18 +217,16 @@ preliminary deployment.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth,height=2.97917in,keepaspectratio]{figs/results-image3.png}
-\caption{14.}
+\caption{Soil temperature measurements during the preliminary field deployment.}
 \label{fig:results-3}
-\end{figure} Soil temperature measurements during the preliminary field
-deployment.
+\end{figure}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth,height=2.97917in,keepaspectratio]{figs/results-image4.png}
-\caption{15.}
+\caption{Soil moisture measurements during the preliminary field deployment.}
 \label{fig:results-4}
-\end{figure} Soil moisture measurements during the preliminary field
-deployment.
+\end{figure}
 
 The prototype sensor nodes successfully measured subsurface temperature
 and soil moisture while installed beneath the turf roofs. Similar to the
@@ -309,7 +305,7 @@ benefits from relatively clear propagation paths.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth,height=5.64583in,keepaspectratio]{figs/results-image5.png}
-\caption{X: Estimated LoRa signal coverage map for the Vellir--Hafnarfjörður field test. Blue indicates reliable communication coverage (\textasciitilde3 km radius), while red regions indicate areas with weak or no signal due to terrain and structural obstructions.}
+\caption{Estimated LoRa signal coverage map for the Vellir--Hafnarfjörður field test. Blue regions indicate reliable communication coverage at approximately 3 km, while red regions indicate weak or absent signal strength due to terrain and structural obstructions.}
 \label{fig:results-5}
 \end{figure}
 
@@ -321,25 +317,22 @@ built environments.
 Signal strength measurements were recorded at multiple locations within
 the testing area. The average RSSI values are summarized in the RSSI table.
 
-\begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5381}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.4619}}@{}}
-\toprule\noalign{}
-\begin{minipage}[b]{\linewidth}\raggedright
-\textbf{Location}
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-\textbf{Average RSSI}
-\end{minipage} \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
+\begin{table}[htbp]
+\centering
+\caption{Average RSSI values recorded at each test location during the LoRa range evaluation.}
+\label{tab:rssi-summary}
+\begin{tabular}{p{0.55\textwidth} p{0.25\textwidth}}
+\toprule
+\textbf{Location} & \textbf{Average RSSI} \\
+\midrule
 Ásvallalaug & -113 dBm \\
 Holt & -103 dBm \\
 Fish Drying Area & -112 dBm \\
 Vatnslíð & -103 dBm \\
 Netto & -112 dBm \\
-\end{longtable}
+\bottomrule
+\end{tabular}
+\end{table}
 
 \subsection{Discussion of Results}
 
@@ -408,18 +401,16 @@ prototype sensor nodes with the nearby weather station, while Figure
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth,height=2.97917in,keepaspectratio]{figs/results-image1.png}
-\caption{28.}
+\caption{Air temperature measurements during the intermediate field deployment.}
 \label{fig:results-6}
-\end{figure} Air temperature measurements during the intermediate field
-deployment.
+\end{figure}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth,height=2.97917in,keepaspectratio]{figs/results-image2.png}
-\caption{29.}
+\caption{Relative humidity measurements during the intermediate field deployment.}
 \label{fig:results-7}
-\end{figure} Relative humidity measurements during the intermediate field
-deployment.
+\end{figure}
 
 Compared with the preliminary deployment described in Section 4.3,
 replacing the antennas with properly matched \textbf{433 MHz LoRa
@@ -448,18 +439,16 @@ moisture measurements.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth,height=2.97917in,keepaspectratio]{figs/results-image3.png}
-\caption{30. Soil temperature measurements during the}
+\caption{Soil temperature measurements during the intermediate field deployment.}
 \label{fig:results-10}
 \end{figure}
-intermediate field deployment.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth,height=2.97917in,keepaspectratio]{figs/results-image4.png}
-\caption{31. Soil moisture measurements during the intermediate}
+\caption{Soil moisture measurements during the intermediate field deployment.}
 \label{fig:results-11}
 \end{figure}
-field deployment.
 
 Soil temperature measurements became more continuous than those obtained
 during the preliminary deployment, reflecting the improved communication
@@ -510,13 +499,12 @@ these sensors mounted externally above the enclosure. This design
 variation was intentionally implemented to compare the measurement
 accuracy of both configurations under real environmental conditions.
 
+\begin{figure}[htbp]
+\centering
 \includegraphics[width=\textwidth,height=5.20833in,keepaspectratio]{figs/results-image6.png}
-
-Change to mm!
-
-\textbf{the deployment map.} Deployment locations of the four LoRa sensor nodes
-installed at the Keldur turf roof, including sensor positions,
-installation depths, and sensor configurations.
+\caption{Deployment map showing the locations and installation depths of the four sensor nodes at the Keldur turf roof site.}
+\label{fig:results-deployment-map}
+\end{figure}
 
 \subsection{Air Temperature
 Performance}
@@ -527,10 +515,9 @@ sensor nodes with data obtained from the nearby weather station.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth,height=3in,keepaspectratio]{figs/results-image7.png}
-\caption{21. Comparison of air temperature measurements from}
+\caption{Comparison of air temperature measurements from the deployed sensor nodes and the nearby weather station.}
 \label{fig:results-12}
 \end{figure}
-the deployed sensor nodes and the nearby weather station.
 
 The results show that Sensor Nodes 5 and 7 closely followed the weather
 station throughout the deployment period. Daily temperature
@@ -564,10 +551,9 @@ all deployed nodes together with the weather station reference.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth,height=3in,keepaspectratio]{figs/results-image8.png}
-\caption{22. Comparison of relative humidity measurements from}
+\caption{Comparison of relative humidity measurements from the deployed sensor nodes and the nearby weather station.}
 \label{fig:results-13}
 \end{figure}
-the deployed sensor nodes and the nearby weather station.
 
 Sensor Nodes 5 and 7, with externally mounted humidity sensors, closely
 tracked the overall humidity changes observed by the weather station.
@@ -594,13 +580,14 @@ Performance}
 Figure~\ref{fig:results-14} illustrates the soil temperature measurements collected by
 the four buried sensor nodes together with the available temperature
 data from the nearby weather
-station.\begin{figure}[htbp]
+station.
+
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth,height=3in,keepaspectratio]{figs/results-image9.png}
-\caption{23. Comparison of soil temperature measurements from}
+\caption{Comparison of soil temperature measurements from the deployed sensor nodes and the nearby weather station.}
 \label{fig:results-14}
 \end{figure}
-the deployed sensor nodes and the nearby weather station.
 
 Unlike air temperature, soil temperature measurements from all four
 deployed nodes exhibited similar behavior regardless of installation
@@ -651,10 +638,9 @@ throughout the deployment period.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=5.63542in,height=6.06891in]{figs/results-image10.png}
-\caption{24. Environmental measurements recorded by Sensor Node}
+\caption{Environmental measurements recorded by Sensor Node 1 throughout the deployment period.}
 \label{fig:results-15}
 \end{figure}
-1 throughout the deployment period.
 
 Sensor Node 1 maintained stable communication throughout most of the
 deployment while continuously monitoring environmental conditions. Soil
@@ -670,10 +656,9 @@ resulting in the termination of data collection.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth,height=7in,keepaspectratio]{figs/results-image11.png}
-\caption{25. Environmental measurements recorded by Sensor Node}
+\caption{Environmental measurements recorded by Sensor Node 3 throughout the deployment period.}
 \label{fig:results-16}
 \end{figure}
-3 throughout the deployment period.
 
 Sensor Node 3 operated reliably throughout the deployment and exhibited
 the most complete dataset among all deployed nodes. Soil moisture
@@ -687,10 +672,9 @@ the implemented low-power algorithm.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth,height=7in,keepaspectratio]{figs/results-image12.png}
-\caption{26.}
+\caption{Environmental measurements recorded by Sensor Node 5 throughout the deployment period.}
 \label{fig:results-8}
-\end{figure} Environmental measurements recorded by Sensor Node 5 throughout
-the deployment period.
+\end{figure}
 
 Sensor Node 5 produced air temperature and humidity measurements that
 closely matched the nearby weather station due to its externally mounted
@@ -705,10 +689,9 @@ efficiency despite continuous operation.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth,height=7in,keepaspectratio]{figs/results-image13.png}
-\caption{27.}
+\caption{Environmental measurements recorded by Sensor Node 7 throughout the deployment period.}
 \label{fig:results-9}
-\end{figure} Environmental measurements recorded by Sensor Node 7 throughout
-the deployment period.
+\end{figure}
 
 Sensor Node 7 initially produced measurements comparable to Sensor Node
 5, with externally mounted atmospheric sensors closely following weather
