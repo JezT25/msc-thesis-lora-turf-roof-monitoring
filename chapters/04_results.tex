@@ -23,36 +23,48 @@ acquisition, and shutdown, takes approximately 3.1 seconds.
 LoRa packet airtime is determined by the sum of preamble and payload
 durations:
 
-\[T_{packet} = T_{preamble} + T_{payload}
-\]
+\begin{equation}
+T_{packet} = T_{preamble} + T_{payload}
+\label{eq:packet-airtime}
+\end{equation}
 
 With spreading factor \(SF = 10\), bandwidth
 \(BW = 125\text{ }\text{kHz}\), and preamble length
 \(N_{preamble} = 8\), the symbol time is:
 
-\[T_{sym} = \frac{2^{SF}}{BW} = \frac{2^{10}}{125000} = 0.008192\text{ }\text{s}
-\]
+\begin{equation}
+T_{sym} = \frac{2^{SF}}{BW} = \frac{2^{10}}{125000} = 0.008192\text{ }\text{s}
+\label{eq:symbol-time}
+\end{equation}
 
 The preamble duration is therefore:
 
-\[T_{preamble} = (N_{preamble} + 4.25) \cdot T_{sym} \approx 0.1\text{ }\text{s}
-\]
+\begin{equation}
+T_{preamble} = (N_{preamble} + 4.25) \cdot T_{sym} \approx 0.1\text{ }\text{s}
+\label{eq:preamble-duration}
+\end{equation}
 
 The payload duration depends on the payload size \(PL\)and is given by:
 
-\[T_{payload} = N_{payload} \cdot T_{sym}
-\]
+\begin{equation}
+T_{payload} = N_{payload} \cdot T_{sym}
+\label{eq:payload-duration}
+\end{equation}
 
 For the selected configuration (CRC enabled, explicit header, low data
 rate optimization, coding rate 4/5), this simplifies to:
 
-\[N_{payload} = 8 + 5 \cdot \left\lceil \frac{8PL + 4}{32} \right\rceil
-\]
+\begin{equation}
+N_{payload} = 8 + 5 \cdot \left\lceil \frac{8PL + 4}{32} \right\rceil
+\label{eq:payload-symbols}
+\end{equation}
 
 Thus, total packet airtime becomes:
 
-\[T_{packet} = \left( 20.25 + 5 \cdot \left\lceil \frac{8PL + 4}{32} \right\rceil \right) \cdot 0.008192
-\]
+\begin{equation}
+T_{packet} = \left( 20.25 + 5 \cdot \left\lceil \frac{8PL + 4}{32} \right\rceil \right) \cdot 0.008192
+\label{eq:total-packet-airtime}
+\end{equation}
 
 For a 96-byte payload, the airtime is approximately 1.19 seconds per
 transmission.
@@ -61,8 +73,10 @@ Assuming six sensor data types (e.g., temperature, humidity, soil
 temperature, battery level, and timestamp) are transmitted eight times
 per hour, the total transmission time is:
 
-\[(1.19\text{ }\text{s} \times 8) \times 6 \approx 57\text{ }\text{s}
-\]
+\begin{equation}
+(1.19\text{ }\text{s} \times 8) \times 6 \approx 57\text{ }\text{s}
+\label{eq:hourly-transmission-time}
+\end{equation}
 
 This is approximated to 1 minute of transmission time per hour. Then we
 can assume that the rest is spent receiving LoRa packets and operating
@@ -100,15 +114,17 @@ in standby \\
 
 The average current consumption is calculated as:
 
-\[I_{avg} = \frac{\sum I_{n}t_{n}}{T}
-\]
+\begin{equation}
+I_{avg} = \frac{\sum I_{n}t_{n}}{T}
+\label{eq:average-current}
+\end{equation}
 
 where \(I_{n}\)is the current in each state, \(t_{n}\)is the duration of
 each state, and \(T = 3600\text{ }\text{s}\)is the total time per hour.
 
 Substituting the measured values:
 
-\[
+\begin{equation}
 \begin{aligned}
 I_{avg} &=
 \frac{(0.3 \times 3300) + (9.5 \times 3) + (119.5 \times 60)
@@ -116,7 +132,8 @@ I_{avg} &=
 &= \frac{990 + 28.5 + 7170 + 2891.4}{3600} \\
 &\approx 3.08\,\text{mA}
 \end{aligned}
-\]
+\label{eq:average-current-substitution}
+\end{equation}
 
 Thus, the average current consumption of the sensor node under
 worst-case conditions is approximately \textbf{3.08 mA}.
@@ -124,8 +141,10 @@ worst-case conditions is approximately \textbf{3.08 mA}.
 Given a total battery capacity of 10,500 mAh (three 3,500 mAh cells in
 parallel), the estimated operational lifetime is:
 
-\[\frac{10500}{3.08} \approx 3409\text{~hours} \approx 142\text{~days~}( \sim 4.7\text{~months})
-\]
+\begin{equation}
+\frac{10500}{3.08} \approx 3409\text{~hours} \approx 142\text{~days~}( \sim 4.7\text{~months})
+\label{eq:three-cell-lifetime}
+\end{equation}
 
 This estimate assumes ideal battery performance. In practice,
 environmental factors---particularly low temperatures in Iceland---will
@@ -134,8 +153,10 @@ reduce effective battery capacity and shorten the operational lifetime.
 For comparison, a single 3,500 mAh cell would yield an estimated
 lifetime of approximately:
 
-\[\frac{3500}{3.08} \approx 1136\text{~hours} \approx 47\text{~days}
-\]
+\begin{equation}
+\frac{3500}{3.08} \approx 1136\text{~hours} \approx 47\text{~days}
+\label{eq:single-cell-lifetime}
+\end{equation}
 
 This highlights the importance of parallel battery configuration for
 extended deployment.
@@ -825,8 +846,10 @@ A HOBO MX2307 (TEROS-10 probe) was used as a reference. It measures
 dielectric permittivity and converts it to volumetric water content
 (VWC) using:
 
-\[\theta = 4.3 \times 10^{- 6}\varepsilon^{3} - 5.5 \times 10^{- 4}\varepsilon^{2} + 2.92 \times 10^{- 2}\varepsilon - 5.3 \times 10^{- 2}
-\]
+\begin{equation}
+\theta = 4.3 \times 10^{- 6}\varepsilon^{3} - 5.5 \times 10^{- 4}\varepsilon^{2} + 2.92 \times 10^{- 2}\varepsilon - 5.3 \times 10^{- 2}
+\label{eq:dielectric-moisture-calibration}
+\end{equation}
 
 Measured VWC values were back-calculated to obtain dielectric
 permittivity:
@@ -863,8 +886,10 @@ Model}
 Due to the nonlinear relationship between ADC output and soil moisture,
 a second-order polynomial regression was applied:
 
-\[\text{Soil~Moisture~(\%)} = 0.0006877(\text{ADC})^{2} - 0.5961(\text{ADC}) + 127.70
-\]
+\begin{equation}
+\text{Soil~Moisture~(\%)} = 0.0006877(\text{ADC})^{2} - 0.5961(\text{ADC}) + 127.70
+\label{eq:adc-soil-moisture-calibration}
+\end{equation}
 
 The model was derived from averaged calibration data:
 

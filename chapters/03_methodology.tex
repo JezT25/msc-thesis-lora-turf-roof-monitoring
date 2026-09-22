@@ -901,8 +901,10 @@ of the ATmega328P.
 
 ADC resolution:
 
-\[\text{Resolution} = \frac{V_{ref}}{2^{10}} = \frac{3.3V}{1024}
-\]
+\begin{equation}
+\text{Resolution} = \frac{V_{ref}}{2^{10}} = \frac{3.3V}{1024}
+\label{eq:adc-resolution}
+\end{equation}
 
 The raw ADC value is converted to soil moisture percentage using
 calibration data obtained through the gravimetric method (see Chapter
@@ -921,13 +923,17 @@ The battery voltage is measured using a voltage divider consisting of:
 
 Voltage divider formula:
 
-\[V_{out} = V_{battery} \times \frac{R_{2}}{R_{1} + R_{2}}
-\]
+\begin{equation}
+V_{out} = V_{battery} \times \frac{R_{2}}{R_{1} + R_{2}}
+\label{eq:voltage-divider}
+\end{equation}
 
 Rearranged to calculate battery voltage:
 
-\[V_{battery} = V_{ADC} \times \frac{R_{1} + R_{2}}{R_{2}}
-\]
+\begin{equation}
+V_{battery} = V_{ADC} \times \frac{R_{1} + R_{2}}{R_{2}}
+\label{eq:battery-voltage}
+\end{equation}
 
 The ADC is 10-bit resolution. The digital value is converted to voltage
 using the reference voltage and the equation above.
