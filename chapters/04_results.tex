@@ -89,6 +89,8 @@ in standby mode, which is approximately 237 seconds.
   >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2026}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1634}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.3884}}@{}}
+\caption{Operating states, measured current consumption, and duration per hour.}
+\label{tab:operating-modes}\\
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 \textbf{Operating State}
@@ -769,7 +771,16 @@ saturation beyond this point. Additional water produced minimal
 dielectric variation, reducing the sensitivity of capacitive
 measurements.
 
-\includegraphics[width=2.67708in,height=3.56944in]{figs/results-image14.jpeg}\includegraphics[width=2.67708in,height=3.56944in]{figs/results-image15.jpeg}
+\begin{figure}[htbp]
+\centering
+\subfigure[Calibration setup with the soil sample, custom sensors, and reference instrument.]{%
+\includegraphics[width=2.67708in,height=3.56944in]{figs/results-image14.jpeg}}
+\hfill
+\subfigure[Custom sensors installed in the prepared soil sample.]{%
+\includegraphics[width=2.67708in,height=3.56944in]{figs/results-image15.jpeg}}
+\caption{Laboratory setup used for the soil moisture sensor calibration tests.}
+\label{fig:calibration-setup}
+\end{figure}
 
 Two calibration tests were conducted.
 
@@ -781,6 +792,8 @@ Two calibration tests were conducted.
   >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1758}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1804}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1822}}@{}}
+\caption{Calibration Test 1 results for the 2069.5 g soil sample.}
+\label{tab:calibration-test-1}\\
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 \textbf{Soil Moisture (\%)}
@@ -814,6 +827,8 @@ handling.
   >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2881}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2145}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2224}}@{}}
+\caption{Calibration Test 2 results for the 400 g soil sample.}
+\label{tab:calibration-test-2}\\
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 \textbf{Soil Moisture (\%)}
@@ -858,6 +873,8 @@ permittivity:
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2233}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3442}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4325}}@{}}
+\caption{HOBO reference measurements and calculated dielectric permittivity.}
+\label{tab:hobo-dielectric-reference}\\
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 \textbf{Moisture (\%)}
@@ -897,6 +914,8 @@ The model was derived from averaged calibration data:
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3592}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2606}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3802}}@{}}
+\caption{Averaged calibration data used to derive the polynomial model.}
+\label{tab:averaged-calibration-data}\\
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 \textbf{Moisture (\%)}
@@ -925,6 +944,8 @@ Discussion}
   >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1921}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2096}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2336}}@{}}
+\caption{Final comparison of gravimetric, HOBO, dielectric, and calibrated moisture values.}
+\label{tab:final-calibration-results}\\
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 \textbf{Gravimetric (\%)}
