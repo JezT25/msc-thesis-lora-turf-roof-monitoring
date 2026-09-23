@@ -52,7 +52,7 @@ With the innovation of concrete and the eventual abandonment of
 refurbishing or maintaining these perishable turf houses, this led to
 the loss and destruction of these historical buildings.
 
-\subsubsection{Studies in Turf and Turf House
+\section{Studies in Turf and Turf House
 Maintenance}
 
 Due to the unique architectural design of these turf houses, it became
@@ -92,12 +92,124 @@ supported by Nunome et al. \cite{ref13} stating that soil compacting is a
 major factor in the increase of degradation of turf.
 
 With ongoing and continuous studies and discoveries on turf and turf
-house construction and maintenance. Preservation experts can further
+house construction and maintenance, preservation experts can further
 study and utilize these techniques to extend the lifespan of these turf
 houses. By minimizing rot and decay on these turf and wooden structures,
-especially on the roof and walls. These turf houses can be properly
-maintained and can last for lifetimes. Preserving the cultural heritage
-and importance of these historical structures.
+especially on the roof and walls, these turf houses can be properly
+maintained while preserving the cultural heritage and importance of these
+historical structures.
+
+\section{LoRa Mesh Technology}
+
+Long Range (LoRa) technology is a low-power wireless communication
+technology used in applications such as traffic-light control, smart
+street lighting, environmental monitoring, smart waste management,
+energy management, and the Internet of Things (IoT)
+\cite{tome2018longrange,enriko2023lorawan,zhu2019mesh,lozano2018smartwaste,andrade2019lora,andrade2023smartmeter}. Its long communication range and low
+power consumption make it suitable for distributed monitoring systems.
+Depending on the antenna, radio configuration, terrain, and deployment
+environment, LoRa communication can reach several kilometres
+\cite{centenaro2016longrange}. LoRa is therefore a suitable candidate for
+low-bandwidth applications that require low cost and scalability
+\cite{rahman2018lora}. Its potential has also been demonstrated in IoT
+applications \cite{ayele2017lora}.
+
+Multi-hop communication, mesh networking, and routing protocols can
+extend the coverage and improve the signal reliability of LoRa networks
+\cite{solar2022monitoring,sole2022mesh}. Mullick et al. reported improved
+network performance when a mesh strategy was used for air-quality
+monitoring, particularly under adverse environmental conditions
+\cite{mullick2022mesh}. Andersen et al. also demonstrated that a LoRa mesh
+network could approximately double the operating range of an asset-tracking
+prototype through multi-hop communication and routing
+\cite{andersen2020mesh}.
+
+Multi-hop communication also introduces trade-offs. Although additional
+hops can increase coverage, they may increase latency because nodes need
+to coordinate transmissions and avoid collisions
+\cite{centelles2021multihop}. This trade-off depends on the application:
+some systems prioritize low latency, whereas remote environmental
+monitoring systems may prioritize range, reliability, and low power
+consumption. In addition, relay nodes can reduce the transmission distance
+to the next node and may therefore improve energy efficiency
+\cite{khonrang2022multihop}.
+
+Compared with other low-power wireless technologies, LoRa is particularly
+well suited to outdoor applications that require long range and low power.
+Zigbee generally provides shorter-range communication, while NB-IoT can
+provide broader cellular coverage and higher data rates at the cost of
+greater dependence on cellular infrastructure and power consumption
+\cite{liu2023zigbee,danladi2022lpwan}. The approximate ranges in
+Table~\ref{tab:wireless-range-comparison} are indicative only and depend
+strongly on the deployment environment and network configuration.
+
+\begin{table}[htbp]
+\centering
+\caption{Approximate communication ranges of selected wireless technologies.}
+\label{tab:wireless-range-comparison}
+\begin{tabular}{lll}
+\toprule
+\textbf{Technology} & \textbf{Approximate range} & \textbf{Main dependency} \\
+\midrule
+Zigbee & 10--300 m & Local radio environment \\
+LoRa & 2--15 km & Antenna, terrain, and radio settings \\
+NB-IoT & Up to 100 km & Cellular network coverage \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Low-Power Technology}
+
+Wireless sensor networks require a reliable energy source for sensing,
+processing, storage, and communication. Although some systems are powered
+continuously from an outlet, remote monitoring nodes commonly rely on
+batteries. For long-term deployments, reducing energy consumption is
+essential because battery replacement may be difficult or disruptive.
+Low-power design techniques can improve energy efficiency and extend the
+operational lifetime of sensor nodes \cite{lahiri2002battery}.
+
+One common technique is to place the device in a sleep state when it is
+not actively sensing or communicating. During low-power operation, most
+functions are disabled while a small control subsystem remains active to
+restore normal operation when required \cite{zhang2023sleep}. For systems
+with low duty cycles, the sleep period is often more important to overall
+energy consumption than the active period \cite{hwang2012poweraware}.
+
+Previous studies demonstrate the practical benefits of this approach.
+Kombo et al. reduced the duty cycle of a low-power monitoring system to
+less than one percent, while Hung et al. reported power-consumption
+reductions of approximately 38.46--54.44\% using a low-power wireless
+sensor protocol \cite{kombo2021groundwater,hung2020lowpower}. These results
+support the use of scheduled sensing, selective peripheral activation, and
+communication sleep modes in remote environmental monitoring.
+
+Low-power operation is therefore central to the present system. The
+proposed sensor nodes periodically wake, collect measurements, transmit or
+store the data, and return to a sleep state. This duty-cycle strategy
+reduces average current consumption while allowing the system to continue
+monitoring environmental conditions over an extended deployment period.
+
+\section{Cloud-Based Data Visualization and Management in Research}
+
+Cloud-based data systems provide a convenient way to store, visualize, and
+manage measurements collected by remote sensor networks. Researchers can
+access time-series data without physically retrieving the sensor nodes,
+which is particularly useful when monitoring sites are distant or difficult
+to access. Cloud platforms also provide scalable infrastructure for storing
+and processing large datasets \cite{naik2017cloud,sheffield2022cloud}.
+
+Common cloud platforms include Amazon Web Services (AWS), Google Cloud
+Platform (GCP), and Microsoft Azure. These platforms support different
+combinations of data storage, analytics, visualization, and Internet of
+Things services \cite{aws2023,gcp2023,azure2023}. The appropriate platform
+depends on the required storage capacity, processing capability, cost,
+connectivity, and ease of integration with the embedded system.
+
+For environmental monitoring, cloud-based visualization can improve the
+interpretation of long-term measurements by making trends and anomalies
+available remotely. In the present project, cloud connectivity is used to
+upload sensor measurements to ThingSpeak, where the data can be stored and
+visualized for subsequent analysis.
 
 \section{Measuring Soil Moisture}
 

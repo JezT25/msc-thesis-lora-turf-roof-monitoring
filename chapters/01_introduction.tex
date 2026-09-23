@@ -37,6 +37,75 @@ In this context, humidity refers to the relative humidity of the air
 within the soil\textquotesingle s pores and gaps, which will be used as
 data for the study.
 
+\subsection{Wireless Sensor Network (WSN)}
+
+A wireless sensor network (WSN) is a collection of spatially distributed
+sensor nodes that measure and communicate data wirelessly using protocols
+such as radio, Wi-Fi, Bluetooth, and LoRa. A sensor node may contain one
+or more sensors, depending on the application, and can communicate with a
+central system or with neighboring nodes in a mesh network
+\cite{jung2012clusterhead,xu2014borderrouter}. WSNs are used in
+environmental monitoring, industrial equipment monitoring, healthcare,
+agriculture, and other distributed sensing applications. Their low-power
+design makes them suitable for remote and harsh environments.
+
+\subsection{Internet of Things (IoT)}
+
+The Internet of Things (IoT) refers to interconnected physical devices
+that collect, exchange, and process data through communication networks
+and cloud services \cite{aws2024iot}. Examples include wearable devices,
+tracking systems, environmental sensors, and smart infrastructure. In this
+context, a WSN provides the sensing and communication layer, while the IoT
+system can transmit the collected measurements to a network or cloud
+platform for storage, visualization, and analysis
+\cite{karthik2021iot,jebri2015iot}.
+
+\subsection{Long Range (LoRa)}
+
+Long Range (LoRa) is a radio-frequency modulation technology designed for
+low-power wide-area network (LPWAN) applications. It supports long-range
+communication with relatively low energy consumption, making it suitable
+for many IoT applications and outdoor monitoring systems
+\cite{dambal2019lora}. Communication range depends on factors such as
+line of sight, antenna design, frequency, spreading factor, bandwidth,
+transmission power, and local regulations. The sensor nodes in this study
+use a 433 MHz SX1278-based LoRa module in the applicable industrial,
+scientific, and medical (ISM) band. The use of 433 MHz, 868 MHz, or
+915 MHz bands depends on regional regulations and deployment requirements
+\cite{camarillo2022lorawan,yahya2023antenna}.
+
+\subsection{In-Situ Sensors}
+
+In-situ sensors measure and monitor conditions directly at the location of
+interest. They provide measurements without requiring repeated manual
+sampling or removal of material from the monitored environment. In-situ
+sensors are useful in environmental monitoring because they can collect
+data continuously from remote locations. They may include temperature,
+air-quality, soil-moisture, and groundwater sensors and can be integrated
+with processing and wireless communication hardware
+\cite{barnhart2010groundwater}.
+
+\subsection{Low-Power Systems}
+
+Low-power systems are designed to operate with minimal energy consumption
+over extended periods, often using batteries or harvested energy. These
+systems commonly operate intermittently and use hardware and software
+optimization to reduce their duty cycle. Sleep modes disable non-essential
+functions while preserving the control functions needed to wake the device
+at scheduled intervals. This approach is important for battery-powered IoT
+devices deployed in remote areas \cite{skuta2020power, montoya2018sward}.
+
+\subsection{Cloud-Based Data Platforms}
+
+Cloud-based data platforms provide online infrastructure for storing,
+managing, processing, and analyzing data. They allow users to access data
+remotely without maintaining local high-capacity storage or computing
+hardware. Cloud services are commonly used in IoT systems for device
+management, data processing, visualization, and analytics. Examples include
+Amazon Web Services, Google Cloud, and Microsoft Azure. In this thesis,
+ThingSpeak provides the cloud-based storage and visualization service for
+the collected sensor measurements \cite{sun2011cloud}.
+
 \section{Background of the Study}
 Icelandic turf houses are important cultural and architectural heritage structures whose turf construction requires continued maintenance. The literature supplied for this thesis describes the long history of turf construction in Iceland and the need to understand turf layers and their environmental conditions. Moisture is particularly relevant because turf and timber components are susceptible to deterioration, while the conservation of heritage structures requires maintenance approaches that do not unnecessarily disturb the site.
 
