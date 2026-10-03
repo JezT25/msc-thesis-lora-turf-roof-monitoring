@@ -57,6 +57,7 @@
 
 % Visible reminders for unfinished thesis details during editing.
 \newcommand{\thesisnote}[2]{\textcolor{red}{\textbf{#1:} #2}}
+\newcommand{\draftchange}[1]{\textcolor{purple}{#1}}
 
 \setlength{\parskip}{\baselineskip}
 \setlength{\parindent}{0cm}
@@ -105,7 +106,6 @@ Dórótea Höeg Sigurðardóttir}
 \def\thesisISBN{}
 \def\thesisprinting{}
 \def\thesislicense{This thesis may not be copied in any form without the author's permission.}
-
 \newcommand{\removelinebreaks}[1]{\begingroup\def\\{}#1\endgroup}
 
 \begin{document}
@@ -237,61 +237,63 @@ The results demonstrate the feasibility of a low-cost, low-power LoRa-based moni
 \addcontentsline{toc}{chapter}{Abbreviations}
 \begingroup
 \small
+\color{purple}
 \begin{longtable}{@{}p{0.18\textwidth}p{0.76\textwidth}@{}}
-AH & Absolute Humidity\\
-FDR & Frequency Domain Reflectometry\\
-RH & Relative Humidity\\
-TDR & Time Domain Reflectometry\\
-WSN & Wireless Sensor Network\\
-IoT & Internet of Things\\
-LoRa & Long Range\\
-RTC & Real-Time Clock\\
-MCU & Microcontroller Unit\\
-MOSFET & Metal-Oxide-Semiconductor Field-Effect Transistor\\
 ADC & Analog-to-Digital Converter\\
-VWC & Volumetric Water Content\\
-RSSI & Received Signal Strength Indicator\\
-PCB & Printed Circuit Board\\
-SD & Secure Digital\\
-I\textsuperscript{2}C & Inter-Integrated Circuit\\
-SPI & Serial Peripheral Interface\\
+ADR & Adaptive Data Rate\\
+AES & Advanced Encryption Standard\\
+AH & Absolute Humidity\\
 API & Application Programming Interface\\
+AWS & Amazon Web Services\\
 BW & Bandwidth\\
-SF & Spreading Factor\\
 CR & Coding Rate\\
 CRC & Cyclic Redundancy Check\\
-PL & Payload Length\\
-OOP & Object-Oriented Programming\\
-IDE & Integrated Development Environment\\
-HTTP & Hypertext Transfer Protocol\\
+CSMA/CA & Carrier Sense Multiple Access with Collision Avoidance\\
+ECTS & European Credit Transfer and Accumulation System\\
+FDR & Frequency Domain Reflectometry\\
+FPGA & Field-Programmable Gate Array\\
+GCP & Google Cloud Platform\\
 GPIO & General-Purpose Input/Output\\
-NTP & Network Time Protocol\\
-RX & Receive\\
-TX & Transmit\\
+GSM & Global System for Mobile Communications\\
+HTTP & Hypertext Transfer Protocol\\
+I\textsuperscript{2}C & Inter-Integrated Circuit\\
+ID & Identifier\\
+IDE & Integrated Development Environment\\
+IPv6 & Internet Protocol version 6\\
 ISM & Industrial, Scientific, and Medical\\
-RMSE & Root Mean Square Error\\
-USB & Universal Serial Bus\\
+IoT & Internet of Things\\
 LED & Light-Emitting Diode\\
 Li-Ion & Lithium-Ion\\
+LoRa & Long Range\\
 LPWAN & Low-Power Wide-Area Network\\
-RF & Radio Frequency\\
+MCU & Microcontroller Unit\\
+MOSFET & Metal-Oxide-Semiconductor Field-Effect Transistor\\
 NB-IoT & Narrowband Internet of Things\\
-AWS & Amazon Web Services\\
-GCP & Google Cloud Platform\\
-UAV & Unmanned Aerial Vehicle\\
-SaaS & Software as a Service\\
-IPv6 & Internet Protocol version 6\\
-FPGA & Field-Programmable Gate Array\\
-SoC & System on Chip\\
-WBAN & Wireless Body Area Network\\
-GSM & Global System for Mobile Communications\\
-ADR & Adaptive Data Rate\\
-TP & Transmission Power\\
+NTP & Network Time Protocol\\
+OOP & Object-Oriented Programming\\
+PCB & Printed Circuit Board\\
+PL & Payload Length\\
 RC4 & Rivest Cipher 4\\
-AES & Advanced Encryption Standard\\
-CSMA/CA & Carrier Sense Multiple Access with Collision Avoidance\\
-ID & Identifier\\
+RF & Radio Frequency\\
+RH & Relative Humidity\\
+RMSE & Root Mean Square Error\\
+RSSI & Received Signal Strength Indicator\\
+RTC & Real-Time Clock\\
+RX & Receive\\
+SaaS & Software as a Service\\
+SD & Secure Digital\\
+SF & Spreading Factor\\
+SoC & System on Chip\\
+SPI & Serial Peripheral Interface\\
+TDR & Time Domain Reflectometry\\
+TP & Transmission Power\\
+TX & Transmit\\
+UAV & Unmanned Aerial Vehicle\\
+USB & Universal Serial Bus\\
+VWC & Volumetric Water Content\\
+WBAN & Wireless Body Area Network\\
 Wi-Fi & Wireless networking technology\\
+WSN & Wireless Sensor Network\\
 \end{longtable}
 \endgroup
 
@@ -346,6 +348,79 @@ Future work should focus on extending the duration of field deployments, improvi
 
 \appendix
 \chapter{Additional Material}
-This appendix is reserved for final hardware schematics, PCB drawings, firmware listings, raw calibration data, additional field-test plots, and deployment photographs.
+\section{\texorpdfstring{\draftchange{Bill of Materials}}{Bill of Materials}}
+\draftchange{This bill of materials is based on the latest v1.1 PCBA worksheet in the project workbook. It includes the sensor-node PCB assembly and its associated modules and materials; the older board revision and unrelated workshop purchases are excluded. Costs are in ISK. A dash or blank price in the source is shown as ``Not priced,'' and alternate footprints marked NO-POP are shown as ``Not populated.''}
+
+\draftchange{The worksheet reports a total of ISK 11,771.44, but that total omits the PCB fabrication line (ISK 137.00) and the D2 diode (ISK 13.00), which appear outside its total row. Recomputing all priced v1.1 entries gives ISK 11,921.44. Individual displayed costs are rounded to two decimal places, so their displayed sum is ISK 11,921.41. The D2 value is listed as 1N4001 while its device field says 1N4004; this discrepancy is preserved here for verification.}
+
+\subsection{\texorpdfstring{\draftchange{PCB Assembly}}{PCB Assembly}}
+\begingroup
+\small
+\color{purple}
+\begin{longtable}{@{}p{0.20\textwidth}p{0.54\textwidth}>{\raggedleft\arraybackslash}p{0.18\textwidth}@{}}
+\textbf{Reference} & \textbf{Component or value} & \textbf{Cost (ISK)} \\
+\toprule
+PCB & PCB fabrication & 137.00 \\
+C1 & \(0.1~\mu\text{F}\) capacitor & 14.99 \\
+C2--C4 & Three \(10~\mu\text{F}\) polarized capacitors & 19.19 \\
+D1 & 1N4148 diode & 50.00 \\
+D2 & 1N4001 diode; device field says 1N4004 & 13.00 \\
+H1--H2 & Mounting holes; listed price is for standoffs & 4.41 \\
+J1--J2 & Battery positive and negative connections & Not priced \\
+JP1--JP4 & Normally open jumpers & Not priced \\
+JP5--JP6 & RA-02 pin headers & 43.44 \\
+JP7 & RA-01 alternate header footprint & Not populated \\
+JP8, JP9, JP15, JP17 & Power-selection jumpers & Not priced \\
+JP10 & DS3231 header & 18.71 \\
+JP11 & AHT10 header & 22.51 \\
+JP12 & DS18B20 header & 26.18 \\
+JP13 & Soil-moisture sensor header & 26.18 \\
+JP14 & SD-card header & 18.71 \\
+JP16 & Debug header & Not populated \\
+Q1--Q2 & ZVP2106A P-channel MOSFETs & 242.17 \\
+R1, R3 & Two \(4.7~\text{k}\Omega\) resistors & 12.21 \\
+R2, R7 & Two \(47~\text{k}\Omega\) resistors & 12.06 \\
+R4 & \(10~\text{k}\Omega\) resistor & 6.13 \\
+R5 & \(33~\text{k}\Omega\) resistor & 6.07 \\
+R6, R8 & Two \(100~\text{k}\Omega\) resistors & 12.26 \\
+SW1 & Three-position hardware-ID DIP switch & 50.53 \\
+SW2 & Power DIP switch & 46.81 \\
+T1--T2 & Two 2N2222 NPN transistors & 30.57 \\
+U\$1 & ABK Pro Mini Arduino clone & 541.11 \\
+-- & Two Pro Mini female headers, 1\texttimes 12 & 52.37 \\
+-- & Pro Mini female header, 1\texttimes 2 & 22.51 \\
+-- & Pro Mini female header, 1\texttimes 3 & 19.71 \\
+-- & Pro Mini female header, 1\texttimes 6 & 21.57 \\
+\bottomrule
+\end{longtable}
+\endgroup
+
+\subsection{\texorpdfstring{\draftchange{Modules and Materials}}{Modules and Materials}}
+\begingroup
+\small
+\color{purple}
+\begin{longtable}{@{}p{0.20\textwidth}p{0.54\textwidth}>{\raggedleft\arraybackslash}p{0.18\textwidth}@{}}
+\textbf{Reference} & \textbf{Component or material} & \textbf{Cost (ISK)} \\
+\toprule
+-- & AHT10 temperature and humidity sensor module & 108.39 \\
+-- & Shielded four-wire cable for the AHT10 & 155.27 \\
+-- & SMA-to-uFL female RF adapter cable & 163.05 \\
+-- & 433 MHz antenna & 163.05 \\
+-- & DS3231 real-time clock module & 206.48 \\
+-- & Ra-02 LoRa module with SX1278 transceiver & 949.97 \\
+-- & 1 GB microSD card & 1,690.00 \\
+-- & SD-card serial logger module & 662.46 \\
+-- & Waterproof DS18B20 temperature probe & 281.98 \\
+-- & Capacitive soil-moisture sensor, v1.2 & 254.40 \\
+-- & Three 18650 lithium-ion cells & 3,901.00 \\
+-- & Parallel 18650 battery holder & 280.72 \\
+-- & Waterproof enclosure for antenna and AHT10 & 213.62 \\
+-- & Waterproof enclosure for sensor-node electronics & 420.62 \\
+-- & Mounting screws, glue, solder, and miscellaneous materials & 1,000.00 \\
+\midrule
+\multicolumn{2}{@{}l}{\textbf{Recomputed total from unrounded priced entries}} & \textbf{11,921.44} \\
+\bottomrule
+\end{longtable}
+\endgroup
 
 \end{document}
