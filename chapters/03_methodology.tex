@@ -440,11 +440,12 @@ process allows the sensor nodes to be synchronized on an hourly basis.
 After synchronization, the base station uploads the collected data to
 the cloud, where it is stored and made available for viewing and further
 data analysis by researchers.
+
 \draftchange{The base-station module is shown in Figure~\ref{fig:method-image7}.}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=\textwidth]{figs/method-image7.png}
+\includegraphics[width=0.8\textwidth]{figs/method-image7.png}
 \caption{Base station module with LoRa transceiver and Wi-Fi connectivity for cloud upload.}
 \label{fig:method-image7}
 \end{figure}
@@ -707,11 +708,9 @@ maintaining functional encryption for this prototype. Although RC4 is
 not considered secure for high-security applications due to known
 vulnerabilities, it provides sufficient packet obfuscation for this
 research deployment where low power consumption and computational
-efficiency are prioritized.
+efficiency are prioritized. \draftchange{The RC4 routine used for encryption and decryption is shown in Listing~\ref{lst:rc4}.}
 
-\draftchange{The RC4 routine used for encryption and decryption is shown in Listing~\ref{lst:rc4}.}
-
-\begin{lstlisting}[caption={RC4-based packet encryption routine implemented for lightweight mesh communication security.},label={lst:rc4}]
+\begin{lstlisting}[caption={RC4-based packet encryption routine implemented for lightweight mesh communication security.},label={lst:rc4},basicstyle=\normalsize\ttfamily,captionpos=b]
 void LORA_MODULE_class::rc4EncryptDecrypt(char *data, uint8_t len)
 {
   // Using RC4 because originally AES was the plan but the RAM/CPU on this thing cant take it.
@@ -787,13 +786,6 @@ participating nodes already possess the same data, and retransmission
 would only create unnecessary traffic and potential infinite looping.
 Therefore, the packet is ignored. \draftchange{The relay and update process is illustrated in Figure~\ref{fig:method-image11}.}
 
-\begin{figure}[p]
-\centering
-\includegraphics[width=\textwidth,height=0.84\textheight,keepaspectratio]{figs/method-image11.png}
-\caption{Relay and update process used to propagate missing sensor data through the mesh network.}
-\label{fig:method-image11}
-\end{figure}
-
 In a linear topology scenario, the base station may only be within range
 of Node 1; Node 1 within range of the base station and Node 2; Node 2
 within range of Node 1 and Node 3; and so forth. When the base station
@@ -803,6 +795,15 @@ node updates the ledger. The fully updated ledger then propagates back
 toward the base station through another chain reaction. Once the base
 station receives the complete ledger, the data is saved and uploaded to
 the cloud.
+
+\clearpage
+\begin{figure}[p]
+    \centering
+    \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{figs/method-image11.png}
+    \caption{Relay and update process used to propagate missing sensor data through the mesh network.}
+    \label{fig:method-image11}
+\end{figure}
+\clearpage
 
 \subsubsection{Collision Avoidance (CSMA/CA)}
 
@@ -834,15 +835,6 @@ its transmission and reduces the likelihood of congestion. This
 mechanism ensures that channel noise decreases before additional packets
 are introduced. \draftchange{The CSMA/CA timing strategy is illustrated in Figure~\ref{fig:method-image12}.}
 
-\clearpage
-\begin{figure}[p]
-\centering
-\includegraphics[width=\linewidth,height=0.75\textheight,keepaspectratio]{figs/method-image12.png}
-\caption{CSMA/CA timing strategy used to reduce collisions during mesh packet transmission.}
-\label{fig:method-image12}
-\end{figure}
-\clearpage
-
 In a scenario where all nodes are within range of each other, meaning a
 single transmission is received by all nodes, those with lower hardware
 IDs transmit first due to shorter timeouts. For example, once all nodes
@@ -860,6 +852,15 @@ However, due to the mesh structure of the network, the loss of a single
 packet is recoverable. Since data is continuously relayed among nodes,
 missed information can be recovered from neighboring nodes in subsequent
 transmissions.
+
+\clearpage
+\begin{figure}[p]
+\centering
+\includegraphics[width=\linewidth,height=0.75\textheight,keepaspectratio]{figs/method-image12.png}
+\caption{CSMA/CA timing strategy used to reduce collisions during mesh packet transmission.}
+\label{fig:method-image12}
+\end{figure}
+\clearpage
 
 \subsection{LoRa Firmware Configuration}
 \thesisnote{TODO}{Add details about the selected radio parameters and legal operating settings.}
