@@ -709,14 +709,9 @@ vulnerabilities, it provides sufficient packet obfuscation for this
 research deployment where low power consumption and computational
 efficiency are prioritized.
 
-\draftchange{The RC4 routine used for encryption and decryption is shown in Figure~\ref{fig:method-image10}.}
+\draftchange{The RC4 routine used for encryption and decryption is shown in Listing~\ref{lst:rc4}.}
 
-\begin{figure}[htbp]
-\centering
-\begingroup
-\scriptsize
-\color{purple}
-\begin{verbatim}
+\begin{lstlisting}[caption={RC4-based packet encryption routine implemented for lightweight mesh communication security.},label={lst:rc4}]
 void LORA_MODULE_class::rc4EncryptDecrypt(char *data, uint8_t len)
 {
   // Using RC4 because originally AES was the plan but the RAM/CPU on this thing cant take it.
@@ -751,11 +746,7 @@ void LORA_MODULE_class::rc4EncryptDecrypt(char *data, uint8_t len)
     data[n] ^= rnd;
   }
 }
-\end{verbatim}
-\endgroup
-\caption{RC4-based packet encryption routine implemented for lightweight mesh communication security.}
-\label{fig:method-image10}
-\end{figure}
+\end{lstlisting}
 
 The encrypted packet structure preserves low computational overhead while still providing basic obfuscation for plaintext LoRa transmissions during early development and testing.
 
@@ -1234,8 +1225,11 @@ environmental conditions on performance.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[angle=-90,width=0.48\textwidth,height=0.34\textheight,keepaspectratio]{figs/keldur-turf-roofs.jpg}\hfill
-\includegraphics[angle=-90,width=0.48\textwidth,height=0.34\textheight,keepaspectratio]{figs/keldur-sensor-installation.jpg}
+% NOTE: specifying both width and height (with keepaspectratio) can trigger
+% "Package graphics Error: Division by 0" with some JPEGs/drivers.
+% Use width only and let graphicx keep the aspect ratio.
+\includegraphics[angle=-90,width=0.48\textwidth]{figs/keldur-turf-roofs.jpg}\hfill
+\includegraphics[angle=-90,width=0.48\textwidth]{figs/keldur-sensor-installation.jpg}
 \caption{\draftchange{Turf-roof buildings and sensor installation area at Keldur.}}
 \label{fig:keldur-sensor-installation}
 \end{figure}

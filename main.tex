@@ -16,6 +16,16 @@
 \usepackage[intoc]{nomencl}
 \usepackage{enumerate}
 \usepackage{xcolor}
+
+% Code listings (used for RC4 routine etc.)
+\usepackage{listings}
+\renewcommand{\lstlistlistingname}{List of Listings}
+\lstset{%
+  basicstyle=\ttfamily\scriptsize,
+  breaklines=true,
+  columns=fullflexible
+}
+
 \usepackage{tikz}
 \usetikzlibrary{positioning}
 % \usetikzlibrary{external}
@@ -151,10 +161,11 @@ Dórótea Höeg Sigurðardóttir}
     \end{center}
   \end{minipage}
 
+  % Start the next title-page block on a fresh page.
+  % Insert an intentionally blank page after the cover.
   \newpage
   \thispagestyle{empty}\mbox{}
   \newpage
-
   \thispagestyle{empty}
   \begin{center}
     \vspace*{\stretch{0.5}}
@@ -307,11 +318,14 @@ Wi-Fi & Wireless networking technology\\
 WSN & Wireless Sensor Network\\
 \end{longtable}
 \endgroup
-
 \hypersetup{pageanchor=true}
 \tableofcontents
 \listoffigures
 \listoftables
+% List of code listings (from the listings package)
+\addcontentsline{toc}{chapter}{\lstlistlistingname}
+\lstlistoflistings
+
 
 % Start main matter page numbering at the Introduction
 \cleardoublepage
@@ -322,7 +336,6 @@ WSN & Wireless Sensor Network\\
 
 \chapter{Review of Related Literature}
 \input{chapters/02_rrl}
-
 
 \chapter{Methodology}
 \input{chapters/03_methodology}
