@@ -174,8 +174,7 @@ integrity.
 \section{Initial Field
 Deployment}
 
-An initial field test was conducted at various locations around the
-University of Iceland (Háskóli Íslands) campus. The primary objective of
+\draftchange{An initial field test was conducted on the University of Iceland (Háskóli Íslands) campus, with sensor nodes positioned approximately 50--100 m from the base station.} The primary objective of
 this deployment was not to evaluate the final performance of the system,
 but rather to validate the functionality of the preliminary hardware,
 firmware, and communication system under real outdoor conditions. Since
@@ -523,6 +522,8 @@ these sensors mounted externally above the enclosure. This design
 variation was intentionally implemented to compare the measurement
 accuracy of both configurations under real environmental conditions.
 
+\draftchange{Weather data used for comparison were obtained from the Sámsstaðir automatic weather station, operated by the Icelandic Meteorological Office (Veðurstofa Íslands). It is commonly identified as \textit{samst}, station 6222, and has been active since 2000. It is the closest station listed on vedur.is to the Keldur test site, at a distance of 9.75 km. Its coordinates are latitude 63.735370636° and longitude -20.1090698242°.}
+
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth,height=5.20833in,keepaspectratio]{figs/results-image6.png}
@@ -533,56 +534,34 @@ accuracy of both configurations under real environmental conditions.
 \subsection{Air Temperature
 Performance}
 
-Figure~\ref{fig:results-12} compares the measured air temperature from all deployed
-sensor nodes with data obtained from the nearby weather station.
+\draftchange{Figure~\ref{fig:results-12} compares the measured air temperature from all deployed sensor nodes with data obtained from the Sámsstaðir station (samst, 6222).}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth,height=3in,keepaspectratio]{figs/results-image7.png}
-\caption{Comparison of air temperature measurements from the deployed sensor nodes and the nearby weather station.}
+\caption{\draftchange{Comparison of air temperature measurements from the deployed sensor nodes and the Sámsstaðir station (samst, 6222).}}
 \label{fig:results-12}
 \end{figure}
 
-The results show that Sensor Nodes 5 and 7 closely followed the weather
-station throughout the deployment period. Daily temperature
-fluctuations, cold periods, and warming trends were clearly captured by
-both sensors with only minor deviations. This indicates that placing the
-air temperature sensor outside the enclosure provides measurements that
-better represent the surrounding atmospheric conditions.
+\draftchange{The results show that Sensor Nodes 5 and 7 closely followed observations from station 6222 throughout the deployment period. Daily temperature fluctuations, cold periods, and warming trends were clearly captured by both sensors with only minor deviations. This indicates that placing the air temperature sensor outside the enclosure provides measurements that better represent the surrounding atmospheric conditions.}
 
-In contrast, Sensor Nodes 1 and 3, whose air sensors were installed
-inside the waterproof enclosure, produced smoother temperature curves
-with noticeably reduced daily fluctuations. Internal heating from
-electronic components together with the thermal insulation provided by
-the enclosure resulted in a damped response compared to the weather
-station. Although these measurements remained useful for monitoring the
-internal sensor environment, they were less representative of the true
-ambient air temperature.
+\draftchange{In contrast, Sensor Nodes 1 and 3, whose air sensors were installed inside the waterproof enclosure, produced smoother temperature curves with noticeably reduced daily fluctuations. Internal heating from electronic components together with the thermal insulation provided by the enclosure resulted in a damped response compared with station 6222. Although these measurements remained useful for monitoring the internal sensor environment, they were less representative of the true ambient air temperature.}
 
-The average absolute temperature difference between the deployed sensors
-and the weather station ranged from approximately \textbf{3.06 °C to
-3.27 °C}, with Sensor Node 7 producing the lowest average deviation
-among all deployed units. Overall, the results indicate that external
-placement of the air temperature sensor is preferable when accurate
-ambient air measurements are required.
+\draftchange{The average absolute temperature difference between the deployed sensors and station 6222 ranged from approximately \textbf{3.06 °C to 3.27 °C}, with Sensor Node 7 producing the lowest average deviation among all deployed units. Overall, the results indicate that external placement of the air temperature sensor is preferable when accurate ambient air measurements are required.}
 
 \subsection{Relative Humidity
 Performance}
 
-Figure~\ref{fig:results-13} presents the relative humidity measurements obtained from
-all deployed nodes together with the weather station reference.
+\draftchange{Figure~\ref{fig:results-13} presents the relative humidity measurements obtained from all deployed nodes together with reference data from the Sámsstaðir station (samst, 6222).}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth,height=3in,keepaspectratio]{figs/results-image8.png}
-\caption{Comparison of relative humidity measurements from the deployed sensor nodes and the nearby weather station.}
+\caption{\draftchange{Comparison of relative humidity measurements from the deployed sensor nodes and the Sámsstaðir station (samst, 6222).}}
 \label{fig:results-13}
 \end{figure}
 
-Sensor Nodes 5 and 7, with externally mounted humidity sensors, closely
-tracked the overall humidity changes observed by the weather station.
-High humidity events approaching saturation and periods of decreasing
-humidity were successfully detected throughout the deployment.
+\draftchange{Sensor Nodes 5 and 7, with externally mounted humidity sensors, closely tracked the overall humidity changes observed at station 6222. High humidity events approaching saturation and periods of decreasing humidity were successfully detected throughout the deployment.}
 
 Conversely, Sensor Nodes 1 and 3, which housed the humidity sensors
 inside the enclosure, displayed a gradual increase in humidity over
@@ -601,49 +580,25 @@ provide measurements that more accurately represent ambient conditions.
 \subsection{Soil Temperature
 Performance}
 
-Figure~\ref{fig:results-14} illustrates the soil temperature measurements collected by
-the four buried sensor nodes together with the available temperature
-data from the nearby weather
-station.
+\draftchange{Figure~\ref{fig:results-14} illustrates the soil temperature measurements collected by the four buried sensor nodes together with ground-level temperature data from the Sámsstaðir station (samst, 6222).}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth,height=3in,keepaspectratio]{figs/results-image9.png}
-\caption{Comparison of soil temperature measurements from the deployed sensor nodes and the nearby weather station.}
+\caption{\draftchange{Comparison of soil temperature measurements from the deployed sensor nodes and ground-level data from the Sámsstaðir station (samst, 6222).}}
 \label{fig:results-14}
 \end{figure}
 
-Unlike air temperature, soil temperature measurements from all four
-deployed nodes exhibited similar behavior regardless of installation
-configuration. The measured soil temperatures were significantly more
-stable than the weather station temperature, remaining close to the
-freezing point for much of the observation period. Rapid daily
-fluctuations observed by the weather station were heavily damped by the
-thermal mass of the turf roof and surrounding soil.
+\draftchange{Unlike air temperature, soil temperature measurements from all four deployed nodes exhibited similar behavior regardless of installation configuration. The measured soil temperatures were significantly more stable than the air temperature recorded at station 6222, remaining close to the freezing point for much of the observation period. Rapid daily fluctuations in station 6222's air-temperature record were heavily damped by the thermal mass of the turf roof and surrounding soil.}
 
 This behavior is expected since soil naturally buffers rapid temperature
 changes. Even when air temperatures varied between approximately
 \textbf{−8 °C and +10 °C}, soil temperatures remained close to \textbf{0
 °C} with only gradual seasonal variation.
 
-It should be noted that the nearby weather station did \textbf{not}
-provide underground soil temperature measurements at the same depth as
-the deployed sensors. As a result, the comparison was performed using
-the weather station\textquotesingle s \textbf{ground-level (surface)
-temperature} data, which served as the closest available reference.
-Since the developed sensor nodes measured soil temperature at depths
-ranging from approximately \textbf{60 mm to 85 mm} below the turf
-surface, some difference between the two datasets was expected. Soil
-temperatures below the surface are naturally more thermally stable and
-less affected by rapid atmospheric temperature changes than temperatures
-measured at or near the ground surface.
+\draftchange{Station 6222 does \textbf{not} provide underground soil temperature measurements at the same depth as the deployed sensors. The comparison therefore used the station's \textbf{ground-level (surface) temperature} data as the closest available reference. Since the developed sensor nodes measured soil temperature at depths ranging from approximately \textbf{60 mm to 85 mm} below the turf surface, some difference between the two datasets was expected. Soil temperatures below the surface are naturally more thermally stable and less affected by rapid atmospheric temperature changes than temperatures measured at or near the ground surface.}
 
-Consequently, the average absolute difference between the deployed
-sensor measurements and the weather station data ranged from
-approximately \textbf{2.77 °C to 3.11 °C}. This difference should
-therefore not be interpreted solely as measurement error but rather as a
-consequence of comparing temperatures measured at different depths and
-under different environmental conditions.
+\draftchange{Consequently, the average absolute difference between the deployed sensor measurements and station 6222 data ranged from approximately \textbf{2.77 °C to 3.11 °C}. This difference should therefore not be interpreted solely as measurement error but rather as a consequence of comparing temperatures measured at different depths and under different environmental conditions.}
 
 Overall, the soil temperature measurements demonstrated consistent
 long-term behavior and confirmed that the sensors operated reliably
@@ -700,13 +655,7 @@ the implemented low-power algorithm.
 \label{fig:results-8}
 \end{figure}
 
-Sensor Node 5 produced air temperature and humidity measurements that
-closely matched the nearby weather station due to its externally mounted
-atmospheric sensors. Soil moisture remained consistently higher than the
-other deployed nodes, suggesting that its installation location retained
-more water within the turf roof. Battery voltage remained nearly
-constant throughout the deployment, demonstrating excellent energy
-efficiency despite continuous operation.
+\draftchange{Sensor Node 5 produced air temperature and humidity measurements that closely matched station 6222 due to its externally mounted atmospheric sensors. Soil moisture remained consistently higher than the other deployed nodes, suggesting that its installation location retained more water within the turf roof. Battery voltage remained nearly constant throughout the deployment, demonstrating excellent energy efficiency despite continuous operation.}
 
 \subparagraph{Sensor Node 7}
 
@@ -737,15 +686,7 @@ deployment, the system continuously measured air temperature, relative
 humidity, soil temperature, soil moisture, and battery voltage while
 transmitting data to the cloud for remote monitoring.
 
-Comparison with the nearby weather station showed that externally
-mounted atmospheric sensors provided significantly better agreement with
-ambient environmental conditions than sensors installed inside the
-waterproof enclosure. Soil temperature measurements remained stable
-despite large fluctuations in air temperature, demonstrating the thermal
-buffering characteristics of the turf roof. Battery monitoring further
-confirmed the effectiveness of the implemented low-power design, with
-most sensor nodes maintaining stable battery voltage throughout more
-than two months of continuous operation.
+\draftchange{Comparison with data from the Sámsstaðir weather station (samst, 6222) was used to assess the agreement between the system's atmospheric measurements and external reference data. Soil temperature measurements showed less variation than air temperature measurements during periods of changing environmental conditions, consistent with the thermal buffering effect of the soil and turf layer. Battery voltage measurements also provided information about battery performance during the long-term deployment, which continued for more than two months.}
 
 Although two sensor nodes experienced hardware failures near the end of
 the deployment, the remaining nodes continued operating successfully,
