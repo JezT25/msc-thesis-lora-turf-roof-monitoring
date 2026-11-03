@@ -83,8 +83,8 @@
 \setcounter{secnumdepth}{2}
 
 % ===== Thesis metadata =====
-\def\thesisyear{2027}
-\def\thesismonth{February}
+\def\thesisyear{\draftchange{2027}}
+\def\thesismonth{\draftchange{February}}
 \def\thesisauthor{Jezreel V. Tan}
 \def\thesistitledi{Design and Implementation of a Low-Power LoRa Wireless Sensor Mesh Network with Cloud Storage for Monitoring Soil Conditions on Icelandic Turf Roofs}
 \def\thesissubtitle{}
@@ -214,7 +214,7 @@ Dórótea Höeg Sigurðardóttir}
 \addcontentsline{toc}{chapter}{Abstract}
 The thesis presents the design, implementation, and evaluation of a low-power wireless sensor mesh network intended for monitoring soil and environmental conditions beneath Icelandic turf roofs. The system uses low-cost, off-the-shelf sensor nodes based on an Arduino Pro Mini, an SX1278-based 433 MHz LoRa transceiver, a capacitive soil moisture sensor, a DS18B20 soil temperature sensor, an AHT10 temperature and humidity sensor, local SD-card storage, a real-time clock, and a three-cell 18650 battery pack. A LoRa base station forwards collected data to the ThingSpeak cloud platform for remote access and visualization.
 
-Laboratory and field testing evaluated power consumption, wireless communication, sensor performance, soil moisture calibration, and cloud upload reliability. Under the documented worst-case operating cycle, the sensor node consumed approximately 3.08 mA on average, corresponding to an idealized lifetime of approximately 142 days with a 10,500 mAh battery capacity. Range testing around Vellir in Hafnarfjörður achieved reliable single-hop communication over an approximate 3 km radius using correctly matched 433 MHz LoRa antennas. Long-term deployment at Keldur demonstrated continuous environmental monitoring, although two nodes experienced hardware failures near the end of the documented deployment period. Soil moisture calibration produced a nonlinear second-order relationship over the 0--40\% moisture range, with an approximate root mean square error of 3\% soil moisture relative to the HOBO reference. ThingSpeak uploads using HTTP POST achieved an average upload time of approximately 1--2 seconds and an observed failure rate of 0\%.
+Laboratory and field testing evaluated power consumption, wireless communication, sensor performance, soil moisture calibration, and cloud upload reliability. \draftchange{Under the documented worst-case operating cycle, consisting of 55 minutes in deep sleep, 3 seconds with sensors enabled, 60 seconds of LoRa transmission and reception, and 237 seconds in half-sleep per hour, the sensor node consumed approximately 3.08 mA on average. Assuming an ideal battery capacity of 10,500 mAh from three 3,500 mAh cells connected in parallel, this corresponds to an estimated operational lifetime of approximately 142 days. This estimate does not account for battery capacity losses under low-temperature conditions. Field range testing in the semi-urban environment of Vellir, Hafnarfj\"{o}r\dh ur, achieved reliable single-hop communication within an approximate 3 km radius using correctly matched 433 MHz LoRa antennas, with a transmission power of 17 dBm, a bandwidth of 125 kHz, and a spreading factor of 10. Communication performance varied with antenna placement and environmental obstructions, particularly buildings and terrain.} Long-term deployment at Keldur demonstrated continuous environmental monitoring, although two nodes experienced hardware failures near the end of the documented deployment period. Soil moisture calibration produced a nonlinear second-order relationship over the 0--40\% moisture range, with an approximate root mean square error of 3\% soil moisture relative to the HOBO reference. ThingSpeak uploads using HTTP POST achieved an average upload time of approximately 1--2 seconds and an observed failure rate of 0\%.
 
 The results demonstrate the feasibility of a low-cost, low-power LoRa-based monitoring system for Icelandic turf roofs and provide a practical foundation for longer-term heritage-site environmental monitoring.
 
@@ -223,7 +223,16 @@ The results demonstrate the feasibility of a low-cost, low-power LoRa-based moni
 
 \chapter*{Útdráttur}
 \addcontentsline{toc}{chapter}{Útdráttur}
-\thesisnote{TODO}{Add the Icelandic abstract before final submission.}
+\draftchange{Í þessari ritgerð er fjallað um hönnun, smíði og prófanir á þráðlausu skynjaraneti með möskvatengingu sem er ætlað til að fylgjast með jarðvegs- og umhverfisaðstæðum undir íslenskum torfþökum. Kerfið byggist á ódýrum og aðgengilegum skynjaraeiningum sem nota Arduino Pro Mini, SX1278-byggðan 433 MHz LoRa-samskiptabúnað, rýmdarmæli fyrir jarðvegsraka, DS18B20-hitanema fyrir jarðvegshita, AHT10-nema fyrir lofthita og rakastig, staðbundna gagnageymslu á SD-korti, rauntímaklukku og þriggja frumna 18650-rafhlöðupakka. LoRa-móttökustöð sendir gögn frá skynjurunum áfram til ThingSpeak-skýjaþjónustunnar, þar sem hægt er að nálgast þau og skoða.}
+
+\draftchange{Prófanir á rannsóknarstofu og við raunverulegar aðstæður voru notaðar til að meta orkunotkun, þráðlaus fjarskipti, afköst skynjara, kvörðun jarðvegsrakaskynjara og áreiðanleika gagnaupphleðslu í skýið. Við skilgreinda verstu rekstraraðstöðu, þar sem kerfið var í djúpsvefni í 55 mínútur, með skynjara virka í 3 sekúndur, í LoRa-sendingu og móttöku í 60 sekúndur og í hálfsvefni í 237 sekúndur á hverri klukkustund, var meðalstraumnotkun skynjaraeiningarinnar um 3,08 mA. Miðað við að þrjár 3.500 mAh rafhlöður væru tengdar samhliða, með samtals 10.500 mAh afkastagetu, og að rafhlöðurnar skiluðu fullri uppgefinni afkastagetu, samsvaraði þetta áætluðum rekstrartíma upp á um 142 daga. Matið tekur ekki tillit til minnkunar á nýtanlegri rafhlöðugetu við lágt hitastig. Við prófanir á fjarskiptadrægni í hálfþéttbýlu umhverfi í Völlum í Hafnarfirði náðust áreiðanleg LoRa-fjarskipti yfir eina tengingu innan um 3 km radíuss. Þar voru notuð 433 MHz LoRa-loftnet sem hentuðu tíðninni, 17 dBm sendiafl, 125 kHz bandbreidd og dreifistuðullinn 10. Afköst fjarskiptanna voru háð staðsetningu loftneta og hindrunum í umhverfinu, einkum byggingum og landslagi.}
+
+\draftchange{Langtímaprófanir í Keldum sýndu að hægt var að fylgjast stöðugt með umhverfisaðstæðum, þótt tvær skynjaraeiningar biluðu undir lok þess tímabils sem prófanirnar náðu til. Við kvörðun jarðvegsrakaskynjarans fékkst ólínulegt annars stigs samband á rakabilinu 0--40\%, með um það bil 3\% kvaðratrótarmeðalskekkju miðað við HOBO-viðmiðunarmælinn. Gagnaupphleðslur á ThingSpeak með HTTP POST tóku að meðaltali um 1--2 sekúndur og ekkert misheppnaðist í þeim upphleðslum sem voru mældar.}
+
+\draftchange{Niðurstöðurnar sýna að raunhæft er að þróa ódýrt og orkunýtið LoRa-byggt vöktunarkerfi fyrir íslensk torfþök. Kerfið leggur jafnframt grunn að langtímavöktun umhverfisaðstæðna á minjastöðum.}
+
+\vfill
+\draftchange{\textbf{Lykilorð:} þráðlaust skynjaranet, LoRa, möskvakerfi, jarðvegsraki, torfþök, umhverfisvöktun, orkunýting, ThingSpeak}
 
 \chapter*{Acknowledgments}
 \addcontentsline{toc}{chapter}{Acknowledgments}
@@ -330,7 +339,7 @@ The Keldur deployment demonstrated that the system can collect and transmit envi
 
 Soil moisture calibration established a nonlinear relationship between the low-cost capacitive sensor output and reference moisture measurements over the 0--40\% range. The resulting second-order calibration model achieved an approximate RMSE of 3\% soil moisture relative to the HOBO reference. This level of performance is considered suitable for monitoring wetting and drying trends, although the calibrated range should be expanded if measurements near saturation are required.
 
-Finally, the ThingSpeak integration successfully uploaded sensor measurements using HTTP POST requests. The documented tests achieved HTTP 200 responses, an average upload time of approximately 1--2 seconds, and an observed failure rate of 0\%. This confirms that the cloud component provides a practical method for remote access, visualization, and storage of the collected measurements.
+\draftchange{Finally, the ThingSpeak integration successfully uploaded sensor measurements using HTTP POST requests. During testing, successful requests returned HTTP status code 200 OK, indicating that the server processed the requests successfully. The average upload time was approximately 1--2 seconds, with an observed failure rate of 0\% across the recorded tests. These results demonstrate that the system could upload sensor measurements to ThingSpeak, enabling remote access, visualization, and storage of the collected data.}
 
 \section{Recommendations}
 Future work should focus on extending the duration of field deployments, improving the reliability of individual sensor nodes, and expanding calibration and validation. In particular, the following improvements are recommended:

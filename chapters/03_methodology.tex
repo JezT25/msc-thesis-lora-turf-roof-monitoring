@@ -28,9 +28,7 @@ The collected data is then made accessible to researchers from anywhere.
 \label{fig:method-image1}
 \end{figure}
 
-LoRa was selected for its effectiveness over the short to medium
-distances between turf houses, with the mesh topology improving network
-robustness.
+\draftchange{LoRa was selected for its suitability for low-power wireless communication, with field testing demonstrating reliable single-hop communication within an approximate 3 km radius in a semi-urban environment.}
 
 
 \par
@@ -39,10 +37,7 @@ robustness.
 Requirements}
 
 
-Since turf houses are considered natural heritage sites and museums, the
-system must be invisible to visitors. Therefore, the sensor nodes must
-be well hidden while still being effective in gathering data. The
-functional requirements of the system are as follows:
+\draftchange{As turf houses are part of Iceland's cultural heritage and may serve as museums, the monitoring system must be discreet and avoid disrupting the appearance of the site. The sensor nodes must therefore be concealed beneath the turf while remaining capable of reliably collecting soil and environmental measurements. The functional requirements of the system are as follows:}
 
 \begin{itemize}
 \item
@@ -365,11 +360,7 @@ within a 50.5 mm × 50.5 mm footprint using a two-layer, 1.6 mm thick
 FR-4 substrate. A two-layer design was sufficient due to the relatively
 low routing complexity, helping to reduce manufacturing costs.
 
-The PCB was manufactured by JLCPCB. Ground planes were incorporated
-where possible to improve signal integrity and reduce noise,
-particularly around the LoRa transceiver. Component placement was
-optimized to allow ease of manual assembly and debugging during
-development.
+\draftchange{The PCB was manufactured by JLCPCB, a commercial printed circuit board (PCB) fabrication and assembly service provider. Ground planes were incorporated where possible to improve signal integrity and reduce electrical noise, particularly around the LoRa transceiver. Component placement was designed to facilitate manual assembly and simplify debugging during development.}
 
 The use of pin headers for the sensors simplified the assembly process,
 allowing sensors to be rearranged easily and packed neatly within the
@@ -386,7 +377,8 @@ enclosure.
 
 To ensure reliable operation under the harsh environmental conditions in
 Iceland, all sensor components were enclosed in a weatherproof and
-waterproof housing. The components were assembled neatly inside the
+waterproof housing, as shown in \draftchange{Figure~\ref{fig:method-image6}}.
+The components were assembled neatly inside the
 enclosure to protect them from moisture, rain, snow, and temperature
 variations. Although the initial goal was to minimize the size of the
 sensor module---ideally approaching the size of the main PCB---the
@@ -394,6 +386,13 @@ batteries were the primary limiting factor in reducing the overall form
 factor. Nevertheless, the final design remained compact, easy to handle,
 and capable of housing sufficient battery capacity for long-term
 operation.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=4.33694in,height=3.25921in]{figs/method-image6.jpeg}
+\caption{Weatherproof enclosure design for the buried sensor node and external sensor arrangement.}
+\label{fig:method-image6}
+\end{figure}
 
 Two enclosure designs were developed and evaluated to determine which
 configuration provided better performance and practicality. The first
@@ -416,13 +415,6 @@ were sealed using silicone sealant to ensure watertightness. This final
 sealing step was critical in protecting the electronics from water
 ingress caused by rain, snow, and meltwater, thereby improving the
 overall durability and reliability of the system.
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=4.33694in,height=3.25921in]{figs/method-image6.jpeg}
-\caption{Weatherproof enclosure design for the buried sensor node and external sensor arrangement.}
-\label{fig:method-image6}
-\end{figure}
 
 \subsection{Base Station Module}
 
@@ -552,12 +544,7 @@ The full source code repository is publicly available at:\\
 
 \subsection{The LoRa Mesh System}
 
-During the early stages of algorithm development, particular attention
-was given to how sensor data could be distributed evenly, reliably, and
-robustly across the mesh network. The primary objective was not only to
-ensure that the base station received all measurements, but also to
-enhance network resilience by reducing dependence on a single
-communication path.
+\draftchange{During the early stages of algorithm development, attention was given to how sensor measurements could be forwarded through the mesh network to the base station. The design aimed to reduce dependence on a single communication path by allowing data to be relayed between sensor nodes. The effectiveness of this approach depends on the implemented routing logic and the network conditions.}
 
 An architectural concept inspired by distributed ledger systems, such as
 blockchain, influenced the final design. In blockchain systems, a shared
@@ -719,7 +706,46 @@ The implemented function is shown below:
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=\textwidth,height=5.01875in,keepaspectratio]{figs/method-image10.png}
+\begingroup
+\scriptsize
+\color{purple}
+\begin{verbatim}
+void LORA_MODULE_class::rc4EncryptDecrypt(char *data, uint8_t len)
+{
+  // Using RC4 because originally AES was the plan but the RAM/CPU on this thing cant take it.
+  // RC4 uses 256 but this code is limited to 255. (uint8_t[255] = 256 bytes | uint16_t[256] = 512 bytes)
+  // Save the RAM!
+
+  uint8_t S[RC4_BYTES];
+  for (uint8_t i = 0; i < RC4_BYTES; i++)
+  {
+    S[i] = i;
+  }
+
+  uint8_t j = 0, temp;
+  uint8_t enc_len = strlen(ENCRYPTION_KEY);
+  for (uint8_t i = 0; i < RC4_BYTES; i++)
+  {
+    j = (j + S[i] + ENCRYPTION_KEY[i % enc_len]) % RC4_BYTES;
+    temp = S[i];
+    S[i] = S[j];
+    S[j] = temp;
+  }
+
+  uint8_t rnd = 0, i = 0; j = 0;
+  for (uint8_t n = 0; n < len - 1; n++) // -1 dont include null terminator
+  {
+    i = (i + 1) % RC4_BYTES;
+    j = (j + S[i]) % RC4_BYTES;
+    temp = S[i];
+    S[i] = S[j];
+    S[j] = temp;
+    rnd = S[(S[i] + S[j]) % RC4_BYTES];
+    data[n] ^= rnd;
+  }
+}
+\end{verbatim}
+\endgroup
 \caption{RC4-based packet encryption routine implemented for lightweight mesh communication security.}
 \label{fig:method-image10}
 \end{figure}
@@ -763,12 +789,14 @@ participating nodes already possess the same data, and retransmission
 would only create unnecessary traffic and potential infinite looping.
 Therefore, the packet is ignored.
 
-\begin{figure}[htbp]
+\clearpage
+\begin{figure}[p]
 \centering
-\includegraphics[width=4.43591in,height=4.23923in]{figs/method-image11.png}
+\includegraphics[width=\textwidth,height=0.84\textheight,keepaspectratio]{figs/method-image11.png}
 \caption{Relay and update process used to propagate missing sensor data through the mesh network.}
 \label{fig:method-image11}
 \end{figure}
+\clearpage
 
 In a linear topology scenario, the base station may only be within range
 of Node 1; Node 1 within range of the base station and Node 2; Node 2
@@ -810,12 +838,14 @@ its transmission and reduces the likelihood of congestion. This
 mechanism ensures that channel noise decreases before additional packets
 are introduced.
 
-\begin{figure}[htbp]
+\clearpage
+\begin{sidewaysfigure}[p]
 \centering
-\includegraphics[width=\textwidth,height=5.16528in,keepaspectratio]{figs/method-image12.png}
+\includegraphics[width=\textheight,height=\textwidth,keepaspectratio]{figs/method-image12.png}
 \caption{CSMA/CA timing strategy used to reduce collisions during mesh packet transmission.}
 \label{fig:method-image12}
-\end{figure}
+\end{sidewaysfigure}
+\clearpage
 
 In a scenario where all nodes are within range of each other, meaning a
 single transmission is received by all nodes, those with lower hardware
@@ -856,12 +886,14 @@ data to the mesh network, and then returns to deep sleep. This cycle
 repeats continuously throughout
 deployment.
 
-\begin{figure}[htbp]
+\clearpage
+\begin{figure}[p]
 \centering
-\includegraphics[width=1.36654in,height=4.44873in]{figs/method-image14.png}
+\includegraphics[width=\textwidth,height=0.84\textheight,keepaspectratio]{figs/method-image14.png}
 \caption{Operational duty-cycle diagram of the in-situ sensor node during deployment.}
 \label{fig:method-image14}
 \end{figure}
+\clearpage
 
 \subsubsection{Sensor Data Reading}
 
@@ -891,13 +923,9 @@ for analog calibration.
 
 \subsubsection{Soil Moisture}
 
-The soil moisture sensor operates on a capacitive principle. Using a
-comparator-based circuit (\thesisnote{TODO}{Confirm the comparator chip model}), the dielectric constant of
-the soil affects the sensor output voltage.
+\draftchange{The soil moisture sensor operates on a capacitive principle. Changes in the dielectric properties of the surrounding soil affect the capacitance of the sensing element. The sensor's onboard circuitry converts these changes into an analog output voltage that can be read by the microcontroller.}
 
-With a 3.3 V supply input, the sensor outputs an analog voltage
-proportional to soil moisture. This voltage is read using the 10-bit ADC
-of the ATmega328P.
+\draftchange{With a 3.3 V supply, the microcontroller reads this voltage using the ATmega328P's 10-bit ADC.}
 
 ADC resolution:
 
@@ -954,18 +982,18 @@ from pool.ntp.org. Although nodes are equipped with RTC modules,
 periodic synchronization ensures that all nodes remain aligned and wake
 simultaneously, preventing missed data requests.
 
-\begin{figure}[htbp]
+\clearpage
+\begin{figure}[p]
 \centering
-\includegraphics[width=1.41462in,height=3.26566in]{figs/method-image15.png}
+\includegraphics[width=\textwidth,height=0.84\textheight,keepaspectratio]{figs/method-image15.png}
 \caption{Base station data acquisition and cloud upload workflow for the deployed network.}
 \label{fig:method-image15}
 \end{figure}
+\clearpage
 
 \subsubsection{Uploading the Data}
 
-The cloud platform selected for this project is ThingSpeak.
-To upload data, the base station performs an HTTP request using the
-ThingSpeak API key. \thesisnote{VERIFY}{Confirm whether the request uses POST or GET and add the returned HTTP status code.}
+\draftchange{The cloud platform selected for this project is ThingSpeak. The base station uploads sensor measurements to the platform using an HTTP POST request to the ThingSpeak REST API. The request includes the channel's Write API key and the measurement data. During testing, successful uploads returned HTTP status code 200 OK, with an average upload time of approximately 1--2 seconds.}
 
 
 Since the system can support up to 8 nodes, the base station
@@ -1075,31 +1103,13 @@ partially active within the wireless sensor network.
 
 \subsection{Háskóli Íslands Preliminary Test I}
 
-After all system components had been assembled and verified, an initial
-set of local preliminary tests was conducted at Háskóli Íslands. With
-permission from \thesisnote{TODO}{Add the name of the approving person} and Dorotea, testing
-was carried out on the turf roofs located within the university campus.
+\draftchange{After all system components had been assembled and verified, an initial set of preliminary tests was conducted at Háskóli Íslands. Testing was carried out on the turf roofs located within the university campus with permission from the Faculty of Civil and Environmental Engineering.}
 
-A single LoRa base station was installed in Helgi's office, where it was
-connected to a computer configured for continuous monitoring of incoming
-data via the cloud platform. This setup allowed real-time observation of
-device status, packet reception, and data integrity throughout the test
-period.
+\draftchange{A single LoRa base station was installed in the thesis adviser's office, where it was connected to a computer configured for continuous monitoring of incoming data via the cloud platform. This setup allowed real-time observation of device status, packet reception, and data integrity throughout the test period.}
 
-Four sensor devices were deployed across the surrounding area, primarily
-in the vicinity of the VR-II and VR-III buildings. All devices were
-positioned within an approximate radius of 100 meters from the base
-station, ensuring stable connectivity while enabling early validation of
-system reliability under realistic deployment conditions. For this test,
-each sensor was powered by a single battery cell in order to evaluate
-power consumption and determine the operational lifetime achievable with
-one cell.
+\draftchange{Four sensor devices were deployed across the surrounding area, primarily in the vicinity of the VR-II and VR-III buildings. The devices were positioned within a radius of approximately 50--100 meters from the base station, allowing early evaluation of communication performance and system operation under realistic deployment conditions. For this test, each sensor was powered by a single battery cell to evaluate power consumption and estimate the operational lifetime achievable with one cell.}
 
-The preliminary test phase was conducted over a three-week period, from
-\textbf{June 8 to June 29, 2025}. During this time, the system operated
-continuously, providing insight into long-term stability, data
-consistency, and potential environmental effects on communication
-performance.
+\draftchange{The preliminary test phase was conducted over a three-week period, from \textbf{June 8 to June 29, 2025}. During this time, the system operated continuously, providing insight into long-term stability, data consistency, and potential environmental effects on communication performance.}
 
 \subsection{LoRa Range Tests}
 
@@ -1198,31 +1208,34 @@ environmental conditions on performance.
 
 \section{Deployment in Keldur}
 
-After incorporating lessons learned from the previous test phases, the
-system was considered ready for full deployment. In collaboration with
-Dorotea, a deployment visit was arranged to \textbf{Keldur}. \thesisnote{TODO}{Add the final Keldur site information.}
+\draftchange{Following the previous testing phases, the system was deployed at \textbf{Keldur} on October 17, 2025. The deployment was carried out in collaboration with the Faculty of Civil and Environmental Engineering.}
 
-For this deployment, each sensor node was configured with the maximum
-number of battery cells supported by the enclosure, which was three
-cells per sensor. All sensors were fully sealed and prepared for
-long-term outdoor operation prior to deployment.
+\draftchange{For this deployment, each sensor node was configured with three battery cells, corresponding to the maximum number supported by its enclosure. The sensor units were sealed and prepared for outdoor operation before installation.}
 
-Upon arrival at Keldur, the network infrastructure was already in place
-from earlier testing. The Wi-Fi router was located in the attic of one
-of the turf houses. The LoRa base station was installed at this location
-and connected to the existing network, allowing immediate communication
-with the cloud platform. Once verified, the base station equipment was
-discreetly concealed to avoid visual impact, as the site operates as a
-museum.
+\draftchange{The existing network infrastructure from earlier testing was reused. A Wi-Fi router was located in the attic of one of the turf houses, where the LoRa base station was installed and connected to the network to enable communication with the cloud platform. The base station equipment was concealed to minimise its visual impact on the site, which operates as a museum.}
 
-Following the base station setup, four sensor units were installed
-around the area, with one sensor assigned to each turf roof.
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.82\textwidth,height=0.42\textheight,keepaspectratio]{figs/keldur-base-station.jpg}
+\caption{\draftchange{LoRa base station setup inside a turf house at Keldur.}}
+\label{fig:keldur-base-station}
+\end{figure}
 
-\thesisnote{TODO}{Add details describing sensor placement, mounting method, orientation, and deployment photographs.}
+\draftchange{Four sensor units were installed around the site, with one assigned to each turf roof. The installation took place on a cold, sunny day, providing suitable conditions for carrying out the work. The sensors were buried approximately 60--80 mm below the turf surface, within a soil layer approximately 170 mm deep. This burial depth was chosen because it was approximately midway through the soil layer and allowed the sensor units to be concealed beneath the turf.}
 
-After installation, all equipment was confirmed to be operational and
-securely concealed. The long-term deployment test commenced on
-\textbf{October 17, 2025}, and is currently ongoing. \thesisnote{VERIFY}{Add the end date when the deployment is complete.}
+\draftchange{Sensor placement was generally around 0.9 m from the upper edge of the roof, with horizontal distances varying between approximately 0.5 m and 4.25 m depending on the installation location. This arrangement allowed soil conditions to be monitored while keeping the sensor units concealed beneath the turf.}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.48\textwidth,height=0.34\textheight,keepaspectratio]{figs/keldur-turf-roofs.jpg}\hfill
+\includegraphics[width=0.48\textwidth,height=0.34\textheight,keepaspectratio]{figs/keldur-sensor-installation.jpg}
+\caption{\draftchange{Turf-roof buildings and sensor installation area at Keldur.}}
+\label{fig:keldur-sensor-installation}
+\end{figure}
+
+\draftchange{Following installation, the system was monitored on-site to verify operation. Data from all four sensor nodes were observed in the ThingSpeak cloud platform, confirming that the nodes were communicating with the base station and that their measurements were being uploaded successfully at the time of verification.}
+
+\draftchange{The deployment began on \textbf{October 17, 2025}, following installation and initial verification of the equipment.}
 
 \section{Calibration Method}
 
@@ -1233,10 +1246,7 @@ Logger. The HOBO device is a fully integrated soil moisture logger with
 Bluetooth-based wireless data offload capability and measures both soil
 moisture and temperature.
 
-To ensure scientific accuracy, the gravimetric method was performed
-alongside the sensor comparison to establish the actual soil moisture
-content. Calibration was conducted at \thesisnote{TODO}{Add the laboratory name}
-located at VR-3.
+\draftchange{To ensure scientific accuracy, the gravimetric method was performed alongside the sensor comparison to establish the actual soil moisture content. Calibration was conducted in the Experimental Laboratory of the Faculty of Civil and Environmental Engineering at VR-3.}
 
 An Icelandic soil sample was collected and oven-dried at 105 °C for 32
 hours (from 11:00 AM to 8:00 PM the following day) to remove all

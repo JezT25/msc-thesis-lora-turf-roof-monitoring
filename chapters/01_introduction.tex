@@ -87,8 +87,7 @@ with processing and wireless communication hardware
 
 \subsection{Low-Power Systems}
 
-Low-power systems are designed to operate with minimal energy consumption
-over extended periods, often using batteries or harvested energy. These
+\draftchange{Low-power systems are designed to operate over extended periods while limiting energy consumption.} These
 systems commonly operate intermittently and use hardware and software
 optimization to reduce their duty cycle. Sleep modes disable non-essential
 functions while preserving the control functions needed to wake the device
@@ -117,15 +116,22 @@ Monitoring environmental conditions beneath turf roofs presents several engineer
 The project therefore addresses the need for a practical monitoring system that combines low-cost sensing hardware, low-power operation, long-range wireless communication, local data backup, and cloud-based access in a single deployable platform.
 
 \section{Objectives}
-The study aims to design, implement, and evaluate a low-power LoRa wireless sensor mesh network for monitoring soil and environmental conditions beneath Icelandic turf roofs. The specific objectives are to:
+\draftchange{The aim of this study is to design, implement, and evaluate a low-cost, low-power LoRa-based wireless sensor network for monitoring soil and environmental conditions beneath Icelandic turf roofs.}
+
+\draftchange{The study addresses the following research question:}
+
+\draftchange{\textit{To what extent can a low-cost, low-power LoRa-based wireless sensor network reliably monitor soil and environmental conditions beneath Icelandic turf roofs, while providing local data storage and remote access to collected measurements?}}
+
+\draftchange{To address this question, the study has the following objectives:}
 \begin{enumerate}
-\item measure soil moisture, soil temperature, air temperature, relative humidity, and battery voltage using distributed sensor nodes;
-\item develop a LoRa-based mesh communication system capable of reliably transferring measurements between sensor nodes and a base station;
-\item implement low-power operating modes suitable for long-duration battery-powered deployment;
-\item provide local data backup so measurements are retained when wireless transmissions are missed;
-\item calibrate the low-cost capacitive soil moisture sensor against reference measurements; and
-\item transmit collected measurements to a cloud platform for remote access, visualization, and analysis.
+\item \draftchange{Implement distributed sensor nodes to measure soil moisture, soil temperature, air temperature, relative humidity, and battery voltage.}
+\item \draftchange{Implement a LoRa-based communication system and evaluate its real-world communication range and reliability through field testing.}
+\item \draftchange{Measure the current consumption of the sensor nodes in their different operating modes and estimate battery life under the defined operating cycle.}
+\item \draftchange{Implement local data storage and evaluate its ability to retain measurements when wireless communication is unavailable.}
+\item \draftchange{Calibrate the capacitive soil moisture sensor against reference measurements and evaluate its accuracy using the root mean square error (RMSE).}
+\item \draftchange{Integrate the sensor network with a cloud platform and evaluate data-upload reliability and response time.}
 \end{enumerate}
+\draftchange{The objectives are evaluated through laboratory measurements, field deployments, sensor calibration, wireless communication tests, and cloud-upload experiments. The results are used to assess the performance of the implemented system, identify limitations, and determine which requirements have been demonstrated by the experiments.}
 
 \section{Significance of the Study}
 The project provides a low-cost engineering approach to continuous monitoring of environmental conditions on Icelandic turf roofs. The system is intended to support researchers and conservation personnel by providing measurements without requiring frequent manual sampling or intrusive installation. The use of off-the-shelf components and a modular mesh architecture also provides a basis for scaling the monitoring approach to additional turf-roof sites.
