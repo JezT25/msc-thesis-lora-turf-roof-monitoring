@@ -20,6 +20,7 @@ data such as soil moisture, soil temperature, air humidity, and air
 temperature, and transmit this data efficiently between neighboring
 nodes until it reaches a base station with access to a cloud database.
 The collected data is then made accessible to researchers from anywhere.
+\draftchange{The overall system concept is shown in Figure~\ref{fig:method-image1}.}
 
 \begin{figure}[htbp]
 \centering
@@ -107,6 +108,7 @@ MOSFET-based power control system that disconnects power to sensors
 while the system is in sleep mode. The sensor node is periodically
 awakened by the real-time clock to collect, store, and transmit data
 before returning to low-power sleep operation.
+\draftchange{The in-situ sensor-node hardware configuration is shown in Figure~\ref{fig:method-image2}.}
 
 \begin{figure}[htbp]
 \centering
@@ -295,6 +297,7 @@ functionality.
 
 
 \subsubsection{Power Control and Battery Monitoring}
+\draftchange{The battery-voltage monitoring and power-control circuit is shown in Figure~\ref{fig:method-image3}.}
 \begin{figure}[htbp]
 \centering
 \includegraphics[angle=90,width=5.43347in,height=7.22139in]{figs/method-image3.png}
@@ -329,6 +332,7 @@ adding additional identifier bits using available microcontroller pins.
 For deployments involving multiple systems, software-based hardware
 prefixes can be implemented to distinguish between different system
 groups.
+\draftchange{The custom PCB layout and component placement are shown in Figure~\ref{fig:method-image4}.}
 
 \begin{figure}[htbp]
 \centering
@@ -365,11 +369,12 @@ low routing complexity, helping to reduce manufacturing costs.
 The use of pin headers for the sensors simplified the assembly process,
 allowing sensors to be rearranged easily and packed neatly within the
 enclosure.
+\draftchange{The fabricated sensor-node PCB panel is shown in Figure~\ref{fig:method-image5}.}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=3.84123in,height=3.84985in]{figs/method-image5.png}
-\caption{Assembled sensor node PCB before final enclosure installation.}
+\caption{\draftchange{Fabricated PCB panel containing the sensor-node board design.}}
 \label{fig:method-image5}
 \end{figure}
 
@@ -435,6 +440,7 @@ process allows the sensor nodes to be synchronized on an hourly basis.
 After synchronization, the base station uploads the collected data to
 the cloud, where it is stored and made available for viewing and further
 data analysis by researchers.
+\draftchange{The base-station module is shown in Figure~\ref{fig:method-image7}.}
 
 \begin{figure}[htbp]
 \centering
@@ -650,6 +656,7 @@ All data entries are comma-separated and enclosed within brackets
 packet header defines the type of data being transmitted, such as air
 temperature, relative humidity, soil temperature, soil moisture, battery
 voltage, or time/date synchronization.
+\draftchange{The ledger packet format is illustrated in Figure~\ref{fig:method-image8}.}
 
 \begin{figure}[htbp]
 \centering
@@ -662,7 +669,7 @@ Time/date packets follow a slightly modified format. Instead of
 allocating separate fields per node, the packet's data fields are used
 collectively to distribute synchronized timestamp information across the
 network. This mechanism ensures that all nodes maintain consistent
-system time for logging and coordination purposes.
+system time for logging and coordination purposes. \draftchange{The time-synchronization packet format is shown in Figure~\ref{fig:method-image9}.}
 
 \begin{figure}[htbp]
 \centering
@@ -702,7 +709,7 @@ vulnerabilities, it provides sufficient packet obfuscation for this
 research deployment where low power consumption and computational
 efficiency are prioritized.
 
-The implemented function is shown below:
+\draftchange{The RC4 routine used for encryption and decryption is shown in Figure~\ref{fig:method-image10}.}
 
 \begin{figure}[htbp]
 \centering
@@ -787,16 +794,14 @@ The only situation in which a node does not relay a ledger is when the
 received ledger is identical to its local database. In this case, all
 participating nodes already possess the same data, and retransmission
 would only create unnecessary traffic and potential infinite looping.
-Therefore, the packet is ignored.
+Therefore, the packet is ignored. \draftchange{The relay and update process is illustrated in Figure~\ref{fig:method-image11}.}
 
-\clearpage
 \begin{figure}[p]
 \centering
 \includegraphics[width=\textwidth,height=0.84\textheight,keepaspectratio]{figs/method-image11.png}
 \caption{Relay and update process used to propagate missing sensor data through the mesh network.}
 \label{fig:method-image11}
 \end{figure}
-\clearpage
 
 In a linear topology scenario, the base station may only be within range
 of Node 1; Node 1 within range of the base station and Node 2; Node 2
@@ -836,15 +841,15 @@ transmit, it reevaluates the received packet, updates or discards it
 accordingly, and restarts its timeout counter. This effectively delays
 its transmission and reduces the likelihood of congestion. This
 mechanism ensures that channel noise decreases before additional packets
-are introduced.
+are introduced. \draftchange{The CSMA/CA timing strategy is illustrated in Figure~\ref{fig:method-image12}.}
 
 \clearpage
-\begin{sidewaysfigure}[p]
+\begin{figure}[p]
 \centering
-\includegraphics[width=\textheight,height=\textwidth,keepaspectratio]{figs/method-image12.png}
+\includegraphics[width=\linewidth,height=0.75\textheight,keepaspectratio]{figs/method-image12.png}
 \caption{CSMA/CA timing strategy used to reduce collisions during mesh packet transmission.}
 \label{fig:method-image12}
-\end{sidewaysfigure}
+\end{figure}
 \clearpage
 
 In a scenario where all nodes are within range of each other, meaning a
@@ -867,6 +872,7 @@ transmissions.
 
 \subsection{LoRa Firmware Configuration}
 \thesisnote{TODO}{Add details about the selected radio parameters and legal operating settings.}
+\draftchange{The selected radio configuration is shown in Figure~\ref{fig:method-image13}.}
 
 \begin{figure}[htbp]
 \centering
@@ -884,7 +890,7 @@ The in situ node operates in a low-power duty cycle. It enters deep
 sleep mode, wakes up using an RTC timer, gathers sensor data, transmits
 data to the mesh network, and then returns to deep sleep. This cycle
 repeats continuously throughout
-deployment.
+deployment. \draftchange{The in-situ node duty cycle is shown in Figure~\ref{fig:method-image14}.}
 
 \clearpage
 \begin{figure}[p]
@@ -981,6 +987,7 @@ nodes by sending a formatted packet containing the correct time obtained
 from pool.ntp.org. Although nodes are equipped with RTC modules,
 periodic synchronization ensures that all nodes remain aligned and wake
 simultaneously, preventing missed data requests.
+\draftchange{The base-station data-acquisition and synchronization sequence is shown in Figure~\ref{fig:method-image15}.}
 
 \clearpage
 \begin{figure}[p]
@@ -1212,7 +1219,7 @@ environmental conditions on performance.
 
 \draftchange{For this deployment, each sensor node was configured with three battery cells, corresponding to the maximum number supported by its enclosure. The sensor units were sealed and prepared for outdoor operation before installation.}
 
-\draftchange{The existing network infrastructure from earlier testing was reused. A Wi-Fi router was located in the attic of one of the turf houses, where the LoRa base station was installed and connected to the network to enable communication with the cloud platform. The base station equipment was concealed to minimise its visual impact on the site, which operates as a museum.}
+\draftchange{The existing network infrastructure from earlier testing was reused. A Wi-Fi router was located in the attic of one of the turf houses, where the LoRa base station was installed and connected to the network to enable communication with the cloud platform. The base station equipment was concealed to minimise its visual impact on the site, which operates as a museum. The setup is shown in Figure~\ref{fig:keldur-base-station}.}
 
 \begin{figure}[htbp]
 \centering
@@ -1223,12 +1230,12 @@ environmental conditions on performance.
 
 \draftchange{Four sensor units were installed around the site, with one assigned to each turf roof. The installation took place on a cold, sunny day, providing suitable conditions for carrying out the work. The sensors were buried approximately 60--80 mm below the turf surface, within a soil layer approximately 170 mm deep. This burial depth was chosen because it was approximately midway through the soil layer and allowed the sensor units to be concealed beneath the turf.}
 
-\draftchange{Sensor placement was generally around 0.9 m from the upper edge of the roof, with horizontal distances varying between approximately 0.5 m and 4.25 m depending on the installation location. This arrangement allowed soil conditions to be monitored while keeping the sensor units concealed beneath the turf.}
+\draftchange{Sensor placement was generally around 0.9 m from the upper edge of the roof, with horizontal distances varying between approximately 0.5 m and 4.25 m depending on the installation location. This arrangement allowed soil conditions to be monitored while keeping the sensor units concealed beneath the turf. The turf-roof buildings and sensor installation area are shown in Figure~\ref{fig:keldur-sensor-installation}.}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.48\textwidth,height=0.34\textheight,keepaspectratio]{figs/keldur-turf-roofs.jpg}\hfill
-\includegraphics[width=0.48\textwidth,height=0.34\textheight,keepaspectratio]{figs/keldur-sensor-installation.jpg}
+\includegraphics[angle=-90,width=0.48\textwidth,height=0.34\textheight,keepaspectratio]{figs/keldur-turf-roofs.jpg}\hfill
+\includegraphics[angle=-90,width=0.48\textwidth,height=0.34\textheight,keepaspectratio]{figs/keldur-sensor-installation.jpg}
 \caption{\draftchange{Turf-roof buildings and sensor installation area at Keldur.}}
 \label{fig:keldur-sensor-installation}
 \end{figure}
