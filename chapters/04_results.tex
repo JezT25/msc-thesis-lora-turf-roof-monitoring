@@ -298,7 +298,13 @@ Hafnarfjörður)}
 The following configuration parameters were used during the LoRa field
 range testing:
 
-\begin{verbatim}
+\begin{lstlisting}[
+    caption={LoRa configuration parameters used during field range testing.},
+    label={lst:lora-test-config},
+    basicstyle=\normalsize\ttfamily,
+    breaklines=true,
+    captionpos=b
+]
 #define FREQUENCY       433E6   // 433 MHz
 #define TX_POWER        17      // dBm
 #define BANDWIDTH       125E3   // 125 kHz
@@ -306,7 +312,7 @@ range testing:
 #define SPREAD_FACTOR   10
 #define CODING_RATE     5
 #define PREAMBLE        8
-\end{verbatim}
+\end{lstlisting}
 
 During the initial field test, communication performance was limited due
 to the use of antennas designed for Wi-Fi rather than LoRa. These
@@ -427,13 +433,6 @@ Humidity}
 \label{fig:results-6}
 \end{figure}
 
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=\textwidth,height=2.97917in,keepaspectratio]{figs/results-image2.png}
-\caption{Relative humidity measurements during the intermediate field deployment.}
-\label{fig:results-7}
-\end{figure}
-
 Compared with the preliminary deployment described in Section 4.3,
 replacing the antennas with properly matched \textbf{433 MHz LoRa
 antennas} resulted in a noticeable improvement in communication
@@ -451,6 +450,13 @@ initialization issues rather than communication failures. Since the
 system remained under active development, firmware updates and hardware
 adjustments continued throughout the testing period.
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth,height=2.97917in,keepaspectratio]{figs/results-image2.png}
+\caption{Relative humidity measurements during the intermediate field deployment.}
+\label{fig:results-7}
+\end{figure}
+
 \subsection{Soil Temperature and Soil
 Moisture}
 
@@ -465,18 +471,18 @@ moisture measurements.
 \label{fig:results-10}
 \end{figure}
 
+Soil temperature measurements became more continuous than those obtained
+during the preliminary deployment, reflecting the improved communication
+performance achieved after replacing the antennas. The measured soil
+temperatures remained more stable than ambient air temperatures,
+demonstrating the thermal buffering effect of the surrounding soil.
+
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth,height=2.97917in,keepaspectratio]{figs/results-image4.png}
 \caption{Soil moisture measurements during the intermediate field deployment.}
 \label{fig:results-11}
 \end{figure}
-
-Soil temperature measurements became more continuous than those obtained
-during the preliminary deployment, reflecting the improved communication
-performance achieved after replacing the antennas. The measured soil
-temperatures remained more stable than ambient air temperatures,
-demonstrating the thermal buffering effect of the surrounding soil.
 
 The soil moisture measurements continued to exhibit considerable
 variability because calibration procedures were still being refined.
@@ -523,12 +529,19 @@ accuracy of both configurations under real environmental conditions.
 
 \draftchange{Weather data used for comparison were obtained from the Sámsstaðir automatic weather station, operated by the Icelandic Meteorological Office (Veðurstofa Íslands). It is commonly identified as \textit{samst}, station 6222, and has been active since 2000. It is the closest station listed on vedur.is to the Keldur test site, at a distance of 9.75 km. Its coordinates are latitude 63.735370636° and longitude -20.1090698242°.}
 
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=\textwidth,height=5.20833in,keepaspectratio]{figs/results-image6.png}
-\caption{Deployment map showing the locations and installation depths of the four sensor nodes at the Keldur turf roof site.}
-\label{fig:results-deployment-map}
+\clearpage
+\begin{figure}[p]
+    \centering
+    \includegraphics[
+        angle=90,
+        width=\textwidth,
+        height=0.88\textheight,
+        keepaspectratio
+    ]{figs/results-image6.png}
+    \caption{Deployment map showing the locations and installation depths of the four sensor nodes at the Keldur turf roof site.}
+    \label{fig:results-deployment-map}
 \end{figure}
+\clearpage
 
 \subsection{Air Temperature
 Performance}
@@ -608,14 +621,8 @@ Performance}
 
 \draftchange{The complete time-series measurements for Sensor Nodes 1, 3, 5, and 7 are presented in Figures~\ref{fig:results-15}, \ref{fig:results-16}, \ref{fig:results-8}, and \ref{fig:results-9}, respectively.}
 
+\clearpage
 \subparagraph{Sensor Node 1}
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=5.63542in,height=6.06891in]{figs/results-image10.png}
-\caption{Environmental measurements recorded by Sensor Node 1 throughout the deployment period.}
-\label{fig:results-15}
-\end{figure}
 
 Sensor Node 1 maintained stable communication throughout most of the
 deployment while continuously monitoring environmental conditions. Soil
@@ -626,14 +633,15 @@ voltage gradually decreased from approximately \textbf{4.1 V} to
 of the deployment, the node experienced a sudden loss of power,
 resulting in the termination of data collection.
 
-\subparagraph{Sensor Node 3}
-
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=\textwidth,height=7in,keepaspectratio]{figs/results-image11.png}
-\caption{Environmental measurements recorded by Sensor Node 3 throughout the deployment period.}
-\label{fig:results-16}
+\includegraphics[width=5.63542in,height=6.06891in]{figs/results-image10.png}
+\caption{Environmental measurements recorded by Sensor Node 1 throughout the deployment period.}
+\label{fig:results-15}
 \end{figure}
+
+\clearpage
+\subparagraph{Sensor Node 3}
 
 Sensor Node 3 operated reliably throughout the deployment and exhibited
 the most complete dataset among all deployed nodes. Soil moisture
@@ -642,7 +650,17 @@ roof dried. Battery voltage showed a smooth and consistent discharge
 profile, indicating stable operation and validating the effectiveness of
 the implemented low-power algorithm.
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth,height=7in,keepaspectratio]{figs/results-image11.png}
+\caption{Environmental measurements recorded by Sensor Node 3 throughout the deployment period.}
+\label{fig:results-16}
+\end{figure}
+
+\clearpage
 \subparagraph{Sensor Node 5}
+
+\draftchange{Sensor Node 5 produced air temperature and humidity measurements that closely matched station 6222 due to its externally mounted atmospheric sensors. Soil moisture remained consistently higher than the other deployed nodes, suggesting that its installation location retained more water within the turf roof. Battery voltage remained nearly constant throughout the deployment, demonstrating excellent energy efficiency despite continuous operation.}
 
 \begin{figure}[htbp]
 \centering
@@ -651,16 +669,8 @@ the implemented low-power algorithm.
 \label{fig:results-8}
 \end{figure}
 
-\draftchange{Sensor Node 5 produced air temperature and humidity measurements that closely matched station 6222 due to its externally mounted atmospheric sensors. Soil moisture remained consistently higher than the other deployed nodes, suggesting that its installation location retained more water within the turf roof. Battery voltage remained nearly constant throughout the deployment, demonstrating excellent energy efficiency despite continuous operation.}
-
+\clearpage
 \subparagraph{Sensor Node 7}
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=\textwidth,height=7in,keepaspectratio]{figs/results-image13.png}
-\caption{Environmental measurements recorded by Sensor Node 7 throughout the deployment period.}
-\label{fig:results-9}
-\end{figure}
 
 Sensor Node 7 initially produced measurements comparable to Sensor Node
 5, with externally mounted atmospheric sensors closely following weather
@@ -671,6 +681,13 @@ readings exceeding 100\%, indicating sensor failure rather than actual
 environmental conditions. Despite this failure, the node successfully
 demonstrated stable operation during the majority of the deployment
 period.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth,height=7in,keepaspectratio]{figs/results-image13.png}
+\caption{Environmental measurements recorded by Sensor Node 7 throughout the deployment period.}
+\label{fig:results-9}
+\end{figure}
 
 \subsection{Overall System
 Performance}
@@ -722,7 +739,6 @@ measurements. \draftchange{The laboratory setup is shown in Figure~\ref{fig:cali
 \label{fig:calibration-setup}
 \end{figure}
 
-\clearpage
 Two calibration tests were conducted.
 
 \textbf{Test 1 (2069.5 g soil sample):}
@@ -762,6 +778,7 @@ Two calibration tests were conducted.
 The large sample size resulted in long saturation times and difficult
 handling.
 
+\clearpage
 \textbf{Test 2 (400 g soil sample):}
 
 \begin{longtable}[]{@{}
