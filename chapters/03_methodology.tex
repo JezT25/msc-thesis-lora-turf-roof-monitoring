@@ -863,17 +863,24 @@ transmissions.
 \clearpage
 
 \subsection{LoRa Firmware Configuration}
-\thesisnote{TODO}{Add details about the selected radio parameters and legal operating settings.}
-\draftchange{The selected radio configuration is shown in Figure~\ref{fig:method-image13}.}
 
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=2.93791in,height=1.36477in]{figs/method-image13.png}
-\caption{LoRa radio configuration settings selected for legal and reliable communication.}
-\label{fig:method-image13}
-\end{figure}
+\draftchange{The LoRa radio parameters used by the sensor nodes were selected to provide a balance between communication range, airtime, and reliability while maintaining the low-power requirements of the system. The configuration used during the field range testing is shown in Listing~\ref{lst:lora_config}.}
 
-The configuration was chosen to balance range, airtime, and reliability while remaining within practical low-power LoRa operating limits for the deployed system.
+\begin{lstlisting}[caption={\draftchange{LoRa radio configuration parameters used during field range testing}}, label={lst:lora_config}, basicstyle=\ttfamily\scriptsize\color{purple}]
+#define FREQUENCY       433E6   // 433 MHz
+#define TX_POWER        17      // dBm
+#define BANDWIDTH       125E3   // 125 kHz
+#define SYNC_WORD       0x12
+#define SPREAD_FACTOR   10
+#define CODING_RATE     5       // 4/5
+#define PREAMBLE_LENGTH 8
+\end{lstlisting}
+
+\draftchange{The operating frequency was set to 433 MHz with a transmission power of 17 dBm. The LoRa bandwidth was configured to 125 kHz, with a spreading factor of 10 and a coding rate of 4/5. The synchronization word was set to 0x12, and the preamble length was set to 8 symbols. These parameters were kept consistent during the field range testing to provide a controlled basis for evaluating communication performance.}
+
+\draftchange{The selected configuration resulted in reliable single-hop communication within an approximate 3 km radius during the field tests conducted in the semi-urban environment around Vellir in Hafnarfjörður. Communication performance was affected by antenna selection, placement, and environmental obstructions. In particular, the initial tests using antennas intended for Wi-Fi resulted in poor communication performance. Replacing these antennas with antennas designed for 433 MHz LoRa operation produced a substantial improvement in range and reliability.}
+
+\draftchange{The communication performance obtained using this configuration is discussed in Section~\ref{sec:lora_range_testing}.}
 
 \subsection{In Situ Sensor Behavior and
 Algorithm}
