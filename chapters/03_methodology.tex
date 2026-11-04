@@ -866,7 +866,11 @@ transmissions.
 
 \draftchange{The LoRa radio parameters used by the sensor nodes were selected to provide a balance between communication range, airtime, and reliability while maintaining the low-power requirements of the system. The configuration used during the field range testing is shown in Listing~\ref{lst:lora_config}.}
 
-\begin{lstlisting}[caption={\draftchange{LoRa radio configuration parameters used during field range testing}}, label={lst:lora_config}, basicstyle=\ttfamily\scriptsize\color{purple}]
+\begin{lstlisting}[
+    caption={\draftchange{LoRa radio configuration parameters used during field range testing}},
+    label={lst:lora_config},
+    basicstyle=\ttfamily\small\color{purple}
+]
 #define FREQUENCY       433E6   // 433 MHz
 #define TX_POWER        17      // dBm
 #define BANDWIDTH       125E3   // 125 kHz

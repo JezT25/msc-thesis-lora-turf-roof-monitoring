@@ -226,37 +226,51 @@ Dórótea Höeg Sigurðardóttir}
 
 \chapter*{Abstract}
 \addcontentsline{toc}{chapter}{Abstract}
-\draftchange{This thesis presents the design, implementation, and evaluation of a low-power LoRa-based wireless sensor network for monitoring soil and environmental conditions beneath Icelandic turf roofs. The system uses Arduino Pro Mini sensor nodes equipped with capacitive soil moisture sensors, DS18B20 soil temperature sensors, AHT10 air temperature and humidity sensors, local SD-card storage, and 433 MHz LoRa communication. A base station forwards collected measurements to the ThingSpeak cloud platform for remote access and visualization.}
+\draftchange{This thesis presents the design, implementation, and evaluation of a low-power LoRa-based wireless sensor network for monitoring soil and environmental conditions beneath Icelandic turf roofs. The system consists of sensor nodes built around Arduino Pro Mini microcontrollers, with capacitive soil moisture sensors, DS18B20 soil temperature sensors, AHT10 air temperature and humidity sensors, local SD-card storage, and 433 MHz LoRa communication. A base station forwards collected measurements to the ThingSpeak cloud platform for remote access and visualization.}
 
 \draftchange{Laboratory and field tests were conducted to evaluate power consumption, communication performance, sensor calibration, and cloud data transmission. Under the defined operating cycle, the sensor node consumed an average current of approximately 3.08 mA. With three 3,500 mAh battery cells connected in parallel, providing a nominal capacity of 10,500 mAh, the estimated operating lifetime was approximately 142 days. This is an idealized estimate and does not account for reductions in usable battery capacity at low temperatures.}
 
 \draftchange{Field testing in the semi-urban area of Vellir in Hafnarfj\"{o}r\dh ur demonstrated reliable single-hop LoRa communication within an approximate 3 km radius using 433 MHz antennas. Communication performance varied with antenna placement and environmental obstacles. Calibration of the capacitive soil moisture sensor produced a second-order relationship over the tested 0--40\% moisture range, with an approximate root mean square error of 3\% relative to the HOBO reference measurements.}
 
-\draftchange{During cloud integration tests, ThingSpeak uploads took approximately 1--2 seconds on average, with no failed uploads observed in the recorded tests. The system was also deployed at Keldur to monitor environmental conditions beneath four turf roofs. The results demonstrate the feasibility of implementing a low-cost monitoring system for Icelandic turf roofs, while highlighting the need to consider environmental conditions and long-term hardware reliability.}
+\draftchange{During cloud integration tests, ThingSpeak uploads took approximately 1--2 seconds on average. The system was also deployed at Keldur to monitor environmental conditions beneath four turf roofs. The results demonstrate the feasibility of implementing a low-cost monitoring system for Icelandic turf roofs, while highlighting the need to consider environmental conditions and long-term hardware reliability.}
 
 \vfill
 \textbf{Keywords:} wireless sensor network (WSN), LoRa, mesh network, soil moisture, turf roofs, environmental monitoring, low-power systems, ThingSpeak
 
 \chapter*{Útdráttur}
 \addcontentsline{toc}{chapter}{Útdráttur}
-\draftchange{Í þessari ritgerð er fjallað um hönnun, smíði og mat á orkunýtinu þráðlausu skynjaraneti sem byggir á LoRa-fjarskiptum og er ætlað til að fylgjast með jarðvegs- og umhverfisaðstæðum undir íslenskum torfþökum. Kerfið notar Arduino Pro Mini-skynjaraeiningar með rýmdarmælum fyrir jarðvegsraka, DS18B20-hitanemum fyrir jarðvegshita, AHT10-nemum fyrir lofthita og rakastig, staðbundinni gagnageymslu á SD-korti og 433 MHz LoRa-fjarskiptum. Móttökustöð sendir mælingarnar áfram til ThingSpeak-skýjaþjónustunnar, þar sem hægt er að nálgast og skoða gögnin.}
+\draftchange{Í þessari ritgerð er fjallað um hönnun, smíði og mat á orkunýtnu þráðlausu skynjaraneti sem byggir á LoRa-fjarskiptum og er ætlað til að fylgjast með jarðvegs- og umhverfisaðstæðum undir íslenskum torfþökum. Kerfið samanstendur af skynjaraeiningum sem byggja á Arduino Pro Mini-stýrieiningum, með rýmdarmælum fyrir jarðvegsraka, DS18B20-hitanemum fyrir jarðvegshita, AHT10-nemum fyrir lofthita og rakastig, staðbundinni gagnageymslu á SD-korti og 433 MHz LoRa-fjarskiptum. Móttökustöð sendir mælingarnar áfram til ThingSpeak-skýjaþjónustunnar, þar sem hægt er að nálgast og skoða gögnin.}
 
 \draftchange{Rannsóknarstofuprófanir og prófanir við raunverulegar aðstæður voru framkvæmdar til að meta orkunotkun, fjarskiptaafköst, kvörðun skynjara og gagnaupphleðslu í skýið. Við skilgreindan rekstrarferil var meðalstraumnotkun skynjaraeiningar um 3,08 mA. Með þremur 3.500 mAh rafhlöðufrumum tengdum samhliða, með samtals uppgefinni afkastagetu upp á 10.500 mAh, var áætlaður rekstrartími um 142 dagar. Þetta er fræðilegt mat sem tekur ekki tillit til minnkunar á nýtanlegri rafhlöðugetu við lágt hitastig.}
 
 \draftchange{Við prófanir í hálfþéttbýlu umhverfi í Völlum í Hafnarfirði náðust áreiðanleg LoRa-fjarskipti yfir eina tengingu innan um 3 km radíuss með 433 MHz loftnetum. Afköst fjarskiptanna voru háð staðsetningu loftneta og hindrunum í umhverfinu. Við kvörðun rýmdarmælis fyrir jarðvegsraka fékkst annars stigs samband á prófuðu rakabili, 0--40\%, með um það bil 3\% kvaðratrótarmeðalskekkju miðað við HOBO-viðmiðunarmælingar.}
 
-\draftchange{Upphleðslur gagna til ThingSpeak tóku að meðaltali um 1--2 sekúndur og engar misheppnaðar upphleðslur komu fram í þeim prófunum sem skráðar voru. Kerfið var einnig sett upp á Keldum til að fylgjast með umhverfisaðstæðum undir fjórum torfþökum. Niðurstöðurnar sýna að raunhæft er að þróa ódýrt vöktunarkerfi fyrir íslensk torfþök, en jafnframt þarf að taka mið af umhverfisaðstæðum og áreiðanleika vélbúnaðar til lengri tíma.}
+\draftchange{Upphleðslur gagna til ThingSpeak tóku að meðaltali um 1--2 sekúndur. Kerfið var einnig sett upp á Keldum til að fylgjast með umhverfisaðstæðum undir fjórum torfþökum. Niðurstöðurnar sýna að raunhæft er að þróa ódýrt vöktunarkerfi fyrir íslensk torfþök, en jafnframt þarf að taka mið af umhverfisaðstæðum og áreiðanleika vélbúnaðar til lengri tíma.}
 
 \vfill
 \draftchange{\textbf{Lykilorð:} þráðlaust skynjaranet, LoRa, möskvakerfi, jarðvegsraki, torfþök, umhverfisvöktun, orkunýting, ThingSpeak}
 
-\chapter*{Acknowledgments}
-\addcontentsline{toc}{chapter}{Acknowledgments}
-\thesisnote{TODO}{Finalize the acknowledgments.}
+\chapter*{Acknowledgements}
+\addcontentsline{toc}{chapter}{Acknowledgements}
+
+\draftchange{I would like to thank God for the opportunities, experiences, and life I have been given.}
+
+\draftchange{I am grateful to my Icelandic and Filipino families for supporting me throughout my studies and for welcoming me into their homes while I settled into life in Iceland.}
+
+\draftchange{I would like to thank my thesis advisers for their guidance and feedback, as well as the staff of the University of Iceland and the National Museum of Iceland for their assistance and cooperation.}
+
+\draftchange{I would also like to thank my friends for their support and companionship throughout my studies.}
+
+\draftchange{Finally, I would like to thank Össur for providing me with the opportunity to work while completing my studies, as well as the tools, knowledge, and experience that contributed to this thesis.}
 
 \chapter*{About the Author}
 \addcontentsline{toc}{chapter}{About the Author}
-\thesisnote{TODO}{Finalize the author biography.}
+
+\draftchange{Jezreel Tan is a master's student at the University of Iceland with a long-standing interest in firmware and embedded systems. His interest in firmware began at a young age and developed into a professional career as a firmware engineer prior to pursuing his master's degree. His technical interests include embedded systems, electronics, wireless communication, and Internet of Things technologies.}
+
+\draftchange{Alongside his studies, Jezreel works at Össur, where he has gained further practical experience and technical knowledge. His master's thesis focuses on the design and implementation of a low-power LoRa-based wireless sensor network for monitoring environmental conditions beneath Icelandic turf roofs.}
+
+\draftchange{Outside of technology, Jezreel is a self-described nerd with a strong interest in extreme sports. He enjoys enduro mountain biking and snowboarding, which have occasionally competed with his thesis for his attention and, admittedly, contributed to a few delays along the way.}
 
 \chapter*{Abbreviations}
 \addcontentsline{toc}{chapter}{Abbreviations}
@@ -355,7 +369,7 @@ The Keldur deployment demonstrated that the system can collect and transmit envi
 
 Soil moisture calibration established a nonlinear relationship between the low-cost capacitive sensor output and reference moisture measurements over the 0--40\% range. The resulting second-order calibration model achieved an approximate RMSE of 3\% soil moisture relative to the HOBO reference. This level of performance is considered suitable for monitoring wetting and drying trends, although the calibrated range should be expanded if measurements near saturation are required.
 
-\draftchange{Finally, the ThingSpeak integration successfully uploaded sensor measurements using HTTP POST requests. During testing, successful requests returned HTTP status code 200 OK, indicating that the server processed the requests successfully. The average upload time was approximately 1--2 seconds, with an observed failure rate of 0\% across the recorded tests. These results demonstrate that the system could upload sensor measurements to ThingSpeak, enabling remote access, visualization, and storage of the collected data.}
+\draftchange{Finally, the ThingSpeak integration successfully uploaded sensor measurements using HTTP POST requests. During testing, successful requests returned HTTP status code 200 OK, indicating that the server processed the requests successfully. The average upload time was approximately 1--2 seconds during the recorded tests. These results demonstrate that the system could upload sensor measurements to ThingSpeak, enabling remote access, visualization, and storage of the collected data.}
 
 \section{Recommendations}
 Future work should focus on extending the duration of field deployments, improving the reliability of individual sensor nodes, and expanding calibration and validation. In particular, the following improvements are recommended:
@@ -376,7 +390,7 @@ Future work should focus on extending the duration of field deployments, improvi
 \section{\texorpdfstring{\draftchange{Bill of Materials}}{Bill of Materials}}
 \draftchange{The bill of materials lists the main components and materials used to construct the sensor network. It is organized into PCB assembly components and the additional modules and materials used in the implementation. The list serves as a reference for the hardware described in this thesis.}
 
-\draftchange{The worksheet reports a total of ISK 11,771.44, but that total omits the PCB fabrication line (ISK 137.00) and the D2 diode (ISK 13.00), which appear outside its total row. Including these two entries gives a total bill of materials cost of ISK 11,921.44. For D2, either a 1N4001 or 1N4004 diode can be used; both are suitable for the intended application and have the same cost. The choice between the two was based on component availability.}
+\draftchange{The total cost of the priced components and materials listed in the bill of materials is ISK 11,921.44. Components listed as ``Not priced'' or ``Not populated'' are not included in the total. For D2, either a 1N4001 or 1N4004 diode can be used; both are suitable for the intended application and have the same cost. The choice between the two was based on component availability.}
 
 \subsection{\texorpdfstring{\draftchange{PCB Assembly}}{PCB Assembly}}
 \begingroup
@@ -389,7 +403,7 @@ PCB & PCB fabrication & 137.00 \\
 C1 & \(0.1~\mu\text{F}\) capacitor & 14.99 \\
 C2--C4 & Three \(10~\mu\text{F}\) polarized capacitors & 19.19 \\
 D1 & 1N4148 diode & 50.00 \\
-D2 & 1N4001 diode; device field says 1N4004 & 13.00 \\
+D2 & 1N4001 or 1N4004 diode & 13.00 \\
 H1--H2 & Mounting holes; listed price is for standoffs & 4.41 \\
 J1--J2 & Battery positive and negative connections & Not priced \\
 JP1--JP4 & Normally open jumpers & Not priced \\
@@ -443,7 +457,7 @@ U\$1 & ABK Pro Mini Arduino clone & 541.11 \\
 -- & Waterproof enclosure for sensor-node electronics & 420.62 \\
 -- & Mounting screws, glue, solder, and miscellaneous materials & 1,000.00 \\
 \midrule
-\multicolumn{2}{@{}l}{\textbf{Recomputed total from unrounded priced entries}} & \textbf{11,921.44} \\
+\multicolumn{2}{@{}l}{\textbf{Total}} & \textbf{11,921.44} \\
 \bottomrule
 \end{longtable}
 \endgroup
