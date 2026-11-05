@@ -953,15 +953,14 @@ integration into the low-power LoRa-based monitoring system.
 \section{Cloud Upload Performance
 (ThingSpeak)}
 
-The cloud upload functionality was evaluated using the ThingSpeak IoT
+\draftchange{The cloud upload functionality was evaluated using the ThingSpeak IoT
 platform. Sensor data from the base station---including soil moisture,
 temperature, humidity, battery voltage, and timestamps---was transmitted
-via Wi-Fi using HTTP POST requests. During testing, the system operated
-reliably with no failed transmissions or corrupted data. All uploads
-were successfully received by the server, consistently returning an HTTP
-response code of \emph{200 OK}. The average upload time was
-approximately 1--2 seconds depending on network conditions, with an
-observed failure rate of 0\%.
+via Wi-Fi using HTTP POST requests. During testing, the uploaded sensor
+data was successfully received by the ThingSpeak server, with the
+requests consistently returning an HTTP response code of \emph{200 OK}.
+The average upload time was approximately 1--2 seconds, depending on
+network conditions.}
 
 These results indicate that the cloud communication system is stable and
 suitable for long-term environmental monitoring. The Wi-Fi connection
