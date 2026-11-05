@@ -1032,7 +1032,14 @@ consumption testing was conducted using a precision laboratory power
 supply (Rohde \& Schwarz HMP2030), capable of measuring current down to
 100 µA. The sensor module was powered at 4.2 V to represent a fully
 charged battery condition, and the power supply's current readout was
-used to observe and record current consumption.
+used to observe and record current consumption. \draftchange{The laboratory test setup is shown in Figure~\ref{fig:power-test-setup}.}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\textwidth]{figs/power-consumption-setup.png}
+\caption{\draftchange{Laboratory setup used for the power consumption measurements of the sensor node.}}
+\label{fig:power-test-setup}
+\end{figure}
 
 During testing, the sensor node was programmed to cycle through multiple
 operating states in a continuous loop. Each state was maintained for 10
@@ -1094,22 +1101,20 @@ partially active within the wireless sensor network.
 
 \draftchange{A single LoRa base station was installed in the thesis adviser's office, where it was connected to a computer configured for continuous monitoring of incoming data via the cloud platform. This setup allowed real-time observation of device status, packet reception, and data integrity throughout the test period.}
 
-\draftchange{Four sensor devices were deployed across the surrounding area, primarily in the vicinity of the VR-II and VR-III buildings. The devices were positioned within a radius of approximately 50--100 meters from the base station, allowing early evaluation of communication performance and system operation under realistic deployment conditions. For this test, each sensor was powered by a single battery cell to evaluate power consumption and estimate the operational lifetime achievable with one cell.}
+\draftchange{Four sensor devices were deployed across the surrounding area, primarily in the vicinity of the VR-II and VR-III buildings. The devices were positioned within a radius of approximately 50--100 meters from the base station, allowing early evaluation of communication performance and system operation under realistic deployment conditions. For this test, each sensor was powered by a single battery cell to evaluate power consumption and estimate the operational lifetime achievable with one cell.} \draftchange{The base station and one of the sensor nodes during this test are shown in Figure~\ref{fig:prelim1-setup}.}
+
+\begin{figure}[htbp]
+\centering
+\subfigure[LoRa base station installed by the window of the office.]{%
+\includegraphics[height=5.5cm]{figs/prelim1-base-station-window.jpg}}
+\hfill
+\subfigure[Sensor node placed on a turf roof.]{%
+\includegraphics[angle=-90,totalheight=5.5cm]{figs/prelim1-node-on-turf-roof.jpg}}
+\caption{\draftchange{Base station and sensor node setup during the first preliminary test at Háskóli Íslands.}}
+\label{fig:prelim1-setup}
+\end{figure}
 
 \draftchange{The preliminary test phase was conducted over a three-week period, from \textbf{June 8 to June 29, 2025}. During this time, the system operated continuously, providing insight into long-term stability, data consistency, and potential environmental effects on communication performance.}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=1\linewidth]{prelimtest1_basestation_window.jpg}
-    \caption{Enter Caption}
-    \label{fig:placeholder}
-\end{figure}
-\begin{figure}
-    \centering
-    \includegraphics[angle=-90,width=1\linewidth]{prelimtest1_node_onturfroof.jpg}
-    \caption{Enter Caption}
-    \label{fig:placeholder}
-\end{figure}
 
 \subsection{LoRa Range Tests}
 
@@ -1169,7 +1174,14 @@ The range tests were conducted in Vellir, located in Hafnarfjörður. The
 base station was mounted on a fence at approximately chest height to
 simulate a realistic low-elevation deployment. A mobile sensor node was
 placed inside a vehicle and connected to a laptop for real-time
-monitoring.
+monitoring. \draftchange{The base station setup is shown in Figure~\ref{fig:range-test-base-station}.}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[angle=-90,width=0.6\textwidth]{figs/range-test-base-station.jpg}
+\caption{\draftchange{LoRa base station mounted on a fence during the range test at Vellir.}}
+\label{fig:range-test-base-station}
+\end{figure}
 
 During the tests, the vehicle was driven around the surrounding area
 while the base station transmitted randomly encoded data packets once
@@ -1178,13 +1190,6 @@ recorded continuously, and received packets were inspected to verify
 data integrity and detect any corruption. This approach allowed both
 communication reliability and signal strength to be evaluated
 simultaneously under real-world conditions.
-
-\begin{figure}
-    \centering
-    \includegraphics[angle=-90,width=1\linewidth]{rangetest_basestation.jpg}
-    \caption{Enter Caption}
-    \label{fig:placeholder}
-\end{figure}
 
 \subsection{Háskóli Íslands Preliminary Test II}
 
@@ -1206,19 +1211,19 @@ For this test phase, the antenna system was upgraded to improve
 communication performance. Larger and higher-quality antennas were
 installed on the sensor nodes, and an outdoor antenna was mounted
 outside Helgi's office to enhance base station reception and
-transmission.
+transmission. \draftchange{The base station with the upgraded antenna is shown in Figure~\ref{fig:prelim2-base-station}.}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[angle=-90,width=0.6\textwidth]{figs/prelim2-base-station-antennas.jpg}
+\caption{\draftchange{Base station with the upgraded antenna used in the second preliminary test.}}
+\label{fig:prelim2-base-station}
+\end{figure}
 
 This second preliminary test was conducted over an extended period, from
 \textbf{August 1 to October 6, 2025}, allowing for evaluation of
 long-term system stability, communication reliability, and the impact of
 environmental conditions on performance.
-
-\begin{figure}
-    \centering
-    \includegraphics[angle=-90,width=1\linewidth]{prelimtest2_base_station_better_antennae.jpg}
-    \caption{Enter Caption}
-    \label{fig:placeholder}
-\end{figure}
 
 \subsection{\draftchange{SD Card Backup Testing}}\label{sec:sd-backup-testing}
 
@@ -1271,11 +1276,18 @@ moisture and temperature.
 
 An Icelandic soil sample was collected and oven-dried at 105 °C for 32
 hours (from 11:00 AM to 8:00 PM the following day) to remove all
-moisture and establish a dry baseline condition. After drying, the soil
+moisture and establish a dry baseline condition. \draftchange{The soil sample during oven drying is shown in Figure~\ref{fig:soil-drying}.} After drying, the soil
 was allowed to cool to room temperature before testing. A measured
 portion of the dried soil was then placed in a container, and all
 sensors were installed side by side to ensure identical environmental
 conditions.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[angle=-90,width=0.6\textwidth]{figs/soil-drying.jpg}
+\caption{\draftchange{Icelandic soil sample during oven drying before the calibration tests.}}
+\label{fig:soil-drying}
+\end{figure}
 
 Water was added incrementally in 10\% increments relative to the dry
 soil weight. A spray mister was used to distribute water evenly
