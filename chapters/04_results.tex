@@ -110,6 +110,13 @@ Half Sleep & 12.2 mA & 237 s & Sensors off, MCU in low-power mode, LoRa
 in standby \\
 \end{longtable}
 
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{power_consumption_setup.png}
+    \caption{Enter Caption}
+    \label{fig:placeholder}
+\end{figure}
+
 The average current consumption is calculated as:
 
 \begin{equation}
@@ -307,7 +314,7 @@ range testing:
 #define SYNC_WORD       0x12
 #define SPREAD_FACTOR   10
 #define CODING_RATE     5
-#define (*@\draftchange{PREAMBLE\_LENGTH}@*) 8
+#define PREAMBLE        8
 \end{lstlisting}
 
 During the initial field test, communication performance was limited due
@@ -676,6 +683,14 @@ measurements. \draftchange{The laboratory setup is shown in Figure~\ref{fig:cali
 \label{fig:calibration-setup}
 \end{figure}
 
+\begin{figure}
+    \centering
+    \includegraphics[angle=-90,width=1\linewidth]{soildryer.jpg}
+    \caption{Enter Caption}
+    \label{fig:placeholder}
+\end{figure}
+
+\clearpage
 Two calibration tests were conducted.
 
 \textbf{Test 1 (2069.5 g soil sample):}
@@ -715,7 +730,6 @@ Two calibration tests were conducted.
 The large sample size resulted in long saturation times and difficult
 handling.
 
-\clearpage
 \textbf{Test 2 (400 g soil sample):}
 
 \begin{longtable}[]{@{}
