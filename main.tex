@@ -189,7 +189,7 @@ Dórótea Höeg Sigurðardóttir}
     Faculty of \thesisfaculty \\
     \thesisschool \\
     University of Iceland \\
-    Reykjavik, \thesismonth~\thesisyear
+    \draftchange{Reykjavík}, \thesismonth~\thesisyear
     \vspace*{\stretch{0.5}}
   \end{center}
 
@@ -206,7 +206,7 @@ Dórótea Höeg Sigurðardóttir}
   \thesisschool \\
   University of Iceland \\
   \thesisaddress \\
-  \thesispostalcode, Reykjavik, Iceland \\\\
+  \thesispostalcode, \draftchange{Reykjavík}, Iceland \\\\
   Telephone: \thesistelephone \\\\
   \vspace{\lineskip}
   Bibliographic information: \\
@@ -214,7 +214,7 @@ Dórótea Höeg Sigurðardóttir}
   \thesiskind{}~thesis, Faculty of \thesisfaculty, University of Iceland. \\\\
   Copyright \textcopyright~\thesisyear~\thesisauthor \\
   \thesislicense{} \\\\
-  Reykjavik, Iceland, \thesismonth~\thesisyear
+  \draftchange{Reykjavík}, Iceland, \thesismonth~\thesisyear
 
   \newpage
   \thispagestyle{empty}\mbox{}
@@ -257,7 +257,7 @@ Dórótea Höeg Sigurðardóttir}
 
 \draftchange{I am grateful to my Icelandic and Filipino families for supporting me throughout my studies and for welcoming me into their homes while I settled into life in Iceland.}
 
-\draftchange{I would like to thank my thesis advisers for their guidance and feedback, as well as the staff of the University of Iceland and the National Museum of Iceland for their assistance and cooperation.}
+\draftchange{I would like to thank my thesis supervisors for their guidance and feedback, as well as the staff of the University of Iceland and the National Museum of Iceland for their assistance and cooperation.}
 
 \draftchange{I would also like to thank my friends for their support and companionship throughout my studies.}
 
@@ -295,7 +295,7 @@ GCP & Google Cloud Platform\\
 GPIO & General-Purpose Input/Output\\
 GSM & Global System for Mobile Communications\\
 HTTP & Hypertext Transfer Protocol\\
-I\textsuperscript{2}C & Inter-Integrated Circuit\\
+I²C & Inter-Integrated Circuit\\
 ID & Identifier\\
 IDE & Integrated Development Environment\\
 IPv6 & Internet Protocol version 6\\
@@ -364,13 +364,35 @@ WSN & Wireless Sensor Network\\
 
 \draftchange{Power consumption tests showed an average current of approximately 3.08 mA. With three 3,500 mAh battery cells connected in parallel, the estimated operating lifetime was approximately 142 days under the documented operating cycle. This is an ideal estimate, as low temperatures can reduce the actual battery capacity.}
 
-\draftchange{Field range testing around Vellir in Hafnarfjörður demonstrated reliable single-hop communication within an approximate 3 km radius using suitable 433 MHz antennas. The tests also showed how antenna selection and placement affect communication performance. Although the firmware includes mesh-relaying functionality, further multi-hop testing is needed to evaluate its performance.}
+\draftchange{Field range testing around Vellir in Hafnarfjörður demonstrated reliable single-hop communication within an approximate 3 km radius using suitable 433 MHz antennas. The tests also showed how antenna selection and placement affect communication performance. The same communication system was also used during the Keldur deployment, where it delivered measurements from four sensor nodes installed on four separate turf roofs. Dedicated multi-hop tests could still provide more detail on the benefit of relay nodes.}
 
-\draftchange{The deployment at Keldur demonstrated the system's ability to monitor four separate turf roofs under real outdoor conditions. Sensor Node 3 performed particularly well, remaining operational throughout the recorded period of approximately 75 days and producing the most complete dataset. Sensor Node 5 also provided useful measurements throughout the observation period. The deployment showed differences in soil moisture between locations and highlighted the importance of placing air temperature and humidity sensors outside the main electronics enclosure. Although two nodes experienced failures near the end of the deployment, the results demonstrated the potential for extended environmental monitoring in real-world conditions.}
+\draftchange{The deployment at Keldur demonstrated the system's ability to monitor four separate turf roofs under real outdoor conditions. Measurements from the four sensor nodes were collected and delivered to ThingSpeak over an extended period, showing that the implemented communication network worked during the actual deployment. Sensor Node 3 performed particularly well, producing the most complete dataset with approximately 75 days of recorded data. Sensor Node 5 also provided useful measurements. The deployment showed differences in soil moisture between locations and highlighted the importance of placing air temperature and humidity sensors outside the main electronics enclosure. The study period was not fixed in advance: the real-world operating time of the nodes was not known beforehand, and the Keldur deployment provided it. Each node's record covers the time from installation until it stopped reporting, and the collected measurements demonstrated the potential for extended environmental monitoring in real-world conditions.}
 
 \draftchange{Soil moisture calibration produced a second-order polynomial model with an approximate RMSE of 3\% relative to the HOBO reference measurements over the tested 0--40\% moisture range. ThingSpeak uploads using HTTP GET took approximately 1--2 seconds on average during the recorded tests, enabling remote access and visualization of the collected measurements.}
 
-\draftchange{The main objectives of the project were achieved through the implementation of the sensor nodes, power consumption measurements, LoRa range testing, local data backup, soil moisture calibration, and cloud integration. Preliminary field tests demonstrated that measurements could be recovered after missed wireless transmissions using the backup mechanism. The main remaining area for further evaluation is the performance of the complete multi-hop mesh network, which requires dedicated end-to-end testing.}
+\draftchange{All six research objectives were achieved, as summarized in Table~\ref{tab:objective-assessment}. The sensor nodes were implemented and used in the field deployments. The communication system was implemented and operated successfully during the Keldur deployment, and the range tests demonstrated single-hop communication over approximately 3 km. The SD card backup was implemented and tested, and the measurements stored on the SD card were used to fill missing data when wireless transmissions had been missed. The power consumption was measured and the battery lifetime was estimated, the soil moisture sensor was calibrated, and the base station uploaded the measurements to ThingSpeak.}
+
+\begin{table}[htbp]
+\centering
+\caption{\draftchange{Assessment of the research objectives.}}
+\label{tab:objective-assessment}
+\begingroup
+\small
+\color{purple}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.30\textwidth}>{\raggedright\arraybackslash}p{0.13\textwidth}>{\raggedright\arraybackslash}X@{}}
+\toprule
+\textbf{Objective} & \textbf{Assessment} & \textbf{Basis} \\
+\midrule
+1. Implement distributed sensor nodes & Achieved & Sensor nodes measuring soil moisture, soil temperature, air temperature, relative humidity, and battery voltage were built and used in the field deployments. \\
+2. Implement LoRa communication and evaluate range and reliability & Achieved & The communication system operated successfully during the Keldur deployment, where data from four sensor nodes on four separate turf roofs were collected and delivered over an extended period. The range tests demonstrated single-hop communication over approximately 3 km. \\
+3. Measure current consumption and estimate battery life & Achieved & The average current of approximately 3.08 mA was measured, and the lifetime of approximately 142 days is an estimate based on the measured current and the nominal battery capacity. \\
+4. Implement and evaluate local data storage & Achieved & The SD card backup was implemented and tested. Measurements stored on the SD card were used to fill missing data when wireless transmissions had been missed. \\
+5. Calibrate the soil moisture sensor & Achieved & A second-order calibration with an approximate RMSE of 3\% relative to the HOBO reference was obtained over the 0--40\% range. \\
+6. Integrate the network with a cloud platform & Achieved & Measurements were uploaded to ThingSpeak with an average upload time of approximately 1--2 seconds. \\
+\bottomrule
+\end{tabularx}
+\endgroup
+\end{table}
 
 \draftchange{Overall, the project achieved its main goal of developing a working monitoring system for Icelandic turf roofs. The results provide a good foundation for future improvements in hardware reliability, multi-hop communication, and long-term environmental monitoring.}
 
@@ -379,7 +401,7 @@ Future work should focus on extending the duration of field deployments, improvi
 \begin{enumerate}
 \item improve battery and power-management design to increase practical lifetime under Icelandic winter temperatures;
 \item strengthen enclosure and cable protection for long-term exposure to moisture, freezing, thawing, and snow;
-\item investigate the causes of the observed node failures and add monitoring mechanisms that can identify failed or low-voltage nodes remotely;
+\item \draftchange{add monitoring mechanisms that can remotely identify low battery voltage or interrupted data collection from individual nodes;}
 \item extend soil-moisture calibration beyond the current 0--40\% range where physically meaningful and validate the calibration using additional soil samples and reference measurements;
 \item conduct dedicated multi-hop mesh-range tests to quantify the benefit of relay nodes rather than relying only on single-hop range measurements;
 \item refine the external placement of the air temperature and humidity sensors, since the results indicate that external placement better represents ambient conditions; and
@@ -445,6 +467,7 @@ U\$1 & ABK Pro Mini Arduino clone & 541.11 \\
 \endgroup
 
 \subsection{\texorpdfstring{\draftchange{Modules and Materials}}{Modules and Materials}}
+\markboth{\draftchange{A. Additional Material}}{\draftchange{A. Additional Material}}
 \begingroup
 \small
 \color{purple}

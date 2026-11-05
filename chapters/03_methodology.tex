@@ -16,7 +16,7 @@ Requirements}
 
 The system is designed as a wireless mesh network using LoRa as the core
 communication technology. Weatherproof wireless sensor nodes collect
-data such as soil moisture, soil temperature, air humidity, and air
+data such as soil moisture, soil temperature, \draftchange{relative humidity}, and air
 temperature, and transmit this data efficiently between neighboring
 nodes until it reaches a base station with access to a cloud database.
 The collected data is then made accessible to researchers from anywhere.
@@ -44,7 +44,7 @@ Requirements}
 \item
   The sensor nodes must be capable of accurately measuring the required
   data, including soil moisture, soil temperature, air temperature, and
-  air humidity.
+  \draftchange{relative humidity}.
 \item
   The system must reliably transmit data through the mesh network, even
   with disturbances between nodes and the presence of noise.
@@ -146,7 +146,7 @@ project.
 
 The Arduino Pro Mini, based on the ATmega328P
 microcontroller, was selected as it operates at 3.3 V with an 8 MHz
-clock frequency and provides 32 kB of flash memory. It supports both I2C
+clock frequency and provides 32 kB of flash memory. It supports both \draftchange{I²C}
 and serial communication, which are required for interfacing with the
 sensors and peripheral modules. The available memory and processing
 capability were found to be sufficient for the application. Power
@@ -161,7 +161,7 @@ project.
 
 The AHT10 sensor was selected for measuring air temperature
 and humidity due to its availability, low cost, and adequate accuracy
-for the application. The sensor communicates via the I2C interface and
+for the application. The sensor communicates via the \draftchange{I²C} interface and
 is capable of measuring temperatures from −40 °C to 85 °C with an
 accuracy of ±0.3 °C. Relative humidity measurements range from 0\% to
 100\% with an accuracy of ±2\%, which is sufficient for monitoring
@@ -522,7 +522,7 @@ comprehensive library support, and strong developer community, which
 streamline firmware development, enable efficient debugging, and provide
 flexibility for future system expansion. Standard Arduino libraries were
 utilized where appropriate, including libraries for SPI communication
-(LoRa module), I2C communication (environmental sensors), SD card
+(LoRa module), \draftchange{I²C} communication (environmental sensors), SD card
 interfacing, and low-power sleep control. Custom logic was implemented
 to manage mesh routing, data formatting, packet handling, and power
 optimization.
@@ -888,15 +888,15 @@ deployment. \draftchange{The in situ node duty cycle is shown in Figure~\ref{fig
 The in situ node contains multiple sensors as previously described: air
 temperature and humidity, soil temperature, soil moisture, and battery
 voltage. These sensors communicate using different interfaces including
-I2C, 1-Wire serial, and analog-to-digital conversion (ADC).
+\draftchange{I²C}, 1-Wire serial, and analog-to-digital conversion (ADC).
 
 \subsubsection{Air Temperature and Humidity (AHT10)}
 
-The AHT10 sensor communicates using the I2C protocol. The
+The AHT10 sensor communicates using the \draftchange{I²C} protocol. The
 microcontroller sends a measurement command to the sensor, after which
 the sensor internally performs the necessary signal processing and
 calibration. The processed temperature and humidity data are then
-transmitted digitally over the I2C bus to the microcontroller. This
+transmitted digitally over the \draftchange{I²C} bus to the microcontroller. This
 simplifies firmware implementation, as the sensor provides calibrated
 digital output directly.
 
@@ -1019,7 +1019,7 @@ further analysis by researchers.
 During the development of the project, multiple tests were conducted to
 evaluate system performance and reliability. These tests included power
 consumption measurements, LoRa range testing, and several preliminary
-tests carried out at Háskóli Íslands prior to the final deployment. The
+tests carried out at Háskóli Íslands prior to the final deployment. \draftchange{The SD card backup was also tested, as described in Section~\ref{sec:sd-backup-testing}.} The
 testing phase provided valuable insights into early system limitations
 and failures, allowing necessary modifications and improvements to be
 made before final deployment.
@@ -1192,6 +1192,10 @@ This second preliminary test was conducted over an extended period, from
 \textbf{August 1 to October 6, 2025}, allowing for evaluation of
 long-term system stability, communication reliability, and the impact of
 environmental conditions on performance.
+
+\subsection{\draftchange{SD Card Backup Testing}}\label{sec:sd-backup-testing}
+
+\draftchange{The SD card backup was tested during the earlier field testing. In addition to transmitting its measurements wirelessly, each sensor node stored its measurements locally on the SD card through the OpenLog module. When wireless transmissions were missed, the dataset collected through the base station contained missing or blank entries. In these cases, the measurements stored on the SD card were used to fill the missing data. This showed that the backup could be used to recover measurements that did not reach the base station.}
 
 \section{Deployment in Keldur}\label{sec:keldur-deployment}
 

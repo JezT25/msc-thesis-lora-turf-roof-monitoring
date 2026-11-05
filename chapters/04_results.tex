@@ -38,7 +38,7 @@ T_{preamble} = (N_{preamble} + 4.25) \cdot T_{sym} \approx 0.1\text{ }\text{s}
 \label{eq:preamble-duration}
 \end{equation}
 
-The payload duration depends on the payload size \(PL\)and is given by:
+The payload duration depends on the payload size \(PL\) and is given by:
 
 \begin{equation}
 T_{payload} = N_{payload} \cdot T_{sym}
@@ -117,8 +117,8 @@ I_{avg} = \frac{\sum I_{n}t_{n}}{T}
 \label{eq:average-current}
 \end{equation}
 
-where \(I_{n}\)is the current in each state, \(t_{n}\)is the duration of
-each state, and \(T = 3600\text{ }\text{s}\)is the total time per hour.
+where \(I_{n}\) is the current in each state, \(t_{n}\) is the duration of
+each state, and \(T = 3600\text{ }\text{s}\) \draftchange{is} the total time per hour.
 
 Substituting the measured values:
 
@@ -159,8 +159,7 @@ lifetime of approximately:
 This highlights the importance of parallel battery configuration for
 extended deployment.
 
-Overall, the achieved lifetime is sufficient for the intended
-application. Turf roofs are periodically inspected and maintained,
+\draftchange{Overall, the estimated operating lifetime is considered sufficient for the intended application.} Turf roofs are periodically inspected and maintained,
 allowing battery replacement to be integrated into routine maintenance
 cycles. This ensures continuous operation of the sensor nodes while
 supporting long-term monitoring of soil conditions and turf roof
@@ -278,7 +277,7 @@ later deployments. Additional improvements included refinements to the
 firmware, sensor calibration procedures, enclosure design, and overall
 system stability.
 
-\draftchange{Local SD card backup was also implemented, and preliminary testing demonstrated that measurements could be recovered after missed wireless transmissions. The measurements were stored locally on the SD card and could be retrieved to recover data that had not reached the base station during communication interruptions.}
+\draftchange{Local SD card backup was implemented and tested. During the earlier testing, the measurements stored on the SD card were used to fill missing or blank values in the collected dataset where wireless transmissions had been missed. This showed that the local storage could be used to recover data that had not reached the base station during communication interruptions.}
 
 The knowledge gained from this preliminary deployment formed the basis
 for the final hardware revision used in the subsequent long-term field
@@ -299,7 +298,8 @@ range testing:
     label={lst:lora-test-config},
     basicstyle=\normalsize\ttfamily,
     breaklines=true,
-    captionpos=b
+    captionpos=b,
+    escapeinside={(*@}{@*)}
 ]
 #define FREQUENCY       433E6   // 433 MHz
 #define TX_POWER        17      // dBm
@@ -307,7 +307,7 @@ range testing:
 #define SYNC_WORD       0x12
 #define SPREAD_FACTOR   10
 #define CODING_RATE     5
-#define PREAMBLE        8
+#define (*@\draftchange{PREAMBLE\_LENGTH}@*) 8
 \end{lstlisting}
 
 During the initial field test, communication performance was limited due
@@ -547,11 +547,7 @@ steadily increasing humidity measurements. This confirms that the
 waterproof enclosure significantly influences humidity measurements by
 restricting air exchange with the surrounding environment.
 
-Sensor Node 7 experienced a hardware failure during December, after
-which humidity readings became fixed at 0\%, clearly indicating sensor
-malfunction rather than actual environmental conditions. Despite these
-issues, the results demonstrate that externally mounted humidity sensors
-provide measurements that more accurately represent ambient conditions.
+\draftchange{Sensor Node 7 recorded humidity readings fixed at 0\% from December onward, after its battery voltage dropped to zero, so these readings do not represent actual environmental conditions. Before this, the node's externally mounted sensor followed the weather station observations, and the results demonstrate that externally mounted humidity sensors provide measurements that more accurately represent ambient conditions.}
 
 \subsection{Soil Temperature
 Performance}
@@ -593,9 +589,7 @@ deployment while continuously monitoring environmental conditions. Soil
 moisture measurements remained relatively low with gradual increases
 following wetter periods before decreasing as drainage occurred. Battery
 voltage gradually decreased from approximately \textbf{4.1 V} to
-\textbf{3.7 V}, demonstrating efficient power consumption. Near the end
-of the deployment, the node experienced a sudden loss of power,
-resulting in the termination of data collection.
+\textbf{3.7 V}, demonstrating efficient power consumption. \draftchange{The record for this node covers the time from installation until it stopped reporting.}
 
 \begin{figure}[htbp]
 \centering
@@ -607,7 +601,7 @@ resulting in the termination of data collection.
 \clearpage
 \subparagraph{Sensor Node 3}
 
-\draftchange{This node operated reliably throughout the approximately 75-day deployment period and produced the most complete dataset among all deployed nodes. Soil moisture increased during wetter conditions before gradually decreasing as the roof dried. Battery voltage showed a smooth and consistent discharge profile, demonstrating stable operation throughout the observation period.}
+\draftchange{This node operated reliably for approximately 75 days of recorded data and produced the most complete dataset among all deployed nodes. Soil moisture increased during wetter conditions before gradually decreasing as the roof dried. Battery voltage showed a smooth and consistent discharge profile, demonstrating stable operation while it was recording.}
 
 \begin{figure}[htbp]
 \centering
@@ -633,13 +627,7 @@ resulting in the termination of data collection.
 
 \draftchange{This node} initially produced measurements comparable to Sensor Node
 5, with externally mounted atmospheric sensors closely following weather
-station observations. However, a hardware or power failure occurred
-during December, after which battery voltage dropped to zero. This
-resulted in invalid humidity measurements fixed at 0\% and soil moisture
-readings exceeding 100\%, indicating sensor failure rather than actual
-environmental conditions. Despite this failure, the node successfully
-demonstrated stable operation during the majority of the deployment
-period.
+station observations. \draftchange{However, the recorded battery voltage dropped to zero during December. After this point, the humidity measurements were fixed at 0\% and the soil moisture readings exceeded 100\%, which do not represent actual environmental conditions. Before this, the node operated stably, and its record covers the time from installation until December.}
 
 \begin{figure}[htbp]
 \centering
@@ -651,21 +639,11 @@ period.
 \subsection{Overall System
 Performance}
 
-The field deployment demonstrated that the proposed LoRa mesh wireless
-sensor network successfully monitored environmental conditions on an
-Icelandic turf roof under real operating conditions. Throughout the
-deployment, the system continuously measured air temperature, relative
-humidity, soil temperature, soil moisture, and battery voltage while
-transmitting data to the cloud for remote monitoring.
+\draftchange{The field deployment demonstrated that the proposed LoRa mesh wireless sensor network successfully monitored environmental conditions across four Icelandic turf roofs under real operating conditions. Throughout the deployment, the system continuously measured air temperature, relative humidity, soil temperature, soil moisture, and battery voltage while transmitting data to the cloud for remote monitoring. The communication system was implemented and operated successfully in these real-world conditions, with measurements from four sensor nodes installed on four separate turf roofs being collected and delivered over an extended period. Together with the approximately 3 km single-hop range test, this provides evidence of the communication range and reliability of the system.}
 
-\draftchange{Comparison with data from the Sámsstaðir weather station (samst, 6222) was used to assess the agreement between the system's atmospheric measurements and external reference data. Soil temperature measurements showed less variation than air temperature measurements during periods of changing environmental conditions, consistent with the thermal buffering effect of the soil and turf layer. Battery voltage measurements also provided information about battery performance during the long-term deployment, which continued for more than two months.}
+\draftchange{Comparison with data from the Sámsstaðir weather station (samst, 6222) was used to assess the agreement between the system's atmospheric measurements and external reference data. Soil temperature measurements showed less variation than air temperature measurements during periods of changing environmental conditions, consistent with the thermal buffering effect of the soil and turf layer. \draftchange{Battery voltage measurements also provided information about battery performance during the long-term deployment.}}
 
-Although two sensor nodes experienced hardware failures near the end of
-the deployment, the remaining nodes continued operating successfully,
-demonstrating the robustness of the proposed monitoring system under
-real outdoor conditions. Overall, the field deployment validates the
-feasibility of using a low-power LoRa mesh wireless sensor network for
-long-term monitoring of soil conditions on Icelandic turf roofs.
+\draftchange{The Keldur deployment was the real-world test of the system, and its duration was not fixed in advance. Since the real operating time of the nodes was not known beforehand, the study period for each node is the time from installation until it stopped reporting. These observed operating times are the actual field results, whereas the 142-day battery lifetime in Section~4.2 remains an estimate. The measurements from all four nodes demonstrate the usefulness of the collected environmental data. Overall, the field deployment validates the feasibility of using a low-power LoRa mesh wireless sensor network for long-term monitoring of soil conditions on Icelandic turf roofs.}
 
 \section{Soil Moisture Calibration
 Results}
