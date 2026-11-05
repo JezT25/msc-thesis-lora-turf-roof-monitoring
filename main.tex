@@ -182,7 +182,7 @@ Dórótea Höeg Sigurðardóttir}
     \large
     \ifx\thesissupervisors\empty\else
       \vspace*{\stretch{1.0}}
-      Supervisor \\
+      \draftchange{Supervisors} \\
       \thesissupervisors{} \\
     \fi
     \vspace*{\stretch{1.0}}
@@ -226,7 +226,7 @@ Dórótea Höeg Sigurðardóttir}
 
 \chapter*{Abstract}
 \addcontentsline{toc}{chapter}{Abstract}
-\draftchange{This thesis presents the design, implementation, and evaluation of a low-power LoRa-based wireless sensor network for monitoring soil and environmental conditions beneath Icelandic turf roofs. The system consists of sensor nodes built around Arduino Pro Mini microcontrollers, with capacitive soil moisture sensors, DS18B20 soil temperature sensors, AHT10 air temperature and humidity sensors, local SD-card storage, and 433 MHz LoRa communication. A base station forwards collected measurements to the ThingSpeak cloud platform for remote access and visualization.}
+\draftchange{This thesis presents the design, implementation, and evaluation of a low-power LoRa-based wireless sensor network for monitoring soil and environmental conditions beneath Icelandic turf roofs. The system consists of sensor nodes built around Arduino Pro Mini microcontrollers, with capacitive soil moisture sensors, DS18B20 soil temperature sensors, AHT10 air temperature and humidity sensors, local SD card storage, and 433 MHz LoRa communication. A base station forwards collected measurements to the ThingSpeak cloud platform for remote access and visualization.}
 
 \draftchange{Laboratory and field tests were conducted to evaluate power consumption, communication performance, sensor calibration, and cloud data transmission. Under the defined operating cycle, the sensor node consumed an average current of approximately 3.08 mA. With three 3,500 mAh battery cells connected in parallel, providing a nominal capacity of 10,500 mAh, the estimated operating lifetime was approximately 142 days. This is an idealized estimate and does not account for reductions in usable battery capacity at low temperatures.}
 
@@ -368,7 +368,7 @@ WSN & Wireless Sensor Network\\
 
 \draftchange{The deployment at Keldur demonstrated the system's ability to monitor four separate turf roofs under real outdoor conditions. Sensor Node 3 performed particularly well, remaining operational throughout the recorded period of approximately 75 days and producing the most complete dataset. Sensor Node 5 also provided useful measurements throughout the observation period. The deployment showed differences in soil moisture between locations and highlighted the importance of placing air temperature and humidity sensors outside the main electronics enclosure. Although two nodes experienced failures near the end of the deployment, the results demonstrated the potential for extended environmental monitoring in real-world conditions.}
 
-\draftchange{Soil moisture calibration produced a second-order polynomial model with an approximate RMSE of 3\% relative to the HOBO reference measurements over the tested 0--40\% moisture range. ThingSpeak uploads using HTTP POST took approximately 1--2 seconds on average during the recorded tests, enabling remote access and visualization of the collected measurements.}
+\draftchange{Soil moisture calibration produced a second-order polynomial model with an approximate RMSE of 3\% relative to the HOBO reference measurements over the tested 0--40\% moisture range. ThingSpeak uploads using HTTP GET took approximately 1--2 seconds on average during the recorded tests, enabling remote access and visualization of the collected measurements.}
 
 \draftchange{The main objectives of the project were achieved through the implementation of the sensor nodes, power consumption measurements, LoRa range testing, local data backup, soil moisture calibration, and cloud integration. Preliminary field tests demonstrated that measurements could be recovered after missed wireless transmissions using the backup mechanism. The main remaining area for further evaluation is the performance of the complete multi-hop mesh network, which requires dedicated end-to-end testing.}
 
@@ -391,9 +391,10 @@ Future work should focus on extending the duration of field deployments, improvi
 \appendix
 \chapter{Additional Material}
 \section{\texorpdfstring{\draftchange{Bill of Materials}}{Bill of Materials}}
-\draftchange{The bill of materials lists the main components and materials used to construct the sensor network. It is organized into PCB assembly components and the additional modules and materials used in the implementation. The list serves as a reference for the hardware described in this thesis.}
+\markboth{A. Additional Material}{A.1. Bill of Materials}
+\draftchange{The bill of materials lists the main components and materials used to construct one in situ sensor node, which is buried beneath the turf roof. It is organized into PCB assembly components and the additional modules and materials used in the implementation. The base station is not included because it is not buried and uses a different controller, the LOLIN D1 mini. The list serves as a reference for the sensor-node hardware described in this thesis.}
 
-\draftchange{The total cost of the priced components and materials listed in the bill of materials is ISK 11,921.44. Components listed as ``Not priced'' or ``Not populated'' are not included in the total. For D2, either a 1N4001 or 1N4004 diode can be used; both are suitable for the intended application and have the same cost. The choice between the two was based on component availability.}
+\draftchange{The total cost of the priced components and materials listed in the bill of materials for one sensor node is ISK 11,921.44. Components listed as ``Not priced'' or ``Not populated'' are not included in the total. For D2, either a 1N4001 or 1N4004 diode can be used; both are suitable for the intended application and have the same cost. The choice between the two was based on component availability.}
 
 \subsection{\texorpdfstring{\draftchange{PCB Assembly}}{PCB Assembly}}
 \begingroup
@@ -410,14 +411,14 @@ D2 & 1N4001 or 1N4004 diode & 13.00 \\
 H1--H2 & Mounting holes; listed price is for standoffs & 4.41 \\
 J1--J2 & Battery positive and negative connections & Not priced \\
 JP1--JP4 & Normally open jumpers & Not priced \\
-JP5--JP6 & RA-02 pin headers & 43.44 \\
-JP7 & RA-01 alternate header footprint & Not populated \\
+JP5--JP6 & Ra-02 pin headers & 43.44 \\
+JP7 & Ra-01 alternate header footprint & Not populated \\
 JP8, JP9, JP15, JP17 & Power-selection jumpers & Not priced \\
 JP10 & DS3231 header & 18.71 \\
 JP11 & AHT10 header & 22.51 \\
 JP12 & DS18B20 header & 26.18 \\
 JP13 & Soil-moisture sensor header & 26.18 \\
-JP14 & SD-card header & 18.71 \\
+JP14 & SD card header & 18.71 \\
 JP16 & Debug header & Not populated \\
 Q1--Q2 & ZVP2106A P-channel MOSFETs & 242.17 \\
 R1, R3 & Two \(4.7~\text{k}\Omega\) resistors & 12.21 \\
@@ -451,7 +452,7 @@ U\$1 & ABK Pro Mini Arduino clone & 541.11 \\
 -- & DS3231 real-time clock module & 206.48 \\
 -- & Ra-02 LoRa module with SX1278 transceiver & 949.97 \\
 -- & 1 GB microSD card & 1,690.00 \\
--- & SD-card serial logger module & 662.46 \\
+-- & SD card serial logger module & 662.46 \\
 -- & Waterproof DS18B20 temperature probe & 281.98 \\
 -- & Capacitive soil-moisture sensor, v1.2 & 254.40 \\
 -- & Three 18650 lithium-ion cells & 3,901.00 \\

@@ -20,7 +20,7 @@ a known amount of soil, soil moisture can be expressed as ``\% water by
 weight or volume of soil'', or ``inches of water per foot of soil''
 \cite{ref19}.
 
-\subsection{Relative Humidity in Soil}
+\subsection{\draftchange{Relative Humidity}}
 
 Humidity is defined as the amount of gaseous water or water vapor in the
 air. High humidity means there is a lot of moisture in the air and low
@@ -28,14 +28,11 @@ humidity indicates dry conditions. Humidity is often described as
 absolute humidity (AH) or relative humidity (RH) \cite{ref20}\cite{ref21}.
 Absolute humidity is measured in units of g/m\textsuperscript{3} where
 it is the measure of water vapor content in air that is not dependent on
-temperature \cite{ref22}. Relative humidity is the ratio of the current
+temperature \cite{ref20}. Relative humidity is the ratio of the current
 amount of water vapor in the air to the maximum amount the air can hold
 at a given temperature, expressed as a percentage (\%) \cite{ref23}.
 
-This study will collect data and conduct tests below the soil surface.
-In this context, humidity refers to the relative humidity of the air
-within the soil\textquotesingle s pores and gaps, which will be used as
-data for the study.
+\draftchange{Relative humidity describes the water vapor in the air surrounding the sensor. It is different from soil moisture, which describes the amount of water held in the soil. In this study, relative humidity is measured by the AHT10 atmospheric sensor together with air temperature. The AHT10 is not a soil-moisture sensor, and its readings do not describe the water content of the soil. The measured value depends on where the sensor is placed. A sensor inside a sealed enclosure measures the air inside that enclosure, whereas an externally mounted sensor is exposed to the air outside it. The effect of these two placements is compared in Chapter~\ref{chap:results}.}
 
 \subsection{Wireless Sensor Network (WSN)}
 
@@ -74,11 +71,11 @@ scientific, and medical (ISM) band. The use of 433 MHz, 868 MHz, or
 915 MHz bands depends on regional regulations and deployment requirements
 \cite{camarillo2022lorawan,yahya2023antenna}.
 
-\subsection{In-Situ Sensors}
+\subsection{In Situ Sensors}
 
-In-situ sensors measure and monitor conditions directly at the location of
+In situ sensors measure and monitor conditions directly at the location of
 interest. They provide measurements without requiring repeated manual
-sampling or removal of material from the monitored environment. In-situ
+sampling or removal of material from the monitored environment. In situ
 sensors are useful in environmental monitoring because they can collect
 data continuously from remote locations. They may include temperature,
 air-quality, soil-moisture, and groundwater sensors and can be integrated
@@ -137,6 +134,6 @@ The project therefore addresses the need for a practical monitoring system that 
 The project provides a low-cost engineering approach to continuous monitoring of environmental conditions on Icelandic turf roofs. The system is intended to support researchers and conservation personnel by providing measurements without requiring frequent manual sampling or intrusive installation. The use of off-the-shelf components and a modular mesh architecture also provides a basis for scaling the monitoring approach to additional turf-roof sites.
 
 \section{Scope and Limitations}
-The work focuses on a low-power LoRa-based wireless sensor mesh network using distributed sensor nodes and a cloud-connected base station. The implemented nodes measure soil moisture, soil temperature, air temperature, relative humidity, and battery voltage. The methodology specifies burial of sensor nodes at approximately 11 cm, weatherproof enclosures, local SD-card data backup, and a non-destructive installation approach.
+The work focuses on a low-power LoRa-based wireless sensor mesh network using distributed sensor nodes and a cloud-connected base station. The implemented nodes measure soil moisture, soil temperature, air temperature, relative humidity, and battery voltage. \draftchange{The methodology specifies a design target of burying the sensor nodes at approximately 11 cm, weatherproof enclosures, local SD card data backup, and a non-destructive installation approach.}
 
 The evaluation includes laboratory power-consumption testing, preliminary and intermediate field deployments around the University of Iceland, LoRa range testing around Vellir in Hafnarfjörður, long-term deployment at the Keldur turf-house site, soil moisture calibration, and ThingSpeak cloud-upload testing. The documented results also show limitations, including antenna-related packet loss during early testing, sensor-calibration issues during intermediate testing, and hardware failures affecting two nodes near the end of the long-term deployment. The calibration results cover the 0--40\% moisture range and therefore do not establish performance beyond that range.

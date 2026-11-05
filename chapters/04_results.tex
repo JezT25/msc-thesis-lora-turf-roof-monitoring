@@ -14,7 +14,7 @@ Results}
 \subsection{Packet Sending Time
 Calculation}
 
-The in-situ sensor node operates under a strict duty cycle constraint,
+The in situ sensor node operates under a strict duty cycle constraint,
 remaining active for a maximum of 5 minutes per hour while spending the
 remaining 55 minutes in deep sleep. The transition from deep sleep to
 full operation, including sensor activation via MOSFET, data
@@ -284,6 +284,8 @@ later deployments. Additional improvements included refinements to the
 firmware, sensor calibration procedures, enclosure design, and overall
 system stability.
 
+\draftchange{Local SD card backup was also implemented, and preliminary testing demonstrated that measurements could be recovered after missed wireless transmissions. The measurements were stored locally on the SD card and could be retrieved to recover data that had not reached the base station during communication interruptions.}
+
 The knowledge gained from this preliminary deployment formed the basis
 for the final hardware revision used in the subsequent long-term field
 deployment, where substantially improved communication reliability and
@@ -366,39 +368,7 @@ Netto & -112 dBm \\
 
 \subsection{Discussion of Results}
 
-The results demonstrate that the system achieves an approximate
-communication radius of 3 km, even with non-ideal base station
-placement. The recorded RSSI values, ranging from -103 dBm to -113 dBm,
-indicate that communication remains stable near the sensitivity limits
-of the receiver.
-
-Although mesh networking was not implemented during this test, the
-results highlight its potential advantages. In a mesh topology,
-intermediate nodes can relay data, effectively extending the
-communication range beyond the limits observed in a single-hop
-configuration.
-
-For Icelandic turf house applications, where structures are typically
-located within short distances of each other, a 3 km communication range
-is more than sufficient for reliable node-to-node communication. This
-supports the feasibility of deploying multiple sensor nodes across sites
-while maintaining connectivity through a mesh network.
-
-Furthermore, the system allows flexibility in base station placement.
-The base station can be located in areas with available internet
-connectivity, while remote nodes transmit data through intermediate
-nodes until reaching the gateway.
-
-Despite additional attenuation from soil burial and seasonal snow cover,
-the observed signal strength suggests that communication can still be
-maintained under such conditions. This is critical for the intended
-application, as the sensor nodes are deployed beneath turf roofs to
-monitor soil conditions.
-
-Overall, the results confirm that LoRa technology is well suited for
-long-range, low-power environmental monitoring in Icelandic turf houses,
-providing reliable communication even under challenging environmental
-conditions.
+\draftchange{The results demonstrate reliable single-hop LoRa communication within an approximate 3 km radius. The recorded RSSI values, ranging from -103 dBm to -113 dBm, provide a useful indication of the communication performance achieved with the selected radio configuration and antennas. However, mesh networking was not implemented during this test. The results therefore provide a baseline for future evaluation of multi-hop communication, where intermediate sensor nodes relay measurements to the base station. Actual performance in turf-roof installations will also depend on antenna placement, burial depth, terrain, and surrounding structures.}
 
 \section{Intermediate Field
 Deployment}
@@ -608,7 +578,7 @@ changes. Even when air temperatures varied between approximately
 \textbf{−8 °C and +10 °C}, soil temperatures remained close to \textbf{0
 °C} with only gradual seasonal variation.
 
-\draftchange{Station 6222 does \textbf{not} provide underground soil temperature measurements at the same depth as the deployed sensors. The comparison therefore used the station's \textbf{ground-level (surface) temperature} data as the closest available reference. Since the developed sensor nodes measured soil temperature at depths ranging from approximately \textbf{60 mm to 85 mm} below the turf surface, some difference between the two datasets was expected. Soil temperatures below the surface are naturally more thermally stable and less affected by rapid atmospheric temperature changes than temperatures measured at or near the ground surface.}
+\draftchange{Station 6222 does \textbf{not} provide underground soil temperature measurements at the same depth as the deployed sensors. The comparison therefore used the station's \textbf{ground-level (surface) temperature} data as the closest available reference. Since the developed sensor nodes measured soil temperature at depths ranging from approximately \textbf{60 mm to 85 mm} below the turf surface (Figure~\ref{fig:results-deployment-map}), some difference between the two datasets was expected. Soil temperatures below the surface are naturally more thermally stable and less affected by rapid atmospheric temperature changes than temperatures measured at or near the ground surface.}
 
 \draftchange{Consequently, the average absolute difference between the deployed sensor measurements and station 6222 data ranged from approximately \textbf{2.77 °C to 3.11 °C}. This difference should therefore not be interpreted solely as measurement error but rather as a consequence of comparing temperatures measured at different depths and under different environmental conditions.}
 
@@ -624,7 +594,7 @@ Performance}
 \clearpage
 \subparagraph{Sensor Node 1}
 
-Sensor Node 1 maintained stable communication throughout most of the
+\draftchange{This node} maintained stable communication throughout most of the
 deployment while continuously monitoring environmental conditions. Soil
 moisture measurements remained relatively low with gradual increases
 following wetter periods before decreasing as drainage occurred. Battery
@@ -643,12 +613,7 @@ resulting in the termination of data collection.
 \clearpage
 \subparagraph{Sensor Node 3}
 
-Sensor Node 3 operated reliably throughout the deployment and exhibited
-the most complete dataset among all deployed nodes. Soil moisture
-increased during wetter conditions before gradually decreasing as the
-roof dried. Battery voltage showed a smooth and consistent discharge
-profile, indicating stable operation and validating the effectiveness of
-the implemented low-power algorithm.
+\draftchange{This node operated reliably throughout the approximately 75-day deployment period and produced the most complete dataset among all deployed nodes. Soil moisture increased during wetter conditions before gradually decreasing as the roof dried. Battery voltage showed a smooth and consistent discharge profile, demonstrating stable operation throughout the observation period.}
 
 \begin{figure}[htbp]
 \centering
@@ -660,7 +625,7 @@ the implemented low-power algorithm.
 \clearpage
 \subparagraph{Sensor Node 5}
 
-\draftchange{Sensor Node 5 produced air temperature and humidity measurements that closely matched station 6222 due to its externally mounted atmospheric sensors. Soil moisture remained consistently higher than the other deployed nodes, suggesting that its installation location retained more water within the turf roof. Battery voltage remained nearly constant throughout the deployment, demonstrating excellent energy efficiency despite continuous operation.}
+\draftchange{This node produced air temperature and humidity measurements that closely matched station 6222 due to its externally mounted atmospheric sensors. Soil moisture remained consistently higher than the other deployed nodes, suggesting that its installation location retained more water within the turf roof. Battery voltage remained nearly constant throughout the deployment, demonstrating excellent energy efficiency despite continuous operation.}
 
 \begin{figure}[htbp]
 \centering
@@ -672,7 +637,7 @@ the implemented low-power algorithm.
 \clearpage
 \subparagraph{Sensor Node 7}
 
-Sensor Node 7 initially produced measurements comparable to Sensor Node
+\draftchange{This node} initially produced measurements comparable to Sensor Node
 5, with externally mounted atmospheric sensors closely following weather
 station observations. However, a hardware or power failure occurred
 during December, after which battery voltage dropped to zero. This
@@ -956,18 +921,10 @@ integration into the low-power LoRa-based monitoring system.
 \draftchange{The cloud upload functionality was evaluated using the ThingSpeak IoT
 platform. Sensor data from the base station---including soil moisture,
 temperature, humidity, battery voltage, and timestamps---was transmitted
-via Wi-Fi using HTTP POST requests. During testing, the uploaded sensor
+via Wi-Fi using HTTP GET requests. During testing, the uploaded sensor
 data was successfully received by the ThingSpeak server, with the
 requests consistently returning an HTTP response code of \emph{200 OK}.
 The average upload time was approximately 1--2 seconds, depending on
 network conditions.}
 
-These results indicate that the cloud communication system is stable and
-suitable for long-term environmental monitoring. The Wi-Fi connection
-remained consistent, and no missed uploads were observed, demonstrating
-reliable integration between LoRa data collection and cloud storage.
-Given that the application prioritizes periodic monitoring rather than
-high data throughput, the achieved performance is more than sufficient.
-Furthermore, integration with ThingSpeak enables convenient remote
-access, visualization, and analysis of environmental data from Icelandic
-turf roofs.
+\draftchange{The integration made the collected sensor measurements available through ThingSpeak for remote access, visualization, and further analysis. The observed upload time was suitable for the periodic data-transfer requirements of the monitoring system.}

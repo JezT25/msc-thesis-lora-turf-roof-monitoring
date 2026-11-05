@@ -72,8 +72,7 @@ include the following:
 
 \begin{itemize}
 \item
-  Sensor nodes will be buried at depths of approximately 11 cm and may
-  be covered by additional layers of snow during winter.
+  \draftchange{The original design target was to bury the sensor nodes at a depth of approximately 11 cm, where they may be covered by additional layers of snow during winter. The depths actually used at Keldur are described in Section~\ref{sec:keldur-deployment}.}
 \item
   The device must be sufficiently weatherproof to withstand harsh
   Icelandic conditions, including high moisture levels from rain and
@@ -108,19 +107,19 @@ MOSFET-based power control system that disconnects power to sensors
 while the system is in sleep mode. The sensor node is periodically
 awakened by the real-time clock to collect, store, and transmit data
 before returning to low-power sleep operation.
-\draftchange{The in-situ sensor-node hardware configuration is shown in Figure~\ref{fig:method-image2}.}
+\draftchange{The in situ sensor-node hardware configuration is shown in Figure~\ref{fig:method-image2}.}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=5.48053in,height=3.10153in]{figs/method-image2.png}
-\caption{In-situ sensor node hardware configuration and component layout.}
+\caption{In situ sensor node hardware configuration and component layout.}
 \label{fig:method-image2}
 \end{figure}
 
 \subsubsection{Device Components}
 
 \subsubsection{LoRa Module (Ra-02 SX1278
-433Mhz)}
+433 MHz)}
 
 The Ra-02 LoRa module, based on the SX1278 transceiver,
 operates at 433 MHz, which is within the legal ISM band in Iceland. The
@@ -231,11 +230,11 @@ module supports microSD cards up to 32 GB and consumes approximately
 logging.
 
 
-\subsubsection{Power Source (18650 Samsung 35E 3500mAh Li-Ion
+\subsubsection{Power Source (18650 Samsung 35E 3,500 mAh Li-Ion
 Battery)}
 
 The system is powered using three 18650 lithium-ion
-batteries, each with a nominal capacity of 3500 mAh, providing a total
+batteries, each with a nominal capacity of 3,500 mAh, providing a total
 capacity of 10,500 mAh. These batteries operate over a voltage range of
 approximately 2.65 V to 4.2 V, which is suitable for a 3.3 V
 system.
@@ -269,7 +268,7 @@ ensuring consistent data collection and transmission intervals across
 the mesh network.
 
 \subsubsection{Antenna (433 MHz
-3dbi)}
+3 dBi)}
 
 The selected antenna operates at 433 MHz, which matches the
 configuration of the system. The antenna has a minimal design and is
@@ -326,8 +325,7 @@ microcontroller. A component labeled SW1 is used as a three-bit hardware
 identifier, allowing each sensor node to be assigned a unique ID. Upon
 boot, the microcontroller reads the state of these bits and assigns the
 corresponding hardware ID to the node, preventing data collisions during
-transmission. With this configuration, up to seven unique devices can be
-supported within a single system. The design can be further scaled by
+transmission. \draftchange{With three bits, the switch can select eight values (0 to 7), and the firmware accepts all of them as sensor-node IDs. Up to eight sensor nodes can therefore be supported within a single system. Each ID corresponds to a fixed data field in the ledger packet, and one additional field is used for the checksum. The base station is counted separately and is not one of these eight sensor nodes.} The design can be further scaled by
 adding additional identifier bits using available microcontroller pins.
 For deployments involving multiple systems, software-based hardware
 prefixes can be implemented to distinguish between different system
@@ -441,7 +439,7 @@ After synchronization, the base station uploads the collected data to
 the cloud, where it is stored and made available for viewing and further
 data analysis by researchers.
 
-\draftchange{The base-station module is shown in Figure~\ref{fig:method-image7}.}
+\draftchange{The base station module is shown in Figure~\ref{fig:method-image7}.}
 
 \begin{figure}[htbp]
 \centering
@@ -453,10 +451,10 @@ data analysis by researchers.
 \subsubsection{Device Components}
 
 \subsubsection{LoRa Module (Ra-02 SX1278
-433Mhz)}
+433 MHz)}
 
 The base station uses the same Ra-02 LoRa module as the
-in-situ sensor nodes to maintain consistency across the system. Using
+in situ sensor nodes to maintain consistency across the system. Using
 the same LoRa module simplifies system design, firmware development, and
 communication compatibility between the base station and sensor nodes.
 Additionally, this approach reduces component variation and ensures
@@ -593,14 +591,7 @@ storage.
 
 \subsubsection{Architecture}
 
-To simplify debugging and system validation during development, all LoRa
-data packets were transmitted as human-readable plaintext strings.
-Although this approach is less efficient than using compact binary
-packet structures, it significantly improved transparency during early
-testing and troubleshooting. Being able to directly inspect transmitted
-data without additional decoding tools allowed for faster identification
-of routing, formatting, and communication errors within the mesh
-network.
+\draftchange{The packet contents are formatted as human-readable text fields to simplify debugging and inspection during development. Before transmission, the packet is encrypted using the RC4 routine implemented in the firmware. This allows the data structure to remain easy to inspect after decryption while providing basic obfuscation during wireless transmission. Although a text-based format is less efficient than a compact binary packet structure, it made it easier to identify routing, formatting, and communication errors within the mesh network during early testing and troubleshooting.}
 
 It should be noted that, for a production-level implementation, a packed
 data structure (e.g., a structured binary payload containing predefined
@@ -608,13 +599,7 @@ variables) would be preferable. Such an approach would reduce payload
 size, improve transmission efficiency, and optimize airtime usage ---
 particularly important in low-bandwidth LoRa systems.
 
-The decision to retain plaintext transmission in the final prototype was
-primarily influenced by the system's early testing phase, where
-plaintext communication was initially implemented and validated.
-Maintaining this format ensured consistency and stability throughout
-development. Nevertheless, future iterations of the system would benefit
-from migrating to a structured binary packet format for improved
-scalability and performance.
+\draftchange{The text-based packet format was retained in the final prototype because it was implemented and validated during the early testing phase, and keeping it ensured consistency and stability throughout development. Future iterations of the system would benefit from migrating to a structured binary packet format for improved scalability and performance.}
 
 \subsubsection{Packet Structure}
 
@@ -633,11 +618,7 @@ positional mapping prevents data overwriting and ensures deterministic
 placement of measurements, allowing every node to know exactly where its
 contribution belongs within the packet.
 
-Because all data is transmitted in plaintext format, each node is
-allocated a fixed number of characters. While a packed binary structure
-with defined variable types would have been more memory-efficient and
-flexible, fixed-width plaintext fields were chosen to simplify
-debugging, inspection, and demonstration of the system. Each numerical
+\draftchange{Because the packet payload uses fixed-width text fields, each node is allocated a fixed number of characters. While a packed binary structure with defined variable types would have been more memory-efficient and flexible, fixed-width text fields were chosen to simplify debugging, inspection, and demonstration of the system.} Each numerical
 value is formatted to support a range from --99.9999 to 999.9999. This
 range comfortably accommodates all measured parameters (e.g.,
 temperature, humidity, soil moisture, battery voltage), ensuring no
@@ -679,10 +660,8 @@ system time for logging and coordination purposes. \draftchange{The time-synchro
 \label{fig:method-image9}
 \end{figure}
 
-In total, each packet occupies 97 characters (97 bytes). Although
-plaintext transmission simplifies inspection, it inherently lacks
-confidentiality. To provide a basic level of security, packets are
-encrypted prior to transmission using the RC4 stream cipher. RC4 was
+In total, each packet occupies 97 characters (97 bytes).
+\draftchange{Because the text fields are human-readable, the packet could be read directly if it were transmitted without encryption. To provide basic obfuscation, each packet is therefore encrypted using the RC4 stream cipher before transmission.} RC4 was
 selected due to its lightweight computational requirements and minimal
 memory footprint, making it suitable for the ATmega328P's limited RAM
 and processing capability.
@@ -747,7 +726,7 @@ void LORA_MODULE_class::rc4EncryptDecrypt(char *data, uint8_t len)
 }
 \end{lstlisting}
 
-The encrypted packet structure preserves low computational overhead while still providing basic obfuscation for plaintext LoRa transmissions during early development and testing.
+\draftchange{The RC4 routine preserves low computational overhead while providing basic obfuscation of the text-based packets during wireless transmission.}
 
 \subsubsection{Mesh Network}
 
@@ -893,13 +872,13 @@ The in situ node operates in a low-power duty cycle. It enters deep
 sleep mode, wakes up using an RTC timer, gathers sensor data, transmits
 data to the mesh network, and then returns to deep sleep. This cycle
 repeats continuously throughout
-deployment. \draftchange{The in-situ node duty cycle is shown in Figure~\ref{fig:method-image14}.}
+deployment. \draftchange{The in situ node duty cycle is shown in Figure~\ref{fig:method-image14}.}
 
 \clearpage
 \begin{figure}[p]
 \centering
 \includegraphics[width=\textwidth,height=0.84\textheight,keepaspectratio]{figs/method-image14.png}
-\caption{Operational duty-cycle diagram of the in-situ sensor node during deployment.}
+\caption{Operational duty-cycle diagram of the in situ sensor node during deployment.}
 \label{fig:method-image14}
 \end{figure}
 \clearpage
@@ -990,7 +969,7 @@ nodes by sending a formatted packet containing the correct time obtained
 from pool.ntp.org. Although nodes are equipped with RTC modules,
 periodic synchronization ensures that all nodes remain aligned and wake
 simultaneously, preventing missed data requests.
-\draftchange{The base-station data-acquisition and synchronization sequence is shown in Figure~\ref{fig:method-image15}.}
+\draftchange{The base station data-acquisition and synchronization sequence is shown in Figure~\ref{fig:method-image15}.}
 
 \clearpage
 \begin{figure}[p]
@@ -1003,12 +982,10 @@ simultaneously, preventing missed data requests.
 
 \subsubsection{Uploading the Data}
 
-\draftchange{The cloud platform selected for this project is ThingSpeak. The base station uploads sensor measurements to the platform using an HTTP POST request to the ThingSpeak REST API. The request includes the channel's Write API key and the measurement data. During testing, successful uploads returned HTTP status code 200 OK, with an average upload time of approximately 1--2 seconds.}
+\draftchange{The cloud platform selected for this project is ThingSpeak. The base station uploads sensor measurements to the platform using an HTTP GET request to the ThingSpeak update API. The request includes the Write API key assigned to the node and the measurement values as query parameters. During testing, successful uploads returned HTTP status code 200 OK, with an average upload time of approximately 1--2 seconds.}
 
 
-Since the system can support up to 8 nodes, the base station
-uploads each node's data individually using their respective API
-keys.
+\draftchange{Since the system can support up to eight sensor nodes (hardware IDs 0 to 7), the base station uploads each active node's data individually using its respective API key.}
 
 
 \section{\texorpdfstring{Cloud}{Cloud}}
@@ -1216,7 +1193,7 @@ This second preliminary test was conducted over an extended period, from
 long-term system stability, communication reliability, and the impact of
 environmental conditions on performance.
 
-\section{Deployment in Keldur}
+\section{Deployment in Keldur}\label{sec:keldur-deployment}
 
 \draftchange{Following the previous testing phases, the system was deployed at \textbf{Keldur} on October 17, 2025. The deployment was carried out in collaboration with the Faculty of Civil and Environmental Engineering.}
 
@@ -1231,7 +1208,7 @@ environmental conditions on performance.
 \label{fig:keldur-base-station}
 \end{figure}
 
-\draftchange{Four sensor units were installed around the site, with one assigned to each turf roof. The installation took place on a cold, sunny day, providing suitable conditions for carrying out the work. The sensors were buried approximately 60--80 mm below the turf surface, within a soil layer approximately 170 mm deep. This burial depth was chosen because it was approximately midway through the soil layer and allowed the sensor units to be concealed beneath the turf.}
+\draftchange{Four sensor units were installed around the site, with one assigned to each turf roof. The installation took place on a cold, sunny day, providing suitable conditions for carrying out the work. The sensors were buried approximately 60--85 mm below the turf surface (Sensor Nodes 1, 3, 5, and 7 at 80, 60, 65, and 85 mm, respectively), within a soil layer approximately 170 mm deep. These depths differ from the approximately 11 cm design target described in the design constraints. The burial depths were chosen because they were approximately midway through the soil layer and allowed the sensor units to be concealed beneath the turf.}
 
 \draftchange{Sensor placement was generally around 0.9 m from the upper edge of the roof, with horizontal distances varying between approximately 0.5 m and 4.25 m depending on the installation location. This arrangement allowed soil conditions to be monitored while keeping the sensor units concealed beneath the turf. The turf-roof buildings and sensor installation area are shown in Figure~\ref{fig:keldur-sensor-installation}.}
 
