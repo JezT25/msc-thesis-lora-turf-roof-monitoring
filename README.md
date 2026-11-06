@@ -64,6 +64,17 @@ Mesh relay behavior was observed qualitatively on the bench; no multi-hop range 
 
 The sensor node and base station firmware used in this thesis is available at [github.com/JezT25/turfroof_lora](https://github.com/JezT25/turfroof_lora).
 
+## Data
+
+Measurements from the Keldur deployment are published on ThingSpeak (channel author: `jvt6hiis`), one channel per sensor node.
+
+| Node | Channel |
+| --- | --- |
+| HW_1 | [2974951](https://thingspeak.mathworks.com/channels/2974951) |
+| HW_3 | [2974954](https://thingspeak.mathworks.com/channels/2974954) |
+| HW_5 | [2974955](https://thingspeak.mathworks.com/channels/2974955) |
+| HW_7 | [2974956](https://thingspeak.mathworks.com/channels/2974956) |
+
 ## Copyright
 
 Copyright © 2027 Jezreel V. Tan. This thesis may not be copied in any form without the author's permission.
