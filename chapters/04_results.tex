@@ -1,6 +1,6 @@
 \section{Overview}
 
-\draftchange{This chapter presents the results obtained from laboratory power consumption testing, preliminary field trials at Háskóli Íslands, LoRa range evaluation, long-term deployment in Keldur, and soil moisture calibration. The results are analyzed in relation to the system requirements defined in Chapter 3, particularly long-term low-power operation, communication performance of the installed sensor nodes, mesh network operation, and calibration accuracy. The Keldur deployment demonstrated that the LoRa mesh network operated under real outdoor conditions, while the calibration tests confirmed the accuracy of the soil moisture measurements within the tested range.}
+\draftchange{This chapter presents the results obtained from laboratory power consumption testing, preliminary field trials at Háskóli Íslands, LoRa range evaluation, long-term deployment in Keldur, and soil moisture calibration. The results are analyzed in relation to the system requirements defined in Chapter 3, particularly long-term low-power operation, communication performance of the installed sensor nodes, mesh network operation, and calibration accuracy. The Keldur deployment demonstrated the system under real outdoor conditions, while the calibration tests characterized the response of the soil moisture sensor over the tested 0--40\% range using a calibration soil sample.}
 
 \section{Power Consumption
 Results}
@@ -38,7 +38,7 @@ T_{preamble} = (N_{preamble} + 4.25) \cdot T_{sym} \approx 0.1\text{ }\text{s}
 \label{eq:preamble-duration}
 \end{equation}
 
-The payload duration depends on the payload size \(PL\) and is given by:
+The payload duration depends on the payload size \(PL\) \draftchange{and} is given by:
 
 \begin{equation}
 T_{payload} = N_{payload} \cdot T_{sym}
@@ -110,6 +110,8 @@ Half Sleep & 12.2 mA & 237 s & Sensors off, MCU in low-power mode, LoRa
 in standby \\
 \end{longtable}
 
+\draftchange{During the laboratory test described in Section~\ref{sec:power-tests}, each operating state was maintained for 10 seconds to allow the current reading to stabilize. The measurement routine was observed over three complete loops to verify repeatability. The durations per hour shown in Table~\ref{tab:operating-modes} represent the operating-cycle durations used for the weighted average current calculation; they were not the duration of the laboratory measurement itself. Therefore, the average current consumption of approximately 3.08 mA is a calculated hourly cycle average based on the measured current in each operating state and its corresponding operating duration, rather than a direct average-current measurement taken over a continuous one-hour test.}
+
 The average current consumption is calculated as:
 
 \begin{equation}
@@ -117,7 +119,7 @@ I_{avg} = \frac{\sum I_{n}t_{n}}{T}
 \label{eq:average-current}
 \end{equation}
 
-where \(I_{n}\) is the current in each state, \(t_{n}\) is the duration of
+where \(I_{n}\) \draftchange{is} the current in each state, \(t_{n}\) \draftchange{is} the duration of
 each state, and \(T = 3600\text{ }\text{s}\) \draftchange{is} the total time per hour.
 
 Substituting the measured values:
@@ -181,14 +183,13 @@ Four prototype sensor nodes (HW\_1, HW\_3, HW\_5, and HW\_7) were
 deployed to collect air temperature, relative humidity, soil
 temperature, and soil moisture data. Measurements were transmitted
 through the LoRa network to the base station and uploaded to the cloud
-for analysis. Weather station data from the University of Iceland were
-used as a reference for comparison.
+for analysis. \draftchange{Measurements from the prototype sensor nodes were cross-checked against observations from the Reykjavík Hljómskálagarður automatic weather station (Station 1469), operated by Veðurstofa Íslands~\cite{imo_observations}.}
 
 \subsection{Air Temperature and Relative
 Humidity}
 
 Figure~\ref{fig:results-1} compares the measured air temperature from the prototype
-sensor nodes with the nearby weather station, while Figure~\ref{fig:results-2} presents
+sensor nodes with the \draftchange{Reykjavík Hljómskálagarður weather station (Station 1469)}, while Figure~\ref{fig:results-2} presents
 the corresponding relative humidity measurements.
 
 \begin{figure}[htbp]
@@ -212,6 +213,8 @@ missing samples, and unstable readings were observed. These
 inconsistencies were expected because the firmware and hardware were
 still under active development, with frequent updates and adjustments
 being performed throughout the testing period.
+
+\draftchange{The comparison with the weather station was intended as a contextual cross-check of general environmental trends. It was not a direct calibration or an absolute accuracy validation, because the sensor nodes and the weather station were located at different sites.}
 
 One of the major issues identified during this deployment was poor LoRa
 communication performance. During testing, the sensor nodes were
@@ -362,7 +365,9 @@ Netto & -112 dBm \\
 
 \subsection{Discussion of Results}
 
-\draftchange{The results demonstrate reliable single-hop LoRa communication within an approximate 3 km radius. The recorded RSSI values, ranging from -103 dBm to -113 dBm, provide a useful indication of the communication performance achieved with the selected radio configuration and antennas. However, mesh networking was not implemented during this test. The results therefore provide a baseline for future evaluation of multi-hop communication, where intermediate sensor nodes relay measurements to the base station. Actual performance in turf-roof installations will also depend on antenna placement, burial depth, terrain, and surrounding structures.}
+\draftchange{The results demonstrate reliable single-hop LoRa communication within an approximate 3 km radius. The recorded RSSI values, ranging from -103 dBm to -113 dBm, provide a useful indication of the communication performance achieved with the selected radio configuration and antennas.}
+
+\draftchange{The Vellir range test evaluated direct, single-hop communication only; it did not evaluate the mesh relay process. A separate informal relay test was conducted during firmware development (Section~\ref{sec:informal-multihop}). Sensor nodes were spaced apart, and the researcher observed debug output showing ledger data being forwarded between nodes and eventually reaching the base station. Because this test was not logged and its topology, node count, spacing, and firmware revision were not retained, it provides qualitative evidence that the relay mechanism operated but does not provide measured multi-hop range, packet-delivery ratio, hop count, or latency. A controlled, logged multi-hop test is still needed to quantify those performance measures. Actual performance in turf-roof installations will also depend on antenna placement, burial depth, terrain, and surrounding structures.}
 
 \section{Intermediate Field
 Deployment}
@@ -382,13 +387,12 @@ environmental sensors, and identify any remaining hardware or software
 issues before proceeding to the final long-term deployment. Four sensor
 nodes (HW\_1, HW\_3, HW\_5, and HW\_7) continuously monitored air
 temperature, relative humidity, soil temperature, and soil moisture,
-while measurements from the nearby weather station were used as a
-reference.
+while measurements from the \draftchange{Reykjavík Hljómskálagarður weather station (Station 1469) were used as a contextual cross-check.}
 
 \subsection{Air Temperature and Relative
 Humidity}
 
-\draftchange{Figure~\ref{fig:results-6} compares the measured air temperature from the four prototype sensor nodes with the nearby weather station, while Figure~\ref{fig:results-7} presents the corresponding relative humidity measurements.}
+\draftchange{Figure~\ref{fig:results-6} compares the measured air temperature from the four prototype sensor nodes with the Reykjavík Hljómskálagarður weather station (Station 1469), while Figure~\ref{fig:results-7} presents the corresponding relative humidity measurements. As in the preliminary deployment, this comparison is a contextual cross-check of general trends rather than a calibration or absolute accuracy validation, because the instruments were located at different sites.}
 
 \begin{figure}[htbp]
 \centering
@@ -405,7 +409,7 @@ successfully transmitted to the base station, reducing the amount of
 missing data caused by packet loss.
 
 The measured air temperatures generally followed the same trends as the
-nearby weather station, demonstrating that the revised communication
+\draftchange{Reykjavík Hljómskálagarður weather station}, demonstrating that the revised communication
 hardware allowed more consistent data collection. Relative humidity
 measurements also became more stable; however, occasional readings of
 \textbf{0\%} and \textbf{100\%} were still observed. These values were
@@ -519,14 +523,16 @@ Performance}
 \label{fig:results-12}
 \end{figure}
 
-\draftchange{The results show that Sensor Nodes 5 and 7 closely followed observations from station 6222 throughout the deployment period. Daily temperature fluctuations, cold periods, and warming trends were clearly captured by both sensors with only minor deviations. This indicates that placing the air temperature sensor outside the enclosure provides measurements that better represent the surrounding atmospheric conditions.}
+\draftchange{The air temperature measurements from Sensor Nodes 5 and 7, which had externally mounted atmospheric sensors, generally followed the broader temperature variations observed at the Sámsstaðir weather station. Their measurements showed clearer daily fluctuations compared with Sensor Nodes 1 and 3, whose atmospheric sensors were installed inside the waterproof enclosure.}
 
-\draftchange{In contrast, Sensor Nodes 1 and 3, whose air sensors were installed inside the waterproof enclosure, produced smoother temperature curves with noticeably reduced daily fluctuations. Internal heating from electronic components together with the thermal insulation provided by the enclosure resulted in a damped response compared with station 6222. Although these measurements remained useful for monitoring the internal sensor environment, they were less representative of the true ambient air temperature.}
+\draftchange{The enclosed sensors produced smoother temperature curves with reduced daily variation. This suggests that placing the sensor inside the enclosure can affect how quickly it responds to changes in the surrounding air. The enclosure and its internal environment may contribute to this effect, although their individual influence was not measured separately.}
 
-\draftchange{The average absolute temperature difference between the deployed sensors and station 6222 ranged from approximately \textbf{3.06 °C to 3.27 °C}, with Sensor Node 7 producing the lowest average deviation among all deployed units. Overall, the results indicate that external placement of the air temperature sensor is preferable when accurate ambient air measurements are required.}
+\draftchange{The average absolute temperature difference between the deployed sensors and station 6222 ranged from approximately \textbf{3.06 °C to 3.27 °C}. These values should be interpreted as differences between two measurement locations rather than direct sensor accuracy measurements. The Sámsstaðir station is approximately 9.75 km from the Keldur site, and its exposure and surrounding conditions differ from those of the deployed sensors.}
+
+\draftchange{Overall, the observations suggest that external placement is preferable when the objective is to monitor changes in ambient air temperature. However, a co-located reference measurement would be required to evaluate the absolute accuracy of the deployed sensors.}
 
 \subsection{Relative Humidity
-Performance}
+Performance}\label{sec:keldur-humidity}
 
 \draftchange{Figure~\ref{fig:results-13} presents the relative humidity measurements obtained from all deployed nodes together with reference data from the Sámsstaðir station (samst, 6222).}
 
@@ -537,17 +543,13 @@ Performance}
 \label{fig:results-13}
 \end{figure}
 
-\draftchange{Sensor Nodes 5 and 7, with externally mounted humidity sensors, closely tracked the overall humidity changes observed at station 6222. High humidity events approaching saturation and periods of decreasing humidity were successfully detected throughout the deployment.}
+\draftchange{The relative humidity measurements from Sensor Nodes 5 and 7, which used externally mounted atmospheric sensors, showed broad variations that were generally comparable with the observations from the Sámsstaðir weather station. However, the comparison should be treated as qualitative because the weather station is located approximately 9.75 km from the deployment site and does not measure the exact same local conditions.}
 
-Conversely, Sensor Nodes 1 and 3, which housed the humidity sensors
-inside the enclosure, displayed a gradual increase in humidity over
-time. Instead of rapidly responding to environmental changes, the
-enclosed sensors accumulated moisture inside the housing, resulting in
-steadily increasing humidity measurements. This confirms that the
-waterproof enclosure significantly influences humidity measurements by
-restricting air exchange with the surrounding environment.
+\draftchange{Some deployed sensors produced readings that were not suitable for interpreting actual humidity variations. In particular, Sensor Node 3 recorded relative humidity values close to 100\% for an extended period toward the end of its reporting record. These readings cannot be treated as reliable evidence of the actual surrounding humidity.}
 
-\draftchange{Sensor Node 7 recorded humidity readings fixed at 0\% from December onward, after its battery voltage dropped to zero, so these readings do not represent actual environmental conditions. Before this, the node's externally mounted sensor followed the weather station observations, and the results demonstrate that externally mounted humidity sensors provide measurements that more accurately represent ambient conditions.}
+\draftchange{The available data do not establish why these readings occurred. The cause may be related to sensor exposure, moisture, the sensor environment, or another hardware or measurement issue, but the devices were not retrieved for inspection. Therefore, no specific cause should be assigned.}
+
+\draftchange{Although the externally mounted sensors generally showed a more responsive pattern, the deployment was not a controlled experiment of sensor placement. Differences between locations and environmental exposure may also have influenced the results. Further testing would be needed to establish the effect of enclosure placement on humidity measurements.}
 
 \subsection{Soil Temperature
 Performance}
@@ -570,11 +572,9 @@ changes. Even when air temperatures varied between approximately
 
 \draftchange{Station 6222 does \textbf{not} provide underground soil temperature measurements at the same depth as the deployed sensors. The comparison therefore used the station's \textbf{ground-level (surface) temperature} data as the closest available reference. Since the developed sensor nodes measured soil temperature at depths ranging from approximately \textbf{60 mm to 85 mm} below the turf surface (Figure~\ref{fig:results-deployment-map}), some difference between the two datasets was expected. Soil temperatures below the surface are naturally more thermally stable and less affected by rapid atmospheric temperature changes than temperatures measured at or near the ground surface.}
 
-\draftchange{Consequently, the average absolute difference between the deployed sensor measurements and station 6222 data ranged from approximately \textbf{2.77 °C to 3.11 °C}. This difference should therefore not be interpreted solely as measurement error but rather as a consequence of comparing temperatures measured at different depths and under different environmental conditions.}
+\draftchange{Consequently, the average absolute difference between the deployed sensor measurements and station 6222 data ranged from approximately \textbf{2.77 °C to 3.11 °C}. This is not a direct accuracy measurement, because the temperatures were measured at different locations and depths and under different environmental conditions. The Sámsstaðir comparison therefore does not independently validate the accuracy of the buried sensors.}
 
-Overall, the soil temperature measurements demonstrated consistent
-long-term behavior and confirmed that the sensors operated reliably
-under buried conditions.
+\draftchange{Overall, the measurements demonstrated stable soil-temperature trends during the deployment, consistent with the thermal buffering effect of the soil and turf. A reference sensor installed at the same location and depth as the deployed sensors would be required for a more direct comparison.}
 
 \subsection{Individual Sensor
 Performance}
@@ -589,61 +589,92 @@ deployment while continuously monitoring environmental conditions. Soil
 moisture measurements remained relatively low with gradual increases
 following wetter periods before decreasing as drainage occurred. Battery
 voltage gradually decreased from approximately \textbf{4.1 V} to
-\textbf{3.7 V}, demonstrating efficient power consumption. \draftchange{The record for this node covers the time from installation until it stopped reporting.}
+\draftchange{\textbf{3.63 V}}, demonstrating efficient power consumption. \draftchange{The last valid ThingSpeak record from this node was received on 26 December 2025, an elapsed span of approximately 70.8 days from the first record. The final valid battery voltage was 3.63 V. The reason that subsequent valid measurements were no longer received is unknown.}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=5.63542in,height=6.06891in]{figs/results-image10.png}
-\caption{Environmental measurements recorded by Sensor Node 1 throughout the deployment period.}
+\caption{Environmental measurements recorded by Sensor Node 1 throughout the deployment period.\draftchange{ Soil moisture is shown as raw ADC readings.}}
 \label{fig:results-15}
 \end{figure}
 
 \clearpage
 \subparagraph{Sensor Node 3}
 
-\draftchange{This node operated reliably for approximately 75 days of recorded data and produced the most complete dataset among all deployed nodes. Soil moisture increased during wetter conditions before gradually decreasing as the roof dried. Battery voltage showed a smooth and consistent discharge profile, demonstrating stable operation while it was recording.}
+\draftchange{Sensor Node 3 produced the longest valid ThingSpeak record, with a first-to-last valid reporting span of approximately 129.5 days, ending on 23 February 2026. The final valid entry reported a battery voltage of 3.49 V. This span includes the common interruption described in Section~\ref{sec:keldur-overall} and therefore does not represent uninterrupted uploads or a confirmed battery lifetime. The relative humidity readings from this node remained close to 100\% for an extended period near the end of its record and should be treated cautiously (Section~\ref{sec:keldur-humidity}).} \draftchange{Soil moisture increased during wetter conditions before gradually decreasing as the roof dried. Battery voltage showed a smooth and consistent discharge profile while the node was reporting.}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth,height=7in,keepaspectratio]{figs/results-image11.png}
-\caption{Environmental measurements recorded by Sensor Node 3 throughout the deployment period.}
+\caption{Environmental measurements recorded by Sensor Node 3 throughout the deployment period.\draftchange{ Soil moisture is shown as raw ADC readings.}}
 \label{fig:results-16}
 \end{figure}
 
 \clearpage
 \subparagraph{Sensor Node 5}
 
-\draftchange{This node produced air temperature and humidity measurements that closely matched station 6222 due to its externally mounted atmospheric sensors. Soil moisture remained consistently higher than the other deployed nodes, suggesting that its installation location retained more water within the turf roof. Battery voltage remained nearly constant throughout the deployment, demonstrating excellent energy efficiency despite continuous operation.}
+\draftchange{This node produced air temperature measurements that closely matched station 6222, consistent with its externally mounted atmospheric sensors. Its relative humidity readings are discussed in Section~\ref{sec:keldur-humidity}. Soil moisture remained consistently higher than the other deployed nodes, suggesting that its installation location retained more water within the turf roof. The reported battery voltage decreased gradually during the period for which valid measurements were received. The last valid ThingSpeak record was received on 2 January 2026, an elapsed span of approximately 77.5 days from the first record, with a final valid battery voltage of 3.78 V.}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth,height=7in,keepaspectratio]{figs/results-image12.png}
-\caption{Environmental measurements recorded by Sensor Node 5 throughout the deployment period.}
+\caption{Environmental measurements recorded by Sensor Node 5 throughout the deployment period.\draftchange{ Soil moisture is shown as raw ADC readings.}}
 \label{fig:results-8}
 \end{figure}
 
 \clearpage
 \subparagraph{Sensor Node 7}
 
-\draftchange{This node} initially produced measurements comparable to Sensor Node
-5, with externally mounted atmospheric sensors closely following weather
-station observations. \draftchange{However, the recorded battery voltage dropped to zero during December. After this point, the humidity measurements were fixed at 0\% and the soil moisture readings exceeded 100\%, which do not represent actual environmental conditions. Before this, the node operated stably, and its record covers the time from installation until December.}
+\draftchange{Sensor Node 7 provided valid measurements from 17 October 2025 through 6 December 2025, an elapsed span of approximately 50.9 days. The last valid ThingSpeak record reported a battery voltage of 3.93 V. The subsequent all-zero entries in the ThingSpeak feed are placeholders for missing measurements, not genuine zero-voltage or zero-humidity readings. The reason that this node stopped providing valid measurements is unknown.}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth,height=7in,keepaspectratio]{figs/results-image13.png}
-\caption{Environmental measurements recorded by Sensor Node 7 throughout the deployment period.}
+\caption{Environmental measurements recorded by Sensor Node 7 throughout the deployment period.\draftchange{ Soil moisture is shown as raw ADC readings.}}
 \label{fig:results-9}
 \end{figure}
 
+\begin{table}[htbp]
+\centering
+\caption{\draftchange{Summary of valid ThingSpeak records and final reported battery voltages for the four Keldur sensor nodes.}}
+\label{tab:keldur-record-span}
+\begingroup
+\color{purple}
+\begin{tabular}{l l l c c}
+\hline
+Node & First record & Last record & Elapsed span & Final battery \\
+\hline
+1 & 17 Oct 2025 & 26 Dec 2025 & $\sim$70.8 days & 3.63 V \\
+3 & 17 Oct 2025 & 23 Feb 2026 & $\sim$129.5 days & 3.49 V \\
+5 & 17 Oct 2025 & 2 Jan 2026 & $\sim$77.5 days & 3.78 V \\
+7 & 17 Oct 2025 & 6 Dec 2025 & $\sim$50.9 days & 3.93 V \\
+\hline
+\end{tabular}
+\endgroup
+\end{table}
+
+\draftchange{The periods shown in Table~\ref{tab:keldur-record-span} represent the elapsed time between the first and last valid records received by ThingSpeak for each sensor node. They should not be interpreted as uninterrupted operating times or confirmed battery lifetimes, since missing records occurred during the deployment. The timestamps are based on the ThingSpeak \texttt{created\_at} field and therefore represent upload times rather than the sensor nodes' internal RTC measurement timestamps.}
+
+\draftchange{The final valid battery voltages recorded for all four nodes remained above the configured 3.25 V cutoff. Since the sensor nodes were not retrieved at the end of the deployment, the reason each node stopped providing valid measurements could not be confirmed. Battery depletion should therefore not be presented as the cause.}
+
+\draftchange{The ThingSpeak exports also contain all-zero entries after the last valid record of Sensor Nodes 1, 5, and 7. The base-station firmware clears its measurement arrays to zero at the start of each collection cycle, so when no valid new measurement is received from a node, these values can be uploaded as placeholders. These entries represent missing measurements rather than actual zero sensor readings. The soil-moisture values shown in the node plots are raw ADC readings from the capacitive sensors and are not converted to moisture percentages.}
+
 \subsection{Overall System
-Performance}
+Performance}\label{sec:keldur-overall}
 
-\draftchange{The field deployment demonstrated that the proposed LoRa mesh wireless sensor network successfully monitored environmental conditions across four Icelandic turf roofs under real operating conditions. Throughout the deployment, the system continuously measured air temperature, relative humidity, soil temperature, soil moisture, and battery voltage while transmitting data to the cloud for remote monitoring. The communication system was implemented and operated successfully in these real-world conditions, with measurements from four sensor nodes installed on four separate turf roofs being collected and delivered over an extended period. Together with the approximately 3 km single-hop range test, this provides evidence of the communication range and reliability of the system.}
+\draftchange{The Keldur deployment demonstrated that the developed sensor nodes and base station could be installed beneath four separate turf roofs and used to collect environmental measurements under real outdoor conditions. The system recorded soil moisture, soil temperature, air temperature, relative humidity, and battery voltage, with measurements from the deployed nodes being delivered to ThingSpeak over different reporting periods.}
 
-\draftchange{Comparison with data from the Sámsstaðir weather station (samst, 6222) was used to assess the agreement between the system's atmospheric measurements and external reference data. Soil temperature measurements showed less variation than air temperature measurements during periods of changing environmental conditions, consistent with the thermal buffering effect of the soil and turf layer. \draftchange{Battery voltage measurements also provided information about battery performance during the long-term deployment.}}
+\draftchange{The reporting periods varied between nodes. Based on the first and last valid ThingSpeak records (Table~\ref{tab:keldur-record-span}), the elapsed spans ranged from approximately 50.9 days for Sensor Node 7 to 129.5 days for Sensor Node 3. These periods included missing records and should not be interpreted as uninterrupted operation or confirmed battery life. The last valid battery voltages were between 3.49 V and 3.93 V, all above the configured 3.25 V cutoff. Since the nodes were not retrieved, the reasons for the individual reporting endpoints remain unknown.}
 
-\draftchange{The Keldur deployment was the real-world test of the system, and its duration was not fixed in advance. Since the real operating time of the nodes was not known beforehand, the study period for each node is the time from installation until it stopped reporting. These observed operating times are the actual field results, whereas the 142-day battery lifetime in Section~4.2 remains an estimate. The measurements from all four nodes demonstrate the usefulness of the collected environmental data. Overall, the field deployment validates the feasibility of using a low-power LoRa mesh wireless sensor network for long-term monitoring of soil conditions on Icelandic turf roofs.}
+\draftchange{A common interruption of approximately 145 hours was observed in the valid records from Sensor Nodes 1, 3, and 5, between 17 December and 23 December 2025. The available data do not identify the cause. Since these nodes experienced a similar interruption, it may have affected a shared part of the data collection or upload path. However, there are no retained base-station logs that would allow the interruption to be attributed to the LoRa communication, base station, internet connection, or another specific cause. Sensor Node 7 had already stopped providing valid measurements earlier, on 6 December 2025.}
+
+\draftchange{The mesh communication algorithm was enabled on all four deployed sensor nodes. The firmware allowed nodes to receive, merge, and rebroadcast collected ledger data. However, no base-station packet logs were retained during the Keldur deployment. Consequently, it is not possible to determine whether particular measurements reached the base station directly or were forwarded through another sensor node. The deployment demonstrates that the implemented system collected and delivered data from four nodes, but it does not provide quantitative evidence of the individual multi-hop routes used.}
+
+\draftchange{The separate range test conducted at Vellir demonstrated single-hop communication over an approximate 3 km radius. Mesh networking was not enabled during that range test, so its results should not be presented as a measured multi-hop range. An informal multi-hop test was also performed during firmware development (Section~\ref{sec:informal-multihop}), in which spaced sensor nodes relayed data until it reached the base station. This test was observed through debugging output, but no detailed logs, distances, packet counts, or route records were retained. It therefore provides qualitative evidence of the relay functionality rather than a reproducible performance measurement.}
+
+\draftchange{Local SD-card backup was tested successfully during earlier field testing (Section~\ref{sec:sd-backup-testing}), where locally stored measurements were used to fill gaps in the base-station dataset. However, the Keldur node SD cards have not been retrieved, so this backup test cannot be used to claim that the missing Keldur records were recovered.}
+
+\draftchange{Overall, the Keldur deployment demonstrated the practical feasibility of installing and operating the developed monitoring system at a real turf-roof site. It also identified important limitations involving missing measurements, uncertain node reporting endpoints, sensor data quality, and the lack of packet-level logging. Further field testing with retained communication logs and retrieved local data would be required to quantify long-term reliability and multi-hop performance.}
 
 \section{Soil Moisture Calibration
 Results}
@@ -806,13 +837,13 @@ a second-order polynomial regression was applied:
 \label{eq:adc-soil-moisture-calibration}
 \end{equation}
 
-The model was derived from averaged calibration data:
+\draftchange{The second-order polynomial was fitted using the arithmetic mean of the two capacitive sensor readings from Test 1 at each gravimetric moisture level. The resulting coefficients are presented in Equation~\ref{eq:adc-soil-moisture-calibration}. Table~\ref{tab:averaged-calibration-data} separately summarizes the average of all three capacitive sensor readings collected across both calibration tests. The two datasets should not be confused: the polynomial coefficients correspond to the Test 1 averages shown in Table~\ref{tab:final-calibration-results}, rather than the combined averages in Table~\ref{tab:averaged-calibration-data}.}
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3592}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2606}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3802}}@{}}
-\caption{Averaged calibration data used to derive the polynomial model.}
+\caption{\draftchange{Overall average calibration data from both tests (all three capacitive sensor readings); these are not the input data used for the polynomial in Equation~\ref{eq:adc-soil-moisture-calibration}.}}
 \label{tab:averaged-calibration-data}\\
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
@@ -844,48 +875,43 @@ Discussion}
   >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1921}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2096}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2336}}@{}}
-\caption{Final comparison of gravimetric, HOBO, dielectric, and calibrated moisture values.}
+\caption{\draftchange{Comparison of gravimetric moisture, Test 1 mean ADC, HOBO, dielectric, and polynomial output values.}}
 \label{tab:final-calibration-results}\\
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 \textbf{Gravimetric (\%)}
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-\textbf{ADC}
+\textbf{\draftchange{Test 1 Mean ADC}}
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 \textbf{HOBO VWC}
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 \textbf{Dielectric (ε)}
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-\textbf{Calibrated (\%)}
+\textbf{\draftchange{Polynomial Output (\%)}}
 \end{minipage} \\
 \midrule\noalign{}
 \endfirsthead
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-0 & 484.89 & 0.01 & 2.251 & \textasciitilde0 \\
-10 & 319.36 & 0.18 & 9.578 & \textasciitilde11 \\
-20 & 235.73 & 0.28 & 15.273 & \textasciitilde20 \\
-30 & 219.96 & 0.335 & 19.175 & \textasciitilde28 \\
-40 & 197.18 & 0.39 & 23.957 & \textasciitilde38 \\
+0 & 484.89 & 0.01 & 2.251 & \draftchange{0.35} \\
+10 & 319.36 & 0.18 & 9.578 & \draftchange{7.47} \\
+20 & 235.73 & 0.28 & 15.273 & \draftchange{25.40} \\
+30 & \draftchange{219.97} & 0.335 & 19.175 & \draftchange{29.85} \\
+40 & 197.18 & 0.39 & 23.957 & \draftchange{36.90} \\
 \end{longtable}
 
-The custom sensor reliably measured soil moisture within the 0--40\%
-range. The response was nonlinear, with higher sensitivity at low
-moisture levels and reduced sensitivity near saturation, consistent with
-capacitive sensing principles.
+\draftchange{The polynomial model produced an RMSE of approximately 3.01 percentage points when its calculated moisture values were compared with the gravimetric moisture targets at the five calibration levels. This value represents the fit error on the same calibration data used to derive the polynomial. It is therefore an in-sample calibration error rather than an independent validation result.}
 
-Comparison with the HOBO MX2307 showed good agreement, with an
-approximate root mean square error of \textbf{\textasciitilde3\% soil
-moisture}.
+\draftchange{For comparison, converting the HOBO VWC values to percentages and comparing them with the polynomial outputs gives an RMSE of approximately 5.21 percentage points over the same five calibration levels. This comparison provides an indication of the difference between the two measurement methods, but it should not be described as independent validation because the readings were collected during the same calibration procedure.}
 
-While the HOBO system provides higher absolute accuracy, the custom
-sensor is sufficiently accurate for long-term monitoring of moisture
-trends in Icelandic turf roofs. Detecting wetting and drying cycles is
-more critical than achieving laboratory-grade precision.
+\draftchange{The calibration was conducted using a separate Icelandic soil sample rather than soil collected from the Keldur deployment locations. Although the same capacitive sensor model and supply voltage were used, the soil composition and characteristics may differ. As a result, the calibration relationship cannot automatically be assumed to apply to all Keldur soil conditions.}
 
-Overall, the calibrated sensor provides reliable performance for
-integration into the low-power LoRa-based monitoring system.
+\draftchange{The Keldur ThingSpeak data further show that a substantial portion of the raw ADC readings falls outside the ADC range used to fit the polynomial, approximately 197.18--484.89. Using records with a non-zero battery-voltage field and excluding the all-zero placeholder entries, the median raw ADC values were approximately 527 for Node 1, 575 for Node 3, 768 for Node 5, and 568 for Node 7. Only approximately 31.1\% of Node 1 readings and 0.8\% of Node 3 readings fell within the calibration range. No readings from Nodes 5 and 7 fell within that range.}
+
+\draftchange{These results mean that applying the polynomial to the full Keldur datasets would require extrapolation for most measurements. Such extrapolation would not be reliable. Therefore, the Keldur soil-moisture plots should remain in raw ADC units rather than being converted into volumetric water content or calibrated moisture percentages using this polynomial.}
+
+\draftchange{The calibration demonstrates that the capacitive sensor has a nonlinear response to controlled changes in soil moisture over the tested 0--40\% range. However, further calibration using soil collected from the actual turf-roof locations, together with independent reference measurements, is required before quantitative soil-moisture values can be confidently reported for the Keldur deployment.}
 
 \section{Cloud Upload Performance
 (ThingSpeak)}
@@ -900,3 +926,5 @@ The average upload time was approximately 1--2 seconds, depending on
 network conditions.}
 
 \draftchange{The integration made the collected sensor measurements available through ThingSpeak for remote access, visualization, and further analysis. The observed upload time was suitable for the periodic data-transfer requirements of the monitoring system.}
+
+\draftchange{These results describe the controlled cloud-upload tests. They confirm that the upload process worked during the recorded tests, but they do not establish uninterrupted cloud availability or upload success throughout the Keldur field deployment.}

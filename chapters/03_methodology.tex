@@ -560,12 +560,7 @@ cryptographic consensus mechanisms, it adopts a simplified
 distributed-ledger-inspired approach to improve robustness within the
 LoRa mesh network.
 
-In this implementation, the base station initializes a structured data
-ledger template, which is propagated throughout the network. Each sensor
-node appends its most recent measurement to the ledger before forwarding
-it to neighboring nodes. Through multi-hop transmission, the ledger
-circulates across the mesh until all participating nodes have
-contributed their respective data entries.
+\draftchange{In this implementation, the base station initializes a structured data ledger template, which is propagated through the network. Each sensor node maintains a local copy of the ledger. When a node receives a valid ledger from another node, it compares the received values with its local copy and merges any data that is not already present. Existing local entries are retained, while previously empty entries are filled using the received values. The node then recalculates the checksum and rebroadcasts the updated ledger. As the ledger is received, merged, and retransmitted by nodes within radio range, it can accumulate measurements from multiple nodes before reaching the base station. Depending on the network topology, data may reach the base station directly or through one or more intermediate nodes.}
 
 This approach ensures that:
 
@@ -971,6 +966,8 @@ periodic synchronization ensures that all nodes remain aligned and wake
 simultaneously, preventing missed data requests.
 \draftchange{The base station data-acquisition and synchronization sequence is shown in Figure~\ref{fig:method-image15}.}
 
+\draftchange{This synchronization is performed as part of the hourly data-collection cycle. The base station obtains the current time from an NTP server and sends it in a DATE payload after the sensor-data requests. Sensor nodes update their RTC clocks when the message is received, and the time message can be propagated through the mesh. A delay of a few seconds during synchronization is acceptable for this application because it is small relative to the scheduled measurement window.}
+
 \clearpage
 \begin{figure}[p]
 \centering
@@ -1012,7 +1009,7 @@ transmission rate of the system, the required storage and upload
 frequency fall within the limits of the free service tier, making it a
 cost-effective solution. In this implementation, sensor data uploaded to
 the cloud is stored and made readily accessible for remote viewing and
-further analysis by researchers.
+further analysis by researchers. \draftchange{The ThingSpeak dashboard link was shared with Museum staff for remote viewing, so they did not need direct access to the ThingSpeak account.}
 
 \section{Testing}
 
@@ -1025,7 +1022,7 @@ and failures, allowing necessary modifications and improvements to be
 made before final deployment.
 
 \subsection{In Situ Sensor Node Power Consumption
-Tests}
+Tests}\label{sec:power-tests}
 
 After the initial assembly of a functional sensor node, power
 consumption testing was conducted using a precision laboratory power
@@ -1105,16 +1102,18 @@ partially active within the wireless sensor network.
 
 \begin{figure}[htbp]
 \centering
-\subfigure[LoRa base station installed by the window of the office.]{%
+\subfigure[\draftchange{LoRa base station installed by the window of the office.}]{%
 \includegraphics[height=5.5cm]{figs/prelim1-base-station-window.jpg}}
 \hfill
-\subfigure[Sensor node placed on a turf roof.]{%
+\subfigure[\draftchange{Sensor node placed on a turf roof.}]{%
 \includegraphics[angle=-90,totalheight=5.5cm]{figs/prelim1-node-on-turf-roof.jpg}}
 \caption{\draftchange{Base station and sensor node setup during the first preliminary test at Háskóli Íslands.}}
 \label{fig:prelim1-setup}
 \end{figure}
 
 \draftchange{The preliminary test phase was conducted over a three-week period, from \textbf{June 8 to June 29, 2025}. During this time, the system operated continuously, providing insight into long-term stability, data consistency, and potential environmental effects on communication performance.}
+
+\draftchange{Weather observations used for contextual cross-checking were obtained from the Reykjavík Hljómskálagarður automatic weather station, operated by Veðurstofa Íslands. The station is registered as Station 1469, with the abbreviation \texttt{hljom} and WIGOS identifier \texttt{0-352-0-001469}. Its listed coordinates are 64.14105$^\circ$ N and 21.94363$^\circ$ W, at an elevation of 4.5 m. The station metadata identify it as an automatic weather station with records beginning in 2022. It was selected as the nearest available weather station and used to cross-check the general trends in the preliminary environmental measurements.}
 
 \subsection{LoRa Range Tests}
 
@@ -1229,11 +1228,21 @@ environmental conditions on performance.
 
 \draftchange{The SD card backup was tested during the earlier field testing. In addition to transmitting its measurements wirelessly, each sensor node stored its measurements locally on the SD card through the OpenLog module. When wireless transmissions were missed, the dataset collected through the base station contained missing or blank entries. In these cases, the measurements stored on the SD card were used to fill the missing data. This showed that the backup could be used to recover measurements that did not reach the base station.}
 
+\subsection{\draftchange{Informal Multi-Hop Functionality Test}}\label{sec:informal-multihop}
+
+\draftchange{An informal test of the mesh relay functionality was carried out during firmware development. Sensor nodes were spaced apart to examine whether data could reach the base station through intermediate nodes. When a node received a valid ledger from another node, its firmware merged the received information with the values already stored locally, filled entries that were not yet present, recalculated the checksum, and rebroadcast the updated ledger. During this test, the researcher observed debug output showing that nodes forwarded data and that the relayed data eventually reached the base station.}
+
+\draftchange{This test was not part of the controlled Vellir range evaluation or the Keldur deployment. The test was informal and was not documented: no packet logs or screenshots were retained, and the number of nodes, inter-node spacing, exact path, packet-delivery rate, and firmware revision were not recorded. The observation therefore confirms relay behaviour qualitatively during development, but it cannot be used to report quantitative multi-hop range or reliability metrics.}
+
 \section{Deployment in Keldur}\label{sec:keldur-deployment}
 
 \draftchange{Following the previous testing phases, the system was deployed at \textbf{Keldur} on October 17, 2025. The deployment was carried out in collaboration with the Faculty of Civil and Environmental Engineering.}
 
 \draftchange{For this deployment, each sensor node was configured with three battery cells, corresponding to the maximum number supported by its enclosure. The sensor units were sealed and prepared for outdoor operation before installation.}
+
+\draftchange{All four sensor nodes used the same hardware components and battery configuration. Each node was equipped with three Samsung 35E 3500 mAh lithium-ion cells connected in parallel, providing a nominal total capacity of 10,500 mAh per node. All battery packs were fully charged and the sensor units were properly prepared before installation.}
+
+\draftchange{Following the initial on-site verification, the four sensor nodes were left installed at Keldur without subsequent visits, servicing, or battery replacement during the period covered by the available ThingSpeak exports. The base station was powered from a wall outlet and was also left operating without on-site servicing or manual restart. The atmospheric sensor mounting arrangement differed between the nodes, as described in the deployment results.}
 
 \draftchange{The existing network infrastructure from earlier testing was reused. A Wi-Fi router was located in the attic of one of the turf houses, where the LoRa base station was installed and connected to the network to enable communication with the cloud platform. The base station equipment was concealed to minimise its visual impact on the site, which operates as a museum. The setup is shown in Figure~\ref{fig:keldur-base-station}.}
 
