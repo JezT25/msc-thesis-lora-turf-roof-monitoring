@@ -14,68 +14,93 @@ remaining 55 minutes in deep sleep. The transition from deep sleep to
 full operation, including sensor activation via MOSFET, data
 acquisition, and shutdown, takes approximately 3.1 seconds.
 
-LoRa packet airtime is determined by the sum of preamble and payload
-durations:
+\begingroup\color{red}
+The following calculation follows the LoRa time-on-air equations specified by Semtech for the SX1276/77/78/79 transceivers~\cite[Secs.~4.1.1.5--4.1.1.7, pp.~28--31]{semtech2020sx1276}. The Ra-02 module used in this project is based on the SX1278, which is covered by this datasheet. The transmitted payload is the 96-byte packet described in Chapter~3; the null terminator of the 97-byte firmware buffer is not transmitted.
+
+Semtech defines the LoRa symbol rate as \(R_s = BW / 2^{SF}\)~\cite[Sec.~4.1.1.5, p.~28]{semtech2020sx1276}, so the symbol duration is:
+
+\begin{equation}
+T_{sym} = \frac{1}{R_s} = \frac{2^{SF}}{BW}
+\label{eq:symbol-time}
+\end{equation}
+
+For \(SF = 10\) and \(BW = 125\text{ kHz}\)~\cite{semtech2020sx1276}:
+
+\begin{equation}
+T_{sym} = \frac{2^{10}}{125000} = 0.008192\text{ s} = 8.192\text{ ms}
+\label{eq:symbol-time-value}
+\end{equation}
+
+The total packet time-on-air is the sum of the preamble and payload durations~\cite[Sec.~4.1.1.7, p.~31]{semtech2020sx1276}:
 
 \begin{equation}
 T_{packet} = T_{preamble} + T_{payload}
 \label{eq:packet-airtime}
 \end{equation}
 
-With spreading factor \(SF = 10\), bandwidth
-\(BW = 125\text{ }\text{kHz}\), and preamble length
-\(N_{preamble} = 8\), the symbol time is:
+Semtech specifies the preamble duration as:
 
 \begin{equation}
-T_{sym} = \frac{2^{SF}}{BW} = \frac{2^{10}}{125000} = 0.008192\text{ }\text{s}
-\label{eq:symbol-time}
-\end{equation}
-
-The preamble duration is therefore:
-
-\begin{equation}
-T_{preamble} = (N_{preamble} + 4.25) \cdot T_{sym} \approx 0.1\text{ }\text{s}
+T_{preamble} = (N_{preamble} + 4.25)\,T_{sym}
 \label{eq:preamble-duration}
 \end{equation}
 
-The payload duration depends on the payload size \(PL\) \draftchange{and} is given by:
+For \(N_{preamble} = 8\)~\cite{semtech2020sx1276}:
 
 \begin{equation}
-T_{payload} = N_{payload} \cdot T_{sym}
-\label{eq:payload-duration}
+T_{preamble} = (8 + 4.25)(0.008192) = 0.100352\text{ s}
+\label{eq:preamble-value}
 \end{equation}
 
-For the selected configuration (CRC enabled, explicit header, low data
-rate optimization, coding rate 4/5), this simplifies to:
+The payload duration is \(T_{payload} = N_{payload}\,T_{sym}\), where Semtech specifies the number of payload symbols as:
 
 \begin{equation}
-N_{payload} = 8 + 5 \cdot \left\lceil \frac{8PL + 4}{32} \right\rceil
+N_{payload} = 8 + \max\left( \left\lceil \frac{8PL - 4SF + 28 + 16CRC - 20IH}{4\,(SF - 2DE)} \right\rceil (CR + 4),\; 0 \right)
 \label{eq:payload-symbols}
 \end{equation}
 
-Thus, total packet airtime becomes:
+The variables are defined by Semtech as follows~\cite[Secs.~4.1.1.5--4.1.1.7, pp.~28--31]{semtech2020sx1276}:
+
+\begin{itemize}
+\item \(PL\): payload length in bytes;
+\item \(SF\): spreading factor;
+\item \(CRC = 1\) when the payload CRC is enabled;
+\item \(IH = 0\) when the explicit header is enabled;
+\item \(DE = 1\) when LowDataRateOptimize (LDRO) is enabled, otherwise \(DE = 0\);
+\item \(CR\): coding-rate parameter, where \(CR = 1\) corresponds to a coding rate of 4/5.
+\end{itemize}
+
+\paragraph{Low data rate optimization.}
+Semtech states that LowDataRateOptimize is required when the symbol duration exceeds 16 ms~\cite[Secs.~4.1.1.5--4.1.1.7, pp.~28--31]{semtech2020sx1276}. For this project, \(SF = 10\) and \(BW = 125\text{ kHz}\) give \(T_{sym} = 8.192\text{ ms}\), which is below 16 ms, so LDRO is not required and \(DE = 0\). The firmware does not contain an explicit LDRO configuration call. The project uses the Sandeep Mistry Arduino LoRa library~\cite{mistry_arduinolora}, which determines the LDRO setting automatically from the symbol duration; for SF10 and BW 125 kHz, the resulting setting is disabled. Semtech therefore provides the LoRa specification and the calculation, the library implements the radio configuration, and the project configuration results in \(DE = 0\).
+
+Substituting \(PL = 96\), \(SF = 10\), \(CRC = 1\), \(IH = 0\), \(DE = 0\), and \(CR = 1\):
 
 \begin{equation}
-T_{packet} = \left( 20.25 + 5 \cdot \left\lceil \frac{8PL + 4}{32} \right\rceil \right) \cdot 0.008192
+\begin{aligned}
+N_{payload} &= 8 + \left\lceil \frac{8(96) - 4(10) + 28 + 16(1) - 20(0)}{4\,(10 - 2(0))} \right\rceil (1 + 4) \\
+&= 8 + \left\lceil \frac{772}{40} \right\rceil (5) \\
+&= 8 + 20(5) = 108\text{ symbols}
+\end{aligned}
+\label{eq:payload-symbols-value}
+\end{equation}
+
+The payload duration and total packet time-on-air are then:
+
+\begin{equation}
+T_{payload} = 108(0.008192) = 0.884736\text{ s}
+\label{eq:payload-duration}
+\end{equation}
+
+\begin{equation}
+T_{packet} = 0.100352 + 0.884736 = 0.985088\text{ s} \approx 0.985\text{ s}
 \label{eq:total-packet-airtime}
 \end{equation}
 
-For a 96-byte payload, the airtime is approximately 1.19 seconds per
-transmission.
+The theoretical LoRa time-on-air of one 96-byte packet is therefore approximately \textbf{0.985 s}. Even if the 97-byte firmware buffer size were hypothetically used as \(PL\), the result would be the same, because 96 and 97 bytes both give 108 payload symbols for this configuration.
 
-Assuming six sensor data types (e.g., air temperature, relative humidity, soil temperature, soil moisture, battery voltage, and timestamp) 
-are transmitted eight times
-per hour, the total transmission time is:
+The 0.985 s value is the theoretical RF airtime of a single packet. It is not the same quantity as the 60 s radio-active period used in the power-consumption model below. That 60 s value is a conservative operating-time allocation per hour for the radio-active state. It covers communication-related activity such as receiving packets, transmitting and relaying packets, processing, radio state transitions, and other communication overhead. It is not presented as the calculated airtime of all packets, because the exact number of transmissions and retransmissions per hour was not derived from the firmware or experiments. The remaining time of the 300 s active period is spent with sensors off and the LoRa radio in standby, which is approximately 237 seconds.
 
-\begin{equation}
-(1.19\text{ }\text{s} \times 8) \times 6 \approx 57\text{ }\text{s}
-\label{eq:hourly-transmission-time}
-\end{equation}
-
-This is approximated to 1 minute of transmission time per hour. Then we
-can assume that the rest is spent receiving LoRa packets and operating
-in standby mode, which is approximately 237 seconds.
-
+\endgroup
 \clearpage
 \subsection{Operating Modes}
 
@@ -104,8 +129,8 @@ in standby mode, which is approximately 237 seconds.
 Deep Sleep & 0.3 mA & 55 minutes & All modules off, MCU in deep sleep \\
 Awake (Sensors ON / LoRa OFF) & 9.5 mA & 3 s & Sensor initialization and
 data acquisition \\
-LoRa RX/TX & 119.5 mA & 60 s & Transmission and reception of LoRa
-packets \\
+LoRa RX/TX & 119.5 mA & 60 s & \draftchange{Conservative radio-active allocation: LoRa
+reception, transmission/relaying, processing, and overhead} \\
 Half Sleep & 12.2 mA & 237 s & Sensors off, MCU in low-power mode, LoRa
 in standby \\
 \end{longtable}
@@ -135,8 +160,8 @@ I_{avg} &=
 \label{eq:average-current-substitution}
 \end{equation}
 
-Thus, the average current consumption of the sensor node under
-worst-case conditions is approximately \textbf{3.08 mA}.
+\draftchange{Thus, the calculated average current consumption of the sensor node under
+the conservative operating-time allocation is approximately \textbf{3.08 mA}. The 60 s radio-active period is used in this calculation instead of the 0.985 s theoretical packet airtime, since it represents the total radio-active operating time rather than the airtime of a single packet.}
 
 Given a total battery capacity of 10,500 mAh (three 3,500 mAh cells in
 parallel), the estimated operational lifetime is:
@@ -167,6 +192,40 @@ cycles. This ensures continuous operation of the sensor nodes while
 supporting long-term monitoring of soil conditions and turf roof
 integrity.
 
+\subsection{\draftchange{Preliminary Single-Cell Operating Durations}}\label{sec:prelim-battery-logs}
+
+\draftchange{Preliminary long-duration testing provided additional empirical evidence of multi-week sensor-node operation. During Preliminary Test I (June 2025) and Preliminary Test II (August--October 2025), each sensor node was powered by a single battery cell, and its measurements were stored at approximately hourly intervals on the SD card through the OpenLog module. Each log entry includes the battery-voltage value recorded by the system. Individual nodes were logged for approximately 11--27 days using a single battery, depending on the node and test period (Table~\ref{tab:prelim-battery-logs}). The longest logged period was approximately 26.8 days for HW\_1 during Preliminary Test II, during which the recorded battery voltage decreased from 4.136 V to 3.560 V. HW\_1 also operated for approximately 23.6 days during Preliminary Test I, with the recorded voltage decreasing from 4.150 V to 3.896 V. These results demonstrate that the sensor nodes were capable of sustained multi-week operation under the preliminary test configuration.}
+
+\begin{table}[htbp]
+\centering
+\caption{\draftchange{Logged operating periods and recorded battery voltages of the single-cell sensor nodes during the preliminary tests, from the first to the last SD-card log entry.}}
+\label{tab:prelim-battery-logs}
+\begingroup
+\color{red}
+\begin{tabular}{l l r c c}
+\hline
+Test period & Node & Duration (days) & Initial voltage (V) & Final voltage (V) \\
+\hline
+Preliminary Test I (June) & HW\_1 & 23.6 & 4.150 & 3.896 \\
+ & HW\_3 & 11.0 & 4.136 & 4.035 \\
+ & HW\_5 & 23.3 & 4.136 & 3.835 \\
+ & HW\_7 & 16.0 & 4.170 & 4.035 \\
+\hline
+Preliminary Test II (Aug--Oct) & HW\_1 & 26.8 & 4.136 & 3.560 \\
+ & HW\_3 & 17.8 & 4.136 & 3.794 \\
+ & HW\_5 & 16.7 & 4.163 & 3.939 \\
+ & HW\_7 & 21.4 & 4.160 & 3.896 \\
+\hline
+\end{tabular}
+\endgroup
+\end{table}
+
+\draftchange{These values are observed operating durations under the preliminary test configuration, not measured full battery lifetimes. The durations are the time between the first and last SD-card log entries of each node; the logs begin on 5 June and 31 July 2025, shortly before the nominal start dates of the two tests. The tests are not reported as full-discharge tests, and no claim is made that the cells were depleted at the end of the logs. The recorded voltage is affected by load, battery chemistry, temperature, and other factors. It is therefore used here only as evidence of continued operation and of an observed voltage decline, not as a measurement of the remaining battery capacity.}
+
+\draftchange{The preliminary tests used one cell per sensor node, whereas the final Keldur nodes use three 3,500 mAh 18650 cells connected in parallel, giving a nominal capacity of 10,500 mAh. Connected in parallel at the same nominal voltage, three cells provide approximately three times the nominal capacity of a single 3,500 mAh cell, and therefore substantially greater nominal energy storage. Actual battery lifetime does not scale perfectly with nominal capacity, because it also depends on operating conditions, battery characteristics, temperature, current draw, and system losses. The single-cell results are therefore not extrapolated to a lifetime for the final configuration. They provide empirical evidence that the system can operate for multiple weeks on a single cell, while the three-cell configuration provides a larger energy reserve, consistent with the longer operating periods targeted during the Keldur deployment.}
+
+\draftchange{The theoretical estimate of approximately 142 days (Equation~\ref{eq:three-cell-lifetime}) and the preliminary single-cell operating durations are separate forms of evidence. The estimate is a nominal calculation based on the defined operating cycle, whereas the preliminary durations were observed with nodes under active hardware and firmware development, and are not directly comparable with it. Neither is a measured battery lifetime of the final configuration. The reporting periods observed during the Keldur deployment are presented separately in Section~\ref{sec:keldur-overall}.}
+
 \section{Initial Field
 Deployment}
 
@@ -183,14 +242,56 @@ Four prototype sensor nodes (HW\_1, HW\_3, HW\_5, and HW\_7) were
 deployed to collect air temperature, relative humidity, soil
 temperature, and soil moisture data. Measurements were transmitted
 through the LoRa network to the base station and uploaded to the cloud
-for analysis. \draftchange{Measurements from the prototype sensor nodes were cross-checked against observations from the Reykjavík Hljómskálagarður automatic weather station (Station 1469), operated by Veðurstofa Íslands~\cite{imo_observations}.}
+for analysis. \draftchange{Measurements from the prototype sensor nodes were compared with nearby observations from two automatic weather stations operated by Veðurstofa Íslands: Reykjavík Hljómskálagarður (1469) and Reykjavíkurflugvöllur (1477)~\cite{imo_observations}.}
+
+\subsection{\draftchange{Reference Weather Stations}}\label{sec:reference-stations}
+
+\draftchange{Neither weather station is located at the sensor-node positions. They provide nearby reference observations for comparison with the preliminary sensor measurements, and they are not a direct calibration or validation of the sensors. The station information is given in Table~\ref{tab:reference-stations}. The two stations are approximately 1.4 km apart, so the comparison does not depend on a single reference station.}
+
+\begin{table}[htbp]
+\centering
+\caption{\draftchange{Icelandic Meteorological Office reference stations used for the preliminary environmental comparison.}}
+\label{tab:reference-stations}
+\begingroup
+\color{red}
+\begin{tabular}{l c c c c}
+\hline
+Station & ID & Coordinates & Elevation & Records from \\
+\hline
+Reykjavík Hljómskálagarður & 1469 & 64.14105$^\circ$ N, 21.94363$^\circ$ W & 4.5 m & 2022 \\
+Reykjavíkurflugvöllur & 1477 & 64.12845$^\circ$ N, 21.94070$^\circ$ W & 12.0 m & 2001 \\
+\hline
+\end{tabular}
+\endgroup
+\end{table}
+
+\draftchange{To show how closely the two reference stations agree, their hourly observations were compared over the two preliminary test periods (Table~\ref{tab:reference-agreement}). Air temperature differed by about 0.3\,$^\circ$C on average between the stations, whereas relative humidity differed by about 4--6 percentage points. Differences of this size between stations only 1.4 km apart indicate that the reference conditions vary between nearby locations, so the weather-station data should be treated as approximate context for the node measurements.}
+
+\begin{table}[htbp]
+\centering
+\caption{\draftchange{Agreement between the hourly observations of the two reference stations over the preliminary test periods (computed from the Icelandic Meteorological Office observations).}}
+\label{tab:reference-agreement}
+\begingroup
+\color{red}
+\begin{tabular}{l l c c c c}
+\hline
+Period (hourly pairs) & Variable & Mean 1469 & Mean 1477 & Mean $|\Delta|$ & Max $|\Delta|$ \\
+\hline
+8--29 June 2025 (520) & Air temperature ($^\circ$C) & 10.3 & 10.1 & 0.3 & 2.3 \\
+ & Relative humidity (\%) & 79.3 & 75.5 & 4.2 & 25 \\
+1 Aug--6 Oct 2025 (1608) & Air temperature ($^\circ$C) & 10.6 & 10.7 & 0.3 & 2.6 \\
+ & Relative humidity (\%) & 81.7 & 76.3 & 5.5 & 32 \\
+\hline
+\end{tabular}
+\endgroup
+\end{table}
 
 \subsection{Air Temperature and Relative
 Humidity}
 
 Figure~\ref{fig:results-1} compares the measured air temperature from the prototype
 sensor nodes with the \draftchange{Reykjavík Hljómskálagarður weather station (Station 1469)}, while Figure~\ref{fig:results-2} presents
-the corresponding relative humidity measurements.
+the corresponding relative humidity measurements. \draftchange{The observations from Reykjavíkurflugvöllur (Station 1477) are summarized in Table~\ref{tab:reference-agreement} rather than duplicated in the figures.}
 
 \begin{figure}[htbp]
 \centering
@@ -214,7 +315,7 @@ inconsistencies were expected because the firmware and hardware were
 still under active development, with frequent updates and adjustments
 being performed throughout the testing period.
 
-\draftchange{The comparison with the weather station was intended as a contextual cross-check of general environmental trends. It was not a direct calibration or an absolute accuracy validation, because the sensor nodes and the weather station were located at different sites.}
+\draftchange{The comparison with the nearby weather stations was intended as a contextual reference for general environmental trends. It was not a direct calibration or an absolute accuracy validation of the sensors, because the sensor nodes and the weather stations were located at different sites.}
 
 One of the major issues identified during this deployment was poor LoRa
 communication performance. During testing, the sensor nodes were
@@ -387,12 +488,12 @@ environmental sensors, and identify any remaining hardware or software
 issues before proceeding to the final long-term deployment. Four sensor
 nodes (HW\_1, HW\_3, HW\_5, and HW\_7) continuously monitored air
 temperature, relative humidity, soil temperature, and soil moisture,
-while measurements from the \draftchange{Reykjavík Hljómskálagarður weather station (Station 1469) were used as a contextual cross-check.}
+while measurements from the \draftchange{Reykjavík Hljómskálagarður (Station 1469) and Reykjavíkurflugvöllur (Station 1477) weather stations were used as nearby reference observations (Section~\ref{sec:reference-stations}).}
 
 \subsection{Air Temperature and Relative
 Humidity}
 
-\draftchange{Figure~\ref{fig:results-6} compares the measured air temperature from the four prototype sensor nodes with the Reykjavík Hljómskálagarður weather station (Station 1469), while Figure~\ref{fig:results-7} presents the corresponding relative humidity measurements. As in the preliminary deployment, this comparison is a contextual cross-check of general trends rather than a calibration or absolute accuracy validation, because the instruments were located at different sites.}
+\draftchange{Figure~\ref{fig:results-6} compares the measured air temperature from the four prototype sensor nodes with the Reykjavík Hljómskálagarður weather station (Station 1469), while Figure~\ref{fig:results-7} presents the corresponding relative humidity measurements. Observations from Reykjavíkurflugvöllur (Station 1477) are summarized in Table~\ref{tab:reference-agreement} rather than duplicated in the figures. As in the preliminary deployment, this comparison is a contextual reference for general trends rather than a calibration or absolute accuracy validation, because the instruments were located at different sites.}
 
 \begin{figure}[htbp]
 \centering
@@ -409,7 +510,7 @@ successfully transmitted to the base station, reducing the amount of
 missing data caused by packet loss.
 
 The measured air temperatures generally followed the same trends as the
-\draftchange{Reykjavík Hljómskálagarður weather station}, demonstrating that the revised communication
+\draftchange{Reykjavík Hljómskálagarður weather station (Station 1469)}, demonstrating that the revised communication
 hardware allowed more consistent data collection. Relative humidity
 measurements also became more stable; however, occasional readings of
 \textbf{0\%} and \textbf{100\%} were still observed. These values were
