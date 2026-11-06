@@ -583,6 +583,8 @@ Performance}
 
 \draftchange{The soil-moisture values presented in Figures~\ref{fig:results-15}--\ref{fig:results-9} were converted from raw ADC readings into estimated moisture percentages using the polynomial calibration model developed in Section~\ref{sec:soil-calibration}. However, as discussed in Section~\ref{sec:soil-calibration}, many of the raw field readings fall outside the ADC range used to develop the calibration model. The converted values should therefore be interpreted as indicative estimates of soil-moisture variation rather than independently validated measurements of absolute soil-moisture content.}
 
+\draftchange{Zero values appearing in some of the plots do not represent actual sensor measurements. At the start of each collection cycle, the base station firmware clears its measurement arrays to zero. If valid measurements are not received from a sensor node, these zero values may be uploaded to ThingSpeak as placeholders. They therefore indicate missing data rather than actual zero readings.}
+
 \clearpage
 \subparagraph{Sensor Node 1}
 

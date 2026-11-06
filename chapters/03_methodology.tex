@@ -292,17 +292,18 @@ simplify assembly and wiring, a custom PCB was designed and
 manufactured. The PCB houses all system components described in the
 previous section, with the exception of the batteries, along with
 additional circuitry required for system
-functionality.
+functionality. \draftchange{The schematic of the main board is shown in Figure~\ref{fig:main-board-schematic}.}
 
-
-\subsubsection{Power Control and Battery Monitoring}
-\draftchange{The battery-voltage monitoring and power-control circuit is shown in Figure~\ref{fig:method-image3}.}
 \begin{figure}[htbp]
 \centering
 \includegraphics[angle=90,width=5.43347in,height=7.22139in]{figs/method-image3.png}
-\caption{Battery voltage monitoring circuit and power-control design for the sensor node.}
-\label{fig:method-image3}
+\caption{Schematic of the main board of the sensor node.}
+\label{fig:main-board-schematic}
 \end{figure}
+
+\subsubsection{Power Control and Battery Monitoring}
+
+\draftchange{The battery-voltage monitoring and power-control circuits are part of the main board schematic shown in Figure~\ref{fig:main-board-schematic}.}
 
 Battery voltage monitoring is implemented using a simple voltage divider
 connected to analog pin A3 of the microcontroller. The microcontroller
