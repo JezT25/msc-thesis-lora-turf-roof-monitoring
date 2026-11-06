@@ -20,7 +20,7 @@ a known amount of soil, soil moisture can be expressed as ``\% water by
 weight or volume of soil'', or ``inches of water per foot of soil''
 \cite{ref19}.
 
-\subsection{\draftchange{Relative Humidity}}
+\subsection{Relative Humidity}
 
 Humidity is defined as the amount of gaseous water or water vapor in the
 air. High humidity means there is a lot of moisture in the air and low
@@ -32,7 +32,7 @@ temperature \cite{ref20}. Relative humidity is the ratio of the current
 amount of water vapor in the air to the maximum amount the air can hold
 at a given temperature, expressed as a percentage (\%) \cite{ref23}.
 
-\draftchange{Relative humidity describes the water vapor in the air surrounding the sensor. It is different from soil moisture, which describes the amount of water held in the soil. In this study, relative humidity is measured by the AHT10 atmospheric sensor together with air temperature. The AHT10 is not a soil-moisture sensor, and its readings do not describe the water content of the soil. The measured value depends on where the sensor is placed. A sensor inside a sealed enclosure measures the air inside that enclosure, whereas an externally mounted sensor is exposed to the air outside it. The effect of these two placements is compared in Chapter~\ref{chap:results}.}
+Relative humidity describes the water vapor in the air surrounding the sensor. It is different from soil moisture, which describes the amount of water held in the soil. In this study, relative humidity is measured by the AHT10 atmospheric sensor together with air temperature. The AHT10 is not a soil-moisture sensor, and its readings do not describe the water content of the soil. The measured value depends on where the sensor is placed. A sensor inside a sealed enclosure measures the air inside that enclosure, whereas an externally mounted sensor is exposed to the air outside it. The effect of these two placements is compared in Chapter~\ref{chap:results}.
 
 \subsection{Wireless Sensor Network (WSN)}
 
@@ -84,7 +84,7 @@ with processing and wireless communication hardware
 
 \subsection{Low-Power Systems}
 
-\draftchange{Low-power systems are designed to operate over extended periods while limiting energy consumption.} These
+Low-power systems are designed to operate over extended periods while limiting energy consumption. These
 systems commonly operate intermittently and use hardware and software
 optimization to reduce their duty cycle. Sleep modes disable non-essential
 functions while preserving the control functions needed to wake the device
@@ -107,40 +107,40 @@ Icelandic turf houses are important cultural and architectural heritage structur
 
 The current system design addresses this monitoring problem by placing low-power sensor nodes beneath turf roofs. The methodology specifies that nodes collect soil moisture, soil temperature, air temperature, and relative humidity, while transmitting measurements through a LoRa mesh network to a base station and cloud database. The nodes are designed to remain visually unobtrusive and to operate for extended periods with limited maintenance.
 
-\draftchange{The practical motivation for the project came from collaboration with the National Museum of Iceland, which provided access to the Keldur turf-roof site. Since the site is far from the research facilities, frequent trips to retrieve measurements would be inconvenient, so remote monitoring was important. Soil moisture was the primary measurement of interest, while soil temperature, air temperature, and relative humidity provided additional environmental information.}
+The practical motivation for the project came from collaboration with the National Museum of Iceland, which provided access to the Keldur turf-roof site. Since the site is far from the research facilities, frequent trips to retrieve measurements would be inconvenient, so remote monitoring was important. Soil moisture was the primary measurement of interest, while soil temperature, air temperature, and relative humidity provided additional environmental information.
 
 \section{Statement of the Problem}
 Monitoring environmental conditions beneath turf roofs presents several engineering constraints. Sensor nodes must be sufficiently small and unobtrusive to avoid affecting the appearance of a heritage site, while also operating in an environment characterized by high moisture, freezing and thawing cycles, and possible snow coverage. The system must provide reliable wireless communication, conserve battery energy, retain measurements when transmissions are missed, and make the collected data available remotely.
 
 The project therefore addresses the need for a practical monitoring system that combines low-cost sensing hardware, low-power operation, long-range wireless communication, local data backup, and cloud-based access in a single deployable platform.
 
-\draftchange{The project is intended to provide an affordable and accessible monitoring option using off-the-shelf hardware. It is not intended to show that other monitoring solutions are unsuitable, but to provide an alternative that smaller research teams, individual projects, and anyone interested in environmental monitoring can build and use.}
+The project is intended to provide an affordable and accessible monitoring option using off-the-shelf hardware. It is not intended to show that other monitoring solutions are unsuitable, but to provide an alternative that smaller research teams, individual projects, and anyone interested in environmental monitoring can build and use.
 
 \section{Objectives}
-\draftchange{The aim of this study is to design, implement, and evaluate a low-cost, low-power LoRa-based wireless sensor network for monitoring soil and environmental conditions beneath Icelandic turf roofs.}
+The aim of this study is to design, implement, and evaluate a low-cost, low-power LoRa-based wireless sensor network for monitoring soil and environmental conditions beneath Icelandic turf roofs.
 
-\draftchange{The study addresses the following research question:}
+The study addresses the following research question:
 
-\draftchange{\textit{To what extent can a low-cost, low-power LoRa-based wireless sensor network reliably monitor soil and environmental conditions beneath Icelandic turf roofs, while providing local data storage and remote access to collected measurements?}}
+\textit{To what extent can a low-cost, low-power LoRa-based wireless sensor network reliably monitor soil and environmental conditions beneath Icelandic turf roofs, while providing local data storage and remote access to collected measurements?}
 
-\draftchange{To address this question, the study has the following objectives:}
+To address this question, the study has the following objectives:
 \begin{enumerate}
-\item \draftchange{Implement distributed sensor nodes to measure soil moisture, soil temperature, air temperature, relative humidity, and battery voltage.}
-\item \draftchange{Implement a LoRa-based communication system and evaluate its communication range and field operation through range testing and field deployment.}
-\item \draftchange{Measure the current consumption of the sensor nodes in their different operating modes and estimate battery life under the defined operating cycle.}
-\item \draftchange{Implement local data storage and evaluate its ability to retain measurements when wireless transmissions are missed.}
-\item \draftchange{Develop a calibration model for the capacitive soil-moisture sensor using gravimetric measurements and a reference instrument, and evaluate its calibration fit using RMSE over the tested 0--40\% moisture range.}
-\item \draftchange{Integrate the sensor network with a cloud platform and evaluate data-upload behavior through HTTP response codes and response time.}
+\item Implement distributed sensor nodes to measure soil moisture, soil temperature, air temperature, relative humidity, and battery voltage.
+\item Implement a LoRa-based communication system and evaluate its communication range and field operation through range testing and field deployment.
+\item Measure the current consumption of the sensor nodes in their different operating modes and estimate battery life under the defined operating cycle.
+\item Implement local data storage and evaluate its ability to retain measurements when wireless transmissions are missed.
+\item Develop a calibration model for the capacitive soil-moisture sensor using gravimetric measurements and a reference instrument, and evaluate its calibration fit using RMSE over the tested 0--40\% moisture range.
+\item Integrate the sensor network with a cloud platform and evaluate data-upload behavior through HTTP response codes and response time.
 \end{enumerate}
-\draftchange{The objectives are evaluated through laboratory measurements, field deployments, sensor calibration, wireless communication tests, and cloud-upload experiments. The results are used to assess the performance of the implemented system, identify limitations, and determine which requirements have been demonstrated by the experiments.}
+The objectives are evaluated through laboratory measurements, field deployments, sensor calibration, wireless communication tests, and cloud-upload experiments. The results are used to assess the performance of the implemented system, identify limitations, and determine which requirements have been demonstrated by the experiments.
 
 \section{Significance of the Study}
-\markright{\draftchange{1.4. Objectives}}
+\markright{1.4. Objectives}
 The project provides a low-cost engineering approach to continuous monitoring of environmental conditions on Icelandic turf roofs. The system is intended to support researchers and conservation personnel by providing measurements without requiring frequent manual sampling or intrusive installation. The use of off-the-shelf components and a modular mesh architecture also provides a basis for scaling the monitoring approach to additional turf-roof sites.
 
-\draftchange{The intended users include smaller research teams, individual projects, and anyone interested in environmental monitoring. The National Museum of Iceland provided access to the Keldur site, and remote monitoring allows measurements to be viewed without frequent trips to the site. The system was intended to collect data for monitoring and future studies; no predefined soil-moisture threshold was established.}
+The intended users include smaller research teams, individual projects, and anyone interested in environmental monitoring. The National Museum of Iceland provided access to the Keldur site, and remote monitoring allows measurements to be viewed without frequent trips to the site. The system was intended to collect data for monitoring and future studies; no predefined soil-moisture threshold was established.
 
 \section{Scope and Limitations}
-The work focuses on a low-power LoRa-based wireless sensor mesh network using distributed sensor nodes and a cloud-connected base station. The implemented nodes measure soil moisture, soil temperature, air temperature, relative humidity, and battery voltage. \draftchange{The methodology specifies a design target of burying the sensor nodes at approximately 11 cm, weatherproof enclosures, local SD card data backup, and a non-destructive installation approach.}
+The work focuses on a low-power LoRa-based wireless sensor mesh network using distributed sensor nodes and a cloud-connected base station. The implemented nodes measure soil moisture, soil temperature, air temperature, relative humidity, and battery voltage. The methodology specifies a design target of burying the sensor nodes at approximately 11 cm, weatherproof enclosures, local SD card data backup, and a non-destructive installation approach.
 
-The evaluation includes laboratory power-consumption testing, preliminary and intermediate field deployments around the University of Iceland, LoRa range testing around Vellir in Hafnarfjörður, long-term deployment at the Keldur turf-house site, soil moisture calibration, and ThingSpeak cloud-upload testing. The documented results also show limitations, including antenna-related packet loss during early testing, sensor-calibration issues during intermediate testing, \draftchange{and differences in the operating time of the individual nodes during the long-term deployment.} The calibration results cover the 0--40\% moisture range and therefore do not establish performance beyond that range. \draftchange{The calibration was performed with a separate Icelandic soil sample rather than soil from the Keldur site.}
+The evaluation includes laboratory power-consumption testing, preliminary and intermediate field deployments around the University of Iceland, LoRa range testing around Vellir in Hafnarfjörður, long-term deployment at the Keldur turf-house site, soil moisture calibration, and ThingSpeak cloud-upload testing. The documented results also show limitations, including antenna-related packet loss during early testing, sensor-calibration issues during intermediate testing, and differences in the operating time of the individual nodes during the long-term deployment. The calibration results cover the 0--40\% moisture range and therefore do not establish performance beyond that range. The calibration was performed with a separate Icelandic soil sample rather than soil from the Keldur site.

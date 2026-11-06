@@ -16,11 +16,11 @@ Requirements}
 
 The system is designed as a wireless mesh network using LoRa as the core
 communication technology. Weatherproof wireless sensor nodes collect
-data such as soil moisture, soil temperature, \draftchange{relative humidity}, and air
+data such as soil moisture, soil temperature, relative humidity, and air
 temperature, and transmit this data efficiently between neighboring
 nodes until it reaches a base station with access to a cloud database.
 The collected data is then made accessible to researchers from anywhere.
-\draftchange{The overall system concept is shown in Figure~\ref{fig:method-image1}.}
+The overall system concept is shown in Figure~\ref{fig:method-image1}.
 
 \begin{figure}[htbp]
 \centering
@@ -29,7 +29,7 @@ The collected data is then made accessible to researchers from anywhere.
 \label{fig:method-image1}
 \end{figure}
 
-\draftchange{LoRa was selected for its suitability for low-power wireless communication. Field testing observed successful single-hop communication at several test locations within an approximate distance of 3 km in a semi-urban environment.}
+LoRa was selected for its suitability for low-power wireless communication. Field testing observed successful single-hop communication at several test locations within an approximate distance of 3 km in a semi-urban environment.
 
 
 \par
@@ -38,13 +38,13 @@ The collected data is then made accessible to researchers from anywhere.
 Requirements}
 
 
-\draftchange{As turf houses are part of Iceland's cultural heritage and may serve as museums, the monitoring system must be discreet and avoid disrupting the appearance of the site. The sensor nodes must therefore be concealed beneath the turf while remaining capable of reliably collecting soil and environmental measurements. The functional requirements of the system are as follows:}
+As turf houses are part of Iceland's cultural heritage and may serve as museums, the monitoring system must be discreet and avoid disrupting the appearance of the site. The sensor nodes must therefore be concealed beneath the turf while remaining capable of reliably collecting soil and environmental measurements. The functional requirements of the system are as follows:
 
 \begin{itemize}
 \item
   The sensor nodes must be capable of accurately measuring the required
   data, including soil moisture, soil temperature, air temperature, and
-  \draftchange{relative humidity}.
+  relative humidity.
 \item
   The system must reliably transmit data through the mesh network, even
   with disturbances between nodes and the presence of noise.
@@ -72,7 +72,7 @@ include the following:
 
 \begin{itemize}
 \item
-  \draftchange{The original design target was to bury the sensor nodes at a depth of approximately 11 cm, where they may be covered by additional layers of snow during winter. The depths actually used at Keldur are described in Section~\ref{sec:keldur-deployment}.}
+  The original design target was to bury the sensor nodes at a depth of approximately 11 cm, where they may be covered by additional layers of snow during winter. The depths actually used at Keldur are described in Section~\ref{sec:keldur-deployment}.
 \item
   The device must be sufficiently weatherproof to withstand harsh
   Icelandic conditions, including high moisture levels from rain and
@@ -107,7 +107,7 @@ MOSFET-based power control system that disconnects power to sensors
 while the system is in sleep mode. The sensor node is periodically
 awakened by the real-time clock to collect, store, and transmit data
 before returning to low-power sleep operation.
-\draftchange{The in situ sensor-node hardware configuration is shown in Figure~\ref{fig:method-image2}.}
+The in situ sensor-node hardware configuration is shown in Figure~\ref{fig:method-image2}.
 
 \begin{figure}[htbp]
 \centering
@@ -146,7 +146,7 @@ project.
 
 The Arduino Pro Mini, based on the ATmega328P
 microcontroller, was selected as it operates at 3.3 V with an 8 MHz
-clock frequency and provides 32 kB of flash memory. It supports both \draftchange{I²C}
+clock frequency and provides 32 kB of flash memory. It supports both I²C
 and serial communication, which are required for interfacing with the
 sensors and peripheral modules. The available memory and processing
 capability were found to be sufficient for the application. Power
@@ -161,7 +161,7 @@ project.
 
 The AHT10 sensor was selected for measuring air temperature
 and humidity due to its availability, low cost, and adequate accuracy
-for the application. The sensor communicates via the \draftchange{I²C} interface and
+for the application. The sensor communicates via the I²C interface and
 is capable of measuring temperatures from −40 °C to 85 °C with an
 accuracy of ±0.3 °C. Relative humidity measurements range from 0\% to
 100\% with an accuracy of ±2\%, which is sufficient for monitoring
@@ -292,7 +292,7 @@ simplify assembly and wiring, a custom PCB was designed and
 manufactured. The PCB houses all system components described in the
 previous section, with the exception of the batteries, along with
 additional circuitry required for system
-functionality. \draftchange{The schematic of the main board is shown in Figure~\ref{fig:main-board-schematic}.}
+functionality. The schematic of the main board is shown in Figure~\ref{fig:main-board-schematic}.
 
 \begin{figure}[htbp]
 \centering
@@ -303,7 +303,7 @@ functionality. \draftchange{The schematic of the main board is shown in Figure~\
 
 \subsubsection{Power Control and Battery Monitoring}
 
-\draftchange{The battery-voltage monitoring and power-control circuits are part of the main board schematic shown in Figure~\ref{fig:main-board-schematic}.}
+The battery-voltage monitoring and power-control circuits are part of the main board schematic shown in Figure~\ref{fig:main-board-schematic}.
 
 Battery voltage monitoring is implemented using a simple voltage divider
 connected to analog pin A3 of the microcontroller. The microcontroller
@@ -326,12 +326,12 @@ microcontroller. A component labeled SW1 is used as a three-bit hardware
 identifier, allowing each sensor node to be assigned a unique ID. Upon
 boot, the microcontroller reads the state of these bits and assigns the
 corresponding hardware ID to the node, preventing data collisions during
-transmission. \draftchange{With three bits, the switch can select eight values (0 to 7), and the firmware accepts all of them as sensor-node IDs. Up to eight sensor nodes can therefore be supported within a single system. Each ID corresponds to a fixed data field in the ledger packet, and one additional field is used for the checksum. The base station is counted separately and is not one of these eight sensor nodes.} The design can be further scaled by
+transmission. With three bits, the switch can select eight values (0 to 7), and the firmware accepts all of them as sensor-node IDs. Up to eight sensor nodes can therefore be supported within a single system. Each ID corresponds to a fixed data field in the ledger packet, and one additional field is used for the checksum. The base station is counted separately and is not one of these eight sensor nodes. The design can be further scaled by
 adding additional identifier bits using available microcontroller pins.
 For deployments involving multiple systems, software-based hardware
 prefixes can be implemented to distinguish between different system
 groups.
-\draftchange{The custom PCB layout and component placement are shown in Figure~\ref{fig:method-image4}.}
+The custom PCB layout and component placement are shown in Figure~\ref{fig:method-image4}.
 
 \begin{figure}[htbp]
 \centering
@@ -363,17 +363,17 @@ within a 50.5 mm × 50.5 mm footprint using a two-layer, 1.6 mm thick
 FR-4 substrate. A two-layer design was sufficient due to the relatively
 low routing complexity, helping to reduce manufacturing costs.
 
-\draftchange{The PCB was manufactured by JLCPCB, a commercial printed circuit board (PCB) fabrication and assembly service provider. Ground planes were incorporated where possible to improve signal integrity and reduce electrical noise, particularly around the LoRa transceiver. Component placement was designed to facilitate manual assembly and simplify debugging during development.}
+The PCB was manufactured by JLCPCB, a commercial printed circuit board (PCB) fabrication and assembly service provider. Ground planes were incorporated where possible to improve signal integrity and reduce electrical noise, particularly around the LoRa transceiver. Component placement was designed to facilitate manual assembly and simplify debugging during development.
 
 The use of pin headers for the sensors simplified the assembly process,
 allowing sensors to be rearranged easily and packed neatly within the
 enclosure.
-\draftchange{The fabricated sensor-node PCB panel is shown in Figure~\ref{fig:method-image5}.}
+The fabricated sensor-node PCB panel is shown in Figure~\ref{fig:method-image5}.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=3.84123in,height=3.84985in]{figs/method-image5.png}
-\caption{\draftchange{Fabricated PCB panel containing the sensor-node board design.}}
+\caption{Fabricated PCB panel containing the sensor-node board design.}
 \label{fig:method-image5}
 \end{figure}
 
@@ -381,7 +381,7 @@ enclosure.
 
 To ensure reliable operation under the harsh environmental conditions in
 Iceland, all sensor components were enclosed in a weatherproof and
-waterproof housing, as shown in \draftchange{Figure~\ref{fig:method-image6}}.
+waterproof housing, as shown in Figure~\ref{fig:method-image6}.
 The components were assembled neatly inside the
 enclosure to protect them from moisture, rain, snow, and temperature
 variations. Although the initial goal was to minimize the size of the
@@ -440,7 +440,7 @@ After synchronization, the base station uploads the collected data to
 the cloud, where it is stored and made available for viewing and further
 data analysis by researchers.
 
-\draftchange{The base station module is shown in Figure~\ref{fig:method-image7}.}
+The base station module is shown in Figure~\ref{fig:method-image7}.
 
 \begin{figure}[htbp]
 \centering
@@ -523,7 +523,7 @@ comprehensive library support, and strong developer community, which
 streamline firmware development, enable efficient debugging, and provide
 flexibility for future system expansion. Standard Arduino libraries were
 utilized where appropriate, including libraries for SPI communication
-(LoRa module), \draftchange{I²C} communication (environmental sensors), SD card
+(LoRa module), I²C communication (environmental sensors), SD card
 interfacing, and low-power sleep control. Custom logic was implemented
 to manage mesh routing, data formatting, packet handling, and power
 optimization.
@@ -550,7 +550,7 @@ The full source code repository is publicly available at:\\
 
 \subsection{The LoRa Mesh System}
 
-\draftchange{During the early stages of algorithm development, attention was given to how sensor measurements could be forwarded through the mesh network to the base station. The design aimed to reduce dependence on a single communication path by allowing data to be relayed between sensor nodes. The effectiveness of this approach depends on the implemented routing logic and the network conditions.}
+During the early stages of algorithm development, attention was given to how sensor measurements could be forwarded through the mesh network to the base station. The design aimed to reduce dependence on a single communication path by allowing data to be relayed between sensor nodes. The effectiveness of this approach depends on the implemented routing logic and the network conditions.
 
 An architectural concept inspired by distributed ledger systems, such as
 blockchain, influenced the final design. In blockchain systems, a shared
@@ -561,7 +561,7 @@ cryptographic consensus mechanisms, it adopts a simplified
 distributed-ledger-inspired approach to improve robustness within the
 LoRa mesh network.
 
-\draftchange{In this implementation, the base station initializes a structured data ledger template, which is propagated through the network. Each sensor node maintains a local copy of the ledger. When a node receives a valid ledger from another node, it compares the received values with its local copy and merges any data that is not already present. Existing local entries are retained, while previously empty entries are filled using the received values. The node then recalculates the checksum and rebroadcasts the updated ledger. As the ledger is received, merged, and retransmitted by nodes within radio range, it can accumulate measurements from multiple nodes before reaching the base station. Depending on the network topology, data may reach the base station directly or through one or more intermediate nodes.}
+In this implementation, the base station initializes a structured data ledger template, which is propagated through the network. Each sensor node maintains a local copy of the ledger. When a node receives a valid ledger from another node, it compares the received values with its local copy and merges any data that is not already present. Existing local entries are retained, while previously empty entries are filled using the received values. The node then recalculates the checksum and rebroadcasts the updated ledger. As the ledger is received, merged, and retransmitted by nodes within radio range, it can accumulate measurements from multiple nodes before reaching the base station. Depending on the network topology, data may reach the base station directly or through one or more intermediate nodes.
 
 This approach ensures that:
 
@@ -587,7 +587,7 @@ storage.
 
 \subsubsection{Architecture}
 
-\draftchange{The packet contents are formatted as human-readable text fields to simplify debugging and inspection during development. Before transmission, the packet is encrypted using the RC4 routine implemented in the firmware. This allows the data structure to remain easy to inspect after decryption while providing basic obfuscation during wireless transmission. Although a text-based format is less efficient than a compact binary packet structure, it made it easier to identify routing, formatting, and communication errors within the mesh network during early testing and troubleshooting.}
+The packet contents are formatted as human-readable text fields to simplify debugging and inspection during development. Before transmission, the packet is encrypted using the RC4 routine implemented in the firmware. This allows the data structure to remain easy to inspect after decryption while providing basic obfuscation during wireless transmission. Although a text-based format is less efficient than a compact binary packet structure, it made it easier to identify routing, formatting, and communication errors within the mesh network during early testing and troubleshooting.
 
 It should be noted that, for a production-level implementation, a packed
 data structure (e.g., a structured binary payload containing predefined
@@ -595,7 +595,7 @@ variables) would be preferable. Such an approach would reduce payload
 size, improve transmission efficiency, and optimize airtime usage ---
 particularly important in low-bandwidth LoRa systems.
 
-\draftchange{The text-based packet format was retained in the final prototype because it was implemented and validated during the early testing phase, and keeping it ensured consistency and stability throughout development. Future iterations of the system would benefit from migrating to a structured binary packet format for improved scalability and performance.}
+The text-based packet format was retained in the final prototype because it was implemented and validated during the early testing phase, and keeping it ensured consistency and stability throughout development. Future iterations of the system would benefit from migrating to a structured binary packet format for improved scalability and performance.
 
 \subsubsection{Packet Structure}
 
@@ -614,7 +614,7 @@ positional mapping prevents data overwriting and ensures deterministic
 placement of measurements, allowing every node to know exactly where its
 contribution belongs within the packet.
 
-\draftchange{Because the packet payload uses fixed-width text fields, each node is allocated a fixed number of characters. While a packed binary structure with defined variable types would have been more memory-efficient and flexible, fixed-width text fields were chosen to simplify debugging, inspection, and demonstration of the system.} Each numerical
+Because the packet payload uses fixed-width text fields, each node is allocated a fixed number of characters. While a packed binary structure with defined variable types would have been more memory-efficient and flexible, fixed-width text fields were chosen to simplify debugging, inspection, and demonstration of the system. Each numerical
 value is formatted to support a range from --99.9999 to 999.9999. This
 range comfortably accommodates all measured parameters (e.g.,
 temperature, humidity, soil moisture, battery voltage), ensuring no
@@ -634,7 +634,7 @@ All data entries are comma-separated and enclosed within brackets
 packet header defines the type of data being transmitted, such as air
 temperature, relative humidity, soil temperature, soil moisture, battery
 voltage, or time/date synchronization.
-\draftchange{The ledger packet format is illustrated in Figure~\ref{fig:method-image8}.}
+The ledger packet format is illustrated in Figure~\ref{fig:method-image8}.
 
 \begin{figure}[htbp]
 \centering
@@ -647,7 +647,7 @@ Time/date packets follow a slightly modified format. Instead of
 allocating separate fields per node, the packet's data fields are used
 collectively to distribute synchronized timestamp information across the
 network. This mechanism ensures that all nodes maintain consistent
-system time for logging and coordination purposes. \draftchange{The time-synchronization packet format is shown in Figure~\ref{fig:method-image9}.}
+system time for logging and coordination purposes. The time-synchronization packet format is shown in Figure~\ref{fig:method-image9}.
 
 \begin{figure}[htbp]
 \centering
@@ -656,8 +656,8 @@ system time for logging and coordination purposes. \draftchange{The time-synchro
 \label{fig:method-image9}
 \end{figure}
 
-\draftchange{In total, each packet contains 96 bytes of data, which is the payload transmitted over LoRa. The firmware buffer is declared with 97 bytes, where the additional byte is reserved for the C-string null terminator; this terminator is not transmitted.}
-\draftchange{Because the text fields are human-readable, the packet could be read directly if it were transmitted without encryption. To provide basic obfuscation, each packet is therefore encrypted using the RC4 stream cipher before transmission.} RC4 was
+In total, each packet contains 96 bytes of data, which is the payload transmitted over LoRa. The firmware buffer is declared with 97 bytes, where the additional byte is reserved for the C-string null terminator; this terminator is not transmitted.
+Because the text fields are human-readable, the packet could be read directly if it were transmitted without encryption. To provide basic obfuscation, each packet is therefore encrypted using the RC4 stream cipher before transmission. RC4 was
 selected due to its lightweight computational requirements and minimal
 memory footprint, making it suitable for the ATmega328P's limited RAM
 and processing capability.
@@ -683,7 +683,7 @@ maintaining functional encryption for this prototype. Although RC4 is
 not considered secure for high-security applications due to known
 vulnerabilities, it provides sufficient packet obfuscation for this
 research deployment where low power consumption and computational
-efficiency are prioritized. \draftchange{The RC4 routine used for encryption and decryption is shown in Listing~\ref{lst:rc4}.}
+efficiency are prioritized. The RC4 routine used for encryption and decryption is shown in Listing~\ref{lst:rc4}.
 
 \begin{lstlisting}[caption={RC4-based packet encryption routine implemented for lightweight mesh communication security.},label={lst:rc4},basicstyle=\normalsize\ttfamily,captionpos=b]
 void LORA_MODULE_class::rc4EncryptDecrypt(char *data, uint8_t len)
@@ -722,7 +722,7 @@ void LORA_MODULE_class::rc4EncryptDecrypt(char *data, uint8_t len)
 }
 \end{lstlisting}
 
-\draftchange{The RC4 routine preserves low computational overhead while providing basic obfuscation of the text-based packets during wireless transmission.}
+The RC4 routine preserves low computational overhead while providing basic obfuscation of the text-based packets during wireless transmission.
 
 \subsubsection{Mesh Network}
 
@@ -759,7 +759,7 @@ The only situation in which a node does not relay a ledger is when the
 received ledger is identical to its local database. In this case, all
 participating nodes already possess the same data, and retransmission
 would only create unnecessary traffic and potential infinite looping.
-Therefore, the packet is ignored. \draftchange{The relay and update process is illustrated in Figure~\ref{fig:method-image11}.}
+Therefore, the packet is ignored. The relay and update process is illustrated in Figure~\ref{fig:method-image11}.
 
 In a linear topology scenario, the base station may only be within range
 of Node 1; Node 1 within range of the base station and Node 2; Node 2
@@ -808,7 +808,7 @@ transmit, it reevaluates the received packet, updates or discards it
 accordingly, and restarts its timeout counter. This effectively delays
 its transmission and reduces the likelihood of congestion. This
 mechanism ensures that channel noise decreases before additional packets
-are introduced. \draftchange{The CSMA/CA timing strategy is illustrated in Figure~\ref{fig:method-image12}.}
+are introduced. The CSMA/CA timing strategy is illustrated in Figure~\ref{fig:method-image12}.
 
 In a scenario where all nodes are within range of each other, meaning a
 single transmission is received by all nodes, those with lower hardware
@@ -839,12 +839,12 @@ transmissions.
 
 \subsection{LoRa Firmware Configuration}
 
-\draftchange{The LoRa radio parameters used by the sensor nodes were selected to provide a balance between communication range, airtime, and reliability while maintaining the low-power requirements of the system. The configuration used during the field range testing is shown in Listing~\ref{lst:lora_config}.}
+The LoRa radio parameters used by the sensor nodes were selected to provide a balance between communication range, airtime, and reliability while maintaining the low-power requirements of the system. The configuration used during the field range testing is shown in Listing~\ref{lst:lora_config}.
 
 \begin{lstlisting}[
-    caption={\draftchange{LoRa radio configuration parameters used during field range testing}},
+    caption={LoRa radio configuration parameters used during field range testing},
     label={lst:lora_config},
-    basicstyle=\ttfamily\small\color{purple}
+    basicstyle=\ttfamily\small
 ]
 #define FREQUENCY       433E6   // 433 MHz
 #define TX_POWER        17      // dBm
@@ -855,11 +855,11 @@ transmissions.
 #define PREAMBLE_LENGTH 8
 \end{lstlisting}
 
-\draftchange{The operating frequency was set to 433 MHz with a transmission power of 17 dBm. The LoRa bandwidth was configured to 125 kHz, with a spreading factor of 10 and a coding rate of 4/5. The synchronization word was set to 0x12, and the preamble length was set to 8 symbols. These parameters were kept consistent during the field range testing to provide a controlled basis for evaluating communication performance.}
+The operating frequency was set to 433 MHz with a transmission power of 17 dBm. The LoRa bandwidth was configured to 125 kHz, with a spreading factor of 10 and a coding rate of 4/5. The synchronization word was set to 0x12, and the preamble length was set to 8 symbols. These parameters were kept consistent during the field range testing to provide a controlled basis for evaluating communication performance.
 
-\draftchange{The selected configuration resulted in successful single-hop communication at several test locations within an approximate distance of 3 km during the field tests conducted in the semi-urban environment around Vellir in Hafnarfjörður. Occasional packet loss was observed in areas with greater environmental obstruction. Communication performance was also affected by antenna selection and placement. In particular, the initial tests using antennas intended for Wi-Fi resulted in poor communication performance. Replacing these antennas with antennas designed for 433 MHz LoRa operation produced a substantial improvement in range and reliability.}
+The selected configuration resulted in successful single-hop communication at several test locations within an approximate distance of 3 km during the field tests conducted in the semi-urban environment around Vellir in Hafnarfjörður. Occasional packet loss was observed in areas with greater environmental obstruction. Communication performance was also affected by antenna selection and placement. In particular, the initial tests using antennas intended for Wi-Fi resulted in poor communication performance. Replacing these antennas with antennas designed for 433 MHz LoRa operation produced a substantial improvement in range and reliability.
 
-\draftchange{The communication performance obtained using this configuration is discussed in Section~\ref{sec:lora_range_testing}.}
+The communication performance obtained using this configuration is discussed in Section~\ref{sec:lora_range_testing}.
 
 \subsection{In Situ Sensor Behavior and
 Algorithm}
@@ -868,7 +868,7 @@ The in situ node operates in a low-power duty cycle. It enters deep
 sleep mode, wakes up using an RTC timer, gathers sensor data, transmits
 data to the mesh network, and then returns to deep sleep. This cycle
 repeats continuously throughout
-deployment. \draftchange{The in situ node duty cycle is shown in Figure~\ref{fig:method-image14}.}
+deployment. The in situ node duty cycle is shown in Figure~\ref{fig:method-image14}.
 
 \clearpage
 \begin{figure}[p]
@@ -884,15 +884,15 @@ deployment. \draftchange{The in situ node duty cycle is shown in Figure~\ref{fig
 The in situ node contains multiple sensors as previously described: air
 temperature and humidity, soil temperature, soil moisture, and battery
 voltage. These sensors communicate using different interfaces including
-\draftchange{I²C}, 1-Wire serial, and analog-to-digital conversion (ADC).
+I²C, 1-Wire serial, and analog-to-digital conversion (ADC).
 
 \subsubsection{Air Temperature and Humidity (AHT10)}
 
-The AHT10 sensor communicates using the \draftchange{I²C} protocol. The
+The AHT10 sensor communicates using the I²C protocol. The
 microcontroller sends a measurement command to the sensor, after which
 the sensor internally performs the necessary signal processing and
 calibration. The processed temperature and humidity data are then
-transmitted digitally over the \draftchange{I²C} bus to the microcontroller. This
+transmitted digitally over the I²C bus to the microcontroller. This
 simplifies firmware implementation, as the sensor provides calibrated
 digital output directly.
 
@@ -907,9 +907,9 @@ for analog calibration.
 
 \subsubsection{Soil Moisture}
 
-\draftchange{The soil moisture sensor operates on a capacitive principle. Changes in the dielectric properties of the surrounding soil affect the capacitance of the sensing element. The sensor's onboard circuitry converts these changes into an analog output voltage that can be read by the microcontroller.}
+The soil moisture sensor operates on a capacitive principle. Changes in the dielectric properties of the surrounding soil affect the capacitance of the sensing element. The sensor's onboard circuitry converts these changes into an analog output voltage that can be read by the microcontroller.
 
-\draftchange{With a 3.3 V supply, the microcontroller reads this voltage using the ATmega328P's 10-bit ADC.}
+With a 3.3 V supply, the microcontroller reads this voltage using the ATmega328P's 10-bit ADC.
 
 ADC resolution:
 
@@ -965,9 +965,9 @@ nodes by sending a formatted packet containing the correct time obtained
 from pool.ntp.org. Although nodes are equipped with RTC modules,
 periodic synchronization ensures that all nodes remain aligned and wake
 simultaneously, preventing missed data requests.
-\draftchange{The base station data-acquisition and synchronization sequence is shown in Figure~\ref{fig:method-image15}.}
+The base station data-acquisition and synchronization sequence is shown in Figure~\ref{fig:method-image15}.
 
-\draftchange{This synchronization is performed as part of the hourly data-collection cycle. The base station obtains the current time from an NTP server and sends it in a DATE payload after the sensor-data requests. Sensor nodes update their RTC clocks when the message is received, and the time message can be propagated through the mesh. A delay of a few seconds during synchronization is acceptable for this application because it is small relative to the scheduled measurement window.}
+This synchronization is performed as part of the hourly data-collection cycle. The base station obtains the current time from an NTP server and sends it in a DATE payload after the sensor-data requests. Sensor nodes update their RTC clocks when the message is received, and the time message can be propagated through the mesh. A delay of a few seconds during synchronization is acceptable for this application because it is small relative to the scheduled measurement window.
 
 \clearpage
 \begin{figure}[p]
@@ -980,10 +980,10 @@ simultaneously, preventing missed data requests.
 
 \subsubsection{Uploading the Data}
 
-\draftchange{The cloud platform selected for this project is ThingSpeak. The base station uploads sensor measurements to the platform using an HTTP GET request to the ThingSpeak update API. The request includes the Write API key assigned to the node and the measurement values as query parameters. During testing, successful uploads returned HTTP status code 200 OK, with an average upload time of approximately 1--2 seconds.}
+The cloud platform selected for this project is ThingSpeak. The base station uploads sensor measurements to the platform using an HTTP GET request to the ThingSpeak update API. The request includes the Write API key assigned to the node and the measurement values as query parameters. During testing, successful uploads returned HTTP status code 200 OK, with an average upload time of approximately 1--2 seconds.
 
 
-\draftchange{Since the system can support up to eight sensor nodes (hardware IDs 0 to 7), the base station uploads each active node's data individually using its respective API key.}
+Since the system can support up to eight sensor nodes (hardware IDs 0 to 7), the base station uploads each active node's data individually using its respective API key.
 
 
 \section{\texorpdfstring{Cloud}{Cloud}}
@@ -1010,19 +1010,19 @@ transmission rate of the system, the required storage and upload
 frequency fall within the limits of the free service tier, making it a
 cost-effective solution. In this implementation, sensor data uploaded to
 the cloud is stored and made readily accessible for remote viewing and
-further analysis by researchers. \draftchange{The ThingSpeak dashboard link was shared with Museum staff for remote viewing, so they did not need direct access to the ThingSpeak account.}
+further analysis by researchers. The ThingSpeak dashboard link was shared with Museum staff for remote viewing, so they did not need direct access to the ThingSpeak account.
 
 \section{Testing}
 
 During the development of the project, multiple tests were conducted to
 evaluate system performance and reliability. These tests included power
 consumption measurements, LoRa range testing, and several preliminary
-tests carried out at Háskóli Íslands prior to the final deployment. \draftchange{The SD card backup was also tested, as described in Section~\ref{sec:sd-backup-testing}.} The
+tests carried out at Háskóli Íslands prior to the final deployment. The SD card backup was also tested, as described in Section~\ref{sec:sd-backup-testing}. The
 testing phase provided valuable insights into early system limitations
 and failures, allowing necessary modifications and improvements to be
 made before final deployment.
 
-\draftchange{The testing followed this progression: early benchtop testing in early June 2025 (Section~\ref{sec:benchtop-testing}); Preliminary Test I at Háskóli Íslands from June 8 to June 29, 2025; Preliminary Test II from August 1 to October 6, 2025; and the final Keldur deployment on October 17, 2025. The sensor nodes used a single battery cell during both preliminary tests, whereas the final Keldur nodes used three cells connected in parallel.}
+The testing followed this progression: early benchtop testing in early June 2025 (Section~\ref{sec:benchtop-testing}); Preliminary Test I at Háskóli Íslands from June 8 to June 29, 2025; Preliminary Test II from August 1 to October 6, 2025; and the final Keldur deployment on October 17, 2025. The sensor nodes used a single battery cell during both preliminary tests, whereas the final Keldur nodes used three cells connected in parallel.
 
 \subsection{In Situ Sensor Node Power Consumption
 Tests}\label{sec:power-tests}
@@ -1032,12 +1032,12 @@ consumption testing was conducted using a precision laboratory power
 supply (Rohde \& Schwarz HMP2030), capable of measuring current down to
 100 µA. The sensor module was powered at 4.2 V to represent a fully
 charged battery condition, and the power supply's current readout was
-used to observe and record current consumption. \draftchange{The laboratory test setup is shown in Figure~\ref{fig:power-test-setup}.}
+used to observe and record current consumption. The laboratory test setup is shown in Figure~\ref{fig:power-test-setup}.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.8\textwidth]{figs/power-consumption-setup.png}
-\caption{\draftchange{Laboratory setup used for the power consumption measurements of the sensor node.}}
+\caption{Laboratory setup used for the power consumption measurements of the sensor node.}
 \label{fig:power-test-setup}
 \end{figure}
 
@@ -1093,48 +1093,48 @@ the LoRa module is detected, the microcontroller exits the sleep state
 and resumes execution. Compared to deep sleep, light sleep consumes more
 power but allows faster response times and continuous listening for
 incoming LoRa messages, making it suitable for nodes that must remain
-partially active within the wireless sensor network. \draftchange{This is the half-sleep state listed in Table~\ref{tab:operating-modes}.}
+partially active within the wireless sensor network. This is the half-sleep state listed in Table~\ref{tab:operating-modes}.
 
-\subsection{\draftchange{Early Benchtop Testing}}\label{sec:benchtop-testing}
+\subsection{Early Benchtop Testing}\label{sec:benchtop-testing}
 
-\draftchange{Before the field tests, the four sensor nodes (HW\_1, HW\_3, HW\_5, and HW\_7) were tested on a benchtop during the first week of June 2025. ThingSpeak received approximately hourly measurements from the nodes from June 1 to June 4, 2025, giving 72 records per node. This was the first successful multi-node ThingSpeak data acquisition. The archived ThingSpeak records and screenshots confirm data collection and cloud uploads; they are experimental data generated by this project.}
+Before the field tests, the four sensor nodes (HW\_1, HW\_3, HW\_5, and HW\_7) were tested on a benchtop during the first week of June 2025. ThingSpeak received approximately hourly measurements from the nodes from June 1 to June 4, 2025, giving 72 records per node. This was the first successful multi-node ThingSpeak data acquisition. The archived ThingSpeak records and screenshots confirm data collection and cloud uploads; they are experimental data generated by this project.
 
-\draftchange{During this same experiment, the mesh relay functionality was observed working through the live debugging output. When a node received a valid ledger from another node, its firmware merged the received information with the values already stored locally, filled entries that were not yet present, recalculated the checksum, and rebroadcast the updated ledger. The researcher observed data being forwarded between nodes until it reached the base station. Unfortunately, the debug logs and screenshots showing the relay events were not retained, and the exact routes, number of hops, inter-node spacing, packet-delivery rate, and firmware revision were not recorded.}
+During this same experiment, the mesh relay functionality was observed working through the live debugging output. When a node received a valid ledger from another node, its firmware merged the received information with the values already stored locally, filled entries that were not yet present, recalculated the checksum, and rebroadcast the updated ledger. The researcher observed data being forwarded between nodes until it reached the base station. Unfortunately, the debug logs and screenshots showing the relay events were not retained, and the exact routes, number of hops, inter-node spacing, packet-delivery rate, and firmware revision were not recorded.
 
-\draftchange{The archived ThingSpeak records do not independently prove the exact mesh routes or relay operations. The observed mesh behaviour is therefore a qualitative development observation, not a quantitatively documented experiment, and it cannot be used to report multi-hop range or reliability metrics. This benchtop test was separate from Preliminary Test I and Preliminary Test II, from the Vellir range test, and from the Keldur deployment.}
+The archived ThingSpeak records do not independently prove the exact mesh routes or relay operations. The observed mesh behaviour is therefore a qualitative development observation, not a quantitatively documented experiment, and it cannot be used to report multi-hop range or reliability metrics. This benchtop test was separate from Preliminary Test I and Preliminary Test II, from the Vellir range test, and from the Keldur deployment.
 
 \subsection{Háskóli Íslands Preliminary Test I}
 
-\draftchange{After all system components had been assembled and verified, an initial set of preliminary tests was conducted at Háskóli Íslands. Testing was carried out on the turf roofs located within the university campus with permission from the Faculty of Civil and Environmental Engineering.}
+After all system components had been assembled and verified, an initial set of preliminary tests was conducted at Háskóli Íslands. Testing was carried out on the turf roofs located within the university campus with permission from the Faculty of Civil and Environmental Engineering.
 
-\draftchange{A single LoRa base station was installed in the thesis adviser's office, where it was connected to a computer configured for continuous monitoring of incoming data via the cloud platform. This setup allowed real-time observation of device status, packet reception, and data integrity throughout the test period.}
+A single LoRa base station was installed in the thesis adviser's office, where it was connected to a computer configured for continuous monitoring of incoming data via the cloud platform. This setup allowed real-time observation of device status, packet reception, and data integrity throughout the test period.
 
-\draftchange{Four sensor devices were deployed across the surrounding area, primarily in the vicinity of the VR-II and VR-III buildings. The devices were positioned within a radius of approximately 50--100 meters from the base station, allowing early evaluation of communication performance and system operation under realistic deployment conditions. For this test, each sensor was powered by a single battery cell to evaluate power consumption and estimate the operational lifetime achievable with one cell.} \draftchange{The base station and one of the sensor nodes during this test are shown in Figure~\ref{fig:prelim1-setup}.}
+Four sensor devices were deployed across the surrounding area, primarily in the vicinity of the VR-II and VR-III buildings. The devices were positioned within a radius of approximately 50--100 meters from the base station, allowing early evaluation of communication performance and system operation under realistic deployment conditions. For this test, each sensor was powered by a single battery cell to evaluate power consumption and estimate the operational lifetime achievable with one cell. The base station and one of the sensor nodes during this test are shown in Figure~\ref{fig:prelim1-setup}.
 
 \begin{figure}[htbp]
 \centering
 
 \begin{minipage}[c]{0.48\textwidth}
     \centering
-    \subfigure[\draftchange{LoRa base station installed by the window of the office.}]{%
+    \subfigure[LoRa base station installed by the window of the office.]{%
         \includegraphics[width=\linewidth,height=5.5cm,keepaspectratio]
         {figs/prelim1-base-station-window.jpg}}
 \end{minipage}
 \hfill
 \begin{minipage}[c]{0.48\textwidth}
     \centering
-    \subfigure[\draftchange{Sensor node placed on a turf roof.}]{%
+    \subfigure[Sensor node placed on a turf roof.]{%
         \includegraphics[width=\linewidth,height=5.5cm,keepaspectratio,angle=-90]
         {figs/prelim1-node-on-turf-roof.jpg}}
 \end{minipage}
 
-\caption{\draftchange{Base station and sensor node setup during the first preliminary test at Háskóli Íslands.}}
+\caption{Base station and sensor node setup during the first preliminary test at Háskóli Íslands.}
 \label{fig:prelim1-setup}
 \end{figure}
 
-\draftchange{The preliminary test phase was conducted over a three-week period, from \textbf{June 8 to June 29, 2025}. During this time, the system operated continuously, providing insight into long-term stability, data consistency, and potential environmental effects on communication performance.}
+The preliminary test phase was conducted over a three-week period, from \textbf{June 8 to June 29, 2025}. During this time, the system operated continuously, providing insight into long-term stability, data consistency, and potential environmental effects on communication performance.
 
-\draftchange{Weather observations used as nearby reference data were obtained from two automatic weather stations operated by Veðurstofa Íslands. The first is Reykjavík Hljómskálagarður, registered as Station 1469, with the abbreviation \texttt{hljom} and WIGOS identifier \texttt{0-352-0-001469}. Its listed coordinates are 64.14105$^\circ$ N and 21.94363$^\circ$ W, at an elevation of 4.5 m. The station metadata identify it as an automatic weather station with records beginning in 2022. The second is Reykjavíkurflugvöllur, registered as Station 1477, with the abbreviation \texttt{rflug} and WIGOS identifier \texttt{0-352-0-001477}. Its listed coordinates are 64.12845$^\circ$ N and 21.94070$^\circ$ W, at an elevation of 12.0 m, and its records begin in 2001. The two stations are approximately 1.4 km apart. Neither station is located at the sensor-node positions; they were used as nearby reference observations for comparison with the general trends in the preliminary environmental measurements~\cite{imo_observations}.}
+Weather observations used as nearby reference data were obtained from two automatic weather stations operated by Veðurstofa Íslands. The first is Reykjavík Hljómskálagarður, registered as Station 1469, with the abbreviation \texttt{hljom} and WIGOS identifier \texttt{0-352-0-001469}. Its listed coordinates are 64.14105$^\circ$ N and 21.94363$^\circ$ W, at an elevation of 4.5 m. The station metadata identify it as an automatic weather station with records beginning in 2022. The second is Reykjavíkurflugvöllur, registered as Station 1477, with the abbreviation \texttt{rflug} and WIGOS identifier \texttt{0-352-0-001477}. Its listed coordinates are 64.12845$^\circ$ N and 21.94070$^\circ$ W, at an elevation of 12.0 m, and its records begin in 2001. The two stations are approximately 1.4 km apart. Neither station is located at the sensor-node positions; they were used as nearby reference observations for comparison with the general trends in the preliminary environmental measurements~\cite{imo_observations}.
 
 \subsection{LoRa Range Tests}
 
@@ -1194,12 +1194,12 @@ The range tests were conducted in Vellir, located in Hafnarfjörður. The
 base station was mounted on a fence at approximately chest height to
 simulate a realistic low-elevation deployment. A mobile sensor node was
 placed inside a vehicle and connected to a laptop for real-time
-monitoring. \draftchange{The base station setup is shown in Figure~\ref{fig:range-test-base-station}.}
+monitoring. The base station setup is shown in Figure~\ref{fig:range-test-base-station}.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[angle=-90,width=0.6\textwidth]{figs/range-test-base-station.jpg}
-\caption{\draftchange{LoRa base station mounted on a fence during the range test at Vellir.}}
+\caption{LoRa base station mounted on a fence during the range test at Vellir.}
 \label{fig:range-test-base-station}
 \end{figure}
 
@@ -1222,7 +1222,7 @@ required for ongoing studies by the responsible staff member.
 \begin{figure}[htbp]
 \centering
 \includegraphics[angle=-90,width=0.6\textwidth]{figs/prelim2-base-station-antennas.jpg}
-\caption{\draftchange{Base station with the upgraded antenna used in the second preliminary test.}}
+\caption{Base station with the upgraded antenna used in the second preliminary test.}
 \label{fig:prelim2-base-station}
 \end{figure}
 
@@ -1238,41 +1238,41 @@ For this test phase, the antenna system was upgraded to improve
 communication performance. Larger and higher-quality antennas were
 installed on the sensor nodes, and an outdoor antenna was mounted
 outside Helgi's office to enhance base station reception and
-transmission. \draftchange{The base station with the upgraded antenna is shown in Figure~\ref{fig:prelim2-base-station}.}
+transmission. The base station with the upgraded antenna is shown in Figure~\ref{fig:prelim2-base-station}.
 
 This second preliminary test was conducted over an extended period, from
 \textbf{August 1 to October 6, 2025}, allowing for evaluation of
 long-term system stability, communication reliability, and the impact of
 environmental conditions on performance.
 
-\draftchange{The same two Icelandic Meteorological Office stations, Reykjavík Hljómskálagarður (1469) and Reykjavíkurflugvöllur (1477), were used as nearby reference observations for this test.}
+The same two Icelandic Meteorological Office stations, Reykjavík Hljómskálagarður (1469) and Reykjavíkurflugvöllur (1477), were used as nearby reference observations for this test.
 
-\subsection{\draftchange{SD Card Backup Testing}}\label{sec:sd-backup-testing}
+\subsection{SD Card Backup Testing}\label{sec:sd-backup-testing}
 
-\draftchange{The SD card backup was tested during the earlier field testing. In addition to transmitting its measurements wirelessly, each sensor node stored its measurements locally on the SD card through the OpenLog module. When wireless transmissions were missed, the dataset collected through the base station contained missing or blank entries. In these cases, the measurements stored on the SD card were used to fill the missing data. This showed that the backup could be used to recover measurements that did not reach the base station.}
+The SD card backup was tested during the earlier field testing. In addition to transmitting its measurements wirelessly, each sensor node stored its measurements locally on the SD card through the OpenLog module. When wireless transmissions were missed, the dataset collected through the base station contained missing or blank entries. In these cases, the measurements stored on the SD card were used to fill the missing data. This showed that the backup could be used to recover measurements that did not reach the base station.
 
 \section{Deployment in Keldur}\label{sec:keldur-deployment}
 
-\draftchange{Following the previous testing phases, the system was deployed at \textbf{Keldur} on October 17, 2025. The deployment was carried out in collaboration with the Faculty of Civil and Environmental Engineering.}
+Following the previous testing phases, the system was deployed at \textbf{Keldur} on October 17, 2025. The deployment was carried out in collaboration with the Faculty of Civil and Environmental Engineering.
 
-\draftchange{For this deployment, each sensor node was configured with three battery cells, corresponding to the maximum number supported by its enclosure. The sensor units were sealed and prepared for outdoor operation before installation.}
+For this deployment, each sensor node was configured with three battery cells, corresponding to the maximum number supported by its enclosure. The sensor units were sealed and prepared for outdoor operation before installation.
 
-\draftchange{All four sensor nodes used the same hardware components and battery configuration. Each node was equipped with three Samsung 35E 3500 mAh lithium-ion cells connected in parallel, providing a nominal total capacity of 10,500 mAh per node. All battery packs were fully charged and the sensor units were properly prepared before installation.}
+All four sensor nodes used the same hardware components and battery configuration. Each node was equipped with three Samsung 35E 3500 mAh lithium-ion cells connected in parallel, providing a nominal total capacity of 10,500 mAh per node. All battery packs were fully charged and the sensor units were properly prepared before installation.
 
-\draftchange{Following the initial on-site verification, the four sensor nodes were left installed at Keldur without subsequent visits, servicing, or battery replacement during the period covered by the available ThingSpeak exports. The base station was powered from a wall outlet and was also left operating without on-site servicing or manual restart. The atmospheric sensor mounting arrangement differed between the nodes, as described in the deployment results.}
+Following the initial on-site verification, the four sensor nodes were left installed at Keldur without subsequent visits, servicing, or battery replacement during the period covered by the available ThingSpeak exports. The base station was powered from a wall outlet and was also left operating without on-site servicing or manual restart. The atmospheric sensor mounting arrangement differed between the nodes, as described in the deployment results.
 
-\draftchange{The existing network infrastructure from earlier testing was reused. A Wi-Fi router was located in the attic of one of the turf houses, where the LoRa base station was installed and connected to the network to enable communication with the cloud platform. The base station equipment was concealed to minimise its visual impact on the site, which operates as a museum. The setup is shown in Figure~\ref{fig:keldur-base-station}.}
+The existing network infrastructure from earlier testing was reused. A Wi-Fi router was located in the attic of one of the turf houses, where the LoRa base station was installed and connected to the network to enable communication with the cloud platform. The base station equipment was concealed to minimise its visual impact on the site, which operates as a museum. The setup is shown in Figure~\ref{fig:keldur-base-station}.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.82\textwidth,height=0.42\textheight,keepaspectratio]{figs/keldur-base-station.jpg}
-\caption{\draftchange{LoRa base station setup inside a turf house at Keldur.}}
+\caption{LoRa base station setup inside a turf house at Keldur.}
 \label{fig:keldur-base-station}
 \end{figure}
 
-\draftchange{Four sensor units were installed around the site, with one assigned to each turf roof. The installation took place on a cold, sunny day, providing suitable conditions for carrying out the work. The sensors were buried approximately 60--85 mm below the turf surface (Sensor Nodes 1, 3, 5, and 7 at 80, 60, 65, and 85 mm, respectively), within a soil layer approximately 170 mm deep. These depths differed from the approximately 11 cm design target described in the design constraints. The selected installation depths allowed the sensor units to remain concealed beneath the turf while positioned within the soil layer.}
+Four sensor units were installed around the site, with one assigned to each turf roof. The installation took place on a cold, sunny day, providing suitable conditions for carrying out the work. The sensors were buried approximately 60--85 mm below the turf surface (Sensor Nodes 1, 3, 5, and 7 at 80, 60, 65, and 85 mm, respectively), within a soil layer approximately 170 mm deep. These depths differed from the approximately 11 cm design target described in the design constraints. The selected installation depths allowed the sensor units to remain concealed beneath the turf while positioned within the soil layer.
 
-\draftchange{Sensor placement was generally around 0.9 m from the upper edge of the roof, with horizontal distances varying between approximately 0.5 m and 4.25 m depending on the installation location. This arrangement allowed soil conditions to be monitored while keeping the sensor units concealed beneath the turf. The turf-roof buildings and sensor installation area are shown in Figure~\ref{fig:keldur-sensor-installation}.}
+Sensor placement was generally around 0.9 m from the upper edge of the roof, with horizontal distances varying between approximately 0.5 m and 4.25 m depending on the installation location. This arrangement allowed soil conditions to be monitored while keeping the sensor units concealed beneath the turf. The turf-roof buildings and sensor installation area are shown in Figure~\ref{fig:keldur-sensor-installation}.
 
 \begin{figure}[htbp]
 \centering
@@ -1281,13 +1281,13 @@ environmental conditions on performance.
 % Use width only and let graphicx keep the aspect ratio.
 \includegraphics[angle=-90,width=0.48\textwidth]{figs/keldur-turf-roofs.jpg}\hfill
 \includegraphics[angle=-90,width=0.48\textwidth]{figs/keldur-sensor-installation.jpg}
-\caption{\draftchange{Turf-roof buildings and sensor installation area at Keldur.}}
+\caption{Turf-roof buildings and sensor installation area at Keldur.}
 \label{fig:keldur-sensor-installation}
 \end{figure}
 
-\draftchange{Following installation, the system was monitored on-site to verify operation. Data from all four sensor nodes were observed in the ThingSpeak cloud platform, confirming that the nodes were communicating with the base station and that their measurements were being uploaded successfully at the time of verification.}
+Following installation, the system was monitored on-site to verify operation. Data from all four sensor nodes were observed in the ThingSpeak cloud platform, confirming that the nodes were communicating with the base station and that their measurements were being uploaded successfully at the time of verification.
 
-\draftchange{The deployment began on \textbf{October 17, 2025}, following installation and initial verification of the equipment.}
+The deployment began on \textbf{October 17, 2025}, following installation and initial verification of the equipment.
 
 \section{Calibration Method}
 
@@ -1298,11 +1298,11 @@ Logger. The HOBO device is a fully integrated soil moisture logger with
 Bluetooth-based wireless data offload capability and measures both soil
 moisture and temperature.
 
-\draftchange{To ensure scientific accuracy, the gravimetric method was performed alongside the sensor comparison to establish the actual soil moisture content. Calibration was conducted in the Experimental Laboratory of the Faculty of Civil and Environmental Engineering at VR-3.}
+To ensure scientific accuracy, the gravimetric method was performed alongside the sensor comparison to establish the actual soil moisture content. Calibration was conducted in the Experimental Laboratory of the Faculty of Civil and Environmental Engineering at VR-3.
 
 An Icelandic soil sample was collected and oven-dried at 105 °C for 32
 hours (from 11:00 AM to 8:00 PM the following day) to remove all
-moisture and establish a dry baseline condition. \draftchange{The soil sample during oven drying is shown in Figure~\ref{fig:soil-drying}.} After drying, the soil
+moisture and establish a dry baseline condition. The soil sample during oven drying is shown in Figure~\ref{fig:soil-drying}. After drying, the soil
 was allowed to cool to room temperature before testing. A measured
 portion of the dried soil was then placed in a container, and all
 sensors were installed side by side to ensure identical environmental
@@ -1311,7 +1311,7 @@ conditions.
 \begin{figure}[htbp]
 \centering
 \includegraphics[angle=-90,width=0.6\textwidth]{figs/soil-drying.jpg}
-\caption{\draftchange{Icelandic soil sample during oven drying before the calibration tests.}}
+\caption{Icelandic soil sample during oven drying before the calibration tests.}
 \label{fig:soil-drying}
 \end{figure}
 
@@ -1340,7 +1340,7 @@ To ensure reliability and repeatability, the entire calibration
 procedure was conducted twice. The first experiment was performed on
 November 8, and the second on December 16.
 
-\subsection{\draftchange{HOBO MX2307 Soil Moisture and Temperature Data Logger}}
+\subsection{HOBO MX2307 Soil Moisture and Temperature Data Logger}
 
 The HOBO MX2307 Soil Moisture and Temperature Data Logger was used as
 the reference instrument for calibration. This commercial device is
