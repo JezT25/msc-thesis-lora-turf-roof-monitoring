@@ -379,8 +379,8 @@ WSN & Wireless Sensor Network\\
 \midrule
 1. Implement distributed sensor nodes & Four sensor nodes were developed and deployed, measuring soil moisture, soil temperature, air temperature, relative humidity, and battery voltage. \\
 2. Implement LoRa communication and evaluate range and field operation & LoRa communication was implemented and used during field deployment. The Vellir test demonstrated approximately 3 km of single-hop communication, and mesh relay functionality was incorporated into the firmware. \\
-3. Measure current consumption and estimate battery life & Average current consumption was measured at approximately 3.08 mA. The estimated operating lifetime was approximately 142 days under the defined operating cycle. \\
-4. Implement and evaluate local data storage & SD-card storage was implemented and tested during field testing. Locally stored measurements were used to recover entries missed by wireless transmission. \\
+3. Measure current consumption and estimate battery life & The weighted average current consumption was calculated as approximately 3.08 mA using the measured current in each operating state and the defined operating cycle. The estimated operating lifetime was approximately 142 days under the defined operating cycle. \\
+4. Implement and evaluate local data storage & SD-card storage was implemented and tested during earlier field testing. Locally stored measurements were used to recover entries missed by wireless transmission. \\
 5. Develop and evaluate the soil-moisture calibration model & A second-order polynomial model was developed over the tested 0--40\% moisture range, producing an in-sample RMSE of approximately 3.01 percentage points. \\
 6. Integrate the network with a cloud platform & Measurements were uploaded to ThingSpeak, with HTTP 200 OK responses and an average upload time of approximately 1--2 seconds. \\
 \bottomrule

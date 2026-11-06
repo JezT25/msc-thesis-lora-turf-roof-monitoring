@@ -577,7 +577,7 @@ changes. Even when air temperatures varied between approximately
 \draftchange{Overall, the measurements demonstrated stable soil-temperature trends during the deployment, consistent with the thermal buffering effect of the soil and turf. A reference sensor installed at the same location and depth as the deployed sensors would be required for a more direct comparison.}
 
 \subsection{Individual Sensor
-Performance}
+Performance}\label{sec:keldur-individual}
 
 \draftchange{The complete time-series measurements for Sensor Nodes 1, 3, 5, and 7 are presented in Figures~\ref{fig:results-15}, \ref{fig:results-16}, \ref{fig:results-8}, and \ref{fig:results-9}, respectively.}
 
@@ -615,7 +615,7 @@ voltage gradually decreased from approximately \textbf{4.1 V} to
 \clearpage
 \subparagraph{Sensor Node 5}
 
-\draftchange{This node produced air temperature measurements that closely matched station 6222, consistent with its externally mounted atmospheric sensors. Its relative humidity readings are discussed in Section~\ref{sec:keldur-humidity}. The estimated soil-moisture values were consistently higher than those of the other deployed nodes. The reported battery voltage decreased gradually during the period for which valid measurements were received. The last valid ThingSpeak record was received on 2 January 2026, an elapsed span of approximately 77.5 days from the first record, with a final valid battery voltage of 3.78 V.}
+\draftchange{This node produced air temperature measurements that closely matched station 6222, consistent with its externally mounted atmospheric sensors. Its relative humidity readings are discussed in Section~\ref{sec:keldur-humidity}. The estimated soil-moisture values were consistently higher than those of the other deployed nodes; however, these are estimates, and because this node's ADC readings were outside the calibration range, they do not confirm a real difference in soil-water content. The reported battery voltage decreased gradually during the period for which valid measurements were received. The last valid ThingSpeak record was received on 2 January 2026, an elapsed span of approximately 77.5 days from the first record, with a final valid battery voltage of 3.78 V.}
 
 \begin{figure}[htbp]
 \centering
@@ -659,7 +659,7 @@ Node & First record & Last record & Elapsed span & Final battery \\
 
 \draftchange{The final valid battery voltages recorded for all four nodes remained above the configured 3.25 V cutoff. Since the sensor nodes were not retrieved at the end of the deployment, the reason each node stopped providing valid measurements could not be confirmed. Battery depletion should therefore not be presented as the cause.}
 
-\draftchange{The ThingSpeak exports also contain all-zero entries after the last valid record of Sensor Nodes 1, 5, and 7. The base-station firmware clears its measurement arrays to zero at the start of each collection cycle, so when no valid new measurement is received from a node, these values can be uploaded as placeholders. These entries represent missing measurements rather than actual zero sensor readings.}
+\draftchange{The all-zero entries after the last valid record of Sensor Nodes 1, 5, and 7 are placeholders for missing data, as explained at the start of Section~\ref{sec:keldur-individual}.}
 
 \subsection{Overall System
 Performance}\label{sec:keldur-overall}
