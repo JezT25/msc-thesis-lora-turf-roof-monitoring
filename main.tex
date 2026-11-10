@@ -117,6 +117,7 @@ Dórótea Höeg Sigurðardóttir}
 \def\thesisprinting{}
 \def\thesislicense{This thesis may not be copied in any form without the author's permission.}
 \newcommand{\removelinebreaks}[1]{\begingroup\def\\{}#1\endgroup}
+\newcommand{\draftchange}[1]{\textcolor{purple}{#1}}
 
 \begin{document}
 \hypersetup{pageanchor=false}
@@ -229,7 +230,7 @@ Laboratory and field tests were conducted to evaluate power consumption, communi
 
 Field testing in the semi-urban area of Vellir in Hafnarfj\"{o}r\dh ur observed successful single-hop LoRa communication at several test locations within an approximate distance of 3 km using 433 MHz antennas, with recorded RSSI values from -103 dBm to -113 dBm. Communication performance varied with antenna placement and environmental obstacles, and occasional packet loss was observed in obstructed areas. Calibration of the capacitive soil moisture sensor produced a second-order relationship over the tested 0--40\% moisture range, with an in-sample root mean square error of approximately 3.01 percentage points against the gravimetric calibration targets.
 
-During cloud integration tests, ThingSpeak uploads took approximately 1--2 seconds on average. The system was also deployed at Keldur to monitor environmental conditions beneath four turf roofs, with first-to-last valid record spans of approximately 51 to 130 days across the four sensor nodes. The results demonstrate the feasibility of implementing a low-cost monitoring system for Icelandic turf roofs, while highlighting the need to consider environmental conditions and long-term hardware reliability.
+During cloud integration tests, ThingSpeak uploads took approximately 1--2 seconds on average. \draftchange{The system was also deployed at Keldur at Rangárvellir to monitor environmental conditions beneath four turf roofs,} with first-to-last valid record spans of approximately 51 to 130 days across the four sensor nodes. The results demonstrate the feasibility of implementing a low-cost monitoring system for Icelandic turf roofs, while highlighting the need to consider environmental conditions and long-term hardware reliability.
 
 \vfill
 \textbf{Keywords:} wireless sensor network (WSN), LoRa, mesh network, soil moisture, turf roofs, environmental monitoring, low-power systems, ThingSpeak
@@ -253,6 +254,8 @@ Upphleðslur gagna til ThingSpeak tóku að meðaltali um 1--2 sekúndur. Kerfi�
 I would like to thank God for the opportunities, experiences, and life I have been given.
 
 I am grateful to my Icelandic and Filipino families for supporting me throughout my studies and for welcoming me into their homes while I settled into life in Iceland.
+
+\draftchange{I gratefully acknowledge Ranní for supporting \emph{Monitoring and Simulation of Hygrothermal and Structural Behaviour of Turf Houses: Towards Preservation and Performance Optimization} (Grant No.\ 2410205-051), through which the instrumentation used in this research was made available. I also thank the National Museum of Iceland for providing access to the turf houses.}
 
 I would like to thank my thesis supervisors for their guidance and feedback. I also appreciate the support and cooperation of the University of Iceland and the National Museum of Iceland, as well as Össur and Kerfi fyrirtækjaþjónusta, for the opportunities and resources that made this work possible.
 
@@ -350,7 +353,7 @@ WSN & Wireless Sensor Network\\
 
 This project presented the design, implementation, and field deployment of a low-cost, low-power LoRa-based wireless sensor network for monitoring environmental conditions beneath Icelandic turf roofs. The developed system integrates distributed sensor nodes, local data storage, LoRa communication, a base station, and ThingSpeak cloud services to provide remote access to collected measurements.
 
-Four sensor nodes were developed and deployed beneath four separate turf roofs at Keldur. The nodes collected soil moisture, soil temperature, air temperature, relative humidity, and battery voltage. The deployment demonstrated the practical use of the developed system for collecting environmental data from multiple locations and making the measurements available remotely.
+\draftchange{Four sensor nodes were developed and deployed beneath four separate turf roofs at the Keldur turf site.} The nodes collected soil moisture, soil temperature, air temperature, relative humidity, and battery voltage. The deployment demonstrated the practical use of the developed system for collecting environmental data from multiple locations and making the measurements available remotely.
 
 Power consumption testing showed an average current of approximately 3.08 mA under the defined operating cycle. Based on the nominal battery capacity of 10,500 mAh, the estimated operating lifetime was approximately 142 days. This provides a useful baseline for evaluating the expected energy requirements of the sensor nodes under the tested configuration.
 

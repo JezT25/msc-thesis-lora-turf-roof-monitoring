@@ -73,7 +73,7 @@ include the following:
 
 \begin{itemize}
 \item
-  The original design target was to bury the sensor nodes at a depth of approximately 11 cm, where they may be covered by additional layers of snow during winter. The depths actually used at Keldur are described in Section~\ref{sec:keldur-deployment}.
+  The original design target was to bury the sensor nodes at a depth of approximately 11 cm, where they may be covered by additional layers of snow during winter. The depths actually used at \draftchange{the Keldur turf site} are described in Section~\ref{sec:keldur-deployment}.
 \item
   The device must be sufficiently weatherproof to withstand harsh
   Icelandic conditions, including high moisture levels from rain and
@@ -1025,7 +1025,7 @@ testing phase provided valuable insights into early system limitations
 and failures, allowing necessary modifications and improvements to be
 made before final deployment.
 
-The testing followed this progression: early benchtop testing in early June 2025 (Section~\ref{sec:benchtop-testing}); Preliminary Test I at Háskóli Íslands from June 8 to June 29, 2025; Preliminary Test II from August 1 to October 6, 2025; and the final Keldur deployment on October 17, 2025. The sensor nodes used a single battery cell during both preliminary tests, whereas the final Keldur nodes used three cells connected in parallel.
+The testing followed this progression: early benchtop testing in early June 2025 (Section~\ref{sec:benchtop-testing}); Preliminary Test I at Háskóli Íslands from June 8 to June 29, 2025; Preliminary Test II from August 1 to October 6, 2025; and the final \draftchange{deployment at Keldur at Rangárvellir} on October 17, 2025. The sensor nodes used a single battery cell during both preliminary tests, whereas the final \draftchange{Keldur turf site} nodes used three cells connected in parallel.
 
 \subsection{In Situ Sensor Node Power Consumption
 Tests}\label{sec:power-tests}
@@ -1104,7 +1104,7 @@ Before the field tests, the four sensor nodes (HW\_1, HW\_3, HW\_5, and HW\_7) w
 
 During this same experiment, the mesh relay functionality was observed working through the live debugging output. When a node received a valid ledger from another node, its firmware merged the received information with the values already stored locally, filled entries that were not yet present, recalculated the checksum, and rebroadcast the updated ledger. The researcher observed data being forwarded between nodes until it reached the base station. Unfortunately, the debug logs and screenshots showing the relay events were not retained, and the exact routes, number of hops, inter-node spacing, packet-delivery rate, and firmware revision were not recorded.
 
-The archived ThingSpeak records do not independently prove the exact mesh routes or relay operations. The observed mesh behaviour is therefore a qualitative development observation, not a quantitatively documented experiment, and it cannot be used to report multi-hop range or reliability metrics. This benchtop test was separate from Preliminary Test I and Preliminary Test II, from the Vellir range test, and from the Keldur deployment.
+The archived ThingSpeak records do not independently prove the exact mesh routes or relay operations. The observed mesh behaviour is therefore a qualitative development observation, not a quantitatively documented experiment, and it cannot be used to report multi-hop range or reliability metrics. This benchtop test was separate from Preliminary Test I and Preliminary Test II, from the Vellir range test, and from the \draftchange{Keldur turf site} deployment.
 
 \subsection{Háskóli Íslands Preliminary Test I}
 
@@ -1254,22 +1254,24 @@ The same two Icelandic Meteorological Office stations, Reykjavík Hljómskálaga
 
 The SD card backup was tested during the earlier field testing. In addition to transmitting its measurements wirelessly, each sensor node stored its measurements locally on the SD card through the OpenLog module. When wireless transmissions were missed, the dataset collected through the base station contained missing or blank entries. In these cases, the measurements stored on the SD card were used to fill the missing data. This showed that the backup could be used to recover measurements that did not reach the base station.
 
-\section{Deployment in Keldur}\label{sec:keldur-deployment}
+\section{Deployment at the Keldur Turf Site}\label{sec:keldur-deployment}
 
-Following the previous testing phases, the system was deployed at \textbf{Keldur} on October 17, 2025. The deployment was carried out in collaboration with the Faculty of Civil and Environmental Engineering.
+Following the previous testing phases, the system was deployed at \textbf{\draftchange{Keldur at Rangárvellir}} on October 17, 2025. The deployment was carried out in collaboration with the Faculty of Civil and Environmental Engineering.
+
+\draftchange{The Keldur turf site is located at approximately 63.8217°\,N, 20.0741°\,W in the Rangárvellir area of South Iceland. The coordinates correspond to the Keldur Turf House location listed on Google Maps, and were used for the distance to the weather station in Section~\ref{sec:keldur-deployment-results}.}
 
 For this deployment, each sensor node was configured with three battery cells, corresponding to the maximum number supported by its enclosure. The sensor units were sealed and prepared for outdoor operation before installation.
 
 All four sensor nodes used the same hardware components and battery configuration. Each node was equipped with three Samsung 35E 3500 mAh lithium-ion cells connected in parallel, providing a nominal total capacity of 10,500 mAh per node. All battery packs were fully charged and the sensor units were properly prepared before installation.
 
-Following the initial on-site verification, the four sensor nodes were left installed at Keldur without subsequent visits, servicing, or battery replacement during the period covered by the available ThingSpeak exports. The base station was powered from a wall outlet and was also left operating without on-site servicing or manual restart. The atmospheric sensor mounting arrangement differed between the nodes, as described in the deployment results.
+Following the initial on-site verification, the four sensor nodes were left installed at \draftchange{the Keldur turf site} without subsequent visits, servicing, or battery replacement during the period covered by the available ThingSpeak exports. The base station was powered from a wall outlet and was also left operating without on-site servicing or manual restart. The atmospheric sensor mounting arrangement differed between the nodes, as described in the deployment results.
 
 The existing network infrastructure from earlier testing was reused. A Wi-Fi router was located in the attic of one of the turf houses, where the LoRa base station was installed and connected to the network to enable communication with the cloud platform. The base station equipment was concealed to minimise its visual impact on the site, which operates as a museum. The setup is shown in Figure~\ref{fig:keldur-base-station}.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.82\textwidth,height=0.42\textheight,keepaspectratio]{figs/keldur-base-station.jpg}
-\caption{LoRa base station setup inside a turf house at Keldur.}
+\caption{LoRa base station setup inside a turf house at the Keldur turf site.}
 \label{fig:keldur-base-station}
 \end{figure}
 
@@ -1284,7 +1286,7 @@ Sensor placement was generally around 0.9 m from the upper edge of the roof, wit
 % Use width only and let graphicx keep the aspect ratio.
 \includegraphics[angle=-90,width=0.48\textwidth]{figs/keldur-turf-roofs.jpg}\hfill
 \includegraphics[angle=-90,width=0.48\textwidth]{figs/keldur-sensor-installation.jpg}
-\caption{Turf-roof buildings and sensor installation area at Keldur.}
+\caption{Turf-roof buildings and sensor installation area at the Keldur turf site.}
 \label{fig:keldur-sensor-installation}
 \end{figure}
 

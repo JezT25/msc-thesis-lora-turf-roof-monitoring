@@ -1,6 +1,6 @@
 \section{Overview}
 
-This chapter presents the results obtained from laboratory power consumption testing, preliminary field trials at Háskóli Íslands, LoRa range evaluation, long-term deployment in Keldur, and soil moisture calibration. The results are analyzed in relation to the system requirements defined in Chapter 3, particularly long-term low-power operation, communication performance of the installed sensor nodes, mesh network operation, and calibration accuracy. The Keldur deployment demonstrated the system under real outdoor conditions, while the calibration tests characterized the response of the soil moisture sensor over the tested 0--40\% range using a calibration soil sample.
+This chapter presents the results obtained from laboratory power consumption testing, preliminary field trials at Háskóli Íslands, LoRa range evaluation, long-term deployment at \draftchange{Keldur at Rangárvellir}, and soil moisture calibration. The results are analyzed in relation to the system requirements defined in Chapter 3, particularly long-term low-power operation, communication performance of the installed sensor nodes, mesh network operation, and calibration accuracy. The \draftchange{Keldur turf site} deployment demonstrated the system under real outdoor conditions, while the calibration tests characterized the response of the soil moisture sensor over the tested 0--40\% range using a calibration soil sample.
 
 \section{Power Consumption
 Results}
@@ -576,14 +576,13 @@ communication hardware and identified the final improvements required
 before the long-term deployment. The experience gained during this stage
 led to further refinements in the firmware, sensor calibration
 procedures, and enclosure design, resulting in the final hardware
-configuration used for the subsequent deployment at the Keldur turf
-house site.
+configuration used for the subsequent deployment at the \draftchange{Keldur turf site}.
 
-\section{Keldur Deployment}\label{sec:keldur-deployment-results}
+\section{Keldur Turf Site Deployment}\label{sec:keldur-deployment-results}
 
 To evaluate the performance of the proposed LoRa mesh wireless sensor
 network under actual operating conditions, a field deployment was
-conducted at the Keldur turf house site beginning on \textbf{17 October
+conducted at the \draftchange{Keldur turf site} beginning on \textbf{17 October
 2025}. Four sensor nodes (IDs 1, 3, 5, and 7) were installed at
 different locations and depths beneath the turf roof. The installation
 locations and sensor depths are shown in Figure~\ref{fig:results-deployment-map}. Sensor Nodes
@@ -593,7 +592,7 @@ these sensors mounted externally above the enclosure. This design
 variation was intentionally implemented to compare the measurement
 accuracy of both configurations under real environmental conditions.
 
-Weather data used for comparison were obtained from the Sámsstaðir automatic weather station, operated by the Icelandic Meteorological Office (Veðurstofa Íslands), through the Icelandic Meteorological Office observation database~\cite{imo_observations}. It is commonly identified as \textit{samst}, station 6222, and has been active since 2000. It is the closest station listed on vedur.is to the Keldur test site, at a distance of 9.75 km. Its coordinates are latitude 63.735370636° and longitude -20.1090698242°.
+Weather data used for comparison were obtained from the Sámsstaðir automatic weather station, operated by the Icelandic Meteorological Office (Veðurstofa Íslands), through the Icelandic Meteorological Office observation database~\cite{imo_observations}. It is commonly identified as \textit{samst}, station 6222, and has been active since 2000. It is the closest station listed \draftchange{in the Icelandic Meteorological Office observation database} to the \draftchange{Keldur turf site}, at a distance of 9.75 km. Its coordinates are latitude 63.735370636° and longitude -20.1090698242°.
 
 \clearpage
 \begin{figure}[p]
@@ -604,7 +603,7 @@ Weather data used for comparison were obtained from the Sámsstaðir automatic w
         height=0.88\textheight,
         keepaspectratio
     ]{figs/results-image6.png}
-    \caption{Deployment map showing the locations and installation depths of the four sensor nodes at the Keldur turf roof site.}
+    \caption{Deployment map showing the locations and installation depths of the four sensor nodes at the Keldur turf site.}
     \label{fig:results-deployment-map}
 \end{figure}
 \clearpage
@@ -625,7 +624,7 @@ The air temperature measurements from Sensor Nodes 5 and 7, which had externally
 
 The enclosed sensors produced smoother temperature curves with reduced daily variation. This suggests that placing the sensor inside the enclosure can affect how quickly it responds to changes in the surrounding air. The enclosure and its internal environment may contribute to this effect, although their individual influence was not measured separately.
 
-The average absolute temperature difference between the deployed sensors and station 6222 ranged from approximately \textbf{3.06 °C to 3.27 °C}. These values should be interpreted as differences between two measurement locations rather than direct sensor accuracy measurements. The Sámsstaðir station is approximately 9.75 km from the Keldur site, and its exposure and surrounding conditions differ from those of the deployed sensors.
+The average absolute temperature difference between the deployed sensors and station 6222 ranged from approximately \textbf{3.06 °C to 3.27 °C}. These values should be interpreted as differences between two measurement locations rather than direct sensor accuracy measurements. The Sámsstaðir station is approximately 9.75 km from the \draftchange{Keldur turf site}, and its exposure and surrounding conditions differ from those of the deployed sensors.
 
 Overall, the observations suggest that external placement is preferable when the objective is to monitor changes in ambient air temperature. However, a co-located reference measurement would be required to evaluate the absolute accuracy of the deployed sensors.
 
