@@ -757,7 +757,7 @@ The final valid battery voltages recorded for all four nodes remained above the 
 
 The all-zero entries after the last valid record of Sensor Nodes 1, 5, and 7 are placeholders for missing data, as explained at the start of Section~\ref{sec:keldur-individual}.
 
-\subsection{Comparison with a Separate In-Situ Dataset from the Turf-House Monitoring Project}\label{sec:keldur-comparison}
+\subsection{\draftchange{Comparison with a Separate In-Situ Dataset from the Turf-House Monitoring Project}}\label{sec:keldur-comparison}
 
 \draftchange{The preceding subsections compared the Keldur measurements with data from a distant weather station, which does not directly represent the conditions beneath the monitored turf roofs. This subsection provides an additional comparison using in-situ measurements collected independently at Keldur through the Turf-House Monitoring Project.\footnote{\draftchange{These data were provided by the Department of Civil and Environmental Engineering through the project \textit{Monitoring and Simulation of Hygrothermal and Structural Behaviour of Turf Houses: Towards Preservation and Performance Optimization}.}} The purpose is to examine whether the developed sensor nodes recorded environmental variations that were broadly consistent with those observed by the separate monitoring system. Since the two sensor systems were installed at different locations and were not co-located, this comparison is not intended to establish the absolute accuracy of the developed sensors or provide an independent calibration.}
 
@@ -829,7 +829,7 @@ r = \frac{\sum_{d}\left(\bar{x}_d-\bar{x}\right)\left(\bar{y}_d-\bar{y}\right)}{
 
 \draftchange{Despite the observed correlations, the developed nodes generally recorded lower daily mean temperatures than the project sensors, with mean differences ranging from approximately 0.16 °C to 3.33 °C. The smallest differences were observed for Node 3 when compared with the near-surface sensors \#93 and \#95, at approximately 0.16 °C and 0.56 °C, respectively.}
 
-\draftchange{The project sensors also exhibited differences in their mean temperatures, with average temperatures ranging from approximately 1.1 °C to 3.1 °C among the four sensors. This indicates that spatial temperature variation was present even within the monitored roof. Differences in installation depth and local roof conditions may therefore contribute to the offsets observed between the developed nodes and the project sensors. Consequently, the correlation results demonstrate similar temporal temperature behaviour rather than equivalence in absolute temperature measurements.}
+\draftchange{For context, the mean soil temperatures of the four project sensors ranged from approximately 1.1 °C to 3.1 °C, giving a spread of about 2.0 °C between the lowest and highest sensor means. This indicates that spatial temperature variation was present even within the monitored roof. Differences in installation depth and local roof conditions may therefore contribute to the offsets observed between the developed nodes and the project sensors. Consequently, the correlation results demonstrate similar temporal temperature behaviour rather than equivalence in absolute temperature measurements.}
 
 \begin{figure}[htbp]
 \centering
@@ -873,9 +873,9 @@ r = \frac{\sum_{d}\left(\bar{x}_d-\bar{x}\right)\left(\bar{y}_d-\bar{y}\right)}{
 
 \draftchange{For an exploratory comparison of temporal behaviour, a constant node-specific ADC offset was applied to Nodes 1, 3, and 7. The offsets were estimated using the first half of the available daily observations and evaluated using the second half. The resulting adjusted ADC values were then converted using the laboratory-derived relationship. This procedure was intended to examine whether the developed sensors followed changes observed in the project dataset, rather than establish a new calibration for absolute soil-moisture measurements.}
 
-\draftchange{Node 5 was excluded from this comparison because its ADC reading was constant at 768 during approximately 47.5\% of its hourly observations. The available data do not establish the cause of this behaviour.}
+\draftchange{Node 5 was excluded from this comparison because its ADC reading was constant at 768 during approximately 47.5\% of the hours between its first and last valid record (873 of 1836 hours). The available data do not establish the cause of this behaviour.}
 
-\draftchange{Table~\ref{tab:cmp-moisture} presents the resulting offsets and comparison statistics. The proportion of test days on which the adjusted node-derived permittivity fell within the range spanned by the four project sensors was 53\% for Node 1, 75\% for Node 3, and 88\% for Node 7. The corresponding correlation coefficients were 0.86, 0.76, and 0.55, respectively.}
+\draftchange{Table~\ref{tab:cmp-moisture} presents the resulting offsets and comparison statistics. The proportion of test days on which the adjusted node-derived permittivity fell within the range spanned by the four project sensors was 53\% for Node 1, 75\% for Node 3, and 88\% for Node 7. The corresponding correlation coefficients were 0.86, 0.76, and 0.55, respectively. The temporal evolution of the adjusted estimates and their relationship to the range of the project sensor measurements are shown in Figure~\ref{fig:cmp-moisture}.}
 
 \begin{table}[htbp]
 \centering
