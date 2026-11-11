@@ -790,7 +790,23 @@ Outside study & Outside air sensor & -- & Outside, at the gable window \\
 
 \draftchange{All four project soil sensors are on one side of a single roof, whereas the developed nodes are beneath four separate roofs (Figure~\ref{fig:results-deployment-map}). The roof of the project sensors relative to the developed nodes is not marked in the received file, so the comparison addresses general behaviour, timing, and order of magnitude, not sensor-by-sensor equivalence.}
 
-\draftchange{The comparison covers 18 October 2025 (the day after the nodes were buried) to 27 January 2026, the end of the project data. Both datasets are in UTC and were averaged to daily values, using only the days on which both sensors reported. Placeholder entries and readings of exactly zero from the developed nodes were treated as missing (Section~\ref{sec:keldur-individual}). The correlation coefficient $r$ describes whether two sensors rise and fall together: 1 means they move together perfectly and 0 means they are unrelated. The difference is the developed node minus the project sensor, so a negative value means the node was colder or drier.}
+\draftchange{The comparison covers 18 October 2025 to 27 January 2026. It starts on the day after the nodes were buried, since the node ADC readings changed from air-like to buried values on 17 October, and it ends with the last record of the project data. Both datasets are in UTC. Placeholder entries and readings of exactly zero from the developed nodes were treated as missing (Section~\ref{sec:keldur-individual}). The readings were averaged to hourly values and then to daily means,}
+
+\begin{equation}
+\bar{x}_d = \frac{1}{n_d}\sum_{h=1}^{n_d} x_{d,h},
+\label{eq:cmp-daily-mean}
+\end{equation}
+
+\draftchange{where $x_{d,h}$ are the valid hourly values of day $d$ and $n_d \geq 12$; days with fewer valid hours were discarded. Only the $N$ days on which both sensors reported were used. The agreement between a developed node $x$ and a project sensor $y$ is described by the Pearson correlation coefficient and by the mean difference,}
+
+\begin{equation}
+r = \frac{\sum_{d}\left(\bar{x}_d-\bar{x}\right)\left(\bar{y}_d-\bar{y}\right)}{\sqrt{\sum_{d}\left(\bar{x}_d-\bar{x}\right)^{2}\,\sum_{d}\left(\bar{y}_d-\bar{y}\right)^{2}}},
+\qquad
+\Delta = \frac{1}{N}\sum_{d}\left(\bar{x}_d-\bar{y}_d\right),
+\label{eq:cmp-agreement}
+\end{equation}
+
+\draftchange{where $\bar{x}$ and $\bar{y}$ are the means over the $N$ common days. A value of $r$ close to 1 means that the two sensors rise and fall together, and a negative $\Delta$ means that the developed node was colder or drier than the project sensor. The Spearman rank correlation used for soil moisture is the same coefficient $r$ calculated on the ranks of the daily values.}
 
 \subparagraph{Soil temperature}
 
