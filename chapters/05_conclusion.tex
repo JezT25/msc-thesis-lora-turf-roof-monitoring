@@ -1,0 +1,52 @@
+
+This project presented the design, implementation, and field deployment of a low-cost, low-power LoRa-based wireless sensor network for monitoring environmental conditions beneath Icelandic turf roofs. The developed system integrates distributed sensor nodes, local data storage, LoRa communication, a base station, and ThingSpeak cloud services to provide remote access to collected measurements.
+
+\draftchange{Four sensor nodes were developed and deployed beneath four separate turf roofs at the Keldur turf site.} The nodes collected soil moisture, soil temperature, air temperature, relative humidity, and battery voltage. The deployment demonstrated the practical use of the developed system for collecting environmental data from multiple locations and making the measurements available remotely.
+
+Power consumption testing showed an average current of approximately 3.08 mA under the defined operating cycle. Based on the nominal battery capacity of 10,500 mAh, the estimated operating lifetime was approximately 142 days. This provides a useful baseline for evaluating the expected energy requirements of the sensor nodes under the tested configuration.
+
+Separately from this theoretical estimate, the SD-card logs of the single-cell preliminary tests showed logged operating periods of approximately 11--27 days per node, with the longest being approximately 26.8 days. These are observed operating durations under the preliminary test configuration and not measured full battery lifetimes.
+
+Field testing around Vellir in Hafnarfjörður observed successful single-hop LoRa communication at several test locations within an approximate distance of 3 km using suitable 433 MHz antennas, with recorded RSSI values from -103 dBm to -113 dBm and occasional packet loss in obstructed areas. The implemented firmware also incorporated mesh relay functionality, allowing sensor nodes to exchange and forward collected measurement data. The relay behaviour was observed qualitatively during benchtop testing, and no measured multi-hop range is reported. During the Keldur deployment, valid records were received from all four sensor nodes over periods ranging from approximately 51 to 130 days, but the mesh routes used were not quantified because no packet logs were retained.
+
+The soil moisture calibration produced a second-order polynomial model over the tested gravimetric moisture range of 0--40\%, with an in-sample RMSE of approximately 3.01 percentage points. The calibration provided a basis for understanding the response of the selected capacitive sensor under controlled conditions. Further calibration using soil from the deployment locations would be beneficial for future applications.
+
+Cloud integration testing demonstrated successful data transmission to ThingSpeak, with HTTP 200 OK responses and an average upload time of approximately 1--2 seconds. This allowed the collected measurements to be stored, visualized, and accessed remotely.
+
+The six research objectives were addressed through the development and evaluation activities described in this thesis. Table~\ref{tab:objective-assessment} summarizes the main outcomes and supporting results.
+
+\begin{table}[htbp]
+\centering
+\caption{Summary of research objectives and corresponding outcomes.}
+\label{tab:objective-assessment}
+\begingroup
+\small
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.34\textwidth}>{\raggedright\arraybackslash}X@{}}
+\toprule
+\textbf{Research Objective} & \textbf{Outcome} \\
+\midrule
+1. Implement distributed sensor nodes & Four sensor nodes were developed and deployed, measuring soil moisture, soil temperature, air temperature, relative humidity, and battery voltage. \\
+2. Implement LoRa communication and evaluate range and field operation & LoRa communication was implemented and used during field deployment. The Vellir test observed successful single-hop communication at several test locations within an approximate distance of 3 km, and mesh relay functionality was incorporated into the firmware and observed qualitatively during benchtop testing. \\
+3. Measure current consumption and estimate battery life & The weighted average current consumption was calculated as approximately 3.08 mA using the measured current in each operating state and the defined operating cycle. The estimated operating lifetime was approximately 142 days under the defined operating cycle. \\
+4. Implement and evaluate local data storage & SD-card storage was implemented and tested during earlier field testing. Locally stored measurements were used to recover entries missed by wireless transmission. \\
+5. Develop and evaluate the soil-moisture calibration model & A second-order polynomial model was developed over the tested 0--40\% moisture range, producing an in-sample RMSE of approximately 3.01 percentage points. \\
+6. Integrate the network with a cloud platform & Measurements were uploaded to ThingSpeak, with HTTP 200 OK responses and an average upload time of approximately 1--2 seconds. \\
+\bottomrule
+\end{tabularx}
+\endgroup
+\end{table}
+
+Overall, the project demonstrates the feasibility of developing an affordable and accessible monitoring system for Icelandic turf roofs using readily available components and open IoT services. The developed platform provides a practical foundation for future environmental monitoring and can be further expanded through longer deployments, additional sensor calibration, and continued evaluation of its communication capabilities.
+
+\section{Recommendations}
+Future work should focus on extending the duration of field deployments, improving the reliability of individual sensor nodes, and expanding calibration and validation. In particular, the following improvements are recommended:
+\begin{enumerate}
+\item \textbf{Improve battery and power management:} conduct longer winter tests to evaluate actual battery performance at low temperatures and compare measured field operation with the theoretical estimate;
+\item \textbf{Improve enclosure and sensor protection:} improve protection against moisture, freezing, thawing, and snow, and continue evaluating external placement of atmospheric sensors while ensuring suitable weather protection. Future designs should allow sufficient airflow for ambient measurements while providing protection against direct rain and water accumulation, and both internal and externally mounted arrangements should be evaluated under controlled conditions;
+\item \textbf{Add remote system-health monitoring:} report node status, battery voltage, last successful measurement, and communication status so that missing measurements can be detected and investigated;
+\item \textbf{Improve local data logging:} retrieve and examine the Keldur node SD-card data where possible. Add local base-station logging, preferably using an SD card or equivalent storage, to retain packet IDs, node IDs, timestamps, RSSI/SNR, packet reception, forwarding events, and cloud-upload status. This would help distinguish missing LoRa transmissions from cloud-upload interruptions;
+\item \textbf{Improve soil-moisture calibration:} use soil collected from the actual turf-roof locations, test several samples, extend the moisture range where physically meaningful, and compare the results against co-located reference instruments. Use a separate dataset for validation;
+\item \textbf{Conduct controlled multi-hop testing:} deliberately place one or more sensor nodes outside the direct communication range of the base station and use intermediate nodes to relay their data. Measure packet delivery, RSSI/SNR, forwarding routes, hop count, latency, and reliability with different node distances and network topologies. Retain logs so the results can be reproduced; and
+\item \textbf{Continue long-term deployments:} evaluate the system at additional turf-roof locations and across different seasons and soil conditions.
+\end{enumerate}
+

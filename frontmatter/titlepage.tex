@@ -1,0 +1,94 @@
+\begin{titlepage}
+  \thispagestyle{empty}
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[anchor=north west, inner sep=0pt] at (current page.north west)
+        {\includegraphics[width=\paperwidth]{banner.png}};
+    \node(bottom)[shape=rectangle, fill=hiblue, minimum height=10mm, minimum width=\paperwidth, anchor=south west] at (current page.south west) {};
+    \node[above=0.4cm of bottom] {
+      \begin{tabular}{c}
+        \sffamily \small \textcolor{hiblue}{\textbf{\MakeUppercase{Faculty of \thesisfaculty{}}}}
+      \end{tabular}
+    };
+  \end{tikzpicture}
+
+  \enlargethispage{3cm}
+  \vspace*{3.5cm}
+  \newlength{\currentparskip}
+  \setlength{\currentparskip}{\parskip}
+  % Center the title block without pushing it beyond the text area (prevents overfull \hbox)
+  \noindent\begin{minipage}[t][20.0cm]{\textwidth}
+    \setlength{\parskip}{\currentparskip}
+    \begin{center}
+      \vspace*{\stretch{1.5}}
+      \begin{minipage}{0.95\linewidth}
+        \centering
+        \LARGE \sffamily \bfseries \thesistitle{}
+      \end{minipage}
+      \par
+      \normalfont \LARGE \sffamily \thesissubtitle{}
+      \vspace{\stretch{1.2}}
+      \normalfont \Large \sffamily \thesisauthor{}\par
+      \vspace*{\stretch{2.75}}
+      \thesismonth{}~\thesisyear{}
+      \vspace{\stretch{0.5}}
+      \normalfont \Large \sffamily {\thesiskind{}~thesis \\
+      in \thesissubject{}}
+      \vspace*{\stretch{1.0}}
+    \end{center}
+  \end{minipage}
+
+  % Start the next title-page block on a fresh page.
+  % Insert an intentionally blank page after the cover.
+  \newpage
+  \thispagestyle{empty}\mbox{}
+  \newpage
+  \thispagestyle{empty}
+  \begin{center}
+    \vspace*{\stretch{0.5}}
+    \Large \sffamily \bfseries \thesistitle{}
+    \normalfont \large \sffamily \thesissubtitle{}\\
+    \vspace*{\stretch{1.0}}
+    \sffamily{\thesisauthor{}}\\
+    \vspace*{\stretch{1.0}}
+    \normalsize \thesiscredits{}~ECTS thesis submitted in partial fulfillment of a \\
+    \textit{\thesiskindformal{}} degree in \thesissubject{}\\
+    \large
+    \ifx\thesissupervisors\empty\else
+      \vspace*{\stretch{1.0}}
+      Supervisors \\
+      \thesissupervisors{} \\
+    \fi
+    \vspace*{\stretch{1.0}}
+    Faculty of \thesisfaculty \\
+    \thesisschool \\
+    University of Iceland \\
+    Reykjavík, \thesismonth~\thesisyear
+    \vspace*{\stretch{0.5}}
+  \end{center}
+
+  \newpage
+  \thispagestyle{empty}
+  \vspace*{\fill}
+  \sffamily{\removelinebreaks{\thesistitle}} \\
+  \ifx\thesisshorttitle\empty\else
+      (\sffamily{\thesisshorttitle{}}) \\\\
+  \fi
+  \thesiscredits{}~ECTS thesis submitted in partial fulfillment of a
+  \thesiskind{}~degree in \thesissubject{} \\\\
+  Faculty of \thesisfaculty \\
+  \thesisschool \\
+  University of Iceland \\
+  \thesisaddress \\
+  \thesispostalcode, Reykjavík, Iceland \\\\
+  Telephone: \thesistelephone \\\\
+  \vspace{\lineskip}
+  Bibliographic information: \\
+  \thesisauthor{} (\thesisyear{}) \emph{\removelinebreaks{\thesistitle{}}},
+  \thesiskind{}~thesis, Faculty of \thesisfaculty, University of Iceland. \\\\
+  Copyright \textcopyright~\thesisyear~\thesisauthor \\
+  \thesislicense{} \\\\
+  Reykjavík, Iceland, \thesismonth~\thesisyear
+
+  \newpage
+  \thispagestyle{empty}\mbox{}
+\end{titlepage}

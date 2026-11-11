@@ -1,0 +1,120 @@
+
+% University of Iceland MSc thesis template V2.0.1 (8.4.2022),
+% adapted for the current thesis materials.
+
+\usepackage[utf8]{inputenc}
+\DeclareUnicodeCharacter{2212}{\ensuremath{-}}
+\DeclareUnicodeCharacter{00B0}{\ensuremath{^\circ}}
+\DeclareUnicodeCharacter{00B1}{\ensuremath{\pm}}
+\DeclareUnicodeCharacter{03B5}{\ensuremath{\varepsilon}}
+\DeclareUnicodeCharacter{03BC}{\ensuremath{\mu}}
+\DeclareUnicodeCharacter{00B3}{\ensuremath{^3}}
+\usepackage[icelandic,english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage[intoc]{nomencl}
+\usepackage{enumerate}
+\usepackage{xcolor}
+
+% Code listings (used for RC4 routine etc.)
+\usepackage{listings}
+\renewcommand{\lstlistlistingname}{List of Listings}
+\lstset{%
+  basicstyle=\ttfamily\scriptsize,
+  breaklines=true,
+  columns=fullflexible
+}
+\renewcommand{\lstlistingname}{Code Snippet}
+\renewcommand{\lstlistlistingname}{List of Code Snippets}
+
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+% \usetikzlibrary{external}
+% \tikzexternalize[prefix=figs/]
+% NOTE: TikZ externalization requires shell-escape; disabled for Overleaf compatibility.
+% Better line-breaking for long URLs/DOIs (helps avoid overfull \hbox warnings)
+\usepackage{xurl}
+\usepackage[pdfborder={0 0 0}]{hyperref}
+\usepackage{appendix}
+\usepackage{eso-pic}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{subfigure}
+\usepackage[format=plain,labelformat=simple,labelsep=colon]{caption}
+\usepackage{placeins}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{array}
+\usepackage{calc}
+\usepackage{ragged2e}
+\usepackage{lmodern}
+\usepackage{fixcmex}
+\usepackage{microtype}
+\usepackage{needspace}
+\usepackage{rotating}
+% Give TeX a little extra flexibility before it declares an overfull line
+\setlength{\emergencystretch}{2em}
+
+\graphicspath{{figs/}}
+
+\usepackage[style=ieee,sorting=none]{biblatex}
+\usepackage{csquotes}
+\addbibresource{references.bib}
+
+% HÍ blue used by the supplied template/banner.
+\convertcolorspec{RGB}{16,9,159}{rgb}\tmphiblue
+\definecolor{hiblue}{rgb}{\tmphiblue}
+
+
+\setlength{\parskip}{\baselineskip}
+\setlength{\parindent}{0cm}
+\raggedbottom
+\clubpenalty=10000
+\widowpenalty=10000
+\displaywidowpenalty=10000
+\setcounter{topnumber}{3}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{5}
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\bottomfraction}{0.70}
+\renewcommand{\textfraction}{0.10}
+\renewcommand{\floatpagefraction}{0.75}
+\AddToHook{cmd/section/before}{\Needspace{5\baselineskip}}
+\AddToHook{cmd/subsection/before}{\Needspace{4\baselineskip}}
+\AddToHook{cmd/subsubsection/before}{\Needspace{3\baselineskip}}
+\setkomafont{captionlabel}{\itshape}
+\setkomafont{caption}{\itshape}
+\setkomafont{section}{\FloatBarrier\Large}
+\setcapwidth{\textwidth}
+\setcapindent{1em}
+\setcounter{secnumdepth}{2}
+
+% ===== Thesis metadata =====
+\def\thesisyear{2027}
+\def\thesismonth{February}
+\def\thesisauthor{Jezreel V. Tan}
+\def\thesistitle{Design and Implementation of a Low-Power LoRa Wireless Sensor Mesh Network with Cloud Storage for Monitoring Soil Conditions on Icelandic Turf Roofs}
+\def\thesissubtitle{}
+\def\thesisshorttitle{Low-Power LoRa Mesh Network for Icelandic Turf Roofs}
+\def\thesiscredits{60}
+\def\thesissubject{Electrical and Computer Engineering}
+\def\thesiskind{M.Sc.}
+\def\thesiskindformal{Magister Scientiarum}
+\def\thesisschool{School of Engineering and Natural Sciences}
+\def\thesisfaculty{Electrical and Computer Engineering}
+\def\thesisaddress{Dunhagi 5}
+\def\thesispostalcode{107}
+\def\thesistelephone{525 4000}
+\def\thesissupervisors{Helgi Þorbergsson, Ph.D.\\
+Dórótea Höeg Sigurðardóttir}
+\def\thesisnrofsupervisors{1}
+\def\thesiscommittee{}
+\def\thesisexaminer{}
+\def\thesisISBN{}
+\def\thesisprinting{}
+\def\thesislicense{This thesis may not be copied in any form without the author's permission.}
+\newcommand{\removelinebreaks}[1]{\begingroup\def\\{}#1\endgroup}
+\newcommand{\draftchange}[1]{\textcolor{purple}{#1}}
+
