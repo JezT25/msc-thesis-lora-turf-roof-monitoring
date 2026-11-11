@@ -845,11 +845,26 @@ r = \frac{\sum_{d}\left(\bar{x}_d-\bar{x}\right)\left(\bar{y}_d-\bar{y}\right)}{
 
 \subparagraph{Soil moisture}
 
-\draftchange{The project sensors report dielectric permittivity $\varepsilon$, whereas the developed nodes report raw ADC values, so soil moisture cannot be compared directly. The laboratory calibration in Section~\ref{sec:soil-calibration} links ADC values to permittivity through five points (Table~\ref{tab:final-calibration-results}) covering ADC values from 197 to 485, but most Keldur ADC readings are above this range (daily medians of about 530 to 580 for Nodes 1, 3, and 7), so these points cannot be applied to them directly. Node 5 was excluded because its ADC value was constant at 768 for 47.5\% of the hours.}
+\draftchange{The soil moisture of the nodes was compared with the dielectric permittivity $\varepsilon$ measured by the project sensors. The laboratory calibration (Section~\ref{sec:soil-calibration}, Table~\ref{tab:final-calibration-results}) was used as the guide for the curve relating ADC values to permittivity. In the field, the ADC readings of the nodes are at a higher level than the laboratory range (daily medians of about 530 to 580 for Nodes 1, 3, and 7, against 197 to 485 in the laboratory), whereas the sensitivity is similar: about 0.068 permittivity units per ADC count in the laboratory and between 0.054 and 0.107 in the field, obtained from a linear regression of the daily project permittivity on the daily node ADC. A constant ADC offset was therefore set for each node so that the permittivity obtained from the laboratory curve matches the range of the four project sensors. The offset was fitted on the first half of each node's days and tested on the second half. Node 5 was excluded because its ADC value was constant at 768 for 47.5\% of the hours.}
 
-\draftchange{The laboratory points show a sensitivity of about 0.068 permittivity units per ADC count. In the field, a linear regression of the daily project permittivity on the daily node ADC gave between 0.054 and 0.107 units per count, so the sensitivity of the nodes in the field is similar and the main difference is a shift of the ADC level. A constant ADC offset was therefore fitted for each node so that the permittivity obtained from the laboratory points falls inside the range spanned by the four project sensors. The offset was fitted on the first half of each node's days and tested on the second half, and shifted values outside the laboratory range were counted as not matching.}
+\draftchange{Table~\ref{tab:cmp-moisture} gives the fitted offsets and the results, and Figure~\ref{fig:cmp-moisture} shows the shifted values. The shifted values follow the main features of the project data, including the decrease in mid-November, the low values around the beginning of December, and the increase in late December. The day-to-day changes of the node ADC values and of the project permittivity were also positively correlated for all combinations, which does not depend on the offset.}
 
-\draftchange{The fitted offsets were $-254$, $-341$, and $-332$ ADC counts for Nodes 1, 3, and 7 (Figure~\ref{fig:cmp-moisture}). In the test period, 53\%, 75\%, and 88\% of the days were inside the project range, and the correlation of the shifted node values with the mean of the project sensors was 0.86, 0.76, and 0.55. The shifted values follow the main features of the project data, including the decrease in mid-November, the low values around the beginning of December, and the increase in late December. Independent of the offset, the day-to-day changes of the node ADC values and of the project permittivity were positively correlated for all combinations (Spearman rank correlation 0.51 to 0.78).}
+\begin{table}[htbp]
+\centering
+\caption{\draftchange{Fitted ADC offsets and agreement of the shifted soil-moisture values of the nodes with the project soil sensors. Inside range is the share of days on which the permittivity obtained from the node is inside the range spanned by the four project sensors; days on which the shifted ADC value is outside the laboratory range count as outside. The correlation $r$ is with the mean of the project sensors in the test period. The last column is the Spearman rank correlation of the day-to-day changes of the node ADC and the project permittivity, as a range over the four project sensors.}}
+\label{tab:cmp-moisture}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{l c c c c c c}
+\hline
+Node & Offset (counts) & Fit / test days & Inside range, fit (\%) & Inside range, test (\%) & $r$, test & Daily-change correlation \\
+\hline
+1 & $-254$ & 32 / 32 & 78 & 53 & 0.86 & 0.55 to 0.73 \\
+3 & $-341$ & 48 / 48 & 94 & 75 & 0.76 & 0.57 to 0.78 \\
+7 & $-332$ & 25 / 25 & 92 & 88 & 0.55 & 0.51 to 0.75 \\
+\hline
+\end{tabular}
+\end{table}
 
 \begin{figure}[htbp]
 \centering
