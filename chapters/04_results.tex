@@ -763,13 +763,13 @@ The all-zero entries after the last valid record of Sensor Nodes 1, 5, and 7 are
 
 \subparagraph{The two sensor sets}
 
-\draftchange{The comparison dataset consists of measurements from four buried soil sensors and two atmospheric sensors. The soil sensors provide soil-temperature and soil-moisture-related measurements, while the atmospheric sensors record air temperature and relative humidity. The soil sensors were identified as the same type as the HOBO MX2307 reference instrument used in the laboratory calibration described in Section~\ref{sec:hobo-reference}~\cite{onset_mx2307}.}
+\draftchange{The comparison dataset consists of measurements from four buried soil sensors and two atmospheric sensors. The soil sensors provide soil-temperature and soil-moisture-related measurements, while the atmospheric sensors record air temperature and relative humidity. The soil sensors were identified as the same type as the HOBO MX2307 reference instrument used in the laboratory calibration described in Section~\ref{sec:hobo-reference}~\cite{onset_mx2307}. In the supplied file, the soil-moisture-related variable is labelled \textit{DE Perm, Ea} (dielectric permittivity). It was used as supplied: no volumetric water content was provided, and the Topp relationship of Section~\ref{sec:hobo-reference} was not applied to the project data. The file does not state whether this variable was measured directly by the sensors or derived by the project, so its provenance is not established here, and it is referred to below as the project permittivity.}
 
 \draftchange{Table~\ref{tab:cmp-layout} lists the positions, taken from the sensor-placement diagram supplied with the data (depths converted from centimetres to millimetres).}
 
 \begin{table}[htbp]
 \centering
-\caption{\draftchange{Sensor positions of the nodes developed in this study and of the sensors of the outside study. Depths are measured from the turf surface.}}
+\caption{\draftchange{Sensor positions of the nodes developed in this study and of the sensors from the comparison project. Depths are measured from the turf surface.}}
 \label{tab:cmp-layout}
 \small
 \begin{tabular}{l l c l}
@@ -780,12 +780,12 @@ This study & Node 1 & 80 & Separate roof \\
 This study & Node 3 & 60 & Separate roof \\
 This study & Node 5 & 65 & Separate roof \\
 This study & Node 7 & 85 & Separate roof \\
-Outside study & \#93 & 20 & Upper position, near surface \\
-Outside study & \#94 & 105 & Upper position, bottom of turf layer \\
-Outside study & \#95 & 15 & Lower position, near surface \\
-Outside study & \#96 & 240 & Lower position, bottom of turf layer \\
-Outside study & Inside air sensor & -- & Inside, on top of the wall \\
-Outside study & Outside air sensor & -- & Outside, at the gable window \\
+Comparison project & \#93 & 20 & Upper position, near surface \\
+Comparison project & \#94 & 105 & Upper position, bottom of turf layer \\
+Comparison project & \#95 & 15 & Lower position, near surface \\
+Comparison project & \#96 & 240 & Lower position, bottom of turf layer \\
+Comparison project & Inside air sensor & -- & Inside, on top of the wall \\
+Comparison project & Outside air sensor & -- & Outside, at the gable window \\
 \hline
 \end{tabular}
 \end{table}
@@ -865,7 +865,7 @@ r = \frac{\sum_{d}\left(\bar{x}_d-\bar{x}\right)\left(\bar{y}_d-\bar{y}\right)}{
 
 \subparagraph{Soil moisture}
 
-\draftchange{The soil-moisture comparison used the project soil measurements as an external dataset for examining the response of the developed capacitive sensors under field conditions. The laboratory calibration described in Section~\ref{sec:soil-calibration} provided the basis for relating the ADC readings of the developed nodes to the corresponding dielectric-permittivity estimates.}
+\draftchange{The soil-moisture comparison used the project soil measurements as an external dataset for examining the response of the developed capacitive sensors under field conditions. The laboratory calibration described in Section~\ref{sec:soil-calibration} provided the basis for relating the ADC readings of the developed nodes to the corresponding dielectric-permittivity estimates. These laboratory permittivity values are the estimates derived with the Topp relationship from the HOBO reference measurements (Table~\ref{tab:hobo-dielectric-reference}), whereas the project permittivity was used as supplied.}
 
 \draftchange{The field ADC readings of Nodes 1, 3, and 7 were generally higher than the range used for the laboratory calibration. Their daily median values were approximately 530 to 580, compared with the laboratory calibration range of approximately 197 to 485. This indicates that directly applying the laboratory relationship to many of the field readings would require extrapolation beyond the range used to develop the calibration model.}
 
@@ -875,11 +875,11 @@ r = \frac{\sum_{d}\left(\bar{x}_d-\bar{x}\right)\left(\bar{y}_d-\bar{y}\right)}{
 
 \draftchange{Node 5 was excluded from this comparison because its ADC reading was constant at 768 during approximately 47.5\% of the hours between its first and last valid record (873 of 1836 hours). The available data do not establish the cause of this behaviour.}
 
-\draftchange{Table~\ref{tab:cmp-moisture} presents the resulting offsets and comparison statistics. The proportion of test days on which the adjusted node-derived permittivity fell within the range spanned by the four project sensors was 53\% for Node 1, 75\% for Node 3, and 88\% for Node 7. The corresponding correlation coefficients were 0.86, 0.76, and 0.55, respectively. The temporal evolution of the adjusted estimates and their relationship to the range of the project sensor measurements are shown in Figure~\ref{fig:cmp-moisture}.}
+\draftchange{Table~\ref{tab:cmp-moisture} presents the resulting offsets and comparison statistics. The proportion of test days on which the adjusted node-derived permittivity fell within the range spanned by the four project sensors was 53\% for Node 1, 75\% for Node 3, and 88\% for Node 7. The corresponding correlation coefficients were 0.86, 0.76, and 0.55, respectively. The correlation coefficients are Pearson correlation coefficients $r$ (Equation~\ref{eq:cmp-agreement}), calculated between the daily node-derived permittivity and the daily mean permittivity of the four project sensors over the test days. The temporal evolution of the adjusted estimates and their relationship to the range of the project sensor measurements are shown in Figure~\ref{fig:cmp-moisture}.}
 
 \begin{table}[htbp]
 \centering
-\caption{\draftchange{Results of the exploratory node-specific ADC offset adjustment and comparison with the project soil measurements. The within-range percentage indicates the proportion of test days on which the adjusted node-derived permittivity fell within the range spanned by the four project sensors. The correlation coefficient describes the temporal relationship with the mean of the project sensors.}}
+\caption{\draftchange{Results of the exploratory node-specific ADC offset adjustment and comparison with the project soil measurements. The within-range percentage indicates the proportion of test days on which the adjusted node-derived permittivity fell within the range spanned by the four project sensors. The Pearson correlation coefficient $r$ describes the temporal relationship with the mean of the project sensors.}}
 \label{tab:cmp-moisture}
 \small
 \setlength{\tabcolsep}{6pt}
@@ -899,7 +899,7 @@ Node & Offset (counts) & Within range (\%) & $r$ \\
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth,height=0.7\textheight,keepaspectratio]{figs/keldur-compare-moisture_offset.png}
-\caption{\draftchange{Apparent dielectric permittivity estimated from the ADC readings of Nodes 1, 3, and 7 after applying node-specific ADC offsets, compared with the range and mean of the four project soil sensors. The offsets were estimated using the initial fitting period and evaluated during the subsequent temporal hold-out period. Gaps indicate days on which the adjusted ADC readings fell outside the laboratory calibration range.}}
+\caption{\draftchange{Apparent dielectric permittivity estimated from the ADC readings of Nodes 1, 3, and 7 after applying node-specific ADC offsets, compared with the range and mean of the permittivity supplied by the four project soil sensors. The offsets were estimated using the initial fitting period and evaluated during the subsequent temporal hold-out period. Gaps indicate days on which the adjusted ADC readings fell outside the laboratory calibration range.}}
 \label{fig:cmp-moisture}
 \end{figure}
 
