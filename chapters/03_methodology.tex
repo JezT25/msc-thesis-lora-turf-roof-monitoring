@@ -73,7 +73,7 @@ include the following:
 
 \begin{itemize}
 \item
-  The original design target was to bury the sensor nodes at a depth of approximately \draftchange{110 mm}, where they may be covered by additional layers of snow during winter. The depths actually used at \draftchange{the Keldur turf site} are described in Section~\ref{sec:keldur-deployment}.
+  The original design target was to bury the sensor nodes at a depth of approximately 110 mm, where they may be covered by additional layers of snow during winter. The depths actually used at the Keldur turf site are described in Section~\ref{sec:keldur-deployment}.
 \item
   The device must be sufficiently weatherproof to withstand harsh
   Icelandic conditions, including high moisture levels from rain and
@@ -366,9 +366,9 @@ within a 50.5 mm × 50.5 mm footprint using a two-layer, 1.6 mm thick
 FR-4 substrate. A two-layer design was sufficient due to the relatively
 low routing complexity, helping to reduce manufacturing costs.
 
-\draftchange{The PCB was manufactured by JLCPCB, a commercial printed circuit board (PCB) fabrication and assembly service provider. Ground planes were incorporated where possible to improve signal integrity and reduce electrical noise, particularly around the LoRa transceiver. Component placement was designed to facilitate manual assembly and simplify debugging during development.}
+The PCB was manufactured by JLCPCB, a commercial printed circuit board (PCB) fabrication and assembly service provider. Ground planes were incorporated where possible to improve signal integrity and reduce electrical noise, particularly around the LoRa transceiver. Component placement was designed to facilitate manual assembly and simplify debugging during development.
 
-\draftchange{The electronic components used on the PCB were sourced from LCSC Electronics, an online electronic component distributor that is a sister company of JLCPCB. Obtaining the boards and components from the same supplier group kept the ordering process simple, since the PCB design and the required parts could be purchased from a single ecosystem, and it helped keep the cost of each sensor node low.}
+The electronic components used on the PCB were sourced from LCSC Electronics, an online electronic component distributor that is a sister company of JLCPCB. Obtaining the boards and components from the same supplier group kept the ordering process simple, since the PCB design and the required parts could be purchased from a single ecosystem, and it helped keep the cost of each sensor node low.
 
 The use of pin headers for the sensors simplified the assembly process,
 allowing sensors to be rearranged easily and packed neatly within the
@@ -1027,7 +1027,7 @@ testing phase provided valuable insights into early system limitations
 and failures, allowing necessary modifications and improvements to be
 made before final deployment.
 
-The testing followed this progression: early benchtop testing in early June 2025 (Section~\ref{sec:benchtop-testing}); Preliminary Test I at Háskóli Íslands from June 8 to June 29, 2025; Preliminary Test II from August 1 to October 6, 2025; and the final \draftchange{deployment at Keldur at Rangárvellir} on October 17, 2025. The sensor nodes used a single battery cell during both preliminary tests, whereas the final \draftchange{Keldur turf site} nodes used three cells connected in parallel.
+The testing followed this progression: early benchtop testing in early June 2025 (Section~\ref{sec:benchtop-testing}); Preliminary Test I at Háskóli Íslands from June 8 to June 29, 2025; Preliminary Test II from August 1 to October 6, 2025; and the final deployment at Keldur at Rangárvellir on October 17, 2025. The sensor nodes used a single battery cell during both preliminary tests, whereas the final Keldur turf site nodes used three cells connected in parallel.
 
 \subsection{In Situ Sensor Node Power Consumption
 Tests}\label{sec:power-tests}
@@ -1106,7 +1106,7 @@ Before the field tests, the four sensor nodes (HW\_1, HW\_3, HW\_5, and HW\_7) w
 
 During this same experiment, the mesh relay functionality was observed working through the live debugging output. When a node received a valid ledger from another node, its firmware merged the received information with the values already stored locally, filled entries that were not yet present, recalculated the checksum, and rebroadcast the updated ledger. The researcher observed data being forwarded between nodes until it reached the base station. Unfortunately, the debug logs and screenshots showing the relay events were not retained, and the exact routes, number of hops, inter-node spacing, packet-delivery rate, and firmware revision were not recorded.
 
-The archived ThingSpeak records do not independently prove the exact mesh routes or relay operations. The observed mesh behaviour is therefore a qualitative development observation, not a quantitatively documented experiment, and it cannot be used to report multi-hop range or reliability metrics. This benchtop test was separate from Preliminary Test I and Preliminary Test II, from the Vellir range test, and from the \draftchange{Keldur turf site} deployment.
+The archived ThingSpeak records do not independently prove the exact mesh routes or relay operations. The observed mesh behaviour is therefore a qualitative development observation, not a quantitatively documented experiment, and it cannot be used to report multi-hop range or reliability metrics. This benchtop test was separate from Preliminary Test I and Preliminary Test II, from the Vellir range test, and from the Keldur turf site deployment.
 
 \subsection{Háskóli Íslands Preliminary Test I}
 
@@ -1258,15 +1258,15 @@ The SD card backup was tested during the earlier field testing. In addition to t
 
 \section{Deployment at the Keldur Turf Site}\label{sec:keldur-deployment}
 
-Following the previous testing phases, the system was deployed at \textbf{\draftchange{Keldur at Rangárvellir}} on October 17, 2025. The deployment was carried out in collaboration with the Faculty of Civil and Environmental Engineering.
+Following the previous testing phases, the system was deployed at \textbf{Keldur at Rangárvellir} on October 17, 2025. The deployment was carried out in collaboration with the Faculty of Civil and Environmental Engineering.
 
-\draftchange{The Keldur turf site is located at approximately 63.8217°\,N, 20.0741°\,W in the Rangárvellir area of South Iceland. The coordinates correspond to the Keldur Turf House location listed on Google Maps, and were used for the distance to the weather station in Section~\ref{sec:keldur-deployment-results}.}
+The Keldur turf site is located at approximately 63.8217°\,N, 20.0741°\,W in the Rangárvellir area of South Iceland. The coordinates correspond to the Keldur Turf House location listed on Google Maps, and were used for the distance to the weather station in Section~\ref{sec:keldur-deployment-results}.
 
 For this deployment, each sensor node was configured with three battery cells, corresponding to the maximum number supported by its enclosure. The sensor units were sealed and prepared for outdoor operation before installation.
 
 All four sensor nodes used the same hardware components and battery configuration. Each node was equipped with three Samsung 35E 3500 mAh lithium-ion cells connected in parallel, providing a nominal total capacity of 10,500 mAh per node. All battery packs were fully charged and the sensor units were properly prepared before installation.
 
-Following the initial on-site verification, the four sensor nodes were left installed at \draftchange{the Keldur turf site} without subsequent visits, servicing, or battery replacement during the period covered by the available ThingSpeak exports. The base station was powered from a wall outlet and was also left operating without on-site servicing or manual restart. The atmospheric sensor mounting arrangement differed between the nodes, as described in the deployment results.
+Following the initial on-site verification, the four sensor nodes were left installed at the Keldur turf site without subsequent visits, servicing, or battery replacement during the period covered by the available ThingSpeak exports. The base station was powered from a wall outlet and was also left operating without on-site servicing or manual restart. The atmospheric sensor mounting arrangement differed between the nodes, as described in the deployment results.
 
 The existing network infrastructure from earlier testing was reused. A Wi-Fi router was located in the attic of one of the turf houses, where the LoRa base station was installed and connected to the network to enable communication with the cloud platform. The base station equipment was concealed to minimise its visual impact on the site, which operates as a museum. The setup is shown in Figure~\ref{fig:keldur-base-station}.
 
@@ -1277,7 +1277,7 @@ The existing network infrastructure from earlier testing was reused. A Wi-Fi rou
 \label{fig:keldur-base-station}
 \end{figure}
 
-Four sensor units were installed around the site, with one assigned to each turf roof. The installation took place on a cold, sunny day, providing suitable conditions for carrying out the work. The sensors were buried approximately 60--85 mm below the turf surface (Sensor Nodes 1, 3, 5, and 7 at 80, 60, 65, and 85 mm, respectively), within a soil layer approximately 170 mm deep. These depths differed from the approximately \draftchange{110 mm} design target described in the design constraints. The selected installation depths allowed the sensor units to remain concealed beneath the turf while positioned within the soil layer.
+Four sensor units were installed around the site, with one assigned to each turf roof. The installation took place on a cold, sunny day, providing suitable conditions for carrying out the work. The sensors were buried approximately 60--85 mm below the turf surface (Sensor Nodes 1, 3, 5, and 7 at 80, 60, 65, and 85 mm, respectively), within a soil layer approximately 170 mm deep. These depths differed from the approximately 110 mm design target described in the design constraints. The selected installation depths allowed the sensor units to remain concealed beneath the turf while positioned within the soil layer.
 
 Sensor placement was generally around 0.9 m from the upper edge of the roof, with horizontal distances varying between approximately 0.5 m and 4.25 m depending on the installation location. This arrangement allowed soil conditions to be monitored while keeping the sensor units concealed beneath the turf. The turf-roof buildings and sensor installation area are shown in Figure~\ref{fig:keldur-sensor-installation}.
 

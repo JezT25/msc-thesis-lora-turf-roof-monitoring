@@ -1,6 +1,6 @@
 \section{Overview}
 
-This chapter presents the results obtained from laboratory power consumption testing, preliminary field trials at Háskóli Íslands, LoRa range evaluation, long-term deployment at \draftchange{Keldur at Rangárvellir}, and soil moisture calibration. The results are analyzed in relation to the system requirements defined in Chapter 3, particularly long-term low-power operation, communication performance of the installed sensor nodes, mesh network operation, and calibration accuracy. The \draftchange{Keldur turf site} deployment demonstrated the system under real outdoor conditions, while the calibration tests characterized the response of the soil moisture sensor over the tested 0--40\% range using a calibration soil sample.
+This chapter presents the results obtained from laboratory power consumption testing, preliminary field trials at Háskóli Íslands, LoRa range evaluation, long-term deployment at Keldur at Rangárvellir, and soil moisture calibration. The results are analyzed in relation to the system requirements defined in Chapter 3, particularly long-term low-power operation, communication performance of the installed sensor nodes, mesh network operation, and calibration accuracy. The Keldur turf site deployment demonstrated the system under real outdoor conditions, while the calibration tests characterized the response of the soil moisture sensor over the tested 0--40\% range using a calibration soil sample.
 
 \section{Power Consumption
 Results}
@@ -576,13 +576,13 @@ communication hardware and identified the final improvements required
 before the long-term deployment. The experience gained during this stage
 led to further refinements in the firmware, sensor calibration
 procedures, and enclosure design, resulting in the final hardware
-configuration used for the subsequent deployment at the \draftchange{Keldur turf site}.
+configuration used for the subsequent deployment at the Keldur turf site.
 
 \section{Keldur Turf Site Deployment}\label{sec:keldur-deployment-results}
 
 To evaluate the performance of the proposed LoRa mesh wireless sensor
 network under actual operating conditions, a field deployment was
-conducted at the \draftchange{Keldur turf site} beginning on \textbf{17 October
+conducted at the Keldur turf site beginning on \textbf{17 October
 2025}. Four sensor nodes (IDs 1, 3, 5, and 7) were installed at
 different locations and depths beneath the turf roof. The installation
 locations and sensor depths are shown in Figure~\ref{fig:results-deployment-map}. Sensor Nodes
@@ -592,7 +592,7 @@ these sensors mounted externally above the enclosure. This design
 variation was intentionally implemented to compare the measurement
 accuracy of both configurations under real environmental conditions.
 
-Weather data used for comparison were obtained from the Sámsstaðir automatic weather station, operated by the Icelandic Meteorological Office (Veðurstofa Íslands), through the Icelandic Meteorological Office observation database~\cite{imo_observations}. It is commonly identified as \textit{samst}, station 6222, and has been active since 2000. It is the closest station listed \draftchange{in the Icelandic Meteorological Office observation database} to the \draftchange{Keldur turf site}, at a distance of 9.75 km. Its coordinates are latitude 63.735370636° and longitude -20.1090698242°.
+Weather data used for comparison were obtained from the Sámsstaðir automatic weather station, operated by the Icelandic Meteorological Office (Veðurstofa Íslands), through the Icelandic Meteorological Office observation database~\cite{imo_observations}. It is commonly identified as \textit{samst}, station 6222, and has been active since 2000. It is the closest station listed in the Icelandic Meteorological Office observation database to the Keldur turf site, at a distance of 9.75 km. Its coordinates are latitude 63.735370636° and longitude -20.1090698242°.
 
 \clearpage
 \begin{figure}[p]
@@ -624,7 +624,7 @@ The air temperature measurements from Sensor Nodes 5 and 7, which had externally
 
 The enclosed sensors produced smoother temperature curves with reduced daily variation. This suggests that placing the sensor inside the enclosure can affect how quickly it responds to changes in the surrounding air. The enclosure and its internal environment may contribute to this effect, although their individual influence was not measured separately.
 
-The average absolute temperature difference between the deployed sensors and station 6222 ranged from approximately \textbf{3.06 °C to 3.27 °C}. These values should be interpreted as differences between two measurement locations rather than direct sensor accuracy measurements. The Sámsstaðir station is approximately 9.75 km from the \draftchange{Keldur turf site}, and its exposure and surrounding conditions differ from those of the deployed sensors.
+The average absolute temperature difference between the deployed sensors and station 6222 ranged from approximately \textbf{3.06 °C to 3.27 °C}. These values should be interpreted as differences between two measurement locations rather than direct sensor accuracy measurements. The Sámsstaðir station is approximately 9.75 km from the Keldur turf site, and its exposure and surrounding conditions differ from those of the deployed sensors.
 
 Overall, the observations suggest that external placement is preferable when the objective is to monitor changes in ambient air temperature. However, a co-located reference measurement would be required to evaluate the absolute accuracy of the deployed sensors.
 
@@ -757,19 +757,19 @@ The final valid battery voltages recorded for all four nodes remained above the 
 
 The all-zero entries after the last valid record of Sensor Nodes 1, 5, and 7 are placeholders for missing data, as explained at the start of Section~\ref{sec:keldur-individual}.
 
-\subsection{\draftchange{Comparison with a Separate In-Situ Dataset from the Turf-House Monitoring Project}}\label{sec:keldur-comparison}
+\subsection{Comparison with a Separate In-Situ Dataset from the Turf-House Monitoring Project}\label{sec:keldur-comparison}
 
-\draftchange{The preceding subsections compared the Keldur measurements with data from a distant weather station, which does not directly represent the conditions beneath the monitored turf roofs. This subsection provides an additional comparison using in-situ measurements collected independently at Keldur through the Turf-House Monitoring Project.\footnote{\draftchange{These data were provided by the Department of Civil and Environmental Engineering through the project \textit{Monitoring and Simulation of Hygrothermal and Structural Behaviour of Turf Houses: Towards Preservation and Performance Optimization}.}} The purpose is to examine whether the developed sensor nodes recorded environmental variations that were broadly consistent with those observed by the separate monitoring system. Since the two sensor systems were installed at different locations and were not co-located, this comparison is not intended to establish the absolute accuracy of the developed sensors or provide an independent calibration.}
+The preceding subsections compared the Keldur measurements with data from a distant weather station, which does not directly represent the conditions beneath the monitored turf roofs. This subsection provides an additional comparison using in-situ measurements collected independently at Keldur through the Turf-House Monitoring Project.\footnote{These data were provided by the Department of Civil and Environmental Engineering through the project \textit{Monitoring and Simulation of Hygrothermal and Structural Behaviour of Turf Houses: Towards Preservation and Performance Optimization}.} The purpose is to examine whether the developed sensor nodes recorded environmental variations that were broadly consistent with those observed by the separate monitoring system. Since the two sensor systems were installed at different locations and were not co-located, this comparison is not intended to establish the absolute accuracy of the developed sensors or provide an independent calibration.
 
 \subparagraph{The two sensor sets}
 
-\draftchange{The comparison dataset consists of measurements from four buried soil sensors and two atmospheric sensors. The soil sensors provide soil-temperature and soil-moisture-related measurements, while the atmospheric sensors record air temperature and relative humidity. The soil sensors were identified as the same type as the HOBO MX2307 reference instrument used in the laboratory calibration described in Section~\ref{sec:hobo-reference}~\cite{onset_mx2307}. In the supplied file, the soil-moisture-related variable is labelled \textit{DE Perm, Ea} (dielectric permittivity). It was used as supplied: no volumetric water content was provided, and the Topp relationship of Section~\ref{sec:hobo-reference} was not applied to the project data. The file does not state whether this variable was measured directly by the sensors or derived by the project, so its provenance is not established here, and it is referred to below as the project-reported permittivity values.}
+The comparison dataset consists of measurements from four buried soil sensors and two atmospheric sensors. The soil sensors provide soil-temperature and soil-moisture-related measurements, while the atmospheric sensors record air temperature and relative humidity. The soil sensors were identified as the same type as the HOBO MX2307 reference instrument used in the laboratory calibration described in Section~\ref{sec:hobo-reference}~\cite{onset_mx2307}. In the supplied file, the soil-moisture-related variable is labelled \textit{DE Perm, Ea} (dielectric permittivity). It was used as supplied: no volumetric water content was provided, and the Topp relationship of Section~\ref{sec:hobo-reference} was not applied to the project data. This variable is referred to below as the project-reported permittivity values.
 
-\draftchange{Table~\ref{tab:cmp-layout} lists the positions, taken from the sensor-placement diagram supplied with the data (depths converted from centimetres to millimetres).}
+Table~\ref{tab:cmp-layout} lists the positions, taken from the sensor-placement diagram supplied with the data (depths converted from centimetres to millimetres).
 
 \begin{table}[htbp]
 \centering
-\caption{\draftchange{Sensor positions of the nodes developed in this study and of the sensors from the comparison project. Depths are measured from the turf surface.}}
+\caption{Sensor positions of the nodes developed in this study and of the sensors from the comparison project. Depths are measured from the turf surface.}
 \label{tab:cmp-layout}
 \small
 \begin{tabularx}{\textwidth}{l l c >{\raggedright\arraybackslash}X}
@@ -790,20 +790,20 @@ Comparison project & Outside air sensor & -- & Outside, at the gable window \\
 \end{tabularx}
 \end{table}
 
-\draftchange{All four project soil sensors were installed on one side of a single roof, whereas the developed nodes were distributed beneath four separate roofs (Figure~\ref{fig:results-deployment-map}). The available placement information does not identify the exact relative roof position of the project sensors in relation to the developed nodes. Consequently, the measurements were collected at different locations and depths, introducing spatial variability into the comparison. Differences between the datasets may therefore reflect local variations in turf composition, moisture distribution, burial depth, and thermal conditions, in addition to differences between the sensor systems themselves. The available measurements do not allow these individual effects to be separated.}
+All four project soil sensors were installed on one side of a single roof, whereas the developed nodes were distributed beneath four separate roofs (Figure~\ref{fig:results-deployment-map}). The available placement information does not identify the exact relative roof position of the project sensors in relation to the developed nodes. Consequently, the measurements were collected at different locations and depths, introducing spatial variability into the comparison. Differences between the datasets may therefore reflect local variations in turf composition, moisture distribution, burial depth, and thermal conditions, in addition to differences between the sensor systems themselves. The available measurements do not allow these individual effects to be separated.
 
-\draftchange{The comparison covers 18 October 2025 to 27 January 2026. It starts on the day after the nodes were buried, since the node ADC readings changed from air-like to buried values on 17 October, and it ends with the last record of the project data. Both datasets are in UTC.}
+The comparison covers 18 October 2025 to 27 January 2026. It starts on the day after the nodes were buried, since the node ADC readings changed from air-like to buried values on 17 October, and it ends with the last record of the project data. Both datasets are in UTC.
 
-\draftchange{For the developed sensor nodes, the available timestamps correspond to the ThingSpeak upload times rather than necessarily representing the exact time at which each measurement was acquired by the node. Transmission and data-forwarding delays may therefore introduce some uncertainty into the temporal alignment between the two datasets. Daily aggregation reduces sensitivity to short-term timing differences; however, this limitation should be considered when interpreting the temporal comparisons.}
+For the developed sensor nodes, the available timestamps correspond to the ThingSpeak upload times rather than necessarily representing the exact time at which each measurement was acquired by the node. Transmission and data-forwarding delays may therefore introduce some uncertainty into the temporal alignment between the two datasets. Daily aggregation reduces sensitivity to short-term timing differences; however, this limitation should be considered when interpreting the temporal comparisons.
 
-\draftchange{Placeholder entries and readings of exactly zero from the developed nodes were treated as missing (Section~\ref{sec:keldur-individual}). The readings were averaged to hourly values and then to daily means,}
+Placeholder entries and readings of exactly zero from the developed nodes were treated as missing (Section~\ref{sec:keldur-individual}). The readings were averaged to hourly values and then to daily means,
 
 \begin{equation}
 \bar{x}_d = \frac{1}{n_d}\sum_{h=1}^{n_d} x_{d,h},
 \label{eq:cmp-daily-mean}
 \end{equation}
 
-\draftchange{where $x_{d,h}$ are the valid hourly values of day $d$ and $n_d \geq 12$; days with fewer valid hours were discarded. Only the $N$ days on which both sensors reported were used. The agreement between a developed node $x$ and a project sensor $y$ is described by the Pearson correlation coefficient and by the mean difference,}
+where $x_{d,h}$ are the valid hourly values of day $d$ and $n_d \geq 12$; days with fewer valid hours were discarded. Only the $N$ days on which both sensors reported were used. The agreement between a developed node $x$ and a project sensor $y$ is described by the Pearson correlation coefficient and by the mean difference,
 
 \begin{equation}
 r = \frac{\sum_{d}\left(\bar{x}_d-\bar{x}\right)\left(\bar{y}_d-\bar{y}\right)}{\sqrt{\sum_{d}\left(\bar{x}_d-\bar{x}\right)^{2}\,\sum_{d}\left(\bar{y}_d-\bar{y}\right)^{2}}},
@@ -812,74 +812,74 @@ r = \frac{\sum_{d}\left(\bar{x}_d-\bar{x}\right)\left(\bar{y}_d-\bar{y}\right)}{
 \label{eq:cmp-agreement}
 \end{equation}
 
-\draftchange{where $\bar{x}$ and $\bar{y}$ are the means over the $N$ common days. A value of $r$ close to 1 means that the two sensors rise and fall together, and a negative $\Delta$ means that the developed node was colder or drier than the project sensor.}
+where $\bar{x}$ and $\bar{y}$ are the means over the $N$ common days. A value of $r$ close to 1 means that the two sensors rise and fall together, and a negative $\Delta$ means that the developed node was colder or drier than the project sensor.
 
 \subparagraph{Soil temperature}
 
-\draftchange{Figure~\ref{fig:cmp-soil-daily} shows the daily mean soil temperature of both sensor sets. They follow the same sequence of events: cooling after burial, warm periods in the first half of November, a stable low-temperature plateau from mid-November to mid-December (near 0~°C for all sensors except \#96, which stayed at about 2~°C), a warm event at the end of December, and cooling in January. The developed nodes were beneath four separate roofs, yet their daily means follow this sequence together.}
+Figure~\ref{fig:cmp-soil-daily} shows the daily mean soil temperature of both sensor sets. They follow the same sequence of events: cooling after burial, warm periods in the first half of November, a stable low-temperature plateau from mid-November to mid-December (near 0~°C for all sensors except \#96, which stayed at about 2~°C), a warm event at the end of December, and cooling in January. The developed nodes were beneath four separate roofs, yet their daily means follow this sequence together.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{figs/keldur-compare-soil_temp_daily.png}
-\caption{\draftchange{Daily mean soil temperature measured by (a) the four developed nodes and (b) the four project soil sensors.}}
+\caption{Daily mean soil temperature measured by (a) the four developed nodes and (b) the four project soil sensors.}
 \label{fig:cmp-soil-daily}
 \end{figure}
 
-\draftchange{All developed nodes exhibited positive correlations with the project soil-temperature measurements, with Pearson correlation coefficients ranging from 0.75 to 0.98 (Figure~\ref{fig:cmp-soil-corr}). Node 3 demonstrated the highest temporal correlation, with coefficients of at least 0.91 across all four project sensors.}
+All developed nodes exhibited positive correlations with the project soil-temperature measurements, with Pearson correlation coefficients ranging from 0.75 to 0.98 (Figure~\ref{fig:cmp-soil-corr}). Node 3 demonstrated the highest temporal correlation, with coefficients of at least 0.91 across all four project sensors.
 
-\draftchange{Despite the observed correlations, the developed nodes generally recorded lower daily mean temperatures than the project sensors, with mean differences ranging from approximately 0.16 °C to 3.33 °C. The smallest differences were observed for Node 3 when compared with the near-surface sensors \#93 and \#95, at approximately 0.16 °C and 0.56 °C, respectively.}
+Despite the observed correlations, the developed nodes generally recorded lower daily mean temperatures than the project sensors, with mean differences ranging from approximately 0.16 °C to 3.33 °C. The smallest differences were observed for Node 3 when compared with the near-surface sensors \#93 and \#95, at approximately 0.16 °C and 0.56 °C, respectively.
 
-\draftchange{For context, the mean soil temperatures of the four project sensors ranged from approximately 1.1 °C to 3.1 °C, giving a spread of about 2.0 °C between the lowest and highest sensor means. This indicates that spatial temperature variation was present even within the monitored roof. Differences in installation depth and local roof conditions may therefore contribute to the offsets observed between the developed nodes and the project sensors. Consequently, the correlation results demonstrate similar temporal temperature behaviour rather than equivalence in absolute temperature measurements.}
+For context, the mean soil temperatures of the four project sensors ranged from approximately 1.1 °C to 3.1 °C, giving a spread of about 2.0 °C between the lowest and highest sensor means. This indicates that spatial temperature variation was present even within the monitored roof. Differences in installation depth and local roof conditions may therefore contribute to the offsets observed between the developed nodes and the project sensors. Consequently, the correlation results demonstrate similar temporal temperature behaviour rather than equivalence in absolute temperature measurements.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.75\textwidth,keepaspectratio]{figs/keldur-compare-soil_temp_corr.png}
-\caption{\draftchange{Correlation coefficient $r$ between the daily mean soil temperature of each developed node and each project soil sensor. The number of days compared is 64 (Node 1), 95 (Node 3), 70 (Node 5), and 50 (Node 7).}}
+\caption{Correlation coefficient $r$ between the daily mean soil temperature of each developed node and each project soil sensor. The number of days compared is 64 (Node 1), 95 (Node 3), 70 (Node 5), and 50 (Node 7).}
 \label{fig:cmp-soil-corr}
 \end{figure}
 
 \subparagraph{Air temperature and relative humidity}
 
-\draftchange{Figure~\ref{fig:cmp-air-rh} compares the project outside air sensor, the closest counterpart to an ambient air measurement, with all four nodes. Nodes 5 and 7 had exposed atmospheric sensors (solid lines), whereas Nodes 1 and 3 had them inside the enclosure (dashed lines) and were not expected to represent ambient conditions.}
+Figure~\ref{fig:cmp-air-rh} compares the project outside air sensor, the closest counterpart to an ambient air measurement, with all four nodes. Nodes 5 and 7 had exposed atmospheric sensors (solid lines), whereas Nodes 1 and 3 had them inside the enclosure (dashed lines) and were not expected to represent ambient conditions.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth,height=0.55\textheight,keepaspectratio]{figs/keldur-compare-air_rh_simple.png}
-\caption{\draftchange{Daily mean (a) air temperature and (b) relative humidity of the four developed nodes and of the project outside sensor. Dashed lines are the nodes with enclosed atmospheric sensors (Nodes 1 and 3) and solid lines are the nodes with exposed sensors (Nodes 5 and 7).}}
+\caption{Daily mean (a) air temperature and (b) relative humidity of the four developed nodes and of the project outside sensor. Dashed lines are the nodes with enclosed atmospheric sensors (Nodes 1 and 3) and solid lines are the nodes with exposed sensors (Nodes 5 and 7).}
 \label{fig:cmp-air-rh}
 \end{figure}
 
-\draftchange{All four developed nodes exhibited temporal variations corresponding to those recorded by the project outside air sensor, with correlation coefficients ranging from 0.64 to 0.81. However, the developed nodes recorded mean temperatures approximately 2.2 °C to 3.5 °C lower than the project sensor.}
+All four developed nodes exhibited temporal variations corresponding to those recorded by the project outside air sensor, with correlation coefficients ranging from 0.64 to 0.81. However, the developed nodes recorded mean temperatures approximately 2.2 °C to 3.5 °C lower than the project sensor.
 
-\draftchange{Differences were also observed in the daily temperature variations. Nodes 5 and 7, which had externally exposed atmospheric sensors, exhibited median daily temperature ranges of 6.65 °C and 7.86 °C, respectively. These were considerably larger than the 2.14 °C observed from the project outside sensor. In contrast, the atmospheric sensors enclosed within Nodes 1 and 3 exhibited smaller daily ranges of 0.76 °C and 1.15 °C.}
+Differences were also observed in the daily temperature variations. Nodes 5 and 7, which had externally exposed atmospheric sensors, exhibited median daily temperature ranges of 6.65 °C and 7.86 °C, respectively. These were considerably larger than the 2.14 °C observed from the project outside sensor. In contrast, the atmospheric sensors enclosed within Nodes 1 and 3 exhibited smaller daily ranges of 0.76 °C and 1.15 °C.
 
-\draftchange{These observations demonstrate that the physical placement and exposure of the atmospheric sensors influenced their recorded temperature profiles. However, because the sensors were installed at different locations and were not co-located, the individual contributions of sensor exposure, radiation, airflow, and local environmental conditions cannot be determined from the available measurements.}
+These observations demonstrate that the physical placement and exposure of the atmospheric sensors influenced their recorded temperature profiles. However, because the sensors were installed at different locations and were not co-located, the individual contributions of sensor exposure, radiation, airflow, and local environmental conditions cannot be determined from the available measurements.
 
-\draftchange{The exposed atmospheric sensors of Nodes 5 and 7 exhibited relatively small mean differences compared with the project outside sensor, measuring $+1.1$ and $-1.8$ percentage points, respectively. Their corresponding correlation coefficients were 0.62 and 0.60, indicating moderate temporal correspondence. Both developed nodes and the project outside sensor recorded high relative humidity during much of the deployment. Readings at or above 95\% occurred during 89\% and 71\% of the valid hours for Nodes 5 and 7, respectively, compared with 76\% for the project outside sensor.}
+The exposed atmospheric sensors of Nodes 5 and 7 exhibited relatively small mean differences compared with the project outside sensor, measuring $+1.1$ and $-1.8$ percentage points, respectively. Their corresponding correlation coefficients were 0.62 and 0.60, indicating moderate temporal correspondence. Both developed nodes and the project outside sensor recorded high relative humidity during much of the deployment. Readings at or above 95\% occurred during 89\% and 71\% of the valid hours for Nodes 5 and 7, respectively, compared with 76\% for the project outside sensor.
 
-\draftchange{The frequent occurrence of high relative humidity in the project dataset indicates that near-saturated atmospheric conditions were frequently recorded at the site. However, these observations alone do not establish the absolute accuracy of the developed humidity sensors.}
+The frequent occurrence of high relative humidity in the project dataset indicates that near-saturated atmospheric conditions were frequently recorded at the site. However, these observations alone do not establish the absolute accuracy of the developed humidity sensors.
 
-\draftchange{The enclosed atmospheric sensors of Nodes 1 and 3 started near 40\% relative humidity and gradually increased towards the levels recorded by the project sensors. Their measurements therefore did not represent ambient humidity during much of the deployment. These results further highlight the importance of atmospheric sensor placement when designing monitoring systems intended to measure surrounding environmental conditions.}
+The enclosed atmospheric sensors of Nodes 1 and 3 started near 40\% relative humidity and gradually increased towards the levels recorded by the project sensors. Their measurements therefore did not represent ambient humidity during much of the deployment. These results further highlight the importance of atmospheric sensor placement when designing monitoring systems intended to measure surrounding environmental conditions.
 
-\draftchange{The project outside sensor also recorded relative humidity of 99\% or above during 32\% of the hours in January (up to 27 January). The readings of Node 3, which remained near saturation for a prolonged period, should still be treated with the caution stated in Section~\ref{sec:keldur-humidity} and are not presented as reliable evidence of actual ambient humidity.}
+The project outside sensor also recorded relative humidity of 99\% or above during 32\% of the hours in January (up to 27 January). The readings of Node 3, which remained near saturation for a prolonged period, should still be treated with the caution stated in Section~\ref{sec:keldur-humidity} and are not presented as reliable evidence of actual ambient humidity.
 
 \subparagraph{Soil moisture}
 
-\draftchange{The soil-moisture comparison used the project soil measurements as an external dataset for examining the response of the developed capacitive sensors under field conditions. The laboratory calibration described in Section~\ref{sec:soil-calibration} provided the basis for relating the ADC readings of the developed nodes to the corresponding dielectric-permittivity estimates. These laboratory permittivity values are the estimates derived with the Topp relationship from the HOBO reference measurements (Table~\ref{tab:hobo-dielectric-reference}), whereas the project-reported permittivity values were used as reported.}
+The soil-moisture comparison used the project soil measurements as an external dataset for examining the response of the developed capacitive sensors under field conditions. The laboratory calibration described in Section~\ref{sec:soil-calibration} provided the basis for relating the ADC readings of the developed nodes to the corresponding dielectric-permittivity estimates. These laboratory permittivity values are the estimates derived with the Topp relationship from the HOBO reference measurements (Table~\ref{tab:hobo-dielectric-reference}), whereas the project-reported permittivity values were used as reported.
 
-\draftchange{The field ADC readings of Nodes 1, 3, and 7 were generally higher than the range used for the laboratory calibration. Their daily median values were approximately 530 to 580, compared with the laboratory calibration range of approximately 197 to 485. This indicates that directly applying the laboratory relationship to many of the field readings would require extrapolation beyond the range used to develop the calibration model.}
+The field ADC readings of Nodes 1, 3, and 7 were generally higher than the range used for the laboratory calibration. Their daily median values were approximately 530 to 580, compared with the laboratory calibration range of approximately 197 to 485. This indicates that the field readings are offset from the laboratory range and that the offset differs between nodes, so each node should be characterised individually to provide accurate absolute soil-moisture results.
 
-\draftchange{The laboratory points show a decrease of about 0.068 permittivity units per ADC count. In the field, a linear regression of the daily project-reported permittivity values on the daily node ADC gave decreases of between 0.054 and 0.107 units per count, which is of a similar magnitude to the laboratory sensitivity.}
+The laboratory points show a decrease of about 0.068 permittivity units per ADC count. In the field, a linear regression of the daily project-reported permittivity values on the daily node ADC gave decreases of between 0.054 and 0.107 units per count, which is of a similar magnitude to the laboratory sensitivity.
 
-\draftchange{For an exploratory comparison of temporal behaviour, a constant node-specific ADC offset was applied to Nodes 1, 3, and 7. The offsets were estimated using the first half of the available daily observations and evaluated using the second half. The resulting adjusted ADC values were then converted using the laboratory-derived relationship. This procedure was intended to examine whether the developed sensors followed changes observed in the project dataset, rather than establish a new calibration for absolute soil-moisture measurements.}
+For an exploratory comparison of temporal behaviour, a constant node-specific ADC offset was applied to Nodes 1, 3, and 7. The offsets were estimated using the first half of the available daily observations and evaluated using the second half. The resulting adjusted ADC values were then converted using the laboratory-derived relationship. This procedure was intended to examine whether the developed sensors followed changes observed in the project dataset, rather than establish a new calibration for absolute soil-moisture measurements.
 
-\draftchange{Node 5 was excluded from this comparison because its ADC reading was constant at 768 during approximately 47.5\% of the hours between its first and last valid record (873 of 1836 hours). The available data do not establish the cause of this behaviour.}
+Node 5 was excluded from this comparison because its ADC reading was constant at 768 during approximately 47.5\% of the hours between its first and last valid record (873 of 1836 hours). The available data do not establish the cause of this behaviour.
 
-\draftchange{Table~\ref{tab:cmp-moisture} presents the resulting offsets and comparison statistics. The proportion of test days on which the adjusted node-derived permittivity fell within the range spanned by the project-reported permittivity values of the four soil sensors was 53\% for Node 1, 75\% for Node 3, and 88\% for Node 7. The corresponding correlation coefficients were 0.86, 0.76, and 0.55, respectively. The correlation coefficients are Pearson correlation coefficients $r$ (Equation~\ref{eq:cmp-agreement}), calculated between the daily node-derived permittivity and the daily mean of the project-reported permittivity values of the four soil sensors over the test days. The temporal evolution of the adjusted estimates and their relationship to the range of the project-reported permittivity values are shown in Figure~\ref{fig:cmp-moisture}.}
+Table~\ref{tab:cmp-moisture} presents the resulting offsets and comparison statistics. The proportion of test days on which the adjusted node-derived permittivity fell within the range spanned by the project-reported permittivity values of the four soil sensors was 53\% for Node 1, 75\% for Node 3, and 88\% for Node 7. The corresponding correlation coefficients were 0.86, 0.76, and 0.55, respectively. The correlation coefficients are Pearson correlation coefficients $r$ (Equation~\ref{eq:cmp-agreement}), calculated between the daily node-derived permittivity and the daily mean of the project-reported permittivity values of the four soil sensors over the test days. The temporal evolution of the adjusted estimates and their relationship to the range of the project-reported permittivity values are shown in Figure~\ref{fig:cmp-moisture}.
 
 \begin{table}[htbp]
 \centering
-\caption{\draftchange{Results of the exploratory node-specific ADC offset adjustment and comparison with the project soil measurements. The within-range percentage indicates the proportion of test days on which the adjusted node-derived permittivity fell within the range spanned by the project-reported permittivity values of the four soil sensors. The Pearson correlation coefficient $r$ describes the temporal relationship with the mean of the project-reported permittivity values.}}
+\caption{Results of the exploratory node-specific ADC offset adjustment and comparison with the project soil measurements. The within-range percentage indicates the proportion of test days on which the adjusted node-derived permittivity fell within the range spanned by the project-reported permittivity values of the four soil sensors. The Pearson correlation coefficient $r$ describes the temporal relationship with the mean of the project-reported permittivity values.}
 \label{tab:cmp-moisture}
 \small
 \setlength{\tabcolsep}{6pt}
@@ -894,28 +894,28 @@ Node & Offset (counts) & Within range (\%) & $r$ \\
 \end{tabular}
 \end{table}
 
-\draftchange{These two statistics describe different aspects of the comparison. The within-range percentage indicates how frequently an adjusted node estimate fell within the range of the project measurements, whereas the correlation coefficient describes the temporal relationship between the daily measurements. Neither statistic represents an absolute sensor-accuracy percentage.}
+These two statistics describe different aspects of the comparison. The within-range percentage indicates how frequently an adjusted node estimate fell within the range of the project measurements, whereas the correlation coefficient describes the temporal relationship between the daily measurements. Neither statistic represents an absolute sensor-accuracy percentage.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth,height=0.7\textheight,keepaspectratio]{figs/keldur-compare-moisture_offset.png}
-\caption{\draftchange{Apparent dielectric permittivity estimated from the ADC readings of Nodes 1, 3, and 7 after applying node-specific ADC offsets, compared with the range and mean of the project-reported permittivity values of the four soil sensors. The offsets were estimated using the initial fitting period and evaluated during the subsequent temporal hold-out period. Gaps indicate days on which the adjusted ADC readings fell outside the laboratory calibration range.}}
+\caption{Apparent dielectric permittivity estimated from the ADC readings of Nodes 1, 3, and 7 after applying node-specific ADC offsets, compared with the range and mean of the project-reported permittivity values of the four soil sensors. The offsets were estimated using the initial fitting period and evaluated during the subsequent temporal hold-out period. Gaps indicate days on which the adjusted ADC readings fell outside the laboratory calibration range.}
 \label{fig:cmp-moisture}
 \end{figure}
 
-\draftchange{Because the ADC offsets were estimated using the project measurements, the adjusted results should be interpreted as an exploratory baseline-alignment exercise. Although the second half of the observations provides a temporal hold-out period, it does not constitute independent sensor validation because the same project sensor dataset was used to establish the offsets. Absolute soil-moisture accuracy under Keldur conditions therefore remains unverified.}
+Because the ADC offsets were estimated using the project measurements, the adjusted results should be interpreted as an exploratory baseline-alignment exercise. Although the second half of the observations provides a temporal hold-out period, it does not constitute independent sensor validation because the same project sensor dataset was used to establish the offsets. Absolute soil-moisture accuracy under Keldur conditions therefore remains unverified.
 
-\draftchange{For future deployments, each sensor node should be characterised before installation, preferably using soil collected from the intended monitoring location. Care should also be taken to ensure good contact between the capacitive sensor and the surrounding soil. These measures would help establish appropriate node-specific calibration relationships and reduce uncertainty in the interpretation of absolute soil-moisture values.}
+For future deployments, each sensor node should be characterised before installation, preferably using soil collected from the intended monitoring location. Care should also be taken to ensure good contact between the capacitive sensor and the surrounding soil. These measures would help establish appropriate node-specific calibration relationships and reduce uncertainty in the interpretation of absolute soil-moisture values.
 
 \subparagraph{Summary of the comparison}
 
-\draftchange{The comparison with the Turf-House Monitoring Project dataset provided an additional assessment of the environmental measurements collected by the developed sensor nodes under field conditions.}
+The comparison with the Turf-House Monitoring Project dataset provided an additional assessment of the environmental measurements collected by the developed sensor nodes under field conditions.
 
-\draftchange{The soil-temperature measurements exhibited similar temporal behaviour, with daily mean Pearson correlation coefficients ranging from 0.75 to 0.98. However, differences in installation depth and roof location prevented direct assessment of absolute measurement accuracy. The atmospheric measurements also followed several of the trends observed by the project sensors. In particular, the exposed atmospheric sensors of Nodes 5 and 7 recorded relative humidity values with relatively small mean differences compared with the project outside sensor, although their temporal correlations were moderate.}
+The soil-temperature measurements exhibited similar temporal behaviour, with daily mean Pearson correlation coefficients ranging from 0.75 to 0.98. However, differences in installation depth and roof location prevented direct assessment of absolute measurement accuracy. The atmospheric measurements also followed several of the trends observed by the project sensors. In particular, the exposed atmospheric sensors of Nodes 5 and 7 recorded relative humidity values with relatively small mean differences compared with the project outside sensor, although their temporal correlations were moderate.
 
-\draftchange{The soil-moisture comparison was more limited. The developed nodes recorded ADC values outside the range used for the laboratory calibration, while Node 5 exhibited prolonged constant readings. Although an exploratory baseline adjustment allowed the temporal behaviour of Nodes 1, 3, and 7 to be compared with the project measurements, the resulting agreement does not establish absolute soil-moisture accuracy.}
+The soil-moisture comparison was more limited. The developed nodes recorded ADC values outside the range used for the laboratory calibration, while Node 5 exhibited prolonged constant readings. Although an exploratory baseline adjustment allowed the temporal behaviour of Nodes 1, 3, and 7 to be compared with the project measurements, the resulting agreement does not establish absolute soil-moisture accuracy.
 
-\draftchange{Overall, the comparison demonstrates that the developed monitoring system captured environmental variations that were broadly consistent with those observed by a separate monitoring project at Keldur. Nevertheless, differences in sensor placement, measurement conditions, timestamp alignment, and calibration characteristics limit the conclusions that can be drawn. The results therefore provide evidence of field monitoring capability and temporal consistency rather than independent validation of absolute sensor accuracy.}
+Overall, the comparison demonstrates that the developed monitoring system captured environmental variations that were broadly consistent with those observed by a separate monitoring project at Keldur. Nevertheless, differences in sensor placement, measurement conditions, timestamp alignment, and calibration characteristics limit the conclusions that can be drawn. The results therefore provide evidence of field monitoring capability and temporal consistency rather than independent validation of absolute sensor accuracy.
 
 \subsection{Overall System
 Performance}\label{sec:keldur-overall}
