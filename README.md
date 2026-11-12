@@ -32,32 +32,43 @@ This thesis presents the design, implementation, and evaluation of a low-cost, l
 | LoRa range (Vellir, Hafnarfjörður) | Successful single-hop communication at several locations within approximately 3 km; RSSI from −103 dBm to −113 dBm; occasional packet loss in obstructed areas |
 | Soil moisture calibration | Second-order polynomial over the 0–40 % gravimetric range; in-sample RMSE of approximately 3.01 percentage points |
 | Cloud upload | HTTP 200 OK responses; average upload time of approximately 1–2 seconds |
-| Keldur deployment | Four nodes beneath four turf roofs; first-to-last valid record spans of approximately 51 to 130 days |
+| Preliminary single-cell tests | SD-card logs show logged operating periods of approximately 11–27 days per node (longest approximately 26.8 days); these are observed durations, not measured full battery lifetimes |
+| Keldur deployment | Four nodes beneath four turf roofs; first-to-last valid record spans of approximately 51 to 130 days (not uninterrupted operation or confirmed battery life) |
+| Keldur comparison | Comparison with a separate in-situ dataset from the Turf-House Monitoring Project (18 October 2025 – 27 January 2026): daily-mean soil-temperature Pearson correlations of 0.75–0.98; soil-moisture agreement is exploratory and does not establish absolute accuracy |
 
-Mesh relay behavior was observed qualitatively on the bench; no multi-hop range is reported.
+Mesh relay behavior was observed qualitatively on the bench; no multi-hop range is reported, and the mesh routes used during the Keldur deployment were not quantified because no base-station packet logs were retained.
 
 ## Research Objectives
 
 1. Implement distributed sensor nodes for soil moisture, soil temperature, air temperature, relative humidity, and battery voltage.
 2. Implement LoRa communication and evaluate range and field operation.
 3. Measure node current consumption and estimate battery life.
-4. Implement and evaluate local data storage.
-5. Develop and evaluate a calibration model for the capacitive soil moisture sensor.
+4. Implement local data storage and evaluate its ability to retain measurements when wireless transmissions are missed.
+5. Develop a calibration model for the capacitive soil moisture sensor and evaluate its fit over the tested 0–40 % range.
 6. Integrate the network with a cloud platform and evaluate upload behavior.
 
 ## Repository Structure
 
 ```text
 .
-├── main.tex            Main document: metadata, front matter, chapter inclusion, conclusion
+├── main.tex            Main document: document class and chapter/front matter inclusion
+├── preamble.tex        Packages, thesis metadata, and formatting
 ├── references.bib      Bibliography (BibLaTeX/Biber)
+├── frontmatter/        Title page, abstract, Útdráttur, acknowledgements, abbreviations
 ├── chapters/
 │   ├── 01_introduction.tex
 │   ├── 02_rrl.tex      Review of related literature
 │   ├── 03_methodology.tex
-│   └── 04_results.tex
-├── appendix/           Bill of Materials
-└── figs/               Figures, photographs, and the University of Iceland banner
+│   ├── 04_results.tex  Results and discussion, including the Keldur comparison
+│   ├── 05_conclusion.tex  Conclusion and recommendations
+│   └── A_appendix.tex  Bill of materials and public ThingSpeak channels
+├── appendix/           Bill of Materials spreadsheet
+├── figs/               Figures, photographs, and the University of Iceland banner
+└── testing data/       Raw data exports, logs, and analysis scripts/outputs
+    ├── Benchtop Testing (1st Week June)/
+    ├── June Testing/
+    ├── October Testing/
+    └── Keldur Data/    Keldur feeds, reference-station and project data, comparison scripts and plots
 ```
 
 ## Firmware
@@ -74,6 +85,8 @@ Measurements from the Keldur deployment are published on ThingSpeak (channel aut
 | HW_3 | [2974954](https://thingspeak.mathworks.com/channels/2974954) |
 | HW_5 | [2974955](https://thingspeak.mathworks.com/channels/2974955) |
 | HW_7 | [2974956](https://thingspeak.mathworks.com/channels/2974956) |
+
+The public channels are supplementary; the archived data exports in `testing data/` are the basis of the results reported in the thesis.
 
 ## Copyright
 
