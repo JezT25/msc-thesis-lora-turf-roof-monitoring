@@ -345,8 +345,8 @@ preliminary deployment.
 \label{fig:results-4}
 \end{figure}
 
-The prototype sensor nodes successfully measured subsurface temperature
-and soil moisture while installed beneath the turf roofs. Similar to the
+The prototype sensor nodes successfully measured soil temperature
+and soil moisture while installed within the turf roofs. Similar to the
 later deployments, soil temperature exhibited considerably smaller
 fluctuations than ambient air temperature due to the thermal buffering
 properties of the surrounding soil.
@@ -465,7 +465,7 @@ Netto & -112 dBm \\
 
 Successful single-hop communication was observed at several test locations within an approximate distance of 3 km. The recorded RSSI values ranged from -103 dBm to -113 dBm, while occasional packet loss was observed in areas with greater environmental obstruction. Complete packet-delivery percentages and per-location packet counts were not recorded, so the results do not show that the entire 3 km area was uniformly or continuously reliable. The RSSI values provide an indication of the communication performance achieved with the selected radio configuration and antennas.
 
-The Vellir range test evaluated direct, single-hop communication only; it did not evaluate the mesh relay process. The mesh relay functionality was observed qualitatively during the early benchtop test (Section~\ref{sec:benchtop-testing}), where the researcher saw debug output showing ledger data being forwarded between nodes until it reached the base station. Because the debug logs and screenshots of that observation were not retained, and the topology, node spacing, and firmware revision were not recorded, it provides qualitative evidence that the relay mechanism operated but does not provide measured multi-hop range, packet-delivery ratio, hop count, or latency. No measured multi-hop range is claimed. A controlled, logged multi-hop test is still needed to quantify those performance measures. Actual performance in turf-roof installations will also depend on antenna placement, burial depth, terrain, and surrounding structures.
+The Vellir range test evaluated direct, single-hop communication only; it did not evaluate the mesh relay process. The mesh relay functionality was observed qualitatively during the early benchtop test (Section~\ref{sec:benchtop-testing}), where the researcher saw debug output showing ledger data being forwarded between nodes until it reached the base station. Because the debug logs and screenshots of that observation were not retained, and the topology, node spacing, and firmware revision were not recorded, it provides qualitative evidence that the relay mechanism operated but does not provide measured multi-hop range, packet-delivery ratio, hop count, or latency. No measured multi-hop range is claimed. A controlled, logged multi-hop test is still needed to quantify those performance measures. Actual performance in turf-roof installations will also depend on antenna placement, installation depth, terrain, and surrounding structures.
 
 \section{Intermediate Field
 Deployment}
@@ -584,7 +584,7 @@ To evaluate the performance of the proposed LoRa mesh wireless sensor
 network under actual operating conditions, a field deployment was
 conducted at the Keldur turf site beginning on \textbf{17 October
 2025}. Four sensor nodes (IDs 1, 3, 5, and 7) were installed at
-different locations and depths beneath the turf roof. The installation
+different locations and depths within the four turf roofs. The installation
 locations and sensor depths are shown in Figure~\ref{fig:results-deployment-map}. Sensor Nodes
 1 and 3 were designed with the air temperature and humidity sensors
 enclosed inside the waterproof housing, while Sensor Nodes 5 and 7 had
@@ -651,7 +651,7 @@ Although the externally mounted sensors generally showed a more responsive patte
 \subsection{Soil Temperature
 Performance}
 
-Figure~\ref{fig:results-14} illustrates the soil temperature measurements collected by the four buried sensor nodes together with ground-level temperature data from the Sámsstaðir station (samst, 6222).
+Figure~\ref{fig:results-14} illustrates the soil temperature measurements collected by the four sensor nodes installed within the turf roofs together with ground-level temperature data from the Sámsstaðir station (samst, 6222).
 
 \begin{figure}[htbp]
 \centering
@@ -667,9 +667,9 @@ changes. Even when air temperatures varied between approximately
 \textbf{−8 °C and +10 °C}, soil temperatures remained close to \textbf{0
 °C} with only gradual seasonal variation.
 
-Station 6222 does \textbf{not} provide underground soil temperature measurements at the same depth as the deployed sensors. The comparison therefore used the station's \textbf{ground-level (surface) temperature} data as the closest available reference. Since the developed sensor nodes measured soil temperature at depths ranging from approximately \textbf{60 mm to 85 mm} below the turf surface (Figure~\ref{fig:results-deployment-map}), some difference between the two datasets was expected. Soil temperatures below the surface are naturally more thermally stable and less affected by rapid atmospheric temperature changes than temperatures measured at or near the ground surface.
+Station 6222 does \textbf{not} provide soil temperature measurements at the same depth as the sensors deployed within the turf roofs. The comparison therefore used the station's \textbf{ground-level (surface) temperature} data as the closest available reference. Since the developed sensor nodes measured soil temperature within the turf at depths ranging from approximately \textbf{60 mm to 85 mm} measured from the turf surface (Figure~\ref{fig:results-deployment-map}), some difference between the two datasets was expected. Temperatures within the soil are naturally more thermally stable and less affected by rapid atmospheric temperature changes than temperatures measured at or near the ground surface.
 
-Consequently, the average absolute difference between the deployed sensor measurements and station 6222 data ranged from approximately \textbf{2.77 °C to 3.11 °C}. This is not a direct accuracy measurement, because the temperatures were measured at different locations and depths and under different environmental conditions. The Sámsstaðir comparison therefore does not independently validate the accuracy of the buried sensors.
+Consequently, the average absolute difference between the deployed sensor measurements and station 6222 data ranged from approximately \textbf{2.77 °C to 3.11 °C}. This is not a direct accuracy measurement, because the temperatures were measured at different locations and depths and under different environmental conditions. The Sámsstaðir comparison therefore does not independently validate the accuracy of the sensors installed within the turf roofs.
 
 Overall, the measurements demonstrated stable soil-temperature trends during the deployment, consistent with the thermal buffering effect of the soil and turf. A reference sensor installed at the same location and depth as the deployed sensors would be required for a more direct comparison.
 
@@ -759,11 +759,11 @@ The all-zero entries after the last valid record of Sensor Nodes 1, 5, and 7 are
 
 \subsection{Comparison with a Separate In-Situ Dataset from the Turf-House Monitoring Project}\label{sec:keldur-comparison}
 
-The preceding subsections compared the Keldur measurements with data from a distant weather station, which does not directly represent the conditions beneath the monitored turf roofs. This subsection provides an additional comparison using in-situ measurements collected independently at Keldur through the Turf-House Monitoring Project.\footnote{These data were provided by the Department of Civil and Environmental Engineering through the project \textit{Monitoring and Simulation of Hygrothermal and Structural Behaviour of Turf Houses: Towards Preservation and Performance Optimization}.} The purpose is to examine whether the developed sensor nodes recorded environmental variations that were broadly consistent with those observed by the separate monitoring system. Since the two sensor systems were installed at different locations and were not co-located, this comparison is not intended to establish the absolute accuracy of the developed sensors or provide an independent calibration.
+The preceding subsections compared the Keldur measurements with data from a distant weather station, which does not directly represent the conditions within the monitored turf roofs. This subsection provides an additional comparison using in-situ measurements collected independently at Keldur through the Turf-House Monitoring Project.\footnote{These data were provided by the Department of Civil and Environmental Engineering through the project \textit{Monitoring and Simulation of Hygrothermal and Structural Behaviour of Turf Houses: Towards Preservation and Performance Optimization}.} The purpose is to examine whether the developed sensor nodes recorded environmental variations that were broadly consistent with those observed by the separate monitoring system. Since the two sensor systems were installed at different locations and were not co-located, this comparison is not intended to establish the absolute accuracy of the developed sensors or provide an independent calibration.
 
 \subparagraph{The two sensor sets}
 
-The comparison dataset consists of measurements from four buried soil sensors and two atmospheric sensors. The soil sensors provide soil-temperature and soil-moisture-related measurements, while the atmospheric sensors record air temperature and relative humidity. The soil sensors were identified as the same type as the HOBO MX2307 reference instrument used in the laboratory calibration described in Section~\ref{sec:hobo-reference}~\cite{onset_mx2307}. In the supplied file, the soil-moisture-related variable is labelled \textit{DE Perm, Ea} (dielectric permittivity). It was used as supplied: no volumetric water content was provided, and the Topp relationship of Section~\ref{sec:hobo-reference} was not applied to the project data. This variable is referred to below as the project-reported permittivity values.
+The comparison dataset consists of measurements from four soil sensors installed within a turf roof and two atmospheric sensors. The soil sensors provide soil-temperature and soil-moisture-related measurements, while the atmospheric sensors record air temperature and relative humidity. The soil sensors were identified as the same type as the HOBO MX2307 reference instrument used in the laboratory calibration described in Section~\ref{sec:hobo-reference}~\cite{onset_mx2307}. In the supplied file, the soil-moisture-related variable is labelled \textit{DE Perm, Ea} (dielectric permittivity). It was used as supplied: no volumetric water content was provided, and the Topp relationship of Section~\ref{sec:hobo-reference} was not applied to the project data. This variable is referred to below as the project-reported permittivity values.
 
 Table~\ref{tab:cmp-layout} lists the positions, taken from the sensor-placement diagram supplied with the data (depths converted from centimetres to millimetres).
 
@@ -790,9 +790,9 @@ Comparison project & Outside air sensor & -- & Outside, at the gable window \\
 \end{tabularx}
 \end{table}
 
-All four project soil sensors were installed on one side of a single roof, whereas the developed nodes were distributed beneath four separate roofs (Figure~\ref{fig:results-deployment-map}). The available placement information does not identify the exact relative roof position of the project sensors in relation to the developed nodes. Consequently, the measurements were collected at different locations and depths, introducing spatial variability into the comparison. Differences between the datasets may therefore reflect local variations in turf composition, moisture distribution, burial depth, and thermal conditions, in addition to differences between the sensor systems themselves. The available measurements do not allow these individual effects to be separated.
+All four project soil sensors were installed on one side of a single roof, whereas the developed nodes were distributed within four separate roofs (Figure~\ref{fig:results-deployment-map}). The available placement information does not identify the exact relative roof position of the project sensors in relation to the developed nodes. Consequently, the measurements were collected at different locations and depths, introducing spatial variability into the comparison. Differences between the datasets may therefore reflect local variations in turf composition, moisture distribution, installation depth, and thermal conditions, in addition to differences between the sensor systems themselves. The available measurements do not allow these individual effects to be separated.
 
-The comparison covers 18 October 2025 to 27 January 2026. It starts on the day after the nodes were buried, since the node ADC readings changed from air-like to buried values on 17 October, and it ends with the last record of the project data. Both datasets are in UTC.
+The comparison covers 18 October 2025 to 27 January 2026. It starts on the day after the nodes were installed within the turf, since the node ADC readings changed from air-like values to values consistent with placement within the soil on 17 October, and it ends with the last record of the project data. Both datasets are in UTC.
 
 For the developed sensor nodes, the available timestamps correspond to the ThingSpeak upload times rather than necessarily representing the exact time at which each measurement was acquired by the node. Transmission and data-forwarding delays may therefore introduce some uncertainty into the temporal alignment between the two datasets. Daily aggregation reduces sensitivity to short-term timing differences; however, this limitation should be considered when interpreting the temporal comparisons.
 
@@ -816,7 +816,7 @@ where $\bar{x}$ and $\bar{y}$ are the means over the $N$ common days. A value of
 
 \subparagraph{Soil temperature}
 
-Figure~\ref{fig:cmp-soil-daily} shows the daily mean soil temperature of both sensor sets. They follow the same sequence of events: cooling after burial, warm periods in the first half of November, a stable low-temperature plateau from mid-November to mid-December (near 0~°C for all sensors except \#96, which stayed at about 2~°C), a warm event at the end of December, and cooling in January. The developed nodes were beneath four separate roofs, yet their daily means follow this sequence together.
+Figure~\ref{fig:cmp-soil-daily} shows the daily mean soil temperature of both sensor sets. They follow the same sequence of events: cooling after installation within the turf, warm periods in the first half of November, a stable low-temperature plateau from mid-November to mid-December (near 0~°C for all sensors except \#96, which stayed at about 2~°C), a warm event at the end of December, and cooling in January. The developed nodes were within four separate roofs, yet their daily means follow this sequence together.
 
 \begin{figure}[htbp]
 \centering
@@ -920,7 +920,7 @@ Overall, the comparison demonstrates that the developed monitoring system captur
 \subsection{Overall System
 Performance}\label{sec:keldur-overall}
 
-The Keldur deployment demonstrated that the developed sensor nodes and base station could be installed beneath four separate turf roofs and used to collect environmental measurements under real outdoor conditions. The system recorded soil moisture, soil temperature, air temperature, relative humidity, and battery voltage, with measurements from the deployed nodes being delivered to ThingSpeak over different reporting periods. The system recorded and presented converted soil-moisture estimates, while their absolute accuracy under Keldur soil conditions was not independently established (see Section~\ref{sec:soil-calibration}).
+The Keldur deployment demonstrated that the developed sensor nodes could be installed within four separate turf roofs and used with a base station to collect environmental measurements under real outdoor conditions. The system recorded soil moisture, soil temperature, air temperature, relative humidity, and battery voltage, with measurements from the deployed nodes being delivered to ThingSpeak over different reporting periods. The system recorded and presented converted soil-moisture estimates, while their absolute accuracy under Keldur soil conditions was not independently established (see Section~\ref{sec:soil-calibration}).
 
 The reporting periods varied between nodes. Based on the first and last valid ThingSpeak records (Table~\ref{tab:keldur-record-span}), the elapsed spans ranged from approximately 50.9 days for Sensor Node 7 to 129.5 days for Sensor Node 3. These periods included missing records and should not be interpreted as uninterrupted operation or confirmed battery life. The last valid battery voltages were between 3.49 V and 3.93 V, all above the configured 3.25 V cutoff. Since the nodes were not retrieved, the reasons for the individual reporting endpoints remain unknown.
 

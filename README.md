@@ -3,13 +3,13 @@
 M.Sc. thesis in Electrical and Computer Engineering, University of Iceland (60 ECTS)
 
 **Author:** Jezreel V. Tan
-**Supervisors:** Helgi Þorbergsson, Ph.D.; Dórótea Höeg Sigurðardóttir
+**Supervisors:** Helgi Þorbergsson, Ph.D.; Dórótea Höeg Sigurðardóttir, Ph.D.
 **Faculty:** Electrical and Computer Engineering, School of Engineering and Natural Sciences, University of Iceland
 **Expected submission:** February 2027
 
 ## Abstract
 
-This thesis presents the design, implementation, and evaluation of a low-cost, low-power wireless sensor network for monitoring soil and environmental conditions beneath Icelandic turf roofs. Sensor nodes are concealed under the turf, communicate over 433 MHz LoRa, and forward measurements to a base station that uploads them to the ThingSpeak cloud platform for remote access. The system was evaluated through laboratory power measurements, field range tests, sensor calibration, cloud-upload tests, and a long-term deployment at the Keldur turf-house site in cooperation with the National Museum of Iceland.
+This thesis presents the design, implementation, and evaluation of a low-cost, low-power wireless sensor network for monitoring soil and environmental conditions within Icelandic turf roofs. Sensor nodes are concealed within the turf, communicate over 433 MHz LoRa, and forward measurements to a base station that uploads them to the ThingSpeak cloud platform for remote access. The system was evaluated through laboratory power measurements, field range tests, sensor calibration, cloud-upload tests, and a long-term deployment at the Keldur turf-house site in cooperation with the National Museum of Iceland.
 
 ## System Overview
 
@@ -33,7 +33,7 @@ This thesis presents the design, implementation, and evaluation of a low-cost, l
 | Soil moisture calibration | Second-order polynomial over the 0–40 % gravimetric range; in-sample RMSE of approximately 3.01 percentage points |
 | Cloud upload | HTTP 200 OK responses; average upload time of approximately 1–2 seconds |
 | Preliminary single-cell tests | SD-card logs show logged operating periods of approximately 11–27 days per node (longest approximately 26.8 days); these are observed durations, not measured full battery lifetimes |
-| Keldur deployment | Four nodes beneath four turf roofs; first-to-last valid record spans of approximately 51 to 130 days (not uninterrupted operation or confirmed battery life) |
+| Keldur deployment | Four nodes within four turf roofs; first-to-last valid record spans of approximately 51 to 130 days (not uninterrupted operation or confirmed battery life) |
 | Keldur comparison | Comparison with a separate in-situ dataset from the Turf-House Monitoring Project (18 October 2025 – 27 January 2026): daily-mean soil-temperature Pearson correlations of 0.75–0.98; soil-moisture agreement is exploratory and does not establish absolute accuracy |
 
 Mesh relay behavior was observed qualitatively on the bench; no multi-hop range is reported, and the mesh routes used during the Keldur deployment were not quantified because no base-station packet logs were retained.

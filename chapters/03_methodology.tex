@@ -31,7 +31,7 @@ The overall system concept is shown in Figure~\ref{fig:method-image1}.
 
 LoRa was selected for its suitability for low-power wireless communication. Field testing observed successful single-hop communication at several test locations within an approximate distance of 3 km in a semi-urban environment.
 
-LoRa was selected primarily for its low-power operation and reliable wireless communication~\cite{semtech2020sx1276}, rather than maximum transmission distance. Since the sensor nodes are buried beneath turf roofs and may be covered by snow, a robust communication link is important even at relatively short distances. The system's periodic, low-data-rate measurements are well suited to LoRa, while its communication range also provides flexibility for future installations where sensor nodes or base stations may be farther apart. The mesh functionality, implemented through the project's firmware, further allows nodes to forward measurements between one another when direct communication is unavailable.
+LoRa was selected primarily for its low-power operation and reliable wireless communication~\cite{semtech2020sx1276}, rather than maximum transmission distance. Since the sensor nodes are installed within turf roofs and may be covered by snow, a robust communication link is important even at relatively short distances. The system's periodic, low-data-rate measurements are well suited to LoRa, while its communication range also provides flexibility for future installations where sensor nodes or base stations may be farther apart. The mesh functionality, implemented through the project's firmware, further allows nodes to forward measurements between one another when direct communication is unavailable.
 
 \par
 
@@ -39,7 +39,7 @@ LoRa was selected primarily for its low-power operation and reliable wireless co
 Requirements}
 
 
-As turf houses are part of Iceland's cultural heritage and may serve as museums, the monitoring system must be discreet and avoid disrupting the appearance of the site. The sensor nodes must therefore be concealed beneath the turf while remaining capable of reliably collecting soil and environmental measurements. The functional requirements of the system are as follows:
+As turf houses are part of Iceland's cultural heritage and may serve as museums, the monitoring system must be discreet and avoid disrupting the appearance of the site. The sensor nodes must therefore be concealed within the turf while remaining capable of reliably collecting soil and environmental measurements. The functional requirements of the system are as follows:
 
 \begin{itemize}
 \item
@@ -89,7 +89,7 @@ include the following:
 
 \subsection{In Situ Sensor}
 
-The sensor nodes deployed beneath the turf roofs consist of a low-power
+The sensor nodes deployed within the turf roofs consist of a low-power
 microcontroller unit (MCU), lithium-ion batteries, a real-time clock
 (RTC) for synchronizing data collection with the main network, an SD
 card for local data backup in case of missed transmissions, a soil
@@ -166,7 +166,7 @@ for the application. The sensor communicates via the I²C interface and
 is capable of measuring temperatures from −40 °C to 85 °C with an
 accuracy of ±0.3 °C. Relative humidity measurements range from 0\% to
 100\% with an accuracy of ±2\%, which is sufficient for monitoring
-environmental conditions beneath turf
+environmental conditions within turf
 roofs.
 
 
@@ -179,8 +179,8 @@ robustness. The sensor operates over a temperature range of −55 °C to
 125 °C with an accuracy of ±0.5 °C. It communicates using a one-wire
 interface, requiring only three connections, which simplifies wiring and
 reduces complexity. Waterproof probe-style versions of the DS18B20 are
-widely available, making the sensor well suited for buried soil
-applications.
+widely available, making the sensor well suited for temperature
+measurements within the soil.
 
 
 \subsubsection{Soil Moisture Sensor (Capacitive Soil Moisture
@@ -399,7 +399,7 @@ operation.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=4.33694in,height=3.25921in]{figs/method-image6.jpeg}
-\caption{Weatherproof enclosure design for the buried sensor node and external sensor arrangement.}
+\caption{Weatherproof enclosure and external sensor arrangement for a sensor node installed within the turf.}
 \label{fig:method-image6}
 \end{figure}
 
@@ -1277,9 +1277,9 @@ The existing network infrastructure from earlier testing was reused. A Wi-Fi rou
 \label{fig:keldur-base-station}
 \end{figure}
 
-Four sensor units were installed around the site, with one assigned to each turf roof. The installation took place on a cold, sunny day, providing suitable conditions for carrying out the work. The sensors were buried approximately 60--85 mm below the turf surface (Sensor Nodes 1, 3, 5, and 7 at 80, 60, 65, and 85 mm, respectively), within a soil layer approximately 170 mm deep. These depths differed from the approximately 110 mm design target described in the design constraints. The selected installation depths allowed the sensor units to remain concealed beneath the turf while positioned within the soil layer.
+Four sensor units were installed around the site, with one assigned to each turf roof. The installation took place on a cold, sunny day, providing suitable conditions for carrying out the work. The sensors were installed within a soil layer approximately 170 mm deep, at depths of approximately 60--85 mm measured from the turf surface (Sensor Nodes 1, 3, 5, and 7 at 80, 60, 65, and 85 mm, respectively). These depths differed from the approximately 110 mm design target described in the design constraints. The selected installation depths allowed the sensor units to remain concealed within the turf.
 
-Sensor placement was generally around 0.9 m from the upper edge of the roof, with horizontal distances varying between approximately 0.5 m and 4.25 m depending on the installation location. This arrangement allowed soil conditions to be monitored while keeping the sensor units concealed beneath the turf. The turf-roof buildings and sensor installation area are shown in Figure~\ref{fig:keldur-sensor-installation}.
+Sensor placement was generally around 0.9 m from the upper edge of the roof, with horizontal distances varying between approximately 0.5 m and 4.25 m depending on the installation location. This arrangement allowed soil conditions to be monitored while keeping the sensor units concealed within the turf. The turf-roof buildings and sensor installation area are shown in Figure~\ref{fig:keldur-sensor-installation}.
 
 \begin{figure}[htbp]
 \centering

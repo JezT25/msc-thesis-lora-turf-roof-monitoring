@@ -48,7 +48,7 @@
 
 ### 2. Why LoRa rather than Zigbee or NB-IoT?
 - **Why they ask:** tests whether the technology was chosen deliberately.
-- **Answer:** The thesis states LoRa was chosen primarily for low-power operation and reliable communication, not maximum distance. Nodes are buried and may be covered by snow, so a robust link matters even at short distances. The data are periodic and low-rate, which suits LoRa, and range gives flexibility for future sites. Literature comparison (indicative only): Zigbee about 10–300 m, LoRa 2–15 km, NB-IoT up to 100 km but dependent on cellular coverage and power.
+- **Answer:** The thesis states LoRa was chosen primarily for low-power operation and reliable communication, not maximum distance. Nodes are installed within the turf and may be covered by snow, so a robust link matters even at short distances. The data are periodic and low-rate, which suits LoRa, and range gives flexibility for future sites. Literature comparison (indicative only): Zigbee about 10–300 m, LoRa 2–15 km, NB-IoT up to 100 km but dependent on cellular coverage and power.
 - **Remember:** the range table in the thesis is "indicative only".
 - **Limitation:** ✅
 
